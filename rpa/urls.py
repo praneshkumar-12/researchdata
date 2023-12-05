@@ -10,4 +10,5 @@ urlpatterns = [
     path('auth/dashboard', views.dashboard, name='dashboard'),
     path('auth/verify', views.verify_paper, name='verify_paper'),
     path('auth/scrape', views.scrape_data, name='scrape_data'),
+    path('auth/add_paper', views.insert_paper, name='insert_paper'),
 ]

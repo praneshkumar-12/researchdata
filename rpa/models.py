@@ -25,12 +25,12 @@ class Publications(models.Model):
     page_number = models.CharField(max_length=100, blank=True, null=True)
     indexing = models.CharField(max_length=100, blank=True, null=True)
     quartile = models.CharField(max_length=10, blank=True, null=True)
-    citation = models.IntegerField(blank=True, null=True)
+    citation = models.IntegerField(blank=True, null=True, default=0)
     doi = models.CharField(max_length=500, blank=True, null=True)
     front_page_path = models.CharField(max_length=500, blank=True, null=True)
     url = models.CharField(max_length=500, blank=True, null=True)
     issn = models.CharField(db_column='ISSN', max_length=500, blank=True, null=True)  # Field name made lowercase.
-    verified = models.CharField(max_length=10, blank=True, null=True)
+    verified = models.CharField(max_length=10, blank=True, null=True, default="False")
     
     class Meta:
         managed = False

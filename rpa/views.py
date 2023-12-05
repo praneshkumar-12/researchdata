@@ -57,12 +57,16 @@ def verify_paper(request):
     return HttpResponse(f"Updated verification status for {current_paper.title}")
 
 def scrape_data(request):
-    # title = request.POST.get("title", "")
+    title = request.POST.get("title", "")
     doi = request.POST.get("doi", "")
 
-    title = Extractor.get_title(doi)
+    if not title:
+        title = Extractor.get_title(doi)
+        if not title:
+            return HttpResponse("Cannot fetch only with DOI, please provide title also.")
 
     search_query = title + doi
+
     try:
         result = Extractor.main(search_query)
     except (IndexError, KeyError):
@@ -74,3 +78,99 @@ def scrape_data(request):
         return HttpResponse("Cannot fetch data for the given search term!")
     else:
         return JsonResponse(result)
+
+
+def insert_paper(request):
+    print(request.POST)
+
+    args = {}
+
+    uniqueid =  request.POST.get("uniqueid")
+    title =  request.POST.get("title")
+    first_author =  request.POST.get("first_author")
+    second_author =  request.POST.get("second_author")
+    third_author =  request.POST.get("third_author")
+    other_authors =  request.POST.get("other_authors")
+    is_student_author =  request.POST.get("is_student_author")
+    student_name =  request.POST.get("student_name")
+    student_batch =  request.POST.get("student_batch")
+    specification =  request.POST.get("specification")
+    publication_type =  request.POST.get("publication_type")
+    publication_name =  request.POST.get("publication_name")
+    publisher =  request.POST.get("publisher")
+    month_of_publishing =  request.POST.get("month_of_publishing")
+    page_number =  request.POST.get("page_number")
+    indexing =  request.POST.get("indexing")
+    quartile =  request.POST.get("quartile")
+    doi =  request.POST.get("doi")
+    url =  request.POST.get("url")
+    issn =  request.POST.get("issn")
+
+    front_page_path =  request.POST.get("front_page_path")
+    AY =  request.POST.get("AY")
+    split_content = AY.split(" - ")
+    start_AY = split_content[0]
+    end_AY = split_content[1]
+
+    start_academic_month, start_academic_year = start_AY.split(" ")
+    end_academic_month, end_academic_year = end_AY.split(" ")
+
+    year_of_publishing =  request.POST.get("year_of_publishing")
+    citation =  request.POST.get("citation")
+    volume =  request.POST.get("volume")
+
+    integer_fields = ["year_of_publishing", "citation", "volume"]
+
+    fields = {"uniqueid": uniqueid,
+    "title":title,
+    "first_author":first_author,
+    "second_author":second_author,
+    "third_author":third_author,
+    "other_authors":other_authors,
+    "is_student_author":is_student_author,
+    "student_name":student_name,
+    "student_batch":student_batch,
+    "specification":specification,
+    "publication_type":publication_type,
+    "publication_name":publication_name,
+    "publisher":publisher,
+    "month_of_publishing":month_of_publishing,
+    "page_number":page_number,
+    "indexing":indexing,
+    "quartile":quartile,
+    "doi":doi,
+    "url":url,
+    "issn":issn,
+    "start_academic_month": start_academic_month,
+    "start_academic_year":start_academic_year,
+    "end_academic_month":end_academic_month,
+    "end_academic_year":end_academic_year,
+    "front_page_path":front_page_path,
+    "year_of_publishing":year_of_publishing,
+    "citation":citation,
+    "volume": volume}
+
+    for key, val in fields.items():
+        if val == "NULL":
+            continue
+        else:
+            if key in integer_fields:
+                if val == '':
+                    args[key] = 0
+                else:
+                    args[key] = int(val)
+            elif key == "front_page_path" and "Yet" in val:
+                continue
+            else:
+                args[key] = val
+    
+    print(args)
+
+    new_record = Publications(**args)
+
+    new_record.save()
+
+    return HttpResponse("Paper inserted successfully!")
+
+
+

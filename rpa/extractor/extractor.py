@@ -414,6 +414,8 @@ def get_title(doi):
     if response.status_code == 200:
         content = response.text
         title = re.findall(r"title={(.+)}, v", content)
+        if not title:
+            return False
         return title[0]
     else:
         return ""
