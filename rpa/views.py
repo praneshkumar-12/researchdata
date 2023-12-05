@@ -57,8 +57,10 @@ def verify_paper(request):
     return HttpResponse(f"Updated verification status for {current_paper.title}")
 
 def scrape_data(request):
-    title = request.POST.get("title", "")
+    # title = request.POST.get("title", "")
     doi = request.POST.get("doi", "")
+
+    title = Extractor.get_title(doi)
 
     search_query = title + doi
     try:

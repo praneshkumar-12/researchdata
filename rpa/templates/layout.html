@@ -149,8 +149,8 @@
         
         document.addEventListener('DOMContentLoaded', function (){
             document.getElementById('id_uniqueid').disabled = true;
-            document.getElementById('id_title').disabled = false;
-            // document.getElementById('id_AY').state = 'disabled';
+            document.getElementById('id_title').disabled = true;
+            document.getElementById('id_AY').disabled = true;
             document.getElementById('id_first_author').disabled = true;
             document.getElementById('id_second_author').disabled = true;
             document.getElementById('id_third_author').disabled = true;
@@ -175,6 +175,7 @@
             document.getElementById('id_issn').disabled = true;
             document.getElementById('fetchData').disabled = false;
         });
+
         function verify(uniqueid) {
                 // Perform verification logic here
                 // console.log(uniqueid)
@@ -226,22 +227,32 @@
                 fetch_btn.classList.add("scrape-btn");
             }
 
+            function enableFetchNoResponse(){
+                document.getElementById('fetchData').disabled = false;
+                // document.getElementById('fetchData').innerHTML = "Submit";
+                console.log("Changing class to enabled");
+                fetch_btn = document.getElementById("fetchData");
+                fetch_btn.disabled = false;
+                fetch_btn.classList.remove("scraped-btn");
+                fetch_btn.classList.add("scrape-btn");
+            }
+
             function scrapeData(){
                 
-        title_text = document.getElementById("id_title");
+        // title_text = document.getElementById("id_title");
         doi_text = document.getElementById("id_doi");
 
 
-        title = title_text.value;
+        // title = title_text.value;
         doi = doi_text.value;
 
-        if (title == "" || doi == ""){
-            alert("Please fill both title and DOI fields and try again!")
+        if (doi == ""){
+            alert("Please fill DOI field and try again!")
         }
         else{
             disableFetch();
 
-            console.log(title, doi);
+            console.log(doi);
 
             var myResponse;
             
@@ -251,7 +262,7 @@
                         type: "POST",
                         url: "{% url 'scrape_data' %}", 
                         data: {csrfmiddlewaretoken: '{{ csrf_token }}',
-                        title: title,
+                        // title: title,
                         doi: doi},
                         success: function(response){
                             console.log(response.title, response.uniqueid);
@@ -262,35 +273,14 @@
                     );
                     
                     console.log(myResponse);
-                    
-            document.getElementById("id_uniqueid").value = myResponse.uniqueid;
-            document.getElementById('id_title').disabled = true;
-            // document.getElementById('id_AY').state = 'disabled';
-            document.getElementById('id_first_author').disabled = false;
-            document.getElementById('id_second_author').disabled = false;
-            document.getElementById('id_third_author').disabled = false;
-            document.getElementById('id_other_authors').disabled = false;
-            document.getElementById('id_is_student_author').disabled = false;
-            document.getElementById('id_student_name').disabled = false;
-            document.getElementById('id_student_batch').disabled = false;
-            document.getElementById('id_specification').disabled = false;
-            document.getElementById('id_publication_type').disabled = false;
-            document.getElementById('id_publication_name').disabled = false;
-            document.getElementById('id_publisher').disabled = false;
-            document.getElementById('id_year_of_publishing').disabled = false;
-            document.getElementById('id_month_of_publishing').disabled = false;
-            document.getElementById('id_volume').disabled = false;
-            document.getElementById('id_page_number').disabled = false;
-            document.getElementById('id_indexing').disabled = false;
-            document.getElementById('id_quartile').disabled = false;
-            document.getElementById('id_citation').disabled = false;
-            document.getElementById('id_doi').disabled = true;
-            document.getElementById('id_front_page_path').disabled = true;
-            document.getElementById('id_url').disabled = false;
-            document.getElementById('id_issn').disabled = false;
-            document.getElementById('fetchData').disabled = false;
-            document.getElementById('fetchData').innerHTML = "Submit";
             
+                    if (myResponse == "Cannot fetch data for the given search term!"){
+                        enableFetchNoResponse();
+                        return null;
+                    }
+
+            document.getElementById("id_title").value = myResponse.title;
+            document.getElementById("id_uniqueid").value = myResponse.uniqueid;
             document.getElementById('id_first_author').value = myResponse.first_author;
             document.getElementById('id_second_author').value = myResponse.second_author;
             document.getElementById('id_third_author').value = myResponse.third_author;
@@ -313,10 +303,42 @@
             document.getElementById('id_front_page_path').value = "Yet to upload";
             document.getElementById('id_url').value = myResponse.url;
             document.getElementById('id_issn').value = myResponse.ISSN;
-            
-            
+
+            document.getElementById('id_title').disabled = myResponse.title == "NULL" ? false: true;
+            document.getElementById('id_AY').disabled = false;
+            document.getElementById('id_first_author').disabled = myResponse.first_author == "NULL" ? false: true;
+            document.getElementById('id_second_author').disabled = myResponse.second_author == "NULL" ? false: true;
+            document.getElementById('id_third_author').disabled = myResponse.third_author == "NULL" ? false: true;
+            document.getElementById('id_other_authors').disabled = myResponse.other_authors == "NULL" ? false: true;
+            document.getElementById('id_is_student_author').disabled = myResponse.is_student_author == "NULL" ? false: true;
+            document.getElementById('id_student_name').disabled = myResponse.student_name == "NULL" ? false: true;
+            document.getElementById('id_student_batch').disabled = myResponse.student_batch == "NULL" ? false: true;
+            document.getElementById('id_specification').disabled = myResponse.specification == "NULL" ? false: true;
+            document.getElementById('id_publication_type').disabled = myResponse.publication_type == "NULL" ? false: true;
+            document.getElementById('id_publication_name').disabled = myResponse.publication_name == "NULL" ? false: true;
+            document.getElementById('id_publisher').disabled = myResponse.publisher == "NULL" ? false: true;
+            document.getElementById('id_year_of_publishing').disabled = myResponse.year_of_publishing == "NULL" ? false: true;
+            document.getElementById('id_month_of_publishing').disabled = myResponse.month_of_publishing == "NULL" ? false: true;
+            document.getElementById('id_volume').disabled = myResponse.volume == "NULL" ? false: true;
+            document.getElementById('id_page_number').disabled = myResponse.page_number == "NULL" ? false: true;
+            document.getElementById('id_indexing').disabled = myResponse.indexing == "NULL" ? false: true;
+            document.getElementById('id_quartile').disabled = myResponse.quartile == "NULL" ? false: true;
+            document.getElementById('id_citation').disabled = myResponse.citation == "NULL" ? false: true;
+            document.getElementById('id_doi').disabled = true
+            document.getElementById('id_front_page_path').disabled = true;
+            document.getElementById('id_url').disabled = myResponse.url == "NULL" ? false: true;
+            document.getElementById('id_issn').disabled = myResponse.issn == "NULL" ? false: true;
+            document.getElementById('fetchData').disabled = false;
+            document.getElementById('fetchData').innerHTML = "Submit";
+
+            document.getElementById('fetchData').setAttribute('onclick', 'submitData()')
+
             enableFetch();
             
+    }
+
+    function submitData(){
+        // This function should make a api call to django using AJAX to submit the data
     }
 }
     </script>

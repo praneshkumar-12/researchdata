@@ -405,6 +405,18 @@ def return_list():
     
     return content_to_write
 
+def get_title(doi):
+    base_url = (
+        "https://api.crossref.org/works/" + str(doi) + "/transform/application/x-bibtex"
+    )
+    response = requests.request("GET", url=base_url)
+
+    if response.status_code == 200:
+        content = response.text
+        title = re.findall(r"title={(.+)}, v", content)
+        return title[0]
+    else:
+        return ""
 
 def main(title):
     create_combined_dataset_indexing_quartile()
