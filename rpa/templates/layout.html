@@ -374,6 +374,8 @@
             url = document.getElementById('id_url').value;
             issn = document.getElementById('id_issn').value;
 
+            // var myResponse;
+
             $.ajax({
                 type: "POST",
                 url: "{% url 'insert_paper' %}",
@@ -407,9 +409,10 @@
                 },
                 success: function(response) {
                     alert(response);
+                    // myResponse = response;
                 }
             });
-
+            
             location.reload();
         }
     </script>

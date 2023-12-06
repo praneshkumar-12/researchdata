@@ -4,61 +4,112 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Publications',
+            name="Publications",
             fields=[
-                ('uniqueid', models.CharField(max_length=100, primary_key=True, serialize=False)),
-                ('title', models.CharField(max_length=500)),
-                ('start_academic_month', models.CharField(blank=True, max_length=10, null=True)),
-                ('start_academic_year', models.IntegerField(blank=True, null=True)),
-                ('end_academic_month', models.CharField(blank=True, max_length=10, null=True)),
-                ('end_academic_year', models.IntegerField(blank=True, null=True)),
-                ('first_author', models.CharField(max_length=50)),
-                ('second_author', models.CharField(blank=True, max_length=50, null=True)),
-                ('third_author', models.CharField(blank=True, max_length=50, null=True)),
-                ('other_authors', models.CharField(blank=True, max_length=500, null=True)),
-                ('is_student_author', models.CharField(blank=True, max_length=10, null=True)),
-                ('student_name', models.CharField(blank=True, max_length=50, null=True)),
-                ('student_batch', models.CharField(blank=True, max_length=10, null=True)),
-                ('specification', models.CharField(blank=True, max_length=30, null=True)),
-                ('publication_type', models.CharField(blank=True, max_length=30, null=True)),
-                ('publication_name', models.CharField(blank=True, max_length=500, null=True)),
-                ('publisher', models.CharField(blank=True, max_length=100, null=True)),
-                ('year_of_publishing', models.IntegerField(blank=True, null=True)),
-                ('month_of_publishing', models.CharField(blank=True, max_length=10, null=True)),
-                ('volume', models.IntegerField(blank=True, null=True)),
-                ('page_number', models.CharField(blank=True, max_length=100, null=True)),
-                ('indexing', models.CharField(blank=True, max_length=100, null=True)),
-                ('quartile', models.CharField(blank=True, max_length=10, null=True)),
-                ('citation', models.IntegerField(blank=True, null=True)),
-                ('doi', models.CharField(blank=True, max_length=500, null=True)),
-                ('front_page_path', models.CharField(blank=True, max_length=500, null=True)),
-                ('url', models.CharField(blank=True, max_length=500, null=True)),
-                ('issn', models.CharField(blank=True, db_column='ISSN', max_length=500, null=True)),
+                (
+                    "uniqueid",
+                    models.CharField(max_length=100, primary_key=True, serialize=False),
+                ),
+                ("title", models.CharField(max_length=500)),
+                (
+                    "start_academic_month",
+                    models.CharField(blank=True, max_length=10, null=True),
+                ),
+                ("start_academic_year", models.IntegerField(blank=True, null=True)),
+                (
+                    "end_academic_month",
+                    models.CharField(blank=True, max_length=10, null=True),
+                ),
+                ("end_academic_year", models.IntegerField(blank=True, null=True)),
+                ("first_author", models.CharField(max_length=50)),
+                (
+                    "second_author",
+                    models.CharField(blank=True, max_length=50, null=True),
+                ),
+                (
+                    "third_author",
+                    models.CharField(blank=True, max_length=50, null=True),
+                ),
+                (
+                    "other_authors",
+                    models.CharField(blank=True, max_length=500, null=True),
+                ),
+                (
+                    "is_student_author",
+                    models.CharField(blank=True, max_length=10, null=True),
+                ),
+                (
+                    "student_name",
+                    models.CharField(blank=True, max_length=50, null=True),
+                ),
+                (
+                    "student_batch",
+                    models.CharField(blank=True, max_length=10, null=True),
+                ),
+                (
+                    "specification",
+                    models.CharField(blank=True, max_length=30, null=True),
+                ),
+                (
+                    "publication_type",
+                    models.CharField(blank=True, max_length=30, null=True),
+                ),
+                (
+                    "publication_name",
+                    models.CharField(blank=True, max_length=500, null=True),
+                ),
+                ("publisher", models.CharField(blank=True, max_length=100, null=True)),
+                ("year_of_publishing", models.IntegerField(blank=True, null=True)),
+                (
+                    "month_of_publishing",
+                    models.CharField(blank=True, max_length=10, null=True),
+                ),
+                ("volume", models.IntegerField(blank=True, null=True)),
+                (
+                    "page_number",
+                    models.CharField(blank=True, max_length=100, null=True),
+                ),
+                ("indexing", models.CharField(blank=True, max_length=100, null=True)),
+                ("quartile", models.CharField(blank=True, max_length=10, null=True)),
+                ("citation", models.IntegerField(blank=True, null=True)),
+                ("doi", models.CharField(blank=True, max_length=500, null=True)),
+                (
+                    "front_page_path",
+                    models.CharField(blank=True, max_length=500, null=True),
+                ),
+                ("url", models.CharField(blank=True, max_length=500, null=True)),
+                (
+                    "issn",
+                    models.CharField(
+                        blank=True, db_column="ISSN", max_length=500, null=True
+                    ),
+                ),
             ],
             options={
-                'db_table': 'publications',
-                'managed': False,
+                "db_table": "publications",
+                "managed": False,
             },
         ),
         migrations.CreateModel(
-            name='Users',
+            name="Users",
             fields=[
-                ('author_id', models.CharField(max_length=35, primary_key=True, serialize=False)),
-                ('email_id', models.CharField(blank=True, max_length=35, null=True)),
-                ('staff_name', models.CharField(blank=True, max_length=50, null=True)),
-                ('passkey', models.CharField(blank=True, max_length=100, null=True)),
+                (
+                    "author_id",
+                    models.CharField(max_length=35, primary_key=True, serialize=False),
+                ),
+                ("email_id", models.CharField(blank=True, max_length=35, null=True)),
+                ("staff_name", models.CharField(blank=True, max_length=50, null=True)),
+                ("passkey", models.CharField(blank=True, max_length=100, null=True)),
             ],
             options={
-                'db_table': 'users',
-                'managed': False,
+                "db_table": "users",
+                "managed": False,
             },
         ),
     ]

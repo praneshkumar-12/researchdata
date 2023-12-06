@@ -20,6 +20,6 @@ from rpa import views
 from django.urls import include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("rpa/", include('rpa.urls')),
+    path("admin/", admin.site.urls),
+    path("rpa/", include("rpa.urls")),
 ]

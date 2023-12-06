@@ -9,7 +9,7 @@ key = Fernet.generate_key()
 
 fernet = Fernet(key)
 
-# then use the Fernet class instance 
+# then use the Fernet class instance
 # to encrypt the string string must
 # be encoded to byte string before encryption
 encMessage = fernet.encrypt(message.encode())
@@ -17,7 +17,7 @@ encMessage = fernet.encrypt(message.encode())
 print("original string: ", message)
 print("encrypted string: ", encMessage)
 
-# decrypt the encrypted string with the 
+# decrypt the encrypted string with the
 # Fernet instance of the key,
 # that was used for encrypting the string
 # encoded byte string is returned by decrypt method,

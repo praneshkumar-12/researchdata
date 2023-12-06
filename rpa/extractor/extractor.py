@@ -7,7 +7,9 @@ import logging
 from unidecode import unidecode
 import re
 import jellyfish
-from rpa.extractor.fetch_quartile_indexing import create_combined_dataset_indexing_quartile
+from rpa.extractor.fetch_quartile_indexing import (
+    create_combined_dataset_indexing_quartile,
+)
 
 HEADER_WRITTEN = False
 SKIP = False
@@ -393,6 +395,7 @@ def reset_skip():
     global SKIP
     SKIP = False
 
+
 def return_list():
     content_to_write = {}
     for key, value in database_fields.items():
@@ -402,8 +405,9 @@ def return_list():
         else:
             logging.warning(f"Value for {key} found")
             content_to_write[key] = asciify(str(value))
-    
+
     return content_to_write
+
 
 def get_title(doi):
     base_url = (
@@ -419,6 +423,7 @@ def get_title(doi):
         return title[0]
     else:
         return ""
+
 
 def main(title):
     create_combined_dataset_indexing_quartile()

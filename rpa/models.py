@@ -5,9 +5,13 @@ class Publications(models.Model):
     uniqueid = models.CharField(primary_key=True, max_length=100)
     title = models.CharField(max_length=500)
     start_academic_month = models.CharField(max_length=10, blank=True, null=True)
-    start_academic_year = models.IntegerField(blank=True, null=True)  # This field type is a guess.
+    start_academic_year = models.IntegerField(
+        blank=True, null=True
+    )  # This field type is a guess.
     end_academic_month = models.CharField(max_length=10, blank=True, null=True)
-    end_academic_year = models.IntegerField(blank=True, null=True)  # This field type is a guess.
+    end_academic_year = models.IntegerField(
+        blank=True, null=True
+    )  # This field type is a guess.
     first_author = models.CharField(max_length=50)
     second_author = models.CharField(max_length=50, blank=True, null=True)
     third_author = models.CharField(max_length=50, blank=True, null=True)
@@ -19,9 +23,11 @@ class Publications(models.Model):
     publication_type = models.CharField(max_length=30, blank=True, null=True)
     publication_name = models.CharField(max_length=500, blank=True, null=True)
     publisher = models.CharField(max_length=100, blank=True, null=True)
-    year_of_publishing = models.IntegerField(blank=True, null=True)  # This field type is a guess.
+    year_of_publishing = models.IntegerField(
+        blank=True, null=True
+    )  # This field type is a guess.
     month_of_publishing = models.CharField(max_length=10, blank=True, null=True)
-    volume = models.IntegerField(blank=True, null=True)
+    volume = models.IntegerField(blank=True, null=True, default=0)
     page_number = models.CharField(max_length=100, blank=True, null=True)
     indexing = models.CharField(max_length=100, blank=True, null=True)
     quartile = models.CharField(max_length=10, blank=True, null=True)
@@ -29,12 +35,14 @@ class Publications(models.Model):
     doi = models.CharField(max_length=500, blank=True, null=True)
     front_page_path = models.CharField(max_length=500, blank=True, null=True)
     url = models.CharField(max_length=500, blank=True, null=True)
-    issn = models.CharField(db_column='ISSN', max_length=500, blank=True, null=True)  # Field name made lowercase.
+    issn = models.CharField(
+        db_column="ISSN", max_length=500, blank=True, null=True
+    )  # Field name made lowercase.
     verified = models.CharField(max_length=10, blank=True, null=True, default="False")
-    
+
     class Meta:
         managed = False
-        db_table = 'publications'
+        db_table = "publications"
 
 
 class Users(models.Model):
@@ -45,32 +53,4 @@ class Users(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'users'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        db_table = "users"
