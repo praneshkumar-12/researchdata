@@ -215,6 +215,7 @@
             fetch_btn.classList.remove("scrape-btn");
             fetch_btn.classList.add("scraped-btn");
             console.log("Changing class to disabled");
+            document.getElementById('fetchData').innerHTML = "Fetching...";
         }
 
         function enableFetch() {
@@ -255,32 +256,36 @@
 
                 var myResponse;
 
-                $.ajaxSetup({
-                    async: false
-                });
+                setTimeout(function() {
+                    $.ajaxSetup({
+                        async: false
+                    });
 
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'scrape_data' %}",
-                    data: {
-                        csrfmiddlewaretoken: '{{ csrf_token }}',
-                        title: title,
-                        doi: doi
-                    },
-                    success: function(response) {
-                        console.log(response.title, response.uniqueid);
-                        alert(response);
-                        myResponse = response;
-                    }
-                });
+                    $.ajax({
+                        type: "POST",
+                        url: "{% url 'scrape_data' %}",
+                        data: {
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                            title: title,
+                            doi: doi
+                        },
+                        success: function(response) {
+                            console.log(response.title, response.uniqueid);
+                            myResponse = response;
+                        }
+                    });
+                
 
+               
                 console.log(myResponse);
 
                 if (myResponse == "Cannot fetch data for the given search term!") {
+                    alert(myResponse);
                     enableFetchNoResponse();
                     return null;
                 }
                 else if (myResponse == "Cannot fetch only with DOI, please provide title also."){
+                    alert(myResponse);
                     enableFetchNoResponse();
                     document.getElementById("id_title").disabled = false;
                     return null;
@@ -341,6 +346,8 @@
                 document.getElementById('fetchData').setAttribute('onclick', 'submitData()')
 
                 enableFetch();
+            
+            }, 2500);
 
             }
 
