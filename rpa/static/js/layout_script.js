@@ -34,19 +34,5 @@ function filterTable() {
     }
         tr[i].style.display = found ? "" : "none";
     }
-    }
-
-function scrapeData(){
-    title_text = document.getElementById("id_title")
-    doi_text = document.getElementById("id_doi").textContent;
-
-    title = title_text.textContent;
-    doi = doi_text.textContent;
-
-    if (title == "" || doi == ""){
-        alert("Please fill both title and DOI fields and try again!")
-    }
-
-
-    console.log(title, doi);
 }
+
