@@ -113,7 +113,7 @@
                     <td>{{ paper.citation }}</td>
                     <td>{{ paper.doi }}</td>
                     <td>{{ paper.front_page_path }}</td>
-                    <td>{{ paper.url }}</td>
+                    <td><a href="{{ paper.url }}" target="_blank">{{ paper.url }}</a></td>
                     <td>{{ paper.issn }}</td>    
                     {% if paper.verified == 'False' %}
                     <td>Unverified</td>
