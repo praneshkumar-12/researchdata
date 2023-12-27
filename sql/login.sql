@@ -8,4 +8,10 @@ CREATE TABLE users(
     passkey VARCHAR(100)
 );
 
+create table adminusers(
+	staff_name varchar(50),
+    email_id varchar(50),
+    passkey varchar(100)
+    );
+
 show tables;
