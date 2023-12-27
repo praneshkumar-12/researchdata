@@ -33,7 +33,7 @@ def dashboard(request):
 
     publication_list = []
 
-    name = request.session["FACULTY_NAME"]
+    name = request.session.get("FACULTY_NAME")
 
     form = PublicationsForm()
 

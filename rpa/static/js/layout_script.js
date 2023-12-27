@@ -36,3 +36,19 @@ function filterTable() {
     }
 }
 
+function lookForEmptySearch(){
+    var input, filter, table, tr, td, i, j, txtValue;
+    input = document.getElementById("searchBox");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tableBody");
+    tr = table.getElementsByTagName("tr");
+
+    if (filter === ""){
+
+    for (i = 0; i < tr.length; i++) {
+        tr[i].style.display = "";
+    }
+}
+}
+
+setInterval(lookForEmptySearch, 100);
