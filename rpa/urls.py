@@ -16,5 +16,6 @@ urlpatterns = [
     path("dbadmin/add_paper", views.admin_insert_paper, name="admin_insert_paper"),
     path("dbadmin/verify", views.admin_verify_paper, name="admin_verify_paper"),
     path("dbadmin/delete", views.admin_delete_paper, name="admin_delete_paper"),
+    path("dbadmin/update", views.admin_update_paper, name="admin_update_paper"),
 
 ]

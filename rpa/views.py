@@ -32,3 +32,6 @@ def admin_verify_paper(request):
 
 def admin_delete_paper(request):
     return dbadmin.admin_delete_paper(request)
+
+def admin_update_paper(request):
+    return dbadmin.admin_update_paper(request)

@@ -13,6 +13,23 @@
         .hidden {
             display: none;
         }
+
+        .update-btn {
+            background-color: rgb(57, 103, 204);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .delete-btn {
+            background-color: rgb(218, 37, 37);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -38,10 +55,14 @@
 
         <label for="AY">AY:</label>
         <select id="AY" name="AY">
-            <option value="2023">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2020">2020</option>
+            <option value="JUL 2015 - JUN 2016">JUL 2015 - JUN 2016</option>
+            <option value="JUL 2016 - JUN 2017">JUL 2016 - JUN 2017</option>
+            <option value="JUL 2017 - JUN 2018">JUL 2017 - JUN 2018</option>
+            <option value="JUL 2018 - JUN 2019">JUL 2018 - JUN 2019</option>
+            <option value="JUL 2019 - JUN 2020">JUL 2019 - JUN 2020</option>
+            <option value="JUL 2020 - JUN 2021">JUL 2020 - JUN 2021</option>
+            <option value="JUL 2021 - JUN 2022">JUL 2021 - JUN 2022</option>
+            <option value="JUL 2022 - JUN 2023">JUL 2022 - JUN 2023</option>
         </select>
 
         <label>
@@ -93,7 +114,8 @@
             </thead>
             <tbody id="tableBody">
                 {% for paper in papers %}
-                <tr>
+                <tr data-uniqueid="{{ paper.uniqueid }}"">
+
                     <td></td>
                     <td>{{ paper.uniqueid }}</td>
                     <td>{{ paper.title }}</td>
@@ -132,25 +154,32 @@
                     {% if paper.admin_verified == 'True' %}
                     <td><button id="verificationButton" class="verified-btn" disabled>Verified</button></td> 
                     {% endif %}
-                    <td><button id="updateButton" class="update-btn" value="{{ paper.uniqueid }}" onclick="update_paper(this.value)">Update</button>
+                    <td><button id="updateButton" class="update-btn" value="{{ paper.uniqueid }}" onclick="edit_paper(this.value)">Edit</button>
                     <button id="deleteButton" class="delete-btn" value="{{ paper.uniqueid }}" onclick="delete_paper(this.value)">Delete</button></td>
-                </tr>
                 {% endfor %}
                 <tr>
                     <td></td>
                     <td><input type="text" name="uniqueid" maxlength="100" id="id_uniqueid" disabled></td>
                     {% for field in form %}
-                    {% if field.name == 'first_author' %}
-                    <td>
-                        <select id="id_AY" name="AY">
-                            <option value="JUL 2022 - JUN 2023">JUL 2022 - JUN 2023</option>
-                        </select>
-                    </td>
-                    {% endif %}
-                    <td>{{ field }}</td>
+                        {% if field.name == 'first_author' %}
+                            <td>
+                                <select id="id_AY" name="AY">
+                                    <option value="JUL 2015 - JUN 2016">JUL 2015 - JUN 2016</option>
+                                    <option value="JUL 2016 - JUN 2017">JUL 2016 - JUN 2017</option>
+                                    <option value="JUL 2017 - JUN 2018">JUL 2017 - JUN 2018</option>
+                                    <option value="JUL 2018 - JUN 2019">JUL 2018 - JUN 2019</option>
+                                    <option value="JUL 2019 - JUN 2020">JUL 2019 - JUN 2020</option>
+                                    <option value="JUL 2020 - JUN 2021">JUL 2020 - JUN 2021</option>
+                                    <option value="JUL 2021 - JUN 2022">JUL 2021 - JUN 2022</option>
+                                    <option value="JUL 2022 - JUN 2023">JUL 2022 - JUN 2023</option>
+                                </select>
+                            </td>
+                        {% endif %}
+                        <td>{{ field }}</td>
                     {% endfor %}
                     <td>Unverified</td>
                     <td><button id="fetchData" class="scrape-btn" onclick="scrapeData()">Fetch</button></td>
+                
                 </tr>
             </tbody>
         </table>
@@ -241,9 +270,191 @@ function delete_paper(uniqueid){
             window.location.reload();
         }
     });
-
-
 }
+
+function edit_paper(uniqueId) {
+    // Find the row based on the UniqueID
+    var row = document.querySelector('#tableBody tr[data-uniqueid="' + uniqueId + '"]');
+
+    if (row) {
+        // Loop through each cell in the row
+        Array.from(row.cells).forEach(function (cell, index) {
+            if (index === 0 || index === row.cells.length - 3) {
+                // Skip the first cell and leave the last cells unchanged
+                return;
+            }
+
+            // If it's the third cell, create a select element
+            if (index === 3) {
+                var selectElement = document.createElement('select');
+                selectElement.id = 'edit_AY';
+                selectElement.name = 'AY';
+
+                // Add options to the select element
+                var academicYears = [
+                    'JUL 2015 - JUN 2016',
+                    'JUL 2016 - JUN 2017',
+                    'JUL 2017 - JUN 2018',
+                    'JUL 2018 - JUN 2019',
+                    'JUL 2019 - JUN 2020',
+                    'JUL 2020 - JUN 2021',
+                    'JUL 2021 - JUN 2022',
+                    'JUL 2022 - JUN 2023'
+                ];
+
+                academicYears.forEach(function (year) {
+                    var optionElement = document.createElement('option');
+                    optionElement.value = year;
+                    optionElement.textContent = year;
+                    selectElement.appendChild(optionElement);
+                });
+
+                // Set the selected value based on the current cell's text content
+                selectElement.value = cell.textContent.trim();
+
+                // Replace the cell's content with the select element
+                cell.innerHTML = '';
+                cell.appendChild(selectElement);
+            } else if (index === 1 || index === 23){
+                var inputElement = document.createElement('input');
+                inputElement.type = 'text';
+                inputElement.value = cell.textContent.trim();
+                inputElement.disabled = true;
+
+                // Replace the cell's content with the input element
+                cell.innerHTML = '';
+                cell.appendChild(inputElement);
+            }
+            else if (index === 2 || index === 24) {
+                // Title and Faculty Verification Status cells, change to textarea
+                var textareaElement = document.createElement('textarea');
+                textareaElement.value = cell.textContent.trim();
+
+                // Set attributes for multiline input
+                textareaElement.rows = 4; // You can adjust the number of rows as needed
+                textareaElement.cols = 40; // You can adjust the number of columns as needed
+
+                // Replace the cell's content with the textarea element
+                cell.innerHTML = '';
+                cell.appendChild(textareaElement);
+            } else if (index === row.cells.length - 2) {
+                // Second last cell, change to "Under edit"
+                cell.textContent = 'Under edit';
+            } else if (index === row.cells.length - 1) {
+                // Last cell, change to "Update" button
+                var updateButton = document.createElement('button');
+                updateButton.className = 'verify-btn';
+                updateButton.textContent = 'Update';
+                updateButton.onclick = function () {
+                    console.log(uniqueId);
+                    // Call your update function here, passing the uniqueId
+                    update_paper(uniqueId);
+                };
+
+                // Replace the cell's content with the button
+                cell.innerHTML = '';
+                cell.appendChild(updateButton);
+            } else {
+                // For other cells, create a new input element
+                var inputElement = document.createElement('input');
+                inputElement.type = 'text';
+                inputElement.value = cell.textContent.trim();
+
+                // Replace the cell's content with the input element
+                cell.innerHTML = '';
+                cell.appendChild(inputElement);
+            }
+        });
+    }
+}
+
+function update_paper(uniqueId) {
+    // Find the row based on the UniqueID
+    var row = document.querySelector('#tableBody tr[data-uniqueid="' + uniqueId + '"]');
+
+    if (row) {
+        var headersRow = document.querySelector('#mytable thead tr');
+        var updatedData = {};
+
+        // Loop through each cell in the row
+        Array.from(row.cells).forEach(function (cell, index) {
+            if (index === 0 || index === row.cells.length - 1 || index === row.cells.length - 2) {
+                // Skip the first, last, and second last cells
+                return;
+            }
+
+            // Get the content of the cell
+            var cellContent;
+
+            if (index === 3) {
+                // For the third cell (select element)
+                var selectElement = cell.querySelector('select');
+                cellContent = selectElement ? selectElement.value : '';
+            } else if (index === 2 || index === 24) {
+                // For Title and Faculty Verification Status cells (textarea)
+                var textareaElement = cell.querySelector('textarea');
+                cellContent = textareaElement ? textareaElement.value : '';
+            } else {
+                // For other cells (input elements)
+                var inputElement = cell.querySelector('input');
+                cellContent = inputElement ? inputElement.value : '';
+            }
+
+            // Get the corresponding header from the headers row
+            var headerCell = headersRow.cells[index];
+            var headerText = headerCell.textContent.trim();
+
+            // Add the data to the updatedData object with the header as the key
+            updatedData[headerText] = cellContent;
+        });
+
+        // Now, updatedData contains the data with headers as keys
+        console.log(updatedData);
+
+        $.ajax({
+            type: "POST",
+            url: "{% url 'admin_update_paper' %}",
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                uniqueid: uniqueId,
+                title: updatedData['Title'],
+                AY: updatedData['Academic Year'],
+                first_author: updatedData['First Author'],
+                second_author: updatedData['Second Author'],
+                third_author: updatedData['Third Author'],
+                other_authors: updatedData['Other Authors'],
+                is_student_author: updatedData['Is Student Author'],
+                student_name: updatedData['Student Name'],
+                student_batch: updatedData['Student Batch'],
+                specification: updatedData['Specification'],
+                publication_type: updatedData['Publication Type'],
+                publication_name: updatedData['Publication Name'],
+                publisher: updatedData['Publisher'],
+                year_of_publishing: updatedData['Publication Year'],
+                month_of_publishing: updatedData['Publication Month'],
+                volume: updatedData['Volume'],
+                page_number: updatedData['Page Numbers'],
+                indexing: updatedData['Indexing'],
+                quartile: updatedData['Quartile'],
+                citation: updatedData['Citations'],
+                doi: updatedData['DOI'],
+                url: updatedData['URL'],
+                issn: updatedData['ISSN']
+            },
+            success: function (response) {
+                alert(response);
+                // Reload the page after the successful update
+                location.reload();
+            },
+            error: function (error) {
+                alert(error);
+            }
+        });
+
+        // window.location.reload();
+    }
+}
+
 
 function disableFetch() {
     fetch_btn = document.getElementById("fetchData");
