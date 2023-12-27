@@ -11,4 +11,7 @@ urlpatterns = [
     path("auth/verify", views.verify_paper, name="verify_paper"),
     path("auth/scrape", views.scrape_data, name="scrape_data"),
     path("auth/add_paper", views.insert_paper, name="insert_paper"),
+
+    path("dbadmin/dashboard", views.admin_dashboard, name="admin_dashboard"),
+    path("dbadmin/add_paper", views.admin_insert_paper, name="admin_insert_paper")
 ]
