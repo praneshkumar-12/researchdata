@@ -232,7 +232,7 @@ function enableFetch() {
 
 function enableFetchNoResponse() {
     document.getElementById('fetchData').disabled = false;
-    // document.getElementById('fetchData').innerHTML = "Submit";
+    document.getElementById('fetchData').innerHTML = "Fetch";
     console.log("Changing class to enabled");
     fetch_btn = document.getElementById("fetchData");
     fetch_btn.disabled = false;
@@ -424,29 +424,59 @@ function submitData() {
     location.reload();
 }
 
+function formatDate(date) {
+    var year = date.getFullYear();
+    var month = String(date.getMonth() + 1).padStart(2, '0');
+    var day = String(date.getDate()).padStart(2, '0');
+    var hours = String(date.getHours()).padStart(2, '0');
+    var minutes = String(date.getMinutes()).padStart(2, '0');
+    var seconds = String(date.getSeconds()).padStart(2, '0');
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
 function downloadCSV() {
     var csv_data = [];
     var rows = document.getElementsByTagName('tr');
-    for (var i = 0; i < rows.length; i++) {
 
-        // Get each column data
-        var cols = rows[i].querySelectorAll('td,th');
+    var counter = 1;
 
-        // Stores each csv row data
-        var csvrow = [];
-        for (var j = 0; j < cols.length; j++) {
-
-            // Get the text data of each cell of
-            // a row and push it to csvrow
-            csvrow.push(cols[j].innerHTML);
+    var row_content = "";
+    
+    for (var i = 0; i < rows.length; i++) { // Exclude the last row
+        // Check if the row is visible (style.display is not "none")
+        if (i === rows.length - 1){
+            row_content = rows[i].querySelectorAll('td,th');
+            content = row_content[1].innerHTML;
+            if (content.includes("input")){
+                continue;
+            }
         }
+        if (window.getComputedStyle(rows[i]).display !== 'none') {
+            var cols = rows[i].querySelectorAll('td,th');
+            var csvrow = [];
 
-        // Combine each column value with comma
-        csv_data.push(csvrow.join(","));
+            for (var j = 0; j < cols.length - 1; j++) {
+                // console.log(cols[j].innerHTML)
+                // Add automatic serial numbers for the first row
+                if (i === 0 && j === 0) {
+                    csvrow.push("Serial Number");
+                } else {
+                    if (i !== 0 && j === 0){
+                        csvrow.push(counter);
+                        counter += 1;
+                        continue;
+                    }
+                    // Add double quotes to the 8th column (index 7)
+                    csvrow.push('"' + cols[j].innerHTML + '"'); 
+                }
+            }
+
+            csv_data.push(csvrow.join(","));
+        }
     }
-    // combine each row data with new line character
-    csv_data = csv_data.join('\n');
 
+    csv_data = csv_data.join('\n');
     downloadCSVFile(csv_data);
 }
 
@@ -461,8 +491,11 @@ function downloadCSVFile(csv_data) {
     // download process
     var temp_link = document.createElement('a');
 
+    var currentDate = new Date();
+    var formattedDate = formatDate(currentDate);
+
     // Download csv file
-    temp_link.download = "research_papers.csv";
+    temp_link.download = "research_papers_" + formattedDate +".csv";
     var url = window.URL.createObjectURL(CSVFile);
     temp_link.href = url;
 
