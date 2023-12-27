@@ -26,3 +26,9 @@ def admin_dashboard(request):
 
 def admin_insert_paper(request):
     return dbadmin.admin_insert_paper(request)
+
+def admin_verify_paper(request):
+    return dbadmin.admin_verify_paper(request)
+
+def admin_delete_paper(request):
+    return dbadmin.admin_delete_paper(request)

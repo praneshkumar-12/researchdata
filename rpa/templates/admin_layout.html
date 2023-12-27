@@ -82,8 +82,7 @@
                     <th>ISSN</th>
                     <th onclick="sortTable(26)">Faculty Verification Status</th>
                     <th onclick="sortTable(27)">Verification</th>
-                    <!-- <th>TR Index</th>
-                    <th>H index</th> -->
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
@@ -127,6 +126,8 @@
                     {% if paper.admin_verified == 'True' %}
                     <td><button id="verificationButton" class="verified-btn" disabled>Verified</button></td> 
                     {% endif %}
+                    <td><button id="updateButton" class="update-btn" value="{{ paper.uniqueid }}" onclick="update_paper(this.value)">Update</button>
+                    <button id="deleteButton" class="delete-btn" value="{{ paper.uniqueid }}" onclick="delete_paper(this.value)">Delete</button></td>
                 </tr>
                 {% endfor %}
                 <tr>
@@ -195,7 +196,7 @@ function verify(uniqueid) {
 
     $.ajax({
         type: "POST",
-        url: "{% url 'verify_paper' %}",
+        url: "{% url 'admin_verify_paper' %}",
         data: {
             csrfmiddlewaretoken: '{{ csrf_token }}',
             uniqueid: uniqueid
@@ -219,6 +220,23 @@ function verify(uniqueid) {
     btn.classList.remove('verify-btn');
     btn.classList.add('verified-btn');
     btn.innerText = "Verified";
+}
+
+function delete_paper(uniqueid){
+    $.ajax({
+        type: "POST",
+        url: "{% url 'admin_delete_paper' %}",
+        data: {
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            uniqueid: uniqueid
+        },
+        success: function(response) {
+            alert(response);
+            window.location.reload();
+        }
+    });
+
+
 }
 
 function disableFetch() {

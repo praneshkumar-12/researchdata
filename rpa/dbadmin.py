@@ -164,3 +164,24 @@ def admin_insert_paper(request):
     new_record.save()
 
     return HttpResponse("Paper inserted successfully!")
+
+def admin_verify_paper(request):
+    uniqueid = request.POST.get("uniqueid")
+
+    current_paper = Publications.objects.get(uniqueid=uniqueid)
+    current_paper.admin_verified = "True"
+    current_paper.save()
+
+    return HttpResponse(f"Updated verification status for {current_paper.title}")
+
+def admin_delete_paper(request):
+    uniqueid = request.POST.get("uniqueid")
+
+    publications = Publications.objects.get(uniqueid=uniqueid)
+
+    name = publications.title
+
+    publications.delete()
+
+    return HttpResponse(f"Deleted paper: {name}")
+
