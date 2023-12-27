@@ -51,12 +51,12 @@
 
     <div class="container" id="b1">
         <input type="text" class="form-control" id="searchBox" placeholder="Search..." oninput="filterTable()">
-        <table class="table table-bordered table-striped">
+        <table id="mytable" class="table table-bordered table-striped">
             <thead class="bg-primary text-white">
                 <tr>
                     <th>S.No</th>
                     <th>UniqueID</th>
-                    <th>Title</th>
+                    <th onclick="sortTable(2)">Title</th>
                     <th>Academic Year</th>
                     <th>First Author</th>
                     <th>Second Author</th>
@@ -69,19 +69,19 @@
                     <th>Publication Type</th>
                     <th>Publication Name</th>
                     <th>Publisher</th>
-                    <th>Publication Year</th>
+                    <th onclick="sortTablenum(15)">Publication Year</th>
                     <th>Publication Month</th>
                     <th>Volume</th>
                     <th>Page Numbers</th>
                     <th>Indexing</th>
                     <th>Quartile</th>
-                    <th>Citations</th>
+                    <th onclick="sortTablenum(21)">Citations</th>
                     <th>DOI</th>
                     <th>FPP</th>
                     <th>URL</th>
                     <th>ISSN</th>
-                    <th>Faculty Verification Status</th>
-                    <th>Verification</th>
+                    <th onclick="sortTable(26)">Faculty Verification Status</th>
+                    <th onclick="sortTable(27)">Verification</th>
                     <!-- <th>TR Index</th>
                     <th>H index</th> -->
                 </tr>
@@ -537,6 +537,122 @@ function lookForEmptySearch() {
 }
 
 setInterval(lookForEmptySearch, 100);
+function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("mytable");
+      switching = true;
+      // Set the sorting direction to ascending:
+      dir = "asc";
+      /* Make a loop that will continue until
+      no switching has been done: */
+      while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 1; i < (rows.length - 2); i++) {
+          // Start by saying there should be no switching:
+          shouldSwitch = false;
+          /* Get the two elements you want to compare,
+          one from current row and one from the next: */
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          /* Check if the two rows should switch place,
+          based on the direction, asc or desc: */
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+
+        
+
+        if (shouldSwitch) {
+          /* If a switch has been marked, make the switch
+          and mark that a switch has been done: */
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          // Each time a switch is done, increase this count by 1:
+          switchcount ++;
+        } else {
+          /* If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again. */
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+
+function sortTablenum(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("mytable");
+    switching = true;
+    // Set the sorting direction to ascending:
+    dir = "asc";
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 2); i++) {
+        // Start by saying there should be no switching:
+        shouldSwitch = false;
+        /* Get the two elements you want to compare,
+        one from current row and one from the next: */
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+        /* Check if the two rows should switch place,
+        based on the direction, asc or desc: */
+        if (dir == "asc") {
+        if (Number(x.innerHTML) > Number(y.innerHTML)) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+        }
+        } else if (dir == "desc") {
+        if (Number(x.innerHTML) < Number(y.innerHTML)) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+        }
+        }
+    }
+
+    
+
+    if (shouldSwitch) {
+        /* If a switch has been marked, make the switch
+        and mark that a switch has been done: */
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        // Each time a switch is done, increase this count by 1:
+        switchcount ++;
+    } else {
+        /* If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again. */
+        if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+        }
+    }
+    }
+}
+
 
 </script>
 
