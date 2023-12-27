@@ -141,13 +141,15 @@
         </table>
         <button id="downloadCSV" class="scrape-btn" onclick="downloadCSV()">Download CSV</button>
     </div>
+</body>
 
     <!-- Bootstrap JS (Popper.js and Bootstrap JS) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{% static 'js/layout_script.js' %}"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/layout_script.js' %}"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('id_uniqueid').disabled = true;
     document.getElementById('id_title').disabled = true;
     document.getElementById('id_AY').disabled = true;
@@ -442,13 +444,13 @@ function downloadCSV() {
     var counter = 1;
 
     var row_content = "";
-    
+
     for (var i = 0; i < rows.length; i++) { // Exclude the last row
         // Check if the row is visible (style.display is not "none")
-        if (i === rows.length - 1){
+        if (i === rows.length - 1) {
             row_content = rows[i].querySelectorAll('td,th');
             content = row_content[1].innerHTML;
-            if (content.includes("input")){
+            if (content.includes("input")) {
                 continue;
             }
         }
@@ -462,13 +464,13 @@ function downloadCSV() {
                 if (i === 0 && j === 0) {
                     csvrow.push("Serial Number");
                 } else {
-                    if (i !== 0 && j === 0){
+                    if (i !== 0 && j === 0) {
                         csvrow.push(counter);
                         counter += 1;
                         continue;
                     }
                     // Add double quotes to the 8th column (index 7)
-                    csvrow.push('"' + cols[j].innerHTML + '"'); 
+                    csvrow.push('"' + cols[j].innerHTML + '"');
                 }
             }
 
@@ -495,7 +497,7 @@ function downloadCSVFile(csv_data) {
     var formattedDate = formatDate(currentDate);
 
     // Download csv file
-    temp_link.download = "research_papers_" + formattedDate +".csv";
+    temp_link.download = "research_papers_" + formattedDate + ".csv";
     var url = window.URL.createObjectURL(CSVFile);
     temp_link.href = url;
 
@@ -509,25 +511,25 @@ function downloadCSVFile(csv_data) {
     document.body.removeChild(temp_link);
 }
 
-function lookForEmptySearch(){
+function lookForEmptySearch() {
     var input, filter, table, tr, td, i, j, txtValue;
     input = document.getElementById("searchBox");
     filter = input.value.toUpperCase();
     table = document.getElementById("tableBody");
     tr = table.getElementsByTagName("tr");
 
-    if (filter === ""){
+    if (filter === "") {
 
-    for (i = 0; i < tr.length; i++) {
-        tr[i].style.display = "";
+        for (i = 0; i < tr.length; i++) {
+            tr[i].style.display = "";
+        }
     }
-}
 }
 
 setInterval(lookForEmptySearch, 100);
 
-    </script>
-</body>
+</script>
+
 </html>
 
 
