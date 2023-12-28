@@ -94,6 +94,7 @@
                     <th>URL</th>
                     <th>ISSN</th>
                     <th onclick="sortTable(26)">Verification</th>
+                    <th>Actions</th>
                     <!-- <th>TR Index</th>
                     <th>H index</th> -->
                 </tr>
@@ -124,7 +125,11 @@
                     <td>{{ paper.quartile }}</td>
                     <td>{{ paper.citation }}</td>
                     <td>{{ paper.doi }}</td>
-                    <td>{{ paper.front_page_path }}</td>
+                    {% if paper.front_page_path == 'NULL' or paper.front_page_path == 'None' %}
+                        <td>{{ paper.front_page_path }}</td>
+                    {% else %}
+                        <td><a href="/{{ paper.front_page_path }}" target="_blank">View File</a></td>
+                    {% endif %}
                     <td><a href="{{ paper.url }}" target="_blank">{{ paper.url }}</a></td>
                     <td>{{ paper.issn }}</td>    
                     {% if paper.verified == 'False' %}
@@ -132,6 +137,11 @@
                     {% endif %}
                     {% if paper.verified == 'True' %}
                     <td><button id="verificationButton" class="verified-btn" disabled>Verified</button></td> 
+                    {% endif %}
+                    {% if paper.front_page_path == 'NULL' or paper.front_page_path == 'None' %}
+                    <td><button id="uploadButton" class="verify-btn" onclick="upload(this.value)" value="{{ paper.uniqueid }}">Upload</button></td>
+                    {% else %}
+                    <td><button id="uploadedButton" class="verified-btn"  disabled>Uploaded</button></td>
                     {% endif %}
                 </tr>
                 {% endfor %}
@@ -794,6 +804,10 @@ function sortTableByQuartile() {
     for (var i = 0; i < rows.length; i++) {
         table.appendChild(rows[i]);
     }
+}
+
+function upload(uniqueid){
+    window.open("/rpa/auth/upload/" + uniqueid, "_blank");
 }
 
 

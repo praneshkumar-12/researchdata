@@ -312,3 +312,16 @@ def admin_update_paper(request):
 
     except Exception as e:
         return HttpResponse(str(e))   
+    
+def admin_remove_upload(request):
+    uniqueid = request.POST.get("uniqueid")
+
+    print(uniqueid)
+
+    publ = Publications.objects.get(uniqueid=uniqueid)
+
+    publ.front_page_path = None
+
+    publ.save()
+
+    return HttpResponse(f"Removed first page path for {publ.title}")
