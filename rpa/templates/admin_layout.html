@@ -114,7 +114,7 @@
             </thead>
             <tbody id="tableBody">
                 {% for paper in papers %}
-                <tr data-uniqueid="{{ paper.uniqueid }}"">
+                <tr data-uniqueid="{{ paper.uniqueid }}">
 
                     <td></td>
                     <td>{{ paper.uniqueid }}</td>
@@ -139,7 +139,11 @@
                     <td>{{ paper.quartile }}</td>
                     <td>{{ paper.citation }}</td>
                     <td>{{ paper.doi }}</td>
-                    <td>{{ paper.front_page_path }}</td>
+                    {% if paper.front_page_path == 'NULL' or paper.front_page_path == 'None' %}
+                        <td>{{ paper.front_page_path }}</td>
+                    {% else %}
+                        <td><a href="/{{ paper.front_page_path }}" target="_blank">View File</a></td>
+                    {% endif %}
                     <td><a href="{{ paper.url }}" target="_blank">{{ paper.url }}</a></td>
                     <td>{{ paper.issn }}</td>    
                     {% if paper.verified == 'False' %}
@@ -155,7 +159,14 @@
                     <td><button id="verificationButton" class="verified-btn" disabled>Verified</button></td> 
                     {% endif %}
                     <td><button id="updateButton" class="update-btn" value="{{ paper.uniqueid }}" onclick="edit_paper(this.value)">Edit</button>
-                    <button id="deleteButton" class="delete-btn" value="{{ paper.uniqueid }}" onclick="delete_paper(this.value)">Delete</button></td>
+                    <button id="deleteButton" class="delete-btn" value="{{ paper.uniqueid }}" onclick="delete_paper(this.value)">Delete</button>
+                    {% if paper.front_page_path == 'NULL' or paper.front_page_path == 'None' %}
+                    <button id="uploadButton" class="verify-btn" onclick="upload(this.value)" value="{{ paper.uniqueid }}">Upload</button>
+                    {% else %}
+                    <button id="uploadButton" class="verify-btn" onclick="upload(this.value)" value="{{ paper.uniqueid }}">Reupload</button>
+                    <button id="removeButton" class="delete-btn" onclick="remove_upload(this.value)" value="{{ paper.uniqueid }}">Remove Upload</button>
+                    {% endif %}
+                    </td>
                 {% endfor %}
                 <tr>
                     <td></td>
@@ -439,7 +450,8 @@ function update_paper(uniqueId) {
                 citation: updatedData['Citations'],
                 doi: updatedData['DOI'],
                 url: updatedData['URL'],
-                issn: updatedData['ISSN']
+                issn: updatedData['ISSN'],
+                front_page_path: updatedData['FPP']
             },
             success: function (response) {
                 alert(response);
@@ -907,6 +919,27 @@ function applyFilter() {
             }
         }
     }
+
+function upload(uniqueid){
+    window.open("/rpa/auth/upload/" + uniqueid, "_blank");
+}
+
+function remove_upload(uniqueid){
+    $.ajax({
+        type: "POST",
+        url: "{% url 'remove_upload' %}",
+        data: {
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            uniqueid: uniqueid
+        },
+        success: function(response) {
+            alert(response);
+            window.location.reload();
+        }
+    });
+
+}
+
 
 </script>
 

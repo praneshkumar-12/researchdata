@@ -6,6 +6,11 @@ from rpa.models import AdminUsers
 from rpa.forms import PublicationsForm
 import rpa.extractor.extractor as Extractor
 from django.http import JsonResponse
+from django.http import FileResponse
+from django.shortcuts import get_object_or_404
+from django.views import View
+from django.http import HttpResponseNotFound
+import os
 
 
 def login(request):
@@ -248,3 +253,35 @@ def insert_paper(request):
     new_record.save()
 
     return HttpResponse("Paper inserted successfully!")
+
+
+def upload_paper(request, uniqueid):
+    if request.method == "GET":
+        publ = Publications.objects.get(uniqueid=uniqueid)
+        return render(request, "upload.html", {"title": publ.title, "uniqueid": uniqueid})
+    else:
+        try:
+            print(request.POST)
+            print(request.FILES)
+            print(uniqueid)
+
+            if not os.path.exists("rpa/static/upload/"):
+                os.mkdir("rpa/static/upload/")
+
+            upload_file = request.FILES['file']
+
+            complete_path = 'rpa/static/upload/' + uniqueid.strip() + ".pdf"
+
+            publ = Publications.objects.get(uniqueid=uniqueid)
+            
+            with open(complete_path, 'wb+') as destination:
+                for chunk in upload_file.chunks():
+                    destination.write(chunk)
+            
+            publ.front_page_path = complete_path
+
+            publ.save()
+
+            return render(request, "upload.html", {"alertmessage": "Upload successful!", "uniqueid": uniqueid})
+        except Exception as e:
+            return render(request, "upload.html", {"alertmessage": str(e), "reload": "yes", "uniqueid": uniqueid})
