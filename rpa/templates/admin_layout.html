@@ -47,6 +47,7 @@
 
         <label for="quartile">Quartile:</label>
         <select id="quartile" name="quartile">
+            <option value="all">All</option>
             <option value="q1">Q1</option>
             <option value="q2">Q2</option>
             <option value="q3">Q3</option>
@@ -55,6 +56,7 @@
 
         <label for="AY">AY:</label>
         <select id="AY" name="AY">
+            <option value="all">All Years</option>
             <option value="JUL 2015 - JUN 2016">JUL 2015 - JUN 2016</option>
             <option value="JUL 2016 - JUN 2017">JUL 2016 - JUN 2017</option>
             <option value="JUL 2017 - JUN 2018">JUL 2017 - JUN 2018</option>
@@ -63,6 +65,7 @@
             <option value="JUL 2020 - JUN 2021">JUL 2020 - JUN 2021</option>
             <option value="JUL 2021 - JUN 2022">JUL 2021 - JUN 2022</option>
             <option value="JUL 2022 - JUN 2023">JUL 2022 - JUN 2023</option>
+            <option value="JUL 2023 - JUN 2024">JUL 2023 - JUN 2024</option>
         </select>
 
         <label>
@@ -888,25 +891,83 @@ function sortTablenum(n) {
     }
 }
 function applyFilter() {
-        var scopusCheckbox = document.querySelector('input[name="scopus"]');
-        var webOfSciencesCheckbox = document.querySelector('input[name="webOfSciences"]');
-        var table = document.getElementById("mytable");
-        var rows = table.getElementsByTagName("tr");
+    var scopusCheckbox = document.querySelector('input[name="scopus"]');
+    var webOfSciencesCheckbox = document.querySelector('input[name="webOfSciences"]');
+    var quartileSelect = document.getElementById("quartile");
+    var AYSelect = document.getElementById("AY");
+    var table = document.getElementById("mytable");
+    var rows = table.getElementsByTagName("tr");
 
-        for (var i = 1; i < rows.length; i++) {
-            var indexingCell = rows[i].getElementsByTagName("td")[19]; // Assuming indexing is at index 19, adjust if needed
-            var scopusChecked = scopusCheckbox.checked;
-            var webOfSciencesChecked = webOfSciencesCheckbox.checked;
-            var containsWebOfScience = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("web of science") : false;
-            var containsScopus = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("scopus") : false;
+    for (var i = 1; i < rows.length; i++) {
+        var indexingCell = rows[i].getElementsByTagName("td")[19]; // Assuming indexing is at index 19, adjust if needed
+        var quartileCell = rows[i].getElementsByTagName("td")[20]; // Assuming quartile is at index 20, adjust if needed
+        var AYCell = rows[i].getElementsByTagName("td")[3]; // Assuming Academic Year is at index 3, adjust if needed
 
-            if ((webOfSciencesChecked && containsWebOfScience) || (scopusChecked && containsScopus)) {
-                rows[i].classList.remove("hidden");
-            } else {
-                rows[i].classList.add("hidden");
+        var scopusChecked = scopusCheckbox.checked;
+        var webOfSciencesChecked = webOfSciencesCheckbox.checked;
+        var quartileSelected = quartileSelect.value;
+        var selectedAY = AYSelect.value;
+        
+        var containsWebOfScience = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("web of science") : false;
+        var containsScopus = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("scopus") : false;
+        var matchesQuartile = quartileCell ? quartileCell.innerHTML.toLowerCase().includes(quartileSelected) : false;
+        var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
+
+        var shouldBeHidden = false;
+
+        if (quartileSelected !== "all") { // Check if "All Quartiles" is not selected
+            if (
+                (webOfSciencesChecked && !containsWebOfScience) ||
+                (scopusChecked && !containsScopus) ||
+                (quartileSelected !== "" && !matchesQuartile) ||
+                !matchesAY
+            ) {
+                shouldBeHidden = true;
+            }
+        } else {
+            // Show all rows when "All Quartiles" is selected
+            if (webOfSciencesChecked && !containsWebOfScience) {
+                shouldBeHidden = true;
+            }
+            if (scopusChecked && !containsScopus) {
+                shouldBeHidden = true;
+            }
+            if (!matchesAY) {
+                shouldBeHidden = true;
             }
         }
+
+        if (shouldBeHidden) {
+            rows[i].classList.add("hidden");
+        } else {
+            rows[i].classList.remove("hidden");
+        }
     }
+}
+
+function sortTableByQuartile() {
+    var table = document.getElementById("mytable");
+    var rows = Array.from(table.getElementsByTagName("tr"));
+
+    rows.sort(function(a, b) {
+        var aValue = a.getElementsByTagName("td")[20].innerHTML.toLowerCase(); // Adjust index if needed
+        var bValue = b.getElementsByTagName("td")[20].innerHTML.toLowerCase(); // Adjust index if needed
+        return aValue.localeCompare(bValue);
+    });
+
+    // Clear the table
+    table.innerHTML = "";
+
+    // Append sorted rows
+    for (var i = 0; i < rows.length; i++) {
+        table.appendChild(rows[i]);
+    }
+}
+setInterval(lookForEmptySearch, 100);
+document.getElementById('quartile').addEventListener('change', function() {
+        sortTableByQuartile();
+        applyFilter();
+    });
 
 </script>
 
