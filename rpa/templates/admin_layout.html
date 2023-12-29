@@ -36,14 +36,60 @@
     <h1>Dashboard</h1>
 
     <form>
-        <label for="searchBy">Search By:</label>
-        <select id="searchBy" name="searchBy">
-            <option value="title">Title</option>
-            <option value="firstAuthor">First Author</option>
-            <option value="secondAuthor">Second Author</option>
-            <option value="thirdAuthor">Third Author</option>
-            <option value="otherAuthors">Other Authors</option>
-        </select>
+        <label for="authorDropdown">Authors:</label>
+<div class="dropdown">
+    <button class="dropbtn">Authors</button>
+    <div class="dropdown-content">
+        {% for faculty_name in faculties %}
+        <!-- Generate checkboxes for all authors -->
+        <label>
+            <input type="checkbox" name="author" value="{{ faculty_name }}"> {{ faculty_name }} 
+        </label>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Rest of your HTML code -->
+
+<style>
+    /* Style the dropdown container */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Style the dropdown button */
+    .dropbtn {
+        padding: 8px;
+        border: none;
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+
+    /* Style the dropdown content (hidden by default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    /* Style the checkboxes within the dropdown */
+    .dropdown-content label {
+        display: block;
+        padding: 8px 12px;
+        white-space: nowrap;
+    }
+
+    /* Show the dropdown content when the dropdown button is clicked */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>
+
 
         <label for="quartile">Quartile:</label>
         <select id="quartile" name="quartile">
@@ -907,11 +953,12 @@ function applyFilter() {
     var webOfSciencesCheckbox = document.querySelector('input[name="webOfSciences"]');
     var quartileSelect = document.getElementById("quartile");
     var AYSelect = document.getElementById("AY");
+    var authorCheckboxes = document.getElementsByName("author"); // Add this line to get author checkboxes
     var table = document.getElementById("mytable");
     var rows = table.getElementsByTagName("tr");
 
     for (var i = 1; i < rows.length; i++) {
-        var indexingCell = rows[i].getElementsByTagName("td")[19]; // Assuming indexing is at index 19, adjust if needed
+        var indexingCell = rows[i].getElementsByTagName("td")[19];
         var quartileCell = rows[i].getElementsByTagName("td")[20]; // Assuming quartile is at index 20, adjust if needed
         var AYCell = rows[i].getElementsByTagName("td")[3]; // Assuming Academic Year is at index 3, adjust if needed
 
@@ -919,9 +966,23 @@ function applyFilter() {
         var webOfSciencesChecked = webOfSciencesCheckbox.checked;
         var quartileSelected = quartileSelect.value;
         var selectedAY = AYSelect.value;
-        
+
+        // Get the authors of the paper
+        var firstAuthor = rows[i].getElementsByTagName("td")[4].textContent;
+        var secondAuthor = rows[i].getElementsByTagName("td")[5].textContent;
+        var thirdAuthor = rows[i].getElementsByTagName("td")[6].textContent;
+        var otherAuthors = rows[i].getElementsByTagName("td")[7].textContent;
+
+        // Check if any of the selected authors match the authors of the paper
+        var authorMatch = Array.from(authorCheckboxes).some(function (checkbox) {
+            var authorName = checkbox.value;
+            authorName = authorName.split(" ")[0];
+            return checkbox.checked && (firstAuthor.includes(authorName) || secondAuthor.includes(authorName) || thirdAuthor.includes(authorName) || otherAuthors.includes(authorName));
+        });
+
         var containsWebOfScience = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("web of science") : false;
         var containsScopus = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("scopus") : false;
+
         var matchesQuartile = quartileCell ? quartileCell.innerHTML.toLowerCase().includes(quartileSelected) : false;
         var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
 
@@ -931,6 +992,7 @@ function applyFilter() {
             if (
                 (webOfSciencesChecked && !containsWebOfScience) ||
                 (scopusChecked && !containsScopus) ||
+                !authorMatch || // Check for author match
                 (quartileSelected !== "" && !matchesQuartile) ||
                 !matchesAY
             ) {
@@ -939,12 +1001,16 @@ function applyFilter() {
         } else {
             // Show all rows when "All Quartiles" is selected
             if (webOfSciencesChecked && !containsWebOfScience) {
+                console.log("Contains web of science");
                 shouldBeHidden = true;
             }
             if (scopusChecked && !containsScopus) {
+                console.log("Contains scopus");
                 shouldBeHidden = true;
             }
-            if (!matchesAY) {
+            if (!authorMatch || !matchesAY) { // Check for author match
+                console.log("Contains author match");
+
                 shouldBeHidden = true;
             }
         }
@@ -956,6 +1022,7 @@ function applyFilter() {
         }
     }
 }
+
 
 function sortTableByQuartile() {
     var table = document.getElementById("mytable");
