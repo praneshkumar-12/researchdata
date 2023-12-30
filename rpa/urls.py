@@ -13,6 +13,7 @@ urlpatterns = [
     path("auth/add_paper", views.insert_paper, name="insert_paper"),
     path("auth/upload/<uniqueid>", views.upload_paper, name="upload_paper"),
     path("auth/removeupload", views.remove_upload, name="remove_upload"),
+    path("auth/update_paper", views.update_paper, name="update_paper"),
 
     path("static/upload/<filename>", views.FileDownloadView.as_view(), name="file_download"),
     # path("auth/upload/<uniqueid>", views.upload_paper),

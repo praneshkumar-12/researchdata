@@ -101,7 +101,7 @@
             </thead>
             <tbody id="tableBody">
                 {% for paper in papers %}
-                <tr>
+                <tr data-uniqueid="{{ paper.uniqueid }}">
                     <td></td>
                     <td>{{ paper.uniqueid }}</td>
                     <td>{{ paper.title }}</td>
@@ -133,7 +133,7 @@
                     <td><a href="{{ paper.url }}" target="_blank">{{ paper.url }}</a></td>
                     <td>{{ paper.issn }}</td>    
                     {% if paper.verified == 'False' %}
-                    <td><button id="verificationButton" class="verify-btn" onclick="verify(this.value)" value="{{ paper.uniqueid }}">Verify</button></td>
+                    <td><button id="verificationButton" class="verify-btn" onclick="edit_before_verify(this.value)" value="{{ paper.uniqueid }}">Verify</button></td>
                     {% endif %}
                     {% if paper.verified == 'True' %}
                     <td><button id="verificationButton" class="verified-btn" disabled>Verified</button></td> 
@@ -211,31 +211,160 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('fetchData').disabled = false;
 });
 
+function edit_before_verify(uniqueId){
+    var row = document.querySelector('#tableBody tr[data-uniqueid="' + uniqueId + '"]');
+    console.log(row);
 
-function verify(uniqueid) {
-    // Perform verification logic here
-    // console.log(uniqueid)
-    // Change button style
-
-
-    $.ajax({
-        type: "POST",
-        url: "{% url 'verify_paper' %}",
-        data: {
-            csrfmiddlewaretoken: '{{ csrf_token }}',
-            uniqueid: uniqueid
-        },
-        success: function(response) {
-            alert(response);
+    if (row){
+        Array.from(row.cells).forEach(function (cell, index) {
+            if (index === 8){
+                var selectElement = document.createElement('select');
+                selectElement.id = 'studentAuthor';
+                selectElement.name = 'SA';
+                var optionElement = document.createElement('option');
+                optionElement.value = "Yes";
+                optionElement.textContent = "Yes";
+                selectElement.appendChild(optionElement);
+                var optionElement = document.createElement('option');
+                optionElement.value = "No";
+                optionElement.textContent = "No";
+                selectElement.appendChild(optionElement);
+                cell.innerHTML = '';
+                cell.appendChild(selectElement);
+            }
+            if (cell.textContent.trim() === 'NULL' && index != 23){
+                var inputElement = document.createElement('input');
+                inputElement.type = 'text';
+                inputElement.value = cell.textContent.trim();
+                cell.innerHTML = '';
+                cell.appendChild(inputElement);
+            }
+            else if (index === 23){
+                console.log("FPP");
+            }
         }
-    });
+        )
+        var btnelts = document.getElementsByClassName('verify-btn');
+
+        var btnlen = btnelts.length
+        for (var i = 0; i < btnlen; i++) {
+            // console.log(btnelts[i])
+            if (btnelts[i].value == uniqueId) {
+                var btn = btnelts[i];
+                break;
+            }
+        }
+        btn.innerText = "Verify";
+        btn.setAttribute('onclick', 'verify(this.value)');
+    }
+}
+
+
+function verify(uniqueId) {
+    // Find the row based on the UniqueID
+    var row = document.querySelector('#tableBody tr[data-uniqueid="' + uniqueId + '"]');
+
+    if (row) {
+        var headersRow = document.querySelector('#mytable thead tr');
+        var updatedData = {};
+
+        // Loop through each cell in the row
+        Array.from(row.cells).forEach(function (cell, index) {
+            if (index === 0 || index === row.cells.length - 1 || index === row.cells.length - 2) {
+                // Skip the first, last, and second last cells
+                return;
+            }
+
+            // Get the content of the cell
+            var cellContent;
+
+            if (index === 8) {
+                // For the third cell (select element)
+                var selectElement = cell.querySelector('select');
+                cellContent = selectElement ? selectElement.value : '';
+            } else if(index === 23){
+
+                cellContent = cell.getElementsByTagName("a");
+
+                if (cellContent.length != 0){
+                    console.log(cellContent);
+                    cellContent = cellContent[0].getAttribute("href");
+                    cellContent = cellContent.slice(1);
+                }
+                else{
+                    cellContent = 'NULL';
+                }
+            }else {
+                // For other cells (input elements)
+                var inputElement = cell.querySelector('input');
+                if (inputElement){
+                    cellContent = inputElement ? inputElement.value : '';
+                }
+                else{
+                    cellContent = cell.textContent.trim()
+                }
+            }
+
+            // Get the corresponding header from the headers row
+            var headerCell = headersRow.cells[index];
+            var headerText = headerCell.textContent.trim();
+
+            // Add the data to the updatedData object with the header as the key
+            updatedData[headerText] = cellContent;
+        });
+
+        // Now, updatedData contains the data with headers as keys
+        console.log(updatedData);
+
+        $.ajax({
+            type: "POST",
+            url: "{% url 'update_paper' %}",
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                uniqueid: uniqueId,
+                title: updatedData['Title'],
+                AY: updatedData['Academic Year'],
+                first_author: updatedData['First Author'],
+                second_author: updatedData['Second Author'],
+                third_author: updatedData['Third Author'],
+                other_authors: updatedData['Other Authors'],
+                is_student_author: updatedData['Is Student Author'],
+                student_name: updatedData['Student Name'],
+                student_batch: updatedData['Student Batch'],
+                specification: updatedData['Specification'],
+                publication_type: updatedData['Publication Type'],
+                publication_name: updatedData['Publication Name'],
+                publisher: updatedData['Publisher'],
+                year_of_publishing: updatedData['Publication Year'],
+                month_of_publishing: updatedData['Publication Month'],
+                volume: updatedData['Volume'],
+                page_number: updatedData['Page Numbers'],
+                indexing: updatedData['Indexing'],
+                quartile: updatedData['Quartile'],
+                citation: updatedData['Citations'],
+                doi: updatedData['DOI'],
+                url: updatedData['URL'],
+                issn: updatedData['ISSN'],
+                front_page_path: updatedData['FPP']
+            },
+            success: function (response) {
+                alert(response);
+                // Reload the page after the successful update
+                location.reload();
+            },
+            error: function (error) {
+                alert(error);
+            }
+        });
+
+    
 
     var btnelts = document.getElementsByClassName('verify-btn')
 
     var btnlen = btnelts.length
     for (var i = 0; i < btnlen; i++) {
         // console.log(btnelts[i])
-        if (btnelts[i].value == uniqueid) {
+        if (btnelts[i].value == uniqueId) {
             var btn = btnelts[i]
             break
         }
@@ -245,6 +374,8 @@ function verify(uniqueid) {
     btn.classList.add('verified-btn');
     btn.innerText = "Verified";
 }
+}
+
 
 function disableFetch() {
     fetch_btn = document.getElementById("fetchData");
@@ -730,9 +861,9 @@ function sortTablenum(n) {
 //     }
 // }
 
-var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
 
 function applyFilter() {
+    var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
     var scopusCheckbox = document.querySelector('input[name="scopus"]');
     var webOfSciencesCheckbox = document.querySelector('input[name="webOfSciences"]');
     var quartileSelect = document.getElementById("quartile");

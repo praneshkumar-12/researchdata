@@ -329,10 +329,19 @@ function edit_paper(uniqueId) {
                 // Replace the cell's content with the select element
                 cell.innerHTML = '';
                 cell.appendChild(selectElement);
-            } else if (index === 1 || index === 23){
+            } else if (index === 1){
                 var inputElement = document.createElement('input');
                 inputElement.type = 'text';
                 inputElement.value = cell.textContent.trim();
+                inputElement.disabled = true;
+
+                // Replace the cell's content with the input element
+                cell.innerHTML = '';
+                cell.appendChild(inputElement);
+            } else if (index === 23){
+                var inputElement = document.createElement('input');
+                inputElement.type = 'text';
+                inputElement.value = cell.getElementsByTagName("a")[0].getAttribute("href");
                 inputElement.disabled = true;
 
                 // Replace the cell's content with the input element
@@ -466,7 +475,6 @@ function update_paper(uniqueId) {
             }
         });
 
-        // window.location.reload();
     }
 }
 

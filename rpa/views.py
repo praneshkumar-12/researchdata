@@ -4,6 +4,7 @@ from django.http import FileResponse, HttpResponseNotFound
 from django.shortcuts import get_object_or_404
 from django.views import View
 import os
+from rpa.models import Publications
 
 def login(request):
     return users.login(request)
@@ -51,6 +52,8 @@ class FileDownloadView(View):
             # Open the file and create a FileResponse
             file =  open(file_path, 'rb')
             response = FileResponse(file, as_attachment=True)
+            publ = Publications.objects.get(uniqueid=filename.replace(".pdf", ""))
+            response['Content-Disposition'] = f'attachment; filename="{publ.title}"'
             return response
         else:
             # Return a 404 response if the file does not exist
@@ -58,3 +61,6 @@ class FileDownloadView(View):
         
 def remove_upload(request):
     return dbadmin.admin_remove_upload(request)
+
+def update_paper(request):
+    return users.update_paper(request)
