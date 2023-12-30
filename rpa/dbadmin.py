@@ -1,5 +1,6 @@
 from rpa.models import Publications
 from rpa.forms import PublicationsForm
+from rpa.models import Users
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
@@ -9,7 +10,14 @@ def admin_dashboard(request):
 
     publication_list = []
 
+    facs = []
+
     form = PublicationsForm()
+
+    faculties = Users.objects.all().order_by('staff_name')
+
+    for row in faculties:
+        facs.append(row.staff_name)
 
     for paper in papers:
         first_author = paper.first_author if paper.first_author else ""
@@ -60,6 +68,7 @@ def admin_dashboard(request):
         "papers": publication_list,
         "form": form,
         "new_sno": f"{int(len(publication_list)) + 1}",
+        "faculties": facs
     }
 
     return render(request, "admin_layout.html", context)
