@@ -249,836 +249,361 @@
 
     <!-- Bootstrap JS (Popper.js and Bootstrap JS) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{% static 'js/layout_script.js' %}"></script>
+<script src="{% static 'js/admin_script.js' %}"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('id_uniqueid').disabled = true;
-    document.getElementById('id_title').disabled = true;
-    document.getElementById('id_AY').disabled = true;
-    document.getElementById('id_first_author').disabled = true;
-    document.getElementById('id_second_author').disabled = true;
-    document.getElementById('id_third_author').disabled = true;
-    document.getElementById('id_other_authors').disabled = true;
-    document.getElementById('id_is_student_author').disabled = true;
-    document.getElementById('id_student_name').disabled = true;
-    document.getElementById('id_student_batch').disabled = true;
-    document.getElementById('id_specification').disabled = true;
-    document.getElementById('id_publication_type').disabled = true;
-    document.getElementById('id_publication_name').disabled = true;
-    document.getElementById('id_publisher').disabled = true;
-    document.getElementById('id_year_of_publishing').disabled = true;
-    document.getElementById('id_month_of_publishing').disabled = true;
-    document.getElementById('id_volume').disabled = true;
-    document.getElementById('id_page_number').disabled = true;
-    document.getElementById('id_indexing').disabled = true;
-    document.getElementById('id_quartile').disabled = true;
-    document.getElementById('id_citation').disabled = true;
-    document.getElementById('id_doi').disabled = false;
-    document.getElementById('id_front_page_path').disabled = true;
-    document.getElementById('id_url').disabled = true;
-    document.getElementById('id_issn').disabled = true;
-    document.getElementById('fetchData').disabled = false;
-});
 
 
-function verify(uniqueid) {
-    // Perform verification logic here
-    // console.log(uniqueid)
-    // Change button style
 
-
-    $.ajax({
-        type: "POST",
-        url: "{% url 'admin_verify_paper' %}",
-        data: {
-            csrfmiddlewaretoken: '{{ csrf_token }}',
-            uniqueid: uniqueid
-        },
-        success: function(response) {
-            alert(response);
-        }
-    });
-
-    var btnelts = document.getElementsByClassName('verify-btn')
-
-    var btnlen = btnelts.length
-    for (var i = 0; i < btnlen; i++) {
-        // console.log(btnelts[i])
-        if (btnelts[i].value == uniqueid) {
-            var btn = btnelts[i]
-            break
-        }
-    }
-    // console.log(btn)
-    btn.classList.remove('verify-btn');
-    btn.classList.add('verified-btn');
-    btn.innerText = "Verified";
-}
-
-function delete_paper(uniqueid){
-    $.ajax({
-        type: "POST",
-        url: "{% url 'admin_delete_paper' %}",
-        data: {
-            csrfmiddlewaretoken: '{{ csrf_token }}',
-            uniqueid: uniqueid
-        },
-        success: function(response) {
-            alert(response);
-            window.location.reload();
-        }
-    });
-}
-
-function edit_paper(uniqueId) {
-    // Find the row based on the UniqueID
-    var row = document.querySelector('#tableBody tr[data-uniqueid="' + uniqueId + '"]');
-
-    if (row) {
-        // Loop through each cell in the row
-        Array.from(row.cells).forEach(function (cell, index) {
-            if (index === 0 || index === row.cells.length - 3) {
-                // Skip the first cell and leave the last cells unchanged
-                return;
-            }
-
-            // If it's the third cell, create a select element
-            if (index === 3) {
-                var selectElement = document.createElement('select');
-                selectElement.id = 'edit_AY';
-                selectElement.name = 'AY';
-
-                // Add options to the select element
-                var academicYears = [
-                    'JUL 2015 - JUN 2016',
-                    'JUL 2016 - JUN 2017',
-                    'JUL 2017 - JUN 2018',
-                    'JUL 2018 - JUN 2019',
-                    'JUL 2019 - JUN 2020',
-                    'JUL 2020 - JUN 2021',
-                    'JUL 2021 - JUN 2022',
-                    'JUL 2022 - JUN 2023'
-                ];
-
-                academicYears.forEach(function (year) {
-                    var optionElement = document.createElement('option');
-                    optionElement.value = year;
-                    optionElement.textContent = year;
-                    selectElement.appendChild(optionElement);
-                });
-
-                // Set the selected value based on the current cell's text content
-                selectElement.value = cell.textContent.trim();
-
-                // Replace the cell's content with the select element
-                cell.innerHTML = '';
-                cell.appendChild(selectElement);
-            } else if (index === 1){
-                var inputElement = document.createElement('input');
-                inputElement.type = 'text';
-                inputElement.value = cell.textContent.trim();
-                inputElement.disabled = true;
-
-                // Replace the cell's content with the input element
-                cell.innerHTML = '';
-                cell.appendChild(inputElement);
-            } else if (index === 23){
-                var inputElement = document.createElement('input');
-                inputElement.type = 'text';
-                inputElement.value = cell.getElementsByTagName("a")[0].getAttribute("href");
-                inputElement.disabled = true;
-
-                // Replace the cell's content with the input element
-                cell.innerHTML = '';
-                cell.appendChild(inputElement);
-            }
-            else if (index === 2 || index === 24) {
-                // Title and Faculty Verification Status cells, change to textarea
-                var textareaElement = document.createElement('textarea');
-                textareaElement.value = cell.textContent.trim();
-
-                // Set attributes for multiline input
-                textareaElement.rows = 4; // You can adjust the number of rows as needed
-                textareaElement.cols = 40; // You can adjust the number of columns as needed
-
-                // Replace the cell's content with the textarea element
-                cell.innerHTML = '';
-                cell.appendChild(textareaElement);
-            } else if (index === row.cells.length - 2) {
-                // Second last cell, change to "Under edit"
-                cell.textContent = 'Under edit';
-            } else if (index === row.cells.length - 1) {
-                // Last cell, change to "Update" button
-                var updateButton = document.createElement('button');
-                updateButton.className = 'verify-btn';
-                updateButton.textContent = 'Update';
-                updateButton.onclick = function () {
-                    console.log(uniqueId);
-                    // Call your update function here, passing the uniqueId
-                    update_paper(uniqueId);
-                };
-
-                // Replace the cell's content with the button
-                cell.innerHTML = '';
-                cell.appendChild(updateButton);
-            } else {
-                // For other cells, create a new input element
-                var inputElement = document.createElement('input');
-                inputElement.type = 'text';
-                inputElement.value = cell.textContent.trim();
-
-                // Replace the cell's content with the input element
-                cell.innerHTML = '';
-                cell.appendChild(inputElement);
-            }
-        });
-    }
-}
-
-function update_paper(uniqueId) {
-    // Find the row based on the UniqueID
-    var row = document.querySelector('#tableBody tr[data-uniqueid="' + uniqueId + '"]');
-
-    if (row) {
-        var headersRow = document.querySelector('#mytable thead tr');
-        var updatedData = {};
-
-        // Loop through each cell in the row
-        Array.from(row.cells).forEach(function (cell, index) {
-            if (index === 0 || index === row.cells.length - 1 || index === row.cells.length - 2) {
-                // Skip the first, last, and second last cells
-                return;
-            }
-
-            // Get the content of the cell
-            var cellContent;
-
-            if (index === 3) {
-                // For the third cell (select element)
-                var selectElement = cell.querySelector('select');
-                cellContent = selectElement ? selectElement.value : '';
-            } else if (index === 2 || index === 24) {
-                // For Title and Faculty Verification Status cells (textarea)
-                var textareaElement = cell.querySelector('textarea');
-                cellContent = textareaElement ? textareaElement.value : '';
-            } else {
-                // For other cells (input elements)
-                var inputElement = cell.querySelector('input');
-                cellContent = inputElement ? inputElement.value : '';
-            }
-
-            // Get the corresponding header from the headers row
-            var headerCell = headersRow.cells[index];
-            var headerText = headerCell.textContent.trim();
-
-            // Add the data to the updatedData object with the header as the key
-            updatedData[headerText] = cellContent;
-        });
-
-        // Now, updatedData contains the data with headers as keys
-        console.log(updatedData);
-
+    function verify(uniqueid) {
+        // Perform verification logic here
+        // console.log(uniqueid)
+        // Change button style
+    
+    
         $.ajax({
             type: "POST",
-            url: "{% url 'admin_update_paper' %}",
+            url: "{% url 'admin_verify_paper' %}",
             data: {
                 csrfmiddlewaretoken: '{{ csrf_token }}',
-                uniqueid: uniqueId,
-                title: updatedData['Title'],
-                AY: updatedData['Academic Year'],
-                first_author: updatedData['First Author'],
-                second_author: updatedData['Second Author'],
-                third_author: updatedData['Third Author'],
-                other_authors: updatedData['Other Authors'],
-                is_student_author: updatedData['Is Student Author'],
-                student_name: updatedData['Student Name'],
-                student_batch: updatedData['Student Batch'],
-                specification: updatedData['Specification'],
-                publication_type: updatedData['Publication Type'],
-                publication_name: updatedData['Publication Name'],
-                publisher: updatedData['Publisher'],
-                year_of_publishing: updatedData['Publication Year'],
-                month_of_publishing: updatedData['Publication Month'],
-                volume: updatedData['Volume'],
-                page_number: updatedData['Page Numbers'],
-                indexing: updatedData['Indexing'],
-                quartile: updatedData['Quartile'],
-                citation: updatedData['Citations'],
-                doi: updatedData['DOI'],
-                url: updatedData['URL'],
-                issn: updatedData['ISSN'],
-                front_page_path: updatedData['FPP']
+                uniqueid: uniqueid
             },
-            success: function (response) {
+            success: function(response) {
                 alert(response);
-                // Reload the page after the successful update
-                location.reload();
-            },
-            error: function (error) {
-                alert(error);
             }
         });
-
+    
+        var btnelts = document.getElementsByClassName('verify-btn')
+    
+        var btnlen = btnelts.length
+        for (var i = 0; i < btnlen; i++) {
+            // console.log(btnelts[i])
+            if (btnelts[i].value == uniqueid) {
+                var btn = btnelts[i]
+                break
+            }
+        }
+        // console.log(btn)
+        btn.classList.remove('verify-btn');
+        btn.classList.add('verified-btn');
+        btn.innerText = "Verified";
     }
-}
-
-
-function disableFetch() {
-    fetch_btn = document.getElementById("fetchData");
-    fetch_btn.disabled = true;
-    fetch_btn.classList.remove("scrape-btn");
-    fetch_btn.classList.add("scraped-btn");
-    // console.log("Changing class to disabled");
-    document.getElementById('fetchData').innerHTML = "Fetching...";
-}
-
-function enableFetch() {
-    document.getElementById('fetchData').disabled = false;
-    document.getElementById('fetchData').innerHTML = "Submit";
-    // console.log("Changing class to enabled");
-    fetch_btn = document.getElementById("fetchData");
-    fetch_btn.disabled = false;
-    fetch_btn.classList.remove("scraped-btn");
-    fetch_btn.classList.add("scrape-btn");
-}
-
-function enableFetchNoResponse() {
-    document.getElementById('fetchData').disabled = false;
-    document.getElementById('fetchData').innerHTML = "Fetch";
-    // console.log("Changing class to enabled");
-    fetch_btn = document.getElementById("fetchData");
-    fetch_btn.disabled = false;
-    fetch_btn.classList.remove("scraped-btn");
-    fetch_btn.classList.add("scrape-btn");
-}
-
-function scrapeData() {
-
-    title_text = document.getElementById("id_title");
-    doi_text = document.getElementById("id_doi");
-
-
-    title = title_text.value;
-    doi = doi_text.value;
-
-    if (doi == "") {
-        alert("Please fill DOI field and try again!")
-    } else {
-        disableFetch();
-
-        // console.log(doi);
-
-        var myResponse;
-
-        setTimeout(function() {
-            $.ajaxSetup({
-                async: false
+    
+    function delete_paper(uniqueid){
+        $.ajax({
+            type: "POST",
+            url: "{% url 'admin_delete_paper' %}",
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                uniqueid: uniqueid
+            },
+            success: function(response) {
+                alert(response);
+                window.location.reload();
+            }
+        });
+    }
+    
+    
+    
+    function update_paper(uniqueId) {
+        // Find the row based on the UniqueID
+        var row = document.querySelector('#tableBody tr[data-uniqueid="' + uniqueId + '"]');
+    
+        if (row) {
+            var headersRow = document.querySelector('#mytable thead tr');
+            var updatedData = {};
+    
+            // Loop through each cell in the row
+            Array.from(row.cells).forEach(function (cell, index) {
+                if (index === 0 || index === row.cells.length - 1 || index === row.cells.length - 2) {
+                    // Skip the first, last, and second last cells
+                    return;
+                }
+    
+                // Get the content of the cell
+                var cellContent;
+    
+                if (index === 3) {
+                    // For the third cell (select element)
+                    var selectElement = cell.querySelector('select');
+                    cellContent = selectElement ? selectElement.value : '';
+                } else if (index === 2 || index === 24) {
+                    // For Title and Faculty Verification Status cells (textarea)
+                    var textareaElement = cell.querySelector('textarea');
+                    cellContent = textareaElement ? textareaElement.value : '';
+                } else {
+                    // For other cells (input elements)
+                    var inputElement = cell.querySelector('input');
+                    cellContent = inputElement ? inputElement.value : '';
+                }
+    
+                // Get the corresponding header from the headers row
+                var headerCell = headersRow.cells[index];
+                var headerText = headerCell.textContent.trim();
+    
+                // Add the data to the updatedData object with the header as the key
+                updatedData[headerText] = cellContent;
             });
-
+    
+            // Now, updatedData contains the data with headers as keys
+            console.log(updatedData);
+    
             $.ajax({
                 type: "POST",
-                url: "{% url 'scrape_data' %}",
+                url: "{% url 'admin_update_paper' %}",
                 data: {
                     csrfmiddlewaretoken: '{{ csrf_token }}',
-                    title: title,
-                    doi: doi
+                    uniqueid: uniqueId,
+                    title: updatedData['Title'],
+                    AY: updatedData['Academic Year'],
+                    first_author: updatedData['First Author'],
+                    second_author: updatedData['Second Author'],
+                    third_author: updatedData['Third Author'],
+                    other_authors: updatedData['Other Authors'],
+                    is_student_author: updatedData['Is Student Author'],
+                    student_name: updatedData['Student Name'],
+                    student_batch: updatedData['Student Batch'],
+                    specification: updatedData['Specification'],
+                    publication_type: updatedData['Publication Type'],
+                    publication_name: updatedData['Publication Name'],
+                    publisher: updatedData['Publisher'],
+                    year_of_publishing: updatedData['Publication Year'],
+                    month_of_publishing: updatedData['Publication Month'],
+                    volume: updatedData['Volume'],
+                    page_number: updatedData['Page Numbers'],
+                    indexing: updatedData['Indexing'],
+                    quartile: updatedData['Quartile'],
+                    citation: updatedData['Citations'],
+                    doi: updatedData['DOI'],
+                    url: updatedData['URL'],
+                    issn: updatedData['ISSN'],
+                    front_page_path: updatedData['FPP']
                 },
-                success: function(response) {
-                    // console.log(response.title, response.uniqueid);
-                    myResponse = response;
+                success: function (response) {
+                    alert(response);
+                    // Reload the page after the successful update
+                    location.reload();
+                },
+                error: function (error) {
+                    alert(error);
                 }
             });
-
-
-
-            // console.log(myResponse);
-
-            if (myResponse == "Cannot fetch data for the given search term!") {
-                alert(myResponse);
-                enableFetchNoResponse();
-                return null;
-            } else if (myResponse == "Cannot fetch only with DOI, please provide title also.") {
-                alert(myResponse);
-                enableFetchNoResponse();
-                document.getElementById("id_title").disabled = false;
-                return null;
-            }
-
-            document.getElementById("id_title").value = myResponse.title;
-            document.getElementById("id_uniqueid").value = myResponse.uniqueid;
-            document.getElementById('id_first_author').value = myResponse.first_author;
-            document.getElementById('id_second_author').value = myResponse.second_author;
-            document.getElementById('id_third_author').value = myResponse.third_author;
-            document.getElementById('id_other_authors').value = myResponse.other_authors;
-            document.getElementById('id_is_student_author').value = myResponse.is_student_author;
-            document.getElementById('id_student_name').value = myResponse.student_name;
-            document.getElementById('id_student_batch').value = myResponse.student_batch;
-            document.getElementById('id_specification').value = myResponse.specification;
-            document.getElementById('id_publication_type').value = myResponse.publication_type;
-            document.getElementById('id_publication_name').value = myResponse.publication_name;
-            document.getElementById('id_publisher').value = myResponse.publisher;
-            document.getElementById('id_year_of_publishing').value = myResponse.year_of_publishing;
-            document.getElementById('id_month_of_publishing').value = myResponse.month_of_publishing;
-            document.getElementById('id_volume').value = myResponse.volume;
-            // console.log(myResponse.volume);
-            document.getElementById('id_page_number').value = myResponse.page_number;
-            document.getElementById('id_indexing').value = myResponse.indexing;
-            // console.log(myResponse.citations);
-            document.getElementById('id_quartile').value = myResponse.quartile;
-            document.getElementById('id_citation').value = myResponse.citation;
-            document.getElementById('id_doi').value = myResponse.doi;
-            document.getElementById('id_front_page_path').value = "Yet to upload";
-            document.getElementById('id_url').value = myResponse.url;
-            document.getElementById('id_issn').value = myResponse.ISSN;
-
-            document.getElementById('id_title').disabled = myResponse.title == "NULL" ? false : true;
-            document.getElementById('id_AY').disabled = false;
-            document.getElementById('id_first_author').disabled = myResponse.first_author == "NULL" ? false : true;
-            document.getElementById('id_second_author').disabled = myResponse.second_author == "NULL" ? false : true;
-            document.getElementById('id_third_author').disabled = myResponse.third_author == "NULL" ? false : true;
-            document.getElementById('id_other_authors').disabled = myResponse.other_authors == "NULL" ? false : true;
-            document.getElementById('id_is_student_author').disabled = myResponse.is_student_author == "NULL" ? false : true;
-            document.getElementById('id_student_name').disabled = myResponse.student_name == "NULL" ? false : true;
-            document.getElementById('id_student_batch').disabled = myResponse.student_batch == "NULL" ? false : true;
-            document.getElementById('id_specification').disabled = myResponse.specification == "NULL" ? false : true;
-            document.getElementById('id_publication_type').disabled = myResponse.publication_type == "NULL" ? false : true;
-            document.getElementById('id_publication_name').disabled = myResponse.publication_name == "NULL" ? false : true;
-            document.getElementById('id_publisher').disabled = myResponse.publisher == "NULL" ? false : true;
-            document.getElementById('id_year_of_publishing').disabled = myResponse.year_of_publishing == "NULL" ? false : true;
-            document.getElementById('id_month_of_publishing').disabled = myResponse.month_of_publishing == "NULL" ? false : true;
-            document.getElementById('id_volume').disabled = myResponse.volume == "NULL" ? false : true;
-            document.getElementById('id_page_number').disabled = myResponse.page_number == "NULL" ? false : true;
-            document.getElementById('id_indexing').disabled = myResponse.indexing == "NULL" ? false : true;
-            document.getElementById('id_quartile').disabled = myResponse.quartile == "NULL" ? false : true;
-            document.getElementById('id_citation').disabled = myResponse.citation == "NULL" ? false : true;
-            document.getElementById('id_doi').disabled = true
-            document.getElementById('id_front_page_path').disabled = true;
-            document.getElementById('id_url').disabled = myResponse.url == "NULL" ? false : true;
-            document.getElementById('id_issn').disabled = myResponse.ISSN == "NULL" ? false : true;
-            document.getElementById('fetchData').disabled = false;
-            document.getElementById('fetchData').innerHTML = "Submit";
-
-            document.getElementById('fetchData').setAttribute('onclick', 'submitData()')
-
-            enableFetch();
-
-        }, 2500);
-
-    }
-
-}
-
-function submitData() {
-
-    uniqueid = document.getElementById('id_uniqueid').value;
-    title = document.getElementById('id_title').value;
-    AY = document.getElementById("id_AY").options[document.getElementById("id_AY").selectedIndex].value;
-    first_author = document.getElementById('id_first_author').value;
-    second_author = document.getElementById('id_second_author').value;
-    third_author = document.getElementById('id_third_author').value;
-    other_authors = document.getElementById('id_other_authors').value;
-    is_student_author = document.getElementById('id_is_student_author').value;
-    student_name = document.getElementById('id_student_name').value;
-    student_batch = document.getElementById('id_student_batch').value;
-    specification = document.getElementById('id_specification').value;
-    publication_type = document.getElementById('id_publication_type').value;
-    publication_name = document.getElementById('id_publication_name').value;
-    publisher = document.getElementById('id_publisher').value;
-    year_of_publishing = document.getElementById('id_year_of_publishing').value;
-    month_of_publishing = document.getElementById('id_month_of_publishing').value;
-    volume = document.getElementById('id_volume').value;
-    page_number = document.getElementById('id_page_number').value;
-    indexing = document.getElementById('id_indexing').value;
-    quartile = document.getElementById('id_quartile').value;
-    citation = document.getElementById('id_citation').value;
-    doi = document.getElementById('id_doi').value;
-    front_page_path = document.getElementById('id_front_page_path').value;
-    url = document.getElementById('id_url').value;
-    issn = document.getElementById('id_issn').value;
-
-    // var myResponse;
-
-    $.ajax({
-        type: "POST",
-        url: "{% url 'admin_insert_paper' %}",
-        data: {
-            csrfmiddlewaretoken: '{{ csrf_token }}',
-            uniqueid: uniqueid,
-            title: title,
-            AY: AY,
-            first_author: first_author,
-            second_author: second_author,
-            third_author: third_author,
-            other_authors: other_authors,
-            is_student_author: is_student_author,
-            student_name: student_name,
-            student_batch: student_batch,
-            specification: specification,
-            publication_type: publication_type,
-            publication_name: publication_name,
-            publisher: publisher,
-            year_of_publishing: year_of_publishing,
-            month_of_publishing: month_of_publishing,
-            volume: volume,
-            page_number: page_number,
-            indexing: indexing,
-            quartile: quartile,
-            citation: citation,
-            doi: doi,
-            front_page_path: front_page_path,
-            url: url,
-            issn: issn
-        },
-        success: function(response) {
-            alert(response);
-            // myResponse = response;
-        }
-    });
-
-    location.reload();
-}
-
-function formatDate(date) {
-    var year = date.getFullYear();
-    var month = String(date.getMonth() + 1).padStart(2, '0');
-    var day = String(date.getDate()).padStart(2, '0');
-    var hours = String(date.getHours()).padStart(2, '0');
-    var minutes = String(date.getMinutes()).padStart(2, '0');
-    var seconds = String(date.getSeconds()).padStart(2, '0');
-
-    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-}
-
-function downloadCSV() {
-    var csv_data = [];
-    var rows = document.getElementsByTagName('tr');
-
-    var counter = 1;
-
-    var row_content = "";
-
-    for (var i = 0; i < rows.length; i++) { // Exclude the last row
-        // Check if the row is visible (style.display is not "none")
-        if (i === rows.length - 1) {
-            row_content = rows[i].querySelectorAll('td,th');
-            content = row_content[1].innerHTML;
-            if (content.includes("input")) {
-                continue;
-            }
-        }
-        if (window.getComputedStyle(rows[i]).display !== 'none') {
-            var cols = rows[i].querySelectorAll('td,th');
-            var csvrow = [];
-
-            for (var j = 0; j < cols.length - 1; j++) {
-                // console.log(cols[j].innerHTML)
-                // Add automatic serial numbers for the first row
-                if (i === 0 && j === 0) {
-                    csvrow.push("Serial Number");
-                } else {
-                    if (i !== 0 && j === 0) {
-                        csvrow.push(counter);
-                        counter += 1;
-                        continue;
-                    }
-                    // Add double quotes to the 8th column (index 7)
-                    csvrow.push('"' + cols[j].innerHTML + '"');
-                }
-            }
-
-            csv_data.push(csvrow.join(","));
-        }
-    }
-
-    csv_data = csv_data.join('\n');
-    downloadCSVFile(csv_data);
-}
-
-function downloadCSVFile(csv_data) {
-    // Create CSV file object and feed
-    // our csv_data into it
-    CSVFile = new Blob([csv_data], {
-        type: "text/csv"
-    });
-
-    // Create to temporary link to initiate
-    // download process
-    var temp_link = document.createElement('a');
-
-    var currentDate = new Date();
-    var formattedDate = formatDate(currentDate);
-
-    // Download csv file
-    temp_link.download = "research_papers_" + formattedDate + ".csv";
-    var url = window.URL.createObjectURL(CSVFile);
-    temp_link.href = url;
-
-    // This link should not be displayed
-    temp_link.style.display = "none";
-    document.body.appendChild(temp_link);
-
-    // Automatically click the link to
-    // trigger download
-    temp_link.click();
-    document.body.removeChild(temp_link);
-}
-
-function lookForEmptySearch() {
-    var input, filter, table, tr, td, i, j, txtValue;
-    input = document.getElementById("searchBox");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("tableBody");
-    tr = table.getElementsByTagName("tr");
-
-    if (filter === "") {
-
-        for (i = 0; i < tr.length; i++) {
-            tr[i].style.display = "";
-        }
-    }
-}
-
-setInterval(lookForEmptySearch, 100);
-function sortTable(n) {
-      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-      table = document.getElementById("mytable");
-      switching = true;
-      // Set the sorting direction to ascending:
-      dir = "asc";
-      /* Make a loop that will continue until
-      no switching has been done: */
-      while (switching) {
-        // Start by saying: no switching is done:
-        switching = false;
-        rows = table.rows;
-        /* Loop through all table rows (except the
-        first, which contains table headers): */
-        for (i = 1; i < (rows.length - 2); i++) {
-          // Start by saying there should be no switching:
-          shouldSwitch = false;
-          /* Get the two elements you want to compare,
-          one from current row and one from the next: */
-          x = rows[i].getElementsByTagName("TD")[n];
-          y = rows[i + 1].getElementsByTagName("TD")[n];
-          /* Check if the two rows should switch place,
-          based on the direction, asc or desc: */
-          if (dir == "asc") {
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-              // If so, mark as a switch and break the loop:
-              shouldSwitch = true;
-              break;
-            }
-          } else if (dir == "desc") {
-            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-              // If so, mark as a switch and break the loop:
-              shouldSwitch = true;
-              break;
-            }
-          }
-        }
-
-        
-
-        if (shouldSwitch) {
-          /* If a switch has been marked, make the switch
-          and mark that a switch has been done: */
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
-          // Each time a switch is done, increase this count by 1:
-          switchcount ++;
-        } else {
-          /* If no switching has been done AND the direction is "asc",
-          set the direction to "desc" and run the while loop again. */
-          if (switchcount == 0 && dir == "asc") {
-            dir = "desc";
-            switching = true;
-          }
-        }
-      }
-    }
-
-function sortTablenum(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("mytable");
-    switching = true;
-    // Set the sorting direction to ascending:
-    dir = "asc";
-    /* Make a loop that will continue until
-    no switching has been done: */
-    while (switching) {
-    // Start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-    /* Loop through all table rows (except the
-    first, which contains table headers): */
-    for (i = 1; i < (rows.length - 2); i++) {
-        // Start by saying there should be no switching:
-        shouldSwitch = false;
-        /* Get the two elements you want to compare,
-        one from current row and one from the next: */
-        x = rows[i].getElementsByTagName("TD")[n];
-        y = rows[i + 1].getElementsByTagName("TD")[n];
-        /* Check if the two rows should switch place,
-        based on the direction, asc or desc: */
-        if (dir == "asc") {
-        if (Number(x.innerHTML) > Number(y.innerHTML)) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-        }
-        } else if (dir == "desc") {
-        if (Number(x.innerHTML) < Number(y.innerHTML)) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-        }
-        }
-    }
-
     
-
-    if (shouldSwitch) {
-        /* If a switch has been marked, make the switch
-        and mark that a switch has been done: */
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true;
-        // Each time a switch is done, increase this count by 1:
-        switchcount ++;
-    } else {
-        /* If no switching has been done AND the direction is "asc",
-        set the direction to "desc" and run the while loop again. */
-        if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
-        switching = true;
         }
     }
+    
+    
+    
+    
+    function scrapeData() {
+    
+        title_text = document.getElementById("id_title");
+        doi_text = document.getElementById("id_doi");
+    
+    
+        title = title_text.value;
+        doi = doi_text.value;
+    
+        if (doi == "") {
+            alert("Please fill DOI field and try again!")
+        } else {
+            disableFetch();
+    
+            // console.log(doi);
+    
+            var myResponse;
+    
+            setTimeout(function() {
+                $.ajaxSetup({
+                    async: false
+                });
+    
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'scrape_data' %}",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        title: title,
+                        doi: doi
+                    },
+                    success: function(response) {
+                        // console.log(response.title, response.uniqueid);
+                        myResponse = response;
+                    }
+                });
+    
+    
+    
+                // console.log(myResponse);
+    
+                if (myResponse == "Cannot fetch data for the given search term!") {
+                    alert(myResponse);
+                    enableFetchNoResponse();
+                    return null;
+                } else if (myResponse == "Cannot fetch only with DOI, please provide title also.") {
+                    alert(myResponse);
+                    enableFetchNoResponse();
+                    document.getElementById("id_title").disabled = false;
+                    return null;
+                }
+    
+                document.getElementById("id_title").value = myResponse.title;
+                document.getElementById("id_uniqueid").value = myResponse.uniqueid;
+                document.getElementById('id_first_author').value = myResponse.first_author;
+                document.getElementById('id_second_author').value = myResponse.second_author;
+                document.getElementById('id_third_author').value = myResponse.third_author;
+                document.getElementById('id_other_authors').value = myResponse.other_authors;
+                document.getElementById('id_is_student_author').value = myResponse.is_student_author;
+                document.getElementById('id_student_name').value = myResponse.student_name;
+                document.getElementById('id_student_batch').value = myResponse.student_batch;
+                document.getElementById('id_specification').value = myResponse.specification;
+                document.getElementById('id_publication_type').value = myResponse.publication_type;
+                document.getElementById('id_publication_name').value = myResponse.publication_name;
+                document.getElementById('id_publisher').value = myResponse.publisher;
+                document.getElementById('id_year_of_publishing').value = myResponse.year_of_publishing;
+                document.getElementById('id_month_of_publishing').value = myResponse.month_of_publishing;
+                document.getElementById('id_volume').value = myResponse.volume;
+                // console.log(myResponse.volume);
+                document.getElementById('id_page_number').value = myResponse.page_number;
+                document.getElementById('id_indexing').value = myResponse.indexing;
+                // console.log(myResponse.citations);
+                document.getElementById('id_quartile').value = myResponse.quartile;
+                document.getElementById('id_citation').value = myResponse.citation;
+                document.getElementById('id_doi').value = myResponse.doi;
+                document.getElementById('id_front_page_path').value = "Yet to upload";
+                document.getElementById('id_url').value = myResponse.url;
+                document.getElementById('id_issn').value = myResponse.ISSN;
+    
+                document.getElementById('id_title').disabled = myResponse.title == "NULL" ? false : true;
+                document.getElementById('id_AY').disabled = false;
+                document.getElementById('id_first_author').disabled = myResponse.first_author == "NULL" ? false : true;
+                document.getElementById('id_second_author').disabled = myResponse.second_author == "NULL" ? false : true;
+                document.getElementById('id_third_author').disabled = myResponse.third_author == "NULL" ? false : true;
+                document.getElementById('id_other_authors').disabled = myResponse.other_authors == "NULL" ? false : true;
+                document.getElementById('id_is_student_author').disabled = myResponse.is_student_author == "NULL" ? false : true;
+                document.getElementById('id_student_name').disabled = myResponse.student_name == "NULL" ? false : true;
+                document.getElementById('id_student_batch').disabled = myResponse.student_batch == "NULL" ? false : true;
+                document.getElementById('id_specification').disabled = myResponse.specification == "NULL" ? false : true;
+                document.getElementById('id_publication_type').disabled = myResponse.publication_type == "NULL" ? false : true;
+                document.getElementById('id_publication_name').disabled = myResponse.publication_name == "NULL" ? false : true;
+                document.getElementById('id_publisher').disabled = myResponse.publisher == "NULL" ? false : true;
+                document.getElementById('id_year_of_publishing').disabled = myResponse.year_of_publishing == "NULL" ? false : true;
+                document.getElementById('id_month_of_publishing').disabled = myResponse.month_of_publishing == "NULL" ? false : true;
+                document.getElementById('id_volume').disabled = myResponse.volume == "NULL" ? false : true;
+                document.getElementById('id_page_number').disabled = myResponse.page_number == "NULL" ? false : true;
+                document.getElementById('id_indexing').disabled = myResponse.indexing == "NULL" ? false : true;
+                document.getElementById('id_quartile').disabled = myResponse.quartile == "NULL" ? false : true;
+                document.getElementById('id_citation').disabled = myResponse.citation == "NULL" ? false : true;
+                document.getElementById('id_doi').disabled = true
+                document.getElementById('id_front_page_path').disabled = true;
+                document.getElementById('id_url').disabled = myResponse.url == "NULL" ? false : true;
+                document.getElementById('id_issn').disabled = myResponse.ISSN == "NULL" ? false : true;
+                document.getElementById('fetchData').disabled = false;
+                document.getElementById('fetchData').innerHTML = "Submit";
+    
+                document.getElementById('fetchData').setAttribute('onclick', 'submitData()')
+    
+                enableFetch();
+    
+            }, 2500);
+    
+        }
+    
     }
-}
-function applyFilter() {
-    var scopusCheckbox = document.querySelector('input[name="scopus"]');
-    var webOfSciencesCheckbox = document.querySelector('input[name="webOfSciences"]');
-    var quartileSelect = document.getElementById("quartile");
-    var AYSelect = document.getElementById("AY");
-    var authorCheckboxes = document.getElementsByName("author"); // Add this line to get author checkboxes
-    var table = document.getElementById("mytable");
-    var rows = table.getElementsByTagName("tr");
-
-    for (var i = 1; i < rows.length; i++) {
-        var indexingCell = rows[i].getElementsByTagName("td")[19];
-        var quartileCell = rows[i].getElementsByTagName("td")[20]; // Assuming quartile is at index 20, adjust if needed
-        var AYCell = rows[i].getElementsByTagName("td")[3]; // Assuming Academic Year is at index 3, adjust if needed
-
-        var scopusChecked = scopusCheckbox.checked;
-        var webOfSciencesChecked = webOfSciencesCheckbox.checked;
-        var quartileSelected = quartileSelect.value;
-        var selectedAY = AYSelect.value;
-
-        // Get the authors of the paper
-        var firstAuthor = rows[i].getElementsByTagName("td")[4].textContent;
-        var secondAuthor = rows[i].getElementsByTagName("td")[5].textContent;
-        var thirdAuthor = rows[i].getElementsByTagName("td")[6].textContent;
-        var otherAuthors = rows[i].getElementsByTagName("td")[7].textContent;
-
-        // Check if any of the selected authors match the authors of the paper
-        var authorMatch = Array.from(authorCheckboxes).some(function (checkbox) {
-            var authorName = checkbox.value;
-            authorName = authorName.split(" ")[0];
-            return checkbox.checked && (firstAuthor.includes(authorName) || secondAuthor.includes(authorName) || thirdAuthor.includes(authorName) || otherAuthors.includes(authorName));
+    
+    function submitData() {
+    
+        uniqueid = document.getElementById('id_uniqueid').value;
+        title = document.getElementById('id_title').value;
+        AY = document.getElementById("id_AY").options[document.getElementById("id_AY").selectedIndex].value;
+        first_author = document.getElementById('id_first_author').value;
+        second_author = document.getElementById('id_second_author').value;
+        third_author = document.getElementById('id_third_author').value;
+        other_authors = document.getElementById('id_other_authors').value;
+        is_student_author = document.getElementById('id_is_student_author').value;
+        student_name = document.getElementById('id_student_name').value;
+        student_batch = document.getElementById('id_student_batch').value;
+        specification = document.getElementById('id_specification').value;
+        publication_type = document.getElementById('id_publication_type').value;
+        publication_name = document.getElementById('id_publication_name').value;
+        publisher = document.getElementById('id_publisher').value;
+        year_of_publishing = document.getElementById('id_year_of_publishing').value;
+        month_of_publishing = document.getElementById('id_month_of_publishing').value;
+        volume = document.getElementById('id_volume').value;
+        page_number = document.getElementById('id_page_number').value;
+        indexing = document.getElementById('id_indexing').value;
+        quartile = document.getElementById('id_quartile').value;
+        citation = document.getElementById('id_citation').value;
+        doi = document.getElementById('id_doi').value;
+        front_page_path = document.getElementById('id_front_page_path').value;
+        url = document.getElementById('id_url').value;
+        issn = document.getElementById('id_issn').value;
+    
+        // var myResponse;
+    
+        $.ajax({
+            type: "POST",
+            url: "{% url 'admin_insert_paper' %}",
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                uniqueid: uniqueid,
+                title: title,
+                AY: AY,
+                first_author: first_author,
+                second_author: second_author,
+                third_author: third_author,
+                other_authors: other_authors,
+                is_student_author: is_student_author,
+                student_name: student_name,
+                student_batch: student_batch,
+                specification: specification,
+                publication_type: publication_type,
+                publication_name: publication_name,
+                publisher: publisher,
+                year_of_publishing: year_of_publishing,
+                month_of_publishing: month_of_publishing,
+                volume: volume,
+                page_number: page_number,
+                indexing: indexing,
+                quartile: quartile,
+                citation: citation,
+                doi: doi,
+                front_page_path: front_page_path,
+                url: url,
+                issn: issn
+            },
+            success: function(response) {
+                alert(response);
+                // myResponse = response;
+            }
         });
-
-        var containsWebOfScience = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("web of science") : false;
-        var containsScopus = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("scopus") : false;
-
-        var matchesQuartile = quartileCell ? quartileCell.innerHTML.toLowerCase().includes(quartileSelected) : false;
-        var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
-
-        var shouldBeHidden = false;
-
-        if (quartileSelected !== "all") { // Check if "All Quartiles" is not selected
-            if (
-                (webOfSciencesChecked && !containsWebOfScience) ||
-                (scopusChecked && !containsScopus) ||
-                !authorMatch || // Check for author match
-                (quartileSelected !== "" && !matchesQuartile) ||
-                !matchesAY
-            ) {
-                shouldBeHidden = true;
-            }
-        } else {
-            // Show all rows when "All Quartiles" is selected
-            if (webOfSciencesChecked && !containsWebOfScience) {
-                console.log("Contains web of science");
-                shouldBeHidden = true;
-            }
-            if (scopusChecked && !containsScopus) {
-                console.log("Contains scopus");
-                shouldBeHidden = true;
-            }
-            if (!authorMatch || !matchesAY) { // Check for author match
-                console.log("Contains author match");
-
-                shouldBeHidden = true;
-            }
-        }
-
-        if (shouldBeHidden) {
-            rows[i].classList.add("hidden");
-        } else {
-            rows[i].classList.remove("hidden");
-        }
+    
+        location.reload();
     }
-}
-
-
-function sortTableByQuartile() {
-    var table = document.getElementById("mytable");
-    var rows = Array.from(table.getElementsByTagName("tr"));
-
-    rows.sort(function(a, b) {
-        var aValue = a.getElementsByTagName("td")[20].innerHTML.toLowerCase(); // Adjust index if needed
-        var bValue = b.getElementsByTagName("td")[20].innerHTML.toLowerCase(); // Adjust index if needed
-        return aValue.localeCompare(bValue);
-    });
-
-    // Clear the table
-    table.innerHTML = "";
-
-    // Append sorted rows
-    for (var i = 0; i < rows.length; i++) {
-        table.appendChild(rows[i]);
+    
+    
+    
+    function remove_upload(uniqueid){
+        $.ajax({
+            type: "POST",
+            url: "{% url 'remove_upload' %}",
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                uniqueid: uniqueid
+            },
+            success: function(response) {
+                alert(response);
+                window.location.reload();
+            }
+        });
+    
     }
-}
-setInterval(lookForEmptySearch, 100);
-document.getElementById('quartile').addEventListener('change', function() {
-        sortTableByQuartile();
-        applyFilter();
-    });
-
-function upload(uniqueid){
-    window.open("/rpa/auth/upload/" + uniqueid, "_blank");
-}
-
-function remove_upload(uniqueid){
-    $.ajax({
-        type: "POST",
-        url: "{% url 'remove_upload' %}",
-        data: {
-            csrfmiddlewaretoken: '{{ csrf_token }}',
-            uniqueid: uniqueid
-        },
-        success: function(response) {
-            alert(response);
-            window.location.reload();
-        }
-    });
-
-}
-
-
-</script>
-
+    
+    
+    </script>
+    
 </html>
 
 

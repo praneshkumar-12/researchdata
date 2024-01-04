@@ -1,56 +1,3 @@
-function filterTable() {
-    var input, filter, table, tr, td, i, j, txtValue;
-    input = document.getElementById("searchBox");
-    filter = input.value.toUpperCase();
-    if (filter === "") return filter
-    table = document.getElementById("tableBody");
-    tr = table.getElementsByTagName("tr");
-
-    var searchTerms = filter.split(" ").filter(term => term.trim() !== "");
-
-    for (i = 0; i < tr.length; i++) {
-        var rowstring = "";
-        for (j = 0; j < tr[i].cells.length; j++) {
-            td = tr[i].cells[j];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-            rowstring = rowstring.concat(txtValue);
-        }
-    }
-    rowstring = rowstring.toUpperCase();
-
-    // console.log(rowstring);
-
-    found = true;
-
-    for(var k=0; k<searchTerms.length;k++){
-        if (rowstring.includes(searchTerms[k].toUpperCase())){
-            found = found && true;
-        }
-        else{
-            found = found && false;
-            break;
-        }
-    }
-        tr[i].style.display = found ? "" : "none";
-    }
-}
-
-function lookForEmptySearch(){
-    var input, filter, table, tr, td, i, j, txtValue;
-    input = document.getElementById("searchBox");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("tableBody");
-    tr = table.getElementsByTagName("tr");
-
-    if (filter === ""){
-
-    for (i = 0; i < tr.length; i++) {
-        tr[i].style.display = "";
-    }
-}
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('id_uniqueid').disabled = true;
     document.getElementById('id_title').disabled = true;
@@ -80,51 +27,120 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('fetchData').disabled = false;
 });
 
-function edit_before_verify(uniqueId){
+function edit_paper(uniqueId) {
+    // Find the row based on the UniqueID
     var row = document.querySelector('#tableBody tr[data-uniqueid="' + uniqueId + '"]');
-    console.log(row);
 
-    if (row){
+    if (row) {
+        // Loop through each cell in the row
         Array.from(row.cells).forEach(function (cell, index) {
-            if (index === 8){
+            if (index === 0 || index === row.cells.length - 3) {
+                // Skip the first cell and leave the last cells unchanged
+                return;
+            }
+
+            // If it's the third cell, create a select element
+            if (index === 3) {
                 var selectElement = document.createElement('select');
-                selectElement.id = 'studentAuthor';
-                selectElement.name = 'SA';
-                var optionElement = document.createElement('option');
-                optionElement.value = "Yes";
-                optionElement.textContent = "Yes";
-                selectElement.appendChild(optionElement);
-                var optionElement = document.createElement('option');
-                optionElement.value = "No";
-                optionElement.textContent = "No";
-                selectElement.appendChild(optionElement);
+                selectElement.id = 'edit_AY';
+                selectElement.name = 'AY';
+
+                // Add options to the select element
+                var academicYears = [
+                    'JUL 2015 - JUN 2016',
+                    'JUL 2016 - JUN 2017',
+                    'JUL 2017 - JUN 2018',
+                    'JUL 2018 - JUN 2019',
+                    'JUL 2019 - JUN 2020',
+                    'JUL 2020 - JUN 2021',
+                    'JUL 2021 - JUN 2022',
+                    'JUL 2022 - JUN 2023'
+                ];
+
+                academicYears.forEach(function (year) {
+                    var optionElement = document.createElement('option');
+                    optionElement.value = year;
+                    optionElement.textContent = year;
+                    selectElement.appendChild(optionElement);
+                });
+
+                // Set the selected value based on the current cell's text content
+                selectElement.value = cell.textContent.trim();
+
+                // Replace the cell's content with the select element
                 cell.innerHTML = '';
                 cell.appendChild(selectElement);
-            }
-            if (cell.textContent.trim() === 'NULL' && index != 23){
+            } else if (index === 1){
                 var inputElement = document.createElement('input');
                 inputElement.type = 'text';
                 inputElement.value = cell.textContent.trim();
+                inputElement.disabled = true;
+
+                // Replace the cell's content with the input element
+                cell.innerHTML = '';
+                cell.appendChild(inputElement);
+            } else if (index === 23){
+                var inputElement = document.createElement('input');
+                inputElement.type = 'text';
+
+
+                cellContent = cell.getElementsByTagName("a");
+
+                if (cellContent.length != 0){
+                    console.log(cellContent);
+                    cellContent = cellContent[0].getAttribute("href");
+                    cellContent = cellContent.slice(1);
+                }
+                else{
+                    cellContent = 'NULL';
+                }
+
+                inputElement.value = cellContent;
+
+                // Replace the cell's content with the input element
                 cell.innerHTML = '';
                 cell.appendChild(inputElement);
             }
-            else if (index === 23){
-                console.log("FPP");
-            }
-        }
-        )
-        var btnelts = document.getElementsByClassName('verify-btn');
+            else if (index === 2 || index === 24) {
+                // Title and Faculty Verification Status cells, change to textarea
+                var textareaElement = document.createElement('textarea');
+                textareaElement.value = cell.textContent.trim();
 
-        var btnlen = btnelts.length
-        for (var i = 0; i < btnlen; i++) {
-            // console.log(btnelts[i])
-            if (btnelts[i].value == uniqueId) {
-                var btn = btnelts[i];
-                break;
+                // Set attributes for multiline input
+                textareaElement.rows = 4; // You can adjust the number of rows as needed
+                textareaElement.cols = 40; // You can adjust the number of columns as needed
+
+                // Replace the cell's content with the textarea element
+                cell.innerHTML = '';
+                cell.appendChild(textareaElement);
+            } else if (index === row.cells.length - 2) {
+                // Second last cell, change to "Under edit"
+                cell.textContent = 'Under edit';
+            } else if (index === row.cells.length - 1) {
+                // Last cell, change to "Update" button
+                var updateButton = document.createElement('button');
+                updateButton.className = 'verify-btn';
+                updateButton.textContent = 'Update';
+                updateButton.onclick = function () {
+                    console.log(uniqueId);
+                    // Call your update function here, passing the uniqueId
+                    update_paper(uniqueId);
+                };
+
+                // Replace the cell's content with the button
+                cell.innerHTML = '';
+                cell.appendChild(updateButton);
+            } else {
+                // For other cells, create a new input element
+                var inputElement = document.createElement('input');
+                inputElement.type = 'text';
+                inputElement.value = cell.textContent.trim();
+
+                // Replace the cell's content with the input element
+                cell.innerHTML = '';
+                cell.appendChild(inputElement);
             }
-        }
-        btn.innerText = "Validate";
-        btn.setAttribute('onclick', 'verify(this.value)');
+        });
     }
 }
 
@@ -133,14 +149,14 @@ function disableFetch() {
     fetch_btn.disabled = true;
     fetch_btn.classList.remove("scrape-btn");
     fetch_btn.classList.add("scraped-btn");
-    console.log("Changing class to disabled");
+    // console.log("Changing class to disabled");
     document.getElementById('fetchData').innerHTML = "Fetching...";
 }
 
 function enableFetch() {
     document.getElementById('fetchData').disabled = false;
     document.getElementById('fetchData').innerHTML = "Submit";
-    console.log("Changing class to enabled");
+    // console.log("Changing class to enabled");
     fetch_btn = document.getElementById("fetchData");
     fetch_btn.disabled = false;
     fetch_btn.classList.remove("scraped-btn");
@@ -150,7 +166,7 @@ function enableFetch() {
 function enableFetchNoResponse() {
     document.getElementById('fetchData').disabled = false;
     document.getElementById('fetchData').innerHTML = "Fetch";
-    console.log("Changing class to enabled");
+    // console.log("Changing class to enabled");
     fetch_btn = document.getElementById("fetchData");
     fetch_btn.disabled = false;
     fetch_btn.classList.remove("scraped-btn");
@@ -257,7 +273,66 @@ function lookForEmptySearch() {
     }
 }
 
+setInterval(lookForEmptySearch, 100);
 function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("mytable");
+      switching = true;
+      // Set the sorting direction to ascending:
+      dir = "asc";
+      /* Make a loop that will continue until
+      no switching has been done: */
+      while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 1; i < (rows.length - 2); i++) {
+          // Start by saying there should be no switching:
+          shouldSwitch = false;
+          /* Get the two elements you want to compare,
+          one from current row and one from the next: */
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          /* Check if the two rows should switch place,
+          based on the direction, asc or desc: */
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+
+        
+
+        if (shouldSwitch) {
+          /* If a switch has been marked, make the switch
+          and mark that a switch has been done: */
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          // Each time a switch is done, increase this count by 1:
+          switchcount ++;
+        } else {
+          /* If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again. */
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+
+function sortTablenum(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("mytable");
     switching = true;
@@ -266,12 +341,12 @@ function sortTable(n) {
     /* Make a loop that will continue until
     no switching has been done: */
     while (switching) {
-      // Start by saying: no switching is done:
-      switching = false;
-      rows = table.rows;
-      /* Loop through all table rows (except the
-      first, which contains table headers): */
-      for (i = 1; i < (rows.length - 2); i++) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 2); i++) {
         // Start by saying there should be no switching:
         shouldSwitch = false;
         /* Get the two elements you want to compare,
@@ -281,108 +356,50 @@ function sortTable(n) {
         /* Check if the two rows should switch place,
         based on the direction, asc or desc: */
         if (dir == "asc") {
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        if (Number(x.innerHTML) > Number(y.innerHTML)) {
             // If so, mark as a switch and break the loop:
             shouldSwitch = true;
             break;
-          }
-        } else if (dir == "desc") {
-          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
         }
-      }
+        } else if (dir == "desc") {
+        if (Number(x.innerHTML) < Number(y.innerHTML)) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+        }
+        }
+    }
 
-      
+    
 
-      if (shouldSwitch) {
+    if (shouldSwitch) {
         /* If a switch has been marked, make the switch
         and mark that a switch has been done: */
         rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
         switching = true;
         // Each time a switch is done, increase this count by 1:
         switchcount ++;
-      } else {
+    } else {
         /* If no switching has been done AND the direction is "asc",
         set the direction to "desc" and run the while loop again. */
         if (switchcount == 0 && dir == "asc") {
-          dir = "desc";
-          switching = true;
+        dir = "desc";
+        switching = true;
         }
-      }
     }
-  }
-
-function sortTablenum(n) {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById("mytable");
-  switching = true;
-  // Set the sorting direction to ascending:
-  dir = "asc";
-  /* Make a loop that will continue until
-  no switching has been done: */
-  while (switching) {
-  // Start by saying: no switching is done:
-  switching = false;
-  rows = table.rows;
-  /* Loop through all table rows (except the
-  first, which contains table headers): */
-  for (i = 1; i < (rows.length - 2); i++) {
-      // Start by saying there should be no switching:
-      shouldSwitch = false;
-      /* Get the two elements you want to compare,
-      one from current row and one from the next: */
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      /* Check if the two rows should switch place,
-      based on the direction, asc or desc: */
-      if (dir == "asc") {
-      if (Number(x.innerHTML) > Number(y.innerHTML)) {
-          // If so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
-      }
-      } else if (dir == "desc") {
-      if (Number(x.innerHTML) < Number(y.innerHTML)) {
-          // If so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
-      }
-      }
-  }
-
-  
-
-  if (shouldSwitch) {
-      /* If a switch has been marked, make the switch
-      and mark that a switch has been done: */
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      // Each time a switch is done, increase this count by 1:
-      switchcount ++;
-  } else {
-      /* If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again. */
-      if (switchcount == 0 && dir == "asc") {
-      dir = "desc";
-      switching = true;
-      }
-  }
-  }
+    }
 }
 function applyFilter() {
-    var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
     var scopusCheckbox = document.querySelector('input[name="scopus"]');
     var webOfSciencesCheckbox = document.querySelector('input[name="webOfSciences"]');
     var quartileSelect = document.getElementById("quartile");
     var AYSelect = document.getElementById("AY");
+    var authorCheckboxes = document.getElementsByName("author"); // Add this line to get author checkboxes
     var table = document.getElementById("mytable");
     var rows = table.getElementsByTagName("tr");
 
     for (var i = 1; i < rows.length; i++) {
-        var indexingCell = rows[i].getElementsByTagName("td")[19]; // Assuming indexing is at index 19, adjust if needed
+        var indexingCell = rows[i].getElementsByTagName("td")[19];
         var quartileCell = rows[i].getElementsByTagName("td")[20]; // Assuming quartile is at index 20, adjust if needed
         var AYCell = rows[i].getElementsByTagName("td")[3]; // Assuming Academic Year is at index 3, adjust if needed
 
@@ -390,9 +407,23 @@ function applyFilter() {
         var webOfSciencesChecked = webOfSciencesCheckbox.checked;
         var quartileSelected = quartileSelect.value;
         var selectedAY = AYSelect.value;
-        
+
+        // Get the authors of the paper
+        var firstAuthor = rows[i].getElementsByTagName("td")[4].textContent;
+        var secondAuthor = rows[i].getElementsByTagName("td")[5].textContent;
+        var thirdAuthor = rows[i].getElementsByTagName("td")[6].textContent;
+        var otherAuthors = rows[i].getElementsByTagName("td")[7].textContent;
+
+        // Check if any of the selected authors match the authors of the paper
+        var authorMatch = Array.from(authorCheckboxes).some(function (checkbox) {
+            var authorName = checkbox.value;
+            authorName = authorName.split(" ")[0];
+            return checkbox.checked && (firstAuthor.includes(authorName) || secondAuthor.includes(authorName) || thirdAuthor.includes(authorName) || otherAuthors.includes(authorName));
+        });
+
         var containsWebOfScience = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("web of science") : false;
         var containsScopus = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("scopus") : false;
+
         var matchesQuartile = quartileCell ? quartileCell.innerHTML.toLowerCase().includes(quartileSelected) : false;
         var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
 
@@ -402,6 +433,7 @@ function applyFilter() {
             if (
                 (webOfSciencesChecked && !containsWebOfScience) ||
                 (scopusChecked && !containsScopus) ||
+                !authorMatch || // Check for author match
                 (quartileSelected !== "" && !matchesQuartile) ||
                 !matchesAY
             ) {
@@ -410,12 +442,16 @@ function applyFilter() {
         } else {
             // Show all rows when "All Quartiles" is selected
             if (webOfSciencesChecked && !containsWebOfScience) {
+                console.log("Contains web of science");
                 shouldBeHidden = true;
             }
             if (scopusChecked && !containsScopus) {
+                console.log("Contains scopus");
                 shouldBeHidden = true;
             }
-            if (!matchesAY) {
+            if (!authorMatch || !matchesAY) { // Check for author match
+                console.log("Contains author match");
+
                 shouldBeHidden = true;
             }
         }
@@ -427,6 +463,7 @@ function applyFilter() {
         }
     }
 }
+
 
 function sortTableByQuartile() {
     var table = document.getElementById("mytable");
@@ -446,47 +483,40 @@ function sortTableByQuartile() {
         table.appendChild(rows[i]);
     }
 }
-
-function upload(uniqueid){
-    window.open("/rpa/auth/upload/" + uniqueid, "_blank");
-}
-
-function findHeaderIndex(headerText){
-      // Get the table element by its ID
-  var table = document.getElementById("mytable");
-
-  // Check if the table exists
-  if (table) {
-    // Get the first row (thead) of the table
-    var thead = table.querySelector('thead');
-
-    // Check if thead exists
-    if (thead) {
-      // Find all th elements in the first row
-      var headerCells = thead.querySelectorAll('th');
-
-      // Loop through each header cell to find the index of the one with the specified text content
-      for (var i = 0; i < headerCells.length; i++) {
-        if (headerCells[i].textContent.trim() === headerText.trim()) {
-          // Return the index if a match is found
-          return i;
-        }
-      }
-    }
-  }
-
-  // Return -1 if the table or header is not found
-  return -1;
-}
-
-
-
 setInterval(lookForEmptySearch, 100);
 document.getElementById('quartile').addEventListener('change', function() {
         sortTableByQuartile();
         applyFilter();
     });
 
+function upload(uniqueid){
+    window.open("/rpa/auth/upload/" + uniqueid, "_blank");
+}
 
+function findHeaderIndex(headerText){
+    // Get the table element by its ID
+var table = document.getElementById("mytable");
 
-setInterval(lookForEmptySearch, 100);
+// Check if the table exists
+if (table) {
+  // Get the first row (thead) of the table
+  var thead = table.querySelector('thead');
+
+  // Check if thead exists
+  if (thead) {
+    // Find all th elements in the first row
+    var headerCells = thead.querySelectorAll('th');
+
+    // Loop through each header cell to find the index of the one with the specified text content
+    for (var i = 0; i < headerCells.length; i++) {
+      if (headerCells[i].textContent.trim() === headerText.trim()) {
+        // Return the index if a match is found
+        return i;
+      }
+    }
+  }
+}
+
+// Return -1 if the table or header is not found
+return -1;
+}
