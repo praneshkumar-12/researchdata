@@ -34,13 +34,13 @@ function edit_paper(uniqueId) {
     if (row) {
         // Loop through each cell in the row
         Array.from(row.cells).forEach(function (cell, index) {
-            if (index === 0 || index === row.cells.length - 3) {
+            if (index === findHeaderIndex("S.No") || index === findHeaderIndex("Actions") || index === findHeaderIndex("Verification") || index === findHeaderIndex("Faculty Verification Status")) {
                 // Skip the first cell and leave the last cells unchanged
                 return;
             }
 
             // If it's the third cell, create a select element
-            if (index === 3) {
+            if (index === findHeaderIndex("Academic Year")) {
                 var selectElement = document.createElement('select');
                 selectElement.id = 'edit_AY';
                 selectElement.name = 'AY';
@@ -70,7 +70,7 @@ function edit_paper(uniqueId) {
                 // Replace the cell's content with the select element
                 cell.innerHTML = '';
                 cell.appendChild(selectElement);
-            } else if (index === 1){
+            } else if (index === findHeaderIndex("UniqueID")){
                 var inputElement = document.createElement('input');
                 inputElement.type = 'text';
                 inputElement.value = cell.textContent.trim();
@@ -79,7 +79,7 @@ function edit_paper(uniqueId) {
                 // Replace the cell's content with the input element
                 cell.innerHTML = '';
                 cell.appendChild(inputElement);
-            } else if (index === 23){
+            } else if (index === findHeaderIndex("FPP")){
                 var inputElement = document.createElement('input');
                 inputElement.type = 'text';
 
@@ -101,7 +101,7 @@ function edit_paper(uniqueId) {
                 cell.innerHTML = '';
                 cell.appendChild(inputElement);
             }
-            else if (index === 2 || index === 24) {
+            else if (index === findHeaderIndex("Title") || index === findHeaderIndex("URL")) {
                 // Title and Faculty Verification Status cells, change to textarea
                 var textareaElement = document.createElement('textarea');
                 textareaElement.value = cell.textContent.trim();
@@ -113,10 +113,10 @@ function edit_paper(uniqueId) {
                 // Replace the cell's content with the textarea element
                 cell.innerHTML = '';
                 cell.appendChild(textareaElement);
-            } else if (index === row.cells.length - 2) {
+            } else if (index === findHeaderIndex("Verification")) {
                 // Second last cell, change to "Under edit"
                 cell.textContent = 'Under edit';
-            } else if (index === row.cells.length - 1) {
+            } else if (index === findHeaderIndex("Actions")) {
                 // Last cell, change to "Update" button
                 var updateButton = document.createElement('button');
                 updateButton.className = 'verify-btn';
@@ -399,9 +399,9 @@ function applyFilter() {
     var rows = table.getElementsByTagName("tr");
 
     for (var i = 1; i < rows.length; i++) {
-        var indexingCell = rows[i].getElementsByTagName("td")[19];
-        var quartileCell = rows[i].getElementsByTagName("td")[20]; // Assuming quartile is at index 20, adjust if needed
-        var AYCell = rows[i].getElementsByTagName("td")[3]; // Assuming Academic Year is at index 3, adjust if needed
+        var indexingCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Indexing")];
+        var quartileCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Quartile")]; // Assuming quartile is at index 20, adjust if needed
+        var AYCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Academic Year")]; // Assuming Academic Year is at index 3, adjust if needed
 
         var scopusChecked = scopusCheckbox.checked;
         var webOfSciencesChecked = webOfSciencesCheckbox.checked;
@@ -409,10 +409,10 @@ function applyFilter() {
         var selectedAY = AYSelect.value;
 
         // Get the authors of the paper
-        var firstAuthor = rows[i].getElementsByTagName("td")[4].textContent;
-        var secondAuthor = rows[i].getElementsByTagName("td")[5].textContent;
-        var thirdAuthor = rows[i].getElementsByTagName("td")[6].textContent;
-        var otherAuthors = rows[i].getElementsByTagName("td")[7].textContent;
+        var firstAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("First Author")].textContent;
+        var secondAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("Second Author")].textContent;
+        var thirdAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("Third Author")].textContent;
+        var otherAuthors = rows[i].getElementsByTagName("td")[findHeaderIndex("Other Authors")].textContent;
 
         // Check if any of the selected authors match the authors of the paper
         var authorMatch = Array.from(authorCheckboxes).some(function (checkbox) {
@@ -470,8 +470,8 @@ function sortTableByQuartile() {
     var rows = Array.from(table.getElementsByTagName("tr"));
 
     rows.sort(function(a, b) {
-        var aValue = a.getElementsByTagName("td")[20].innerHTML.toLowerCase(); // Adjust index if needed
-        var bValue = b.getElementsByTagName("td")[20].innerHTML.toLowerCase(); // Adjust index if needed
+        var aValue = a.getElementsByTagName("td")[findHeaderIndex("Quartile")].innerHTML.toLowerCase(); // Adjust index if needed
+        var bValue = b.getElementsByTagName("td")[findHeaderIndex("Quartile")].innerHTML.toLowerCase(); // Adjust index if needed
         return aValue.localeCompare(bValue);
     });
 

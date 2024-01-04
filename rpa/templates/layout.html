@@ -194,7 +194,7 @@ function verify(uniqueId) {
 
         // Loop through each cell in the row
         Array.from(row.cells).forEach(function (cell, index) {
-            if (index === 0 || index === row.cells.length - 1 || index === row.cells.length - 2) {
+            if (index === findHeaderIndex("S.No") || index === findHeaderIndex("Actions") || index === findHeaderIndex("Verification")) {
                 // Skip the first, last, and second last cells
                 return;
             }
@@ -202,11 +202,11 @@ function verify(uniqueId) {
             // Get the content of the cell
             var cellContent;
 
-            if (index === 8) {
+            if (index === findHeaderIndex("Is Student Author")) {
                 // For the third cell (select element)
                 var selectElement = cell.querySelector('select');
                 cellContent = selectElement ? selectElement.value : '';
-            } else if(index === 23){
+            } else if(index === findHeaderIndex("FPP")){
 
                 cellContent = cell.getElementsByTagName("a");
 

@@ -317,7 +317,7 @@
     
             // Loop through each cell in the row
             Array.from(row.cells).forEach(function (cell, index) {
-                if (index === 0 || index === row.cells.length - 1 || index === row.cells.length - 2) {
+                if (index === findHeaderIndex("S.No") || index === findHeaderIndex("Actions") || index === findHeaderIndex("Verification")){
                     // Skip the first, last, and second last cells
                     return;
                 }
@@ -325,11 +325,11 @@
                 // Get the content of the cell
                 var cellContent;
     
-                if (index === 3) {
+                if (index === indHeaderIndex("Academic Year")) {
                     // For the third cell (select element)
                     var selectElement = cell.querySelector('select');
                     cellContent = selectElement ? selectElement.value : '';
-                } else if (index === 2 || index === 24) {
+                } else if (index === findHeaderIndex("Title") || index === findHeaderIndex("URL")) {
                     // For Title and Faculty Verification Status cells (textarea)
                     var textareaElement = cell.querySelector('textarea');
                     cellContent = textareaElement ? textareaElement.value : '';

@@ -86,7 +86,7 @@ function edit_before_verify(uniqueId){
 
     if (row){
         Array.from(row.cells).forEach(function (cell, index) {
-            if (index === 8){
+            if (index === findHeaderIndex("Is Student Author")){
                 var selectElement = document.createElement('select');
                 selectElement.id = 'studentAuthor';
                 selectElement.name = 'SA';
@@ -101,14 +101,14 @@ function edit_before_verify(uniqueId){
                 cell.innerHTML = '';
                 cell.appendChild(selectElement);
             }
-            if (cell.textContent.trim() === 'NULL' && index != 23){
+            if (cell.textContent.trim() === 'NULL' && index != findHeaderIndex("FPP")){
                 var inputElement = document.createElement('input');
                 inputElement.type = 'text';
                 inputElement.value = cell.textContent.trim();
                 cell.innerHTML = '';
                 cell.appendChild(inputElement);
             }
-            else if (index === 23){
+            else if (index === findHeaderIndex("FPP")){
                 console.log("FPP");
             }
         }
@@ -382,9 +382,9 @@ function applyFilter() {
     var rows = table.getElementsByTagName("tr");
 
     for (var i = 1; i < rows.length; i++) {
-        var indexingCell = rows[i].getElementsByTagName("td")[19]; // Assuming indexing is at index 19, adjust if needed
-        var quartileCell = rows[i].getElementsByTagName("td")[20]; // Assuming quartile is at index 20, adjust if needed
-        var AYCell = rows[i].getElementsByTagName("td")[3]; // Assuming Academic Year is at index 3, adjust if needed
+        var indexingCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Indexing")]; // Assuming indexing is at index 19, adjust if needed
+        var quartileCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Quartile")]; // Assuming quartile is at index 20, adjust if needed
+        var AYCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Academic Year")]; // Assuming Academic Year is at index 3, adjust if needed
 
         var scopusChecked = scopusCheckbox.checked;
         var webOfSciencesChecked = webOfSciencesCheckbox.checked;
@@ -433,8 +433,8 @@ function sortTableByQuartile() {
     var rows = Array.from(table.getElementsByTagName("tr"));
 
     rows.sort(function(a, b) {
-        var aValue = a.getElementsByTagName("td")[20].innerHTML.toLowerCase(); // Adjust index if needed
-        var bValue = b.getElementsByTagName("td")[20].innerHTML.toLowerCase(); // Adjust index if needed
+        var aValue = a.getElementsByTagName("td")[findHeaderIndex("Quartile")].innerHTML.toLowerCase(); // Adjust index if needed
+        var bValue = b.getElementsByTagName("td")[findHeaderIndex("Quartile")].innerHTML.toLowerCase(); // Adjust index if needed
         return aValue.localeCompare(bValue);
     });
 
