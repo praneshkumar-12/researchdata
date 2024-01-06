@@ -171,6 +171,10 @@
         </table>
         <button id="downloadCSV" class="scrape-btn" onclick="downloadCSV()">Download CSV</button>
     </div>
+    <div id="sidebar">
+        <h3>Columns</h3>
+        <div id="columnList"></div>
+    </div>
 </body>
 
 
@@ -489,7 +493,43 @@ function submitData() {
 
 
 
+$(document).ready(function() {
+    // Function to dynamically populate the column names in the sidebar
+    function populateColumns() {
+        var columns = [];
+        $('#mytable thead th').each(function() {
+            columns.push($(this).text());
+        });
 
+        var columnList = $('#columnList');
+        columnList.empty();
+
+        columns.forEach(function(column, index) {
+            var checkbox = $('<label><input type="checkbox" name="columns" value="' + (index + 1) + '" checked>' + column + '</label>');
+            columnList.append(checkbox);
+        });
+    }
+
+    // Function to toggle visibility of columns based on checkbox state
+    function toggleColumns() {
+        $('input[name="columns"]').each(function() {
+            var columnIndex = $(this).val();
+            var isChecked = $(this).prop('checked');
+
+            // Toggle the visibility of the corresponding column
+            $('table th:nth-child(' + columnIndex + '), table td:nth-child(' + columnIndex + ')').toggle(isChecked);
+        });
+    }
+
+    // Initial setup
+    populateColumns();
+    toggleColumns();
+
+    // Handle checkbox changes
+    $(document).on('change', 'input[name="columns"]', function() {
+        toggleColumns();
+    });
+});
 
 
 // function applyFilter() {
