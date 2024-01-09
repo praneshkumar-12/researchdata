@@ -192,6 +192,9 @@ function downloadCSV() {
             for (var j = 0; j < cols.length - 1; j++) {
                 // console.log(cols[j].innerHTML)
                 // Add automatic serial numbers for the first row
+                if (window.getComputedStyle(cols[j]).display !== 'none') {
+                    // Add double quotes to the 8th column (index 7)
+                
                 if (i === 0 && j === 0) {
                     csvrow.push("Serial Number");
                 } else {
@@ -204,6 +207,7 @@ function downloadCSV() {
                     csvrow.push('"' + cols[j].innerHTML + '"');
                 }
             }
+        }
 
             csv_data.push(csvrow.join(","));
         }
