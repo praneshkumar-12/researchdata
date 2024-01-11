@@ -498,7 +498,12 @@ $(document).ready(function() {
     function populateColumns() {
         var columns = [];
         $('#mytable thead th').each(function() {
-            columns.push($(this).text());
+            var columnText = $(this).text();
+            
+            // Exclude headers with text "verifications" and "actions"
+            if (columnText.toLowerCase() !== "verification" && columnText.toLowerCase() !== "actions" && columnText.toLowerCase() !== "faculty verification status") {
+                columns.push(columnText);
+            }
         });
 
         var columnList = $('#columnList');
@@ -530,6 +535,7 @@ $(document).ready(function() {
         toggleColumns();
     });
 });
+
 
 
 // function applyFilter() {
