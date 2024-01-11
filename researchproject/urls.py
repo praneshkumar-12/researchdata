@@ -18,8 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from rpa import views
 from django.urls import include
+from django.shortcuts import redirect
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('', lambda request: redirect('/rpa/login')),
     path("rpa/", include("rpa.urls")),
 ]
