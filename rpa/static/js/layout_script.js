@@ -177,7 +177,6 @@ function downloadCSV() {
     var row_content = "";
 
     for (var i = 0; i < rows.length; i++) { // Exclude the last row
-        // Check if the row is visible (style.display is not "none")
         if (i === rows.length - 1) {
             row_content = rows[i].querySelectorAll('td,th');
             content = row_content[1].innerHTML;
@@ -185,6 +184,7 @@ function downloadCSV() {
                 continue;
             }
         }
+        // Check if the row is visible (style.display is not "none")
         if (window.getComputedStyle(rows[i]).display !== 'none') {
             var cols = rows[i].querySelectorAll('td,th');
             var csvrow = [];
@@ -192,18 +192,37 @@ function downloadCSV() {
             for (var j = 0; j < cols.length - 1; j++) {
                 // console.log(cols[j].innerHTML)
                 // Add automatic serial numbers for the first row
+                if (j === findHeaderIndex("Verification") || i === findHeaderIndex("Actions") || i === findHeaderIndex("Faculty Verification Status")){
+                    continue;
+                }
+
                 if (window.getComputedStyle(cols[j]).display !== 'none') {
                     // Add double quotes to the 8th column (index 7)
                 
                 if (i === 0 && j === 0) {
                     csvrow.push("Serial Number");
                 } else {
+
+                    if (j === findHeaderIndex("URL") || j === findHeaderIndex("FPP")){
+                        cellContent = cols[j].getElementsByTagName("a");
+
+                        if (cellContent.length != 0){
+                            console.log(cellContent);
+                            cellContent = cellContent[0].getAttribute("href");
+                        }
+                        else{
+                            cellContent = 'NULL';
+                        }
+                        csvrow.push('"' + cellContent + '"');
+                        continue;
+                    }
                     if (i !== 0 && j === 0) {
                         csvrow.push(counter);
                         counter += 1;
                         continue;
                     }
                     // Add double quotes to the 8th column (index 7)
+                    
                     csvrow.push('"' + cols[j].innerHTML + '"');
                 }
             }
