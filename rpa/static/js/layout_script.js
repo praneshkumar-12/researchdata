@@ -203,7 +203,8 @@ function downloadCSV() {
                     csvrow.push("Serial Number");
                 } else {
 
-                    if (j === findHeaderIndex("URL") || j === findHeaderIndex("FPP")){
+                    if (i === 0 && (j === findHeaderIndex("URL") || j === findHeaderIndex("FPP"))){
+                        
                         cellContent = cols[j].getElementsByTagName("a");
 
                         if (cellContent.length != 0){
