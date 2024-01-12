@@ -10,6 +10,11 @@ def admin_dashboard(request):
 
     publication_list = []
 
+    name = request.session.get("FACULTY_NAME")
+    print(name)
+    if name != "admin":
+        return redirect("/rpa/login")
+
     facs = []
 
     form = PublicationsForm()

@@ -24,7 +24,7 @@ def login(request):
 
         for adminuser in adminusers:
             if adminuser.email_id == email and adminuser.passkey == passcode:
-                request.session["FACULTY_NAME"] = None
+                request.session["FACULTY_NAME"] = "admin"
                 return redirect("/rpa/dbadmin/dashboard")
 
         for user in users:
@@ -44,6 +44,9 @@ def dashboard(request):
     publication_list = []
 
     name = request.session.get("FACULTY_NAME")
+
+    if name is None or name == "admin":
+        return redirect("/rpa/login")
 
     form = PublicationsForm()
 
