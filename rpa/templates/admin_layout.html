@@ -30,6 +30,114 @@
             cursor: pointer;
         }
 
+
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+h1 {
+    padding: 20px;
+    background-color: #0d6efd;
+    color: black;
+    margin: 0;
+}
+
+form {
+    padding: 20px;
+    background-color: #f1f1f1;
+    display:flexbox;
+    flex-wrap:inherit;
+}
+
+.container {
+    padding: 20px;
+    margin-left: 200px; /* Adjust the margin to match your sidepanel width */
+}
+
+#mytable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#mytable th, #mytable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.sidepanel {
+    height: 100%;
+    width: 250px;
+    position:absolute;
+    z-index: 1; /* Make sure it's above other elements */
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    color: white;
+    transition: 0.02s;
+    text-align: center;
+    color: white;
+}
+.sidepanel:before {
+    content:'';
+    position:absolute;
+    height:100vh;
+    width:10px;
+    top:0;
+    left:100%;
+    z-index:1;
+}
+.sidepanel span {
+    position:relative;
+    display:block;
+    width:calc(100% - 2em);
+    min-width:100px;  
+    padding:1em;
+    background: #25b9ab;
+}
+.sidepanel .line {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.line {
+    height:1px;
+    width:calc(100% - 44px);
+    background-color:#E9D985;
+    margin:0 22px;
+}
+.circle {
+    position:absolute;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    font-size:16px;
+    background-color:#ef4581;
+    color:#f1f1f2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    top:calc(50% - 22px);
+    left:calc(100% - 22px);
+    z-index:3;
+    cursor:pointer;
+}
+.fa-chevron-left {
+    margin-right:5px;
+}
+.fa-chevron-right {
+    margin-left:5px;
+}
+.hide {
+    display:none;
+}
+
+.filterlabel {
+    display: block;
+    width: 175px;
+}
+
     </style>
 </head>
 <body>
@@ -245,6 +353,14 @@
         </table>
         <button id="downloadCSV" class="scrape-btn" onclick="downloadCSV()">Download CSV</button>
     </div>
+    <div class="sidepanel">
+        <span><div id="columnList"></div></span>
+        <div class="line"></div>
+        <div class="circle">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          <i class="fa fa-chevron-right hide" aria-hidden="true"></i>    
+        </div>
+      </div> 
 </body>
 
     <!-- Bootstrap JS (Popper.js and Bootstrap JS) -->
@@ -600,8 +716,71 @@
         });
     
     }
+
+    $(document).ready(function() {
+        // Function to dynamically populate the column names in the sidebar
+        function populateColumns() {
+            var columns = [];
+            $('#mytable thead th').each(function() {
+                var columnText = $(this).text();
+                
+                // Exclude headers with text "verifications" and "actions"
+                if (columnText.toLowerCase() !== "verification" && columnText.toLowerCase() !== "actions" && columnText.toLowerCase() !== "faculty verification status") {
+                    columns.push(columnText);
+                }
+            });
+    
+            var columnList = $('#columnList');
+            columnList.empty();
+    
+            columns.forEach(function(column, index) {
+                var checkbox = $('<label class="filterlabel"><input type="checkbox" name="columns" value="' + (index + 1) + '" checked>' + column + '</label>');
+                columnList.append(checkbox);
+            });
+        }
+    
+        // Function to toggle visibility of columns based on checkbox state
+        function toggleColumns() {
+            $('input[name="columns"]').each(function() {
+                var columnIndex = $(this).val();
+                var isChecked = $(this).prop('checked');
+    
+                // Toggle the visibility of the corresponding column
+                $('table th:nth-child(' + columnIndex + '), table td:nth-child(' + columnIndex + ')').toggle(isChecked);
+            });
+        }
+    
+        // Initial setup
+        populateColumns();
+        toggleColumns();
+    
+        // Handle checkbox changes
+        $(document).on('change', 'input[name="columns"]', function() {
+            toggleColumns();
+        });
+    });
     
     
+     // JS for the sidebar
+     $('.circle').click(function() {
+      let spWidth = $('.sidepanel').width();
+      let spMarginLeft = parseInt($('.sidepanel').css('margin-left'),10);
+      let w = (spMarginLeft >= 0 ) ? spWidth * -1 : 0;
+      let cw = (w < 0) ? -w : spWidth-22;
+      $('.sidepanel').animate({
+        marginLeft:w
+      });
+      $('.sidepanel span').animate({
+        marginLeft:w
+      });
+      $('.circle').animate({
+        left:cw
+      },function() {
+        $('.fa-chevron-left').toggleClass('hide');
+        $('.fa-chevron-right').toggleClass('hide');
+      });
+    });
+
     </script>
     
 </html>
