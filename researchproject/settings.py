@@ -74,6 +74,23 @@ WSGI_APPLICATION = "researchproject.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'sql_server.pyodbc',
+#         'NAME': 'researchdata',
+#         'USER': 'dbadmin',
+#         'PASSWORD': 'Db4SSNIT',
+#         'HOST': 'ssn-it-researchdata.database.windows.net',
+#         'PORT': '1433',
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 18 for SQL Server',
+#             'encrypt': 'yes',
+#             'trust_server_certificate': 'no',
+#             'connection_timeout': 30,
+#         },
+#     },
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
@@ -84,7 +101,6 @@ DATABASES = {
         "PASSWORD": "Test-Database4Me",
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -120,7 +136,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
