@@ -7,174 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin_layout.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
     <style>
-        /* Add your CSS styles here if needed */
-        .hidden {
-            display: none;
+        .hide {
+            display:none;
         }
-
-        .update-btn {
-            background-color: rgb(57, 103, 204);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .delete-btn {
-            background-color: rgb(218, 37, 37);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-
-        body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden; /* Hide horizontal scrollbar */
-}
-
-h1 {
-    padding: 20px;
-    background-color: #0d6efd;
-    color: black;
-    margin: 0;
-}
-
-form {
-    padding: 20px;
-    background-color: #f1f1f1;
-    display:flexbox;
-    flex-wrap:inherit;
-}
-
-.container {
-    padding: 20px;
-    margin-left: 200px; /* Adjust the margin to match your sidepanel width */
-}
-
-#mytable {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#mytable th, #mytable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-.sidepanel {
-    height: 100%;
-    width: 250px;
-    position:absolute;
-    z-index: 1; /* Make sure it's above other elements */
-    top: 0;
-    left: 0;
-    padding-top: 20px;
-    color: white;
-    transition: 0.02s;
-    text-align: center;
-    color: white;
-}
-.sidepanel:before {
-    content:'';
-    position:absolute;
-    height:100vh;
-    width:10px;
-    top:0;
-    left:100%;
-    z-index:1;
-}
-.sidepanel span {
-    position:relative;
-    display:block;
-    width:calc(100% - 2em);
-    min-width:100px;  
-    padding:1em;
-    background: #25b9ab;
-}
-.sidepanel .line {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
-}
-
-.line {
-    height:1px;
-    width:calc(100% - 44px);
-    background-color:#E9D985;
-    margin:0 22px;
-}
-.circle {
-    position:absolute;
-    width:44px;
-    height:44px;
-    border-radius:50%;
-    font-size:16px;
-    background-color:#ef4581;
-    color:#f1f1f2;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    top:calc(50% - 22px);
-    left:calc(100% - 22px);
-    z-index:3;
-    cursor:pointer;
-}
-.fa-chevron-left {
-    margin-right:5px;
-}
-.fa-chevron-right {
-    margin-left:5px;
-}
-.hide {
-    display:none;
-}
-
-.filterlabel {
-    display: block;
-    width: 175px;
-}
-
-.dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    /* Style the dropdown button */
-    .dropbtn {
-        padding: 20px;
-        border: none;
-        background-color: #f1f1f1;
-        cursor: pointer;
-    }
-
-    /* Style the dropdown content (hidden by default) */
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        max-height: 150px;
-        overflow-y: auto;
-    }
-
-    /* Style the checkboxes within the dropdown */
-    .dropdown-content label {
-        display: block;
-        padding: 8px 12px;
-        white-space: nowrap;
-    }
-
-    /* Show the dropdown content when the dropdown button is clicked */
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-    
     </style>
 </head>
 <body>
@@ -365,11 +203,6 @@ form {
 
 <script>
     function verify(uniqueid) {
-        // Perform verification logic here
-        // console.log(uniqueid)
-        // Change button style
-    
-    
         $.ajax({
             type: "POST",
             url: "{% url 'admin_verify_paper' %}",
@@ -381,9 +214,9 @@ form {
                 alert(response);
             }
         });
-    
+
         var btnelts = document.getElementsByClassName('verify-btn')
-    
+
         var btnlen = btnelts.length
         for (var i = 0; i < btnlen; i++) {
             // console.log(btnelts[i])
@@ -397,8 +230,8 @@ form {
         btn.classList.add('verified-btn');
         btn.innerText = "Verified";
     }
-    
-    function delete_paper(uniqueid){
+
+    function delete_paper(uniqueid) {
         $.ajax({
             type: "POST",
             url: "{% url 'admin_delete_paper' %}",
@@ -412,27 +245,26 @@ form {
             }
         });
     }
-    
-    
-    
+
+
     function update_paper(uniqueId) {
         // Find the row based on the UniqueID
         var row = document.querySelector('#tableBody tr[data-uniqueid="' + uniqueId + '"]');
-    
+
         if (row) {
             var headersRow = document.querySelector('#mytable thead tr');
             var updatedData = {};
-    
+
             // Loop through each cell in the row
-            Array.from(row.cells).forEach(function (cell, index) {
-                if (index === findHeaderIndex("S.No") || index === findHeaderIndex("Actions") || index === findHeaderIndex("Verification")){
+            Array.from(row.cells).forEach(function(cell, index) {
+                if (index === findHeaderIndex("S.No") || index === findHeaderIndex("Actions") || index === findHeaderIndex("Verification")) {
                     // Skip the first, last, and second last cells
                     return;
                 }
-    
+
                 // Get the content of the cell
                 var cellContent;
-    
+
                 if (index === indHeaderIndex("Academic Year")) {
                     // For the third cell (select element)
                     var selectElement = cell.querySelector('select');
@@ -446,18 +278,18 @@ form {
                     var inputElement = cell.querySelector('input');
                     cellContent = inputElement ? inputElement.value : '';
                 }
-    
+
                 // Get the corresponding header from the headers row
                 var headerCell = headersRow.cells[index];
                 var headerText = headerCell.textContent.trim();
-    
+
                 // Add the data to the updatedData object with the header as the key
                 updatedData[headerText] = cellContent;
             });
-    
+
             // Now, updatedData contains the data with headers as keys
             console.log(updatedData);
-    
+
             $.ajax({
                 type: "POST",
                 url: "{% url 'admin_update_paper' %}",
@@ -489,45 +321,43 @@ form {
                     issn: updatedData['ISSN'],
                     front_page_path: updatedData['FPP']
                 },
-                success: function (response) {
+                success: function(response) {
                     alert(response);
                     // Reload the page after the successful update
                     location.reload();
                 },
-                error: function (error) {
+                error: function(error) {
                     alert(error);
                 }
             });
-    
+
         }
     }
-    
-    
-    
-    
+
+
     function scrapeData() {
-    
+
         title_text = document.getElementById("id_title");
         doi_text = document.getElementById("id_doi");
-    
-    
+
+
         title = title_text.value;
         doi = doi_text.value;
-    
+
         if (doi == "") {
             alert("Please fill DOI field and try again!")
         } else {
             disableFetch();
-    
+
             // console.log(doi);
-    
+
             var myResponse;
-    
+
             setTimeout(function() {
                 $.ajaxSetup({
                     async: false
                 });
-    
+
                 $.ajax({
                     type: "POST",
                     url: "{% url 'scrape_data' %}",
@@ -541,11 +371,11 @@ form {
                         myResponse = response;
                     }
                 });
-    
-    
-    
+
+
+
                 // console.log(myResponse);
-    
+
                 if (myResponse == "Cannot fetch data for the given search term!") {
                     alert(myResponse);
                     enableFetchNoResponse();
@@ -556,7 +386,7 @@ form {
                     document.getElementById("id_title").disabled = false;
                     return null;
                 }
-    
+
                 document.getElementById("id_title").value = myResponse.title;
                 document.getElementById("id_uniqueid").value = myResponse.uniqueid;
                 document.getElementById('id_first_author').value = myResponse.first_author;
@@ -583,7 +413,7 @@ form {
                 document.getElementById('id_front_page_path').value = "Yet to upload";
                 document.getElementById('id_url').value = myResponse.url;
                 document.getElementById('id_issn').value = myResponse.ISSN;
-    
+
                 document.getElementById('id_title').disabled = myResponse.title == "NULL" ? false : true;
                 document.getElementById('id_AY').disabled = false;
                 document.getElementById('id_first_author').disabled = myResponse.first_author == "NULL" ? false : true;
@@ -610,19 +440,19 @@ form {
                 document.getElementById('id_issn').disabled = myResponse.ISSN == "NULL" ? false : true;
                 document.getElementById('fetchData').disabled = false;
                 document.getElementById('fetchData').innerHTML = "Submit";
-    
+
                 document.getElementById('fetchData').setAttribute('onclick', 'submitData()')
-    
+
                 enableFetch();
-    
+
             }, 2500);
-    
+
         }
-    
+
     }
-    
+
     function submitData() {
-    
+
         uniqueid = document.getElementById('id_uniqueid').value;
         title = document.getElementById('id_title').value;
         AY = document.getElementById("id_AY").options[document.getElementById("id_AY").selectedIndex].value;
@@ -648,9 +478,9 @@ form {
         front_page_path = document.getElementById('id_front_page_path').value;
         url = document.getElementById('id_url').value;
         issn = document.getElementById('id_issn').value;
-    
+
         // var myResponse;
-    
+
         $.ajax({
             type: "POST",
             url: "{% url 'admin_insert_paper' %}",
@@ -687,13 +517,12 @@ form {
                 // myResponse = response;
             }
         });
-    
+
         location.reload();
     }
-    
-    
-    
-    function remove_upload(uniqueid){
+
+
+    function remove_upload(uniqueid) {
         $.ajax({
             type: "POST",
             url: "{% url 'remove_upload' %}",
@@ -706,8 +535,10 @@ form {
                 window.location.reload();
             }
         });
-    
+
     }
+
+    //jQuery
 
     $(document).ready(function() {
         // Function to dynamically populate the column names in the sidebar
@@ -715,62 +546,62 @@ form {
             var columns = [];
             $('#mytable thead th').each(function() {
                 var columnText = $(this).text();
-                
+
                 // Exclude headers with text "verifications" and "actions"
                 if (columnText.toLowerCase() !== "verification" && columnText.toLowerCase() !== "actions" && columnText.toLowerCase() !== "faculty verification status") {
                     columns.push(columnText);
                 }
             });
-    
+
             var columnList = $('#columnList');
             columnList.empty();
-    
+
             columns.forEach(function(column, index) {
                 var checkbox = $('<label class="filterlabel"><input type="checkbox" name="columns" value="' + (index + 1) + '" checked>' + column + '</label>');
                 columnList.append(checkbox);
             });
         }
-    
+
         // Function to toggle visibility of columns based on checkbox state
         function toggleColumns() {
             $('input[name="columns"]').each(function() {
                 var columnIndex = $(this).val();
                 var isChecked = $(this).prop('checked');
-    
+
                 // Toggle the visibility of the corresponding column
                 $('table th:nth-child(' + columnIndex + '), table td:nth-child(' + columnIndex + ')').toggle(isChecked);
             });
         }
-    
+
         // Initial setup
         populateColumns();
         toggleColumns();
-    
+
         // Handle checkbox changes
         $(document).on('change', 'input[name="columns"]', function() {
             toggleColumns();
         });
     });
-    
-    
-     // JS for the sidebar
-     $('.circle').click(function() {
-      let spWidth = $('.sidepanel').width();
-      let spMarginLeft = parseInt($('.sidepanel').css('margin-left'),10);
-      let w = (spMarginLeft >= 0 ) ? spWidth * -1 : 0;
-      let cw = (w < 0) ? -w : spWidth-22;
-      $('.sidepanel').animate({
-        marginLeft:w
-      });
-      $('.sidepanel span').animate({
-        marginLeft:w
-      });
-      $('.circle').animate({
-        left:cw
-      },function() {
-        $('.fa-chevron-left').toggleClass('hide');
-        $('.fa-chevron-right').toggleClass('hide');
-      });
+
+
+    // JS for the sidebar
+    $('.circle').click(function() {
+        let spWidth = $('.sidepanel').width();
+        let spMarginLeft = parseInt($('.sidepanel').css('margin-left'), 10);
+        let w = (spMarginLeft >= 0) ? spWidth * -1 : 0;
+        let cw = (w < 0) ? -w : spWidth - 22;
+        $('.sidepanel').animate({
+            marginLeft: w
+        });
+        $('.sidepanel span').animate({
+            marginLeft: w
+        });
+        $('.circle').animate({
+            left: cw
+        }, function() {
+            $('.fa-chevron-left').toggleClass('hide');
+            $('.fa-chevron-right').toggleClass('hide');
+        });
     });
 
     </script>
