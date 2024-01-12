@@ -6,10 +6,6 @@ from rpa.models import AdminUsers
 from rpa.forms import PublicationsForm
 import rpa.extractor.extractor as Extractor
 from django.http import JsonResponse
-from django.http import FileResponse
-from django.shortcuts import get_object_or_404
-from django.views import View
-from django.http import HttpResponseNotFound
 import os
 
 
@@ -139,7 +135,6 @@ def scrape_data(request):
     except (IndexError, KeyError):
         return HttpResponse("Cannot fetch data for the given search term!")
 
-    print(result)
 
     if (result is None) or (result == False):
         return HttpResponse("Cannot fetch data for the given search term!")
@@ -148,7 +143,6 @@ def scrape_data(request):
 
 
 def insert_paper(request):
-    print(request.POST)
 
     args = {}
 
@@ -249,7 +243,6 @@ def insert_paper(request):
             else:
                 args[key] = val
 
-    print(args)
 
     new_record = Publications(**args)
 
@@ -261,33 +254,41 @@ def insert_paper(request):
 def upload_paper(request, uniqueid):
     if request.method == "GET":
         publ = Publications.objects.get(uniqueid=uniqueid)
-        return render(request, "upload.html", {"title": publ.title, "uniqueid": uniqueid})
+        return render(
+            request, "upload.html", {"title": publ.title, "uniqueid": uniqueid}
+        )
     else:
         try:
-            print(request.POST)
-            print(request.FILES)
-            print(uniqueid)
 
             if not os.path.exists("rpa/static/upload/"):
                 os.mkdir("rpa/static/upload/")
 
-            upload_file = request.FILES['file']
+            upload_file = request.FILES["file"]
 
-            complete_path = 'rpa/static/upload/' + uniqueid.strip() + ".pdf"
+            complete_path = "rpa/static/upload/" + uniqueid.strip() + ".pdf"
 
             publ = Publications.objects.get(uniqueid=uniqueid)
-            
-            with open(complete_path, 'wb+') as destination:
+
+            with open(complete_path, "wb+") as destination:
                 for chunk in upload_file.chunks():
                     destination.write(chunk)
-            
+
             publ.front_page_path = complete_path
 
             publ.save()
 
-            return render(request, "upload.html", {"alertmessage": "Upload successful!", "uniqueid": uniqueid})
+            return render(
+                request,
+                "upload.html",
+                {"alertmessage": "Upload successful!", "uniqueid": uniqueid},
+            )
         except Exception as e:
-            return render(request, "upload.html", {"alertmessage": str(e), "reload": "yes", "uniqueid": uniqueid})
+            return render(
+                request,
+                "upload.html",
+                {"alertmessage": str(e), "reload": "yes", "uniqueid": uniqueid},
+            )
+
 
 def update_paper(request):
     try:
@@ -369,16 +370,16 @@ def update_paper(request):
                         args[key] = 0
                     else:
                         args[key] = int(val)
-                elif key == "front_page_path" and ("Yet" in (val if val is not None else "Yet")):
+                elif key == "front_page_path" and (
+                    "Yet" in (val if val is not None else "Yet")
+                ):
                     continue
                 else:
                     args[key] = val
-        
-        print(args)
-        
+
+
         existing_data = Publications.objects.get(uniqueid=uniqueid)
 
-        
         existing_data.uniqueid = args.get("uniqueid")
         existing_data.title = args.get("title")
         existing_data.first_author = args.get("first_author")
@@ -409,11 +410,10 @@ def update_paper(request):
         existing_data.volume = args.get("volume")
         existing_data.verified = "True"
         existing_data.admin_verified = "False"
-        
-    # Save the updated instance
+
+        # Save the updated instance
         existing_data.save()
         return HttpResponse(f"Update successful for {args['title']}")
 
     except Exception as e:
-        return HttpResponse(str(e))   
-    
+        return HttpResponse(str(e))

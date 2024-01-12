@@ -39,7 +39,9 @@ class Publications(models.Model):
         db_column="ISSN", max_length=500, blank=True, null=True
     )  # Field name made lowercase.
     verified = models.CharField(max_length=10, blank=True, null=True, default="False")
-    admin_verified = models.CharField(max_length=10, blank=True, null=True, default="False")
+    admin_verified = models.CharField(
+        max_length=10, blank=True, null=True, default="False"
+    )
 
     class Meta:
         managed = False
@@ -55,6 +57,7 @@ class Users(models.Model):
     class Meta:
         managed = False
         db_table = "users"
+
 
 class AdminUsers(models.Model):
     email_id = models.CharField(primary_key=True, max_length=35, blank=True)

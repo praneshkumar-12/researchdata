@@ -11,7 +11,7 @@ def admin_dashboard(request):
     publication_list = []
 
     name = request.session.get("FACULTY_NAME")
-    print(name)
+    
     if name != "admin":
         return redirect("/rpa/login")
 
@@ -19,7 +19,7 @@ def admin_dashboard(request):
 
     form = PublicationsForm()
 
-    faculties = Users.objects.all().order_by('staff_name')
+    faculties = Users.objects.all().order_by("staff_name")
 
     for row in faculties:
         facs.append(row.staff_name)
@@ -73,16 +73,15 @@ def admin_dashboard(request):
         "papers": publication_list,
         "form": form,
         "new_sno": f"{int(len(publication_list)) + 1}",
-        "faculties": facs
+        "faculties": facs,
     }
 
     return render(request, "admin_layout.html", context)
 
+
 def admin_insert_paper(request):
-    print(request.POST)
 
     args = {}
-
 
     uniqueid = request.POST.get("uniqueid")
 
@@ -171,13 +170,13 @@ def admin_insert_paper(request):
             else:
                 args[key] = val
 
-    print(args)
 
     new_record = Publications(**args)
 
     new_record.save()
 
     return HttpResponse("Paper inserted successfully!")
+
 
 def admin_verify_paper(request):
     uniqueid = request.POST.get("uniqueid")
@@ -187,6 +186,7 @@ def admin_verify_paper(request):
     current_paper.save()
 
     return HttpResponse(f"Updated verification status for {current_paper.title}")
+
 
 def admin_delete_paper(request):
     uniqueid = request.POST.get("uniqueid")
@@ -198,6 +198,7 @@ def admin_delete_paper(request):
     publications.delete()
 
     return HttpResponse(f"Deleted paper: {name}")
+
 
 def admin_update_paper(request):
     try:
@@ -279,16 +280,16 @@ def admin_update_paper(request):
                         args[key] = 0
                     else:
                         args[key] = int(val)
-                elif key == "front_page_path" and ("Yet" in (val if val is not None else "Yet")):
+                elif key == "front_page_path" and (
+                    "Yet" in (val if val is not None else "Yet")
+                ):
                     continue
                 else:
                     args[key] = val
-        
-        print(args)
-        
+
+
         existing_data = Publications.objects.get(uniqueid=uniqueid)
 
-        
         existing_data.uniqueid = args.get("uniqueid")
         existing_data.title = args.get("title")
         existing_data.first_author = args.get("first_author")
@@ -319,18 +320,18 @@ def admin_update_paper(request):
         existing_data.volume = args.get("volume")
         existing_data.verified = "False"
         existing_data.admin_verified = "False"
-        
-    # Save the updated instance
+
+        # Save the updated instance
         existing_data.save()
         return HttpResponse(f"Update successful for {args['title']}")
 
     except Exception as e:
-        return HttpResponse(str(e))   
-    
+        return HttpResponse(str(e))
+
+
 def admin_remove_upload(request):
     uniqueid = request.POST.get("uniqueid")
 
-    print(uniqueid)
 
     publ = Publications.objects.get(uniqueid=uniqueid)
 
