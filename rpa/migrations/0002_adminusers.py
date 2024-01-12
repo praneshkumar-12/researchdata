@@ -4,22 +4,26 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('rpa', '0001_initial'),
+        ("rpa", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='AdminUsers',
+            name="AdminUsers",
             fields=[
-                ('email_id', models.CharField(blank=True, max_length=35, primary_key=True, serialize=False)),
-                ('staff_name', models.CharField(blank=True, max_length=50, null=True)),
-                ('passkey', models.CharField(blank=True, max_length=100, null=True)),
+                (
+                    "email_id",
+                    models.CharField(
+                        blank=True, max_length=35, primary_key=True, serialize=False
+                    ),
+                ),
+                ("staff_name", models.CharField(blank=True, max_length=50, null=True)),
+                ("passkey", models.CharField(blank=True, max_length=100, null=True)),
             ],
             options={
-                'db_table': 'adminusers',
-                'managed': False,
+                "db_table": "adminusers",
+                "managed": False,
             },
         ),
     ]
