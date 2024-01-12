@@ -1,3 +1,41 @@
+function filterTable() {
+    var input, filter, table, tr, td, i, j, txtValue;
+    input = document.getElementById("searchBox");
+    filter = input.value.toUpperCase();
+    if (filter === "") return filter
+    table = document.getElementById("tableBody");
+    tr = table.getElementsByTagName("tr");
+
+    var searchTerms = filter.split(" ").filter(term => term.trim() !== "");
+
+    for (i = 0; i < tr.length; i++) {
+        var rowstring = "";
+        for (j = 0; j < tr[i].cells.length; j++) {
+            td = tr[i].cells[j];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+            rowstring = rowstring.concat(txtValue);
+        }
+    }
+    rowstring = rowstring.toUpperCase();
+
+    // console.log(rowstring);
+
+    found = true;
+
+    for(var k=0; k<searchTerms.length;k++){
+        if (rowstring.includes(searchTerms[k].toUpperCase())){
+            found = found && true;
+        }
+        else{
+            found = found && false;
+            break;
+        }
+    }
+        tr[i].style.display = found ? "" : "none";
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('id_uniqueid').disabled = true;
     document.getElementById('id_title').disabled = true;
@@ -87,7 +125,7 @@ function edit_paper(uniqueId) {
                 cellContent = cell.getElementsByTagName("a");
 
                 if (cellContent.length != 0){
-                    console.log(cellContent);
+                    // console.log(cellContent);
                     cellContent = cellContent[0].getAttribute("href");
                     cellContent = cellContent.slice(1);
                 }
@@ -122,7 +160,7 @@ function edit_paper(uniqueId) {
                 updateButton.className = 'verify-btn';
                 updateButton.textContent = 'Update';
                 updateButton.onclick = function () {
-                    console.log(uniqueId);
+                    // console.log(uniqueId);
                     // Call your update function here, passing the uniqueId
                     update_paper(uniqueId);
                 };
@@ -274,6 +312,7 @@ function lookForEmptySearch() {
 }
 
 setInterval(lookForEmptySearch, 100);
+
 function sortTable(n) {
       var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
       table = document.getElementById("mytable");
@@ -389,6 +428,7 @@ function sortTablenum(n) {
     }
     }
 }
+
 function applyFilter() {
     var scopusCheckbox = document.querySelector('input[name="scopus"]');
     var webOfSciencesCheckbox = document.querySelector('input[name="webOfSciences"]');
@@ -397,6 +437,23 @@ function applyFilter() {
     var authorCheckboxes = document.getElementsByName("author"); // Add this line to get author checkboxes
     var table = document.getElementById("mytable");
     var rows = table.getElementsByTagName("tr");
+
+    var flag = false;
+
+
+    for (var i = 1; i < rows.length; i++){
+        var authorMatch = Array.from(authorCheckboxes).some(function (checkbox) {
+            var authorName = checkbox.value;
+            authorName = authorName.split(" ")[0];
+            return checkbox.checked;
+        });
+
+        if (authorMatch === true){
+            flag = true;
+            break;
+        }
+
+    }
 
     for (var i = 1; i < rows.length; i++) {
         var indexingCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Indexing")];
@@ -414,12 +471,15 @@ function applyFilter() {
         var thirdAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("Third Author")].textContent;
         var otherAuthors = rows[i].getElementsByTagName("td")[findHeaderIndex("Other Authors")].textContent;
 
+        var authorMatch = true;
+
         // Check if any of the selected authors match the authors of the paper
-        var authorMatch = Array.from(authorCheckboxes).some(function (checkbox) {
+        if (flag){authorMatch = Array.from(authorCheckboxes).some(function (checkbox) {
             var authorName = checkbox.value;
             authorName = authorName.split(" ")[0];
             return checkbox.checked && (firstAuthor.includes(authorName) || secondAuthor.includes(authorName) || thirdAuthor.includes(authorName) || otherAuthors.includes(authorName));
-        });
+        });}
+        
 
         var containsWebOfScience = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("web of science") : false;
         var containsScopus = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("scopus") : false;
@@ -442,15 +502,15 @@ function applyFilter() {
         } else {
             // Show all rows when "All Quartiles" is selected
             if (webOfSciencesChecked && !containsWebOfScience) {
-                console.log("Contains web of science");
+                // console.log("Contains web of science");
                 shouldBeHidden = true;
             }
             if (scopusChecked && !containsScopus) {
-                console.log("Contains scopus");
+                // console.log("Contains scopus");
                 shouldBeHidden = true;
             }
             if (!authorMatch || !matchesAY) { // Check for author match
-                console.log("Contains author match");
+                // console.log("Contains author match");
 
                 shouldBeHidden = true;
             }
@@ -520,3 +580,4 @@ if (table) {
 // Return -1 if the table or header is not found
 return -1;
 }
+
