@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title> Admin Dashboard </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
@@ -181,17 +182,17 @@ form {
 
     <form>
         <label for="authorDropdown">Authors:</label>
-<div class="dropdown">
-    <button class="dropbtn">Authors</button>
-    <div class="dropdown-content">
-        {% for faculty_name in faculties %}
-        <!-- Generate checkboxes for all authors -->
-        <label>
-            <input type="checkbox" name="author" value="{{ faculty_name }}"> {{ faculty_name }} 
-        </label>
-        {% endfor %}
-    </div>
-</div>
+        <div class="dropdown">
+            <button class="dropbtn">Authors</button>
+            <div class="dropdown-content">
+                {% for faculty_name in faculties %}
+                    <!-- Generate checkboxes for all authors -->
+                    <label>
+                        <input type="checkbox" name="author" value="{{ faculty_name }}"> {{ faculty_name }} 
+                    </label>
+                {% endfor %}
+            </div>
+        </div>
 
         <label for="quartile">Quartile:</label>
         <select id="quartile" name="quartile">
@@ -226,6 +227,7 @@ form {
         
         <button class="submit-btn" type="button" onclick="applyFilter()">Search</button>
     </form>
+
     <div class="container" id="b1">
         <input type="text" class="form-control" id="searchBox" placeholder="Search..." oninput="filterTable()">
         <table id="mytable" class="table table-bordered table-striped">
@@ -265,7 +267,6 @@ form {
             <tbody id="tableBody">
                 {% for paper in papers %}
                 <tr data-uniqueid="{{ paper.uniqueid }}">
-
                     <td></td>
                     <td>{{ paper.uniqueid }}</td>
                     <td>{{ paper.title }}</td>
@@ -317,8 +318,8 @@ form {
                     <button id="removeButton" class="delete-btn" onclick="remove_upload(this.value)" value="{{ paper.uniqueid }}">Remove Upload</button>
                     {% endif %}
                     </td>
+                </tr>
                 {% endfor %}
-                <tr>
                     <td></td>
                     <td><input type="text" name="uniqueid" maxlength="100" id="id_uniqueid" disabled></td>
                     {% for field in form %}
@@ -340,12 +341,12 @@ form {
                     {% endfor %}
                     <td>Unverified</td>
                     <td><button id="fetchData" class="scrape-btn" onclick="scrapeData()">Fetch</button></td>
-                
                 </tr>
             </tbody>
         </table>
         <button id="downloadCSV" class="scrape-btn" onclick="downloadCSV()">Download CSV</button>
     </div>
+
     <div class="sidepanel">
         <span><div id="columnList"></div></span>
         <div class="line"></div>
@@ -363,10 +364,6 @@ form {
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-
-
-
-
     function verify(uniqueid) {
         // Perform verification logic here
         // console.log(uniqueid)
@@ -776,10 +773,5 @@ form {
       });
     });
 
-    document.getElementById("a1").scroll(0, 500);
-
     </script>
-    
 </html>
-
-
