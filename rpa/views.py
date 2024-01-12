@@ -60,7 +60,7 @@ class FileDownloadView(View):
             file = open(file_path, "rb")
             response = FileResponse(file, as_attachment=True)
             publ = Publications.objects.get(uniqueid=filename.replace(".pdf", ""))
-            response["Content-Disposition"] = f'attachment; filename="{publ.title}"'
+            response["Content-Disposition"] = f'attachment; filename="{publ.title}.pdf"'
             return response
         else:
             # Return a 404 response if the file does not exist
