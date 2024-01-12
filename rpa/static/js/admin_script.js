@@ -586,3 +586,38 @@ function findHeaderIndex(headerText) {
     // Return -1 if the table or header is not found
     return -1;
 }
+
+function manualAddData(){
+    document.getElementById('id_uniqueid').disabled = true;
+    document.getElementById('id_title').disabled = false;
+    document.getElementById('id_AY').disabled = false;
+    document.getElementById('id_first_author').disabled = false;
+    document.getElementById('id_second_author').disabled = false;
+    document.getElementById('id_third_author').disabled = false;
+    document.getElementById('id_other_authors').disabled = false;
+    document.getElementById('id_is_student_author').disabled = false;
+    document.getElementById('id_student_name').disabled = false;
+    document.getElementById('id_student_batch').disabled = false;
+    document.getElementById('id_specification').disabled = false;
+    document.getElementById('id_publication_type').disabled = false;
+    document.getElementById('id_publication_name').disabled = false;
+    document.getElementById('id_publisher').disabled = false;
+    document.getElementById('id_year_of_publishing').disabled = false;
+    document.getElementById('id_month_of_publishing').disabled = false;
+    document.getElementById('id_volume').disabled = false;
+    document.getElementById('id_page_number').disabled = false;
+    document.getElementById('id_indexing').disabled = false;
+    document.getElementById('id_quartile').disabled = false;
+    document.getElementById('id_citation').disabled = false;
+    document.getElementById('id_doi').disabled = false;
+    document.getElementById('id_front_page_path').disabled = true;
+    document.getElementById('id_front_page_path').value = "Yet to upload";
+    document.getElementById('id_url').disabled = false;
+    document.getElementById('id_issn').disabled = false;
+
+    document.getElementById('fetchData').classList.remove("scrape-btn");
+    document.getElementById('fetchData').classList.add("scraped-btn");
+    document.getElementById('fetchData').style.display = "none";
+    document.getElementById('manualAddData').innerHTML = "Add Paper";
+    document.getElementById('manualAddData').setAttribute('onclick', 'submitData()')
+}

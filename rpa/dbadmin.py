@@ -125,6 +125,15 @@ def admin_insert_paper(request):
 
     integer_fields = ["year_of_publishing", "citation", "volume"]
 
+    if uniqueid is None or (not uniqueid):
+        uniqueid = (
+        str(start_academic_year)
+        + str(start_academic_month)
+        + "".join(letter for letter in doi if letter.isalnum())
+    )
+        
+        
+
     fields = {
         "uniqueid": uniqueid,
         "title": title,
