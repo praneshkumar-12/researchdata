@@ -68,10 +68,12 @@ function edit_paper(uniqueId) {
     // Find the row based on the UniqueID
     var row = document.querySelector('#tableBody tr[data-uniqueid="' + uniqueId + '"]');
 
+    console.log(row);
+
     if (row) {
         // Loop through each cell in the row
         Array.from(row.cells).forEach(function(cell, index) {
-            if (index === findHeaderIndex("S.No") || index === findHeaderIndex("Actions") || index === findHeaderIndex("Verification") || index === findHeaderIndex("Faculty Verification Status")) {
+            if (index === findHeaderIndex("S.No")) {
                 // Skip the first cell and leave the last cells unchanged
                 return;
             }
@@ -152,6 +154,7 @@ function edit_paper(uniqueId) {
                 // Second last cell, change to "Under edit"
                 cell.textContent = 'Under edit';
             } else if (index === findHeaderIndex("Actions")) {
+                console.log("Changing to save/update button");
                 // Last cell, change to "Update" button
                 var updateButton = document.createElement('button');
                 updateButton.className = 'verify-btn';
@@ -165,7 +168,9 @@ function edit_paper(uniqueId) {
                 // Replace the cell's content with the button
                 cell.innerHTML = '';
                 cell.appendChild(updateButton);
-            } else {
+            } else if (index === findHeaderIndex("Faculty Verification Status")){
+                cell.textContent = 'Under edit';          
+            }else {
                 // For other cells, create a new input element
                 var inputElement = document.createElement('input');
                 inputElement.type = 'text';
@@ -176,6 +181,8 @@ function edit_paper(uniqueId) {
                 cell.appendChild(inputElement);
             }
         });
+
+
     }
 }
 

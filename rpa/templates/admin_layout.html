@@ -265,7 +265,7 @@
                 // Get the content of the cell
                 var cellContent;
 
-                if (index === indHeaderIndex("Academic Year")) {
+                if (index === findHeaderIndex("Academic Year")) {
                     // For the third cell (select element)
                     var selectElement = cell.querySelector('select');
                     cellContent = selectElement ? selectElement.value : '';
