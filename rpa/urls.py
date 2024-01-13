@@ -19,6 +19,7 @@ urlpatterns = [
         views.FileDownloadView.as_view(),
         name="file_download",
     ),
+    path("auth/logout", views.logout, name="log_out"),
     # path("auth/upload/<uniqueid>", views.upload_paper),
     path("dbadmin/dashboard", views.admin_dashboard, name="admin_dashboard"),
     path("dbadmin/add_paper", views.admin_insert_paper, name="admin_insert_paper"),

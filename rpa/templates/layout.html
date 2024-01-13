@@ -16,7 +16,14 @@
     </style>
 </head>
 <body>
-    <h1>Dashboard</h1>
+    <div id="header">
+        <div>
+            <h1>Dashboard</h1>
+        </div>
+        <div>
+            <h4><a href="#" onclick="logOut()">Log Out</a></h4>
+        </div>
+    </div>
 
     <form>
         <label for="searchBy">Search By:</label>
@@ -484,6 +491,20 @@
         });
     
         location.reload();
+    }
+
+    function logOut(){
+        $.ajax({
+            type: "POST",
+            url: "{% url 'log_out' %}",
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+            },
+            success: function(response) {
+                alert(response);
+                window.location.replace("/rpa/login");
+            }
+        });
     }
 
     // jQuery

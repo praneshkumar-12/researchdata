@@ -1,6 +1,6 @@
 from . import users
 from . import dbadmin
-from django.http import FileResponse, HttpResponseNotFound
+from django.http import FileResponse, HttpResponseNotFound, HttpResponse
 from django.views import View
 import os
 from rpa.models import Publications
@@ -65,6 +65,13 @@ class FileDownloadView(View):
         else:
             # Return a 404 response if the file does not exist
             return HttpResponseNotFound("File not found!")
+
+def logout(request):
+
+    name = request.session.geT("FACULTY_NAME")
+    request.session["FACULTY_NAME"] = None
+    print("Logged out by", name)
+    return HttpResponse("Logged out successfully!")
 
 
 def remove_upload(request):
