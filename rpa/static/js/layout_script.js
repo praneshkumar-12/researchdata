@@ -90,12 +90,12 @@ function edit_before_verify(uniqueId) {
                 selectElement.id = 'studentAuthor';
                 selectElement.name = 'SA';
                 var optionElement = document.createElement('option');
-                optionElement.value = "Yes";
-                optionElement.textContent = "Yes";
-                selectElement.appendChild(optionElement);
-                var optionElement = document.createElement('option');
                 optionElement.value = "No";
                 optionElement.textContent = "No";
+                selectElement.appendChild(optionElement);
+                var optionElement = document.createElement('option');
+                optionElement.value = "Yes";
+                optionElement.textContent = "Yes";
                 selectElement.appendChild(optionElement);
                 cell.innerHTML = '';
                 cell.appendChild(selectElement);
