@@ -68,7 +68,7 @@ class FileDownloadView(View):
 
 def logout(request):
 
-    name = request.session.geT("FACULTY_NAME")
+    name = request.session.get("FACULTY_NAME")
     request.session["FACULTY_NAME"] = None
     print("Logged out by", name)
     return HttpResponse("Logged out successfully!")
