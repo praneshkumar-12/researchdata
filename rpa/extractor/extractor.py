@@ -425,12 +425,14 @@ def get_title(doi):
         return ""
 
 
-def main(title):
+def main(title, ay):
     create_combined_dataset_indexing_quartile()
     fetched_data = fetch_data_crossref(title)
     if not validate_fetched_data(title, fetched_data):
         return False
-    set_academic_year("JUL", "2022", "JUN", "2023")
+    ay_split = ay.replace(" -", "").split(" ")
+    print(ay_split)
+    set_academic_year(ay_split[0], ay_split[1], ay_split[2], ay_split[3])
     set_title(fetched_data)
     doi = get_doi(fetched_data)
     get_bibtex_update(doi)

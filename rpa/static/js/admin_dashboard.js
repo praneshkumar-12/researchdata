@@ -3,7 +3,7 @@ function filterTable() {
     input = document.getElementById("searchBox");
     filter = input.value.toUpperCase();
     if (filter === "") return filter
-    table = document.getElementById("tableBody");
+    table = document.getElementsByTagName("tbody")[0];
     tr = table.getElementsByTagName("tr");
 
     var searchTerms = filter.split(" ").filter(term => term.trim() !== "");
@@ -35,125 +35,6 @@ function filterTable() {
     }
 }
 
-function lookForEmptySearch() {
-    var input, filter, table, tr, td, i, j, txtValue;
-    input = document.getElementById("searchBox");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("tableBody");
-    tr = table.getElementsByTagName("tr");
-
-    if (filter === "") {
-
-        for (i = 0; i < tr.length; i++) {
-            tr[i].style.display = "";
-        }
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('id_uniqueid').disabled = true;
-    document.getElementById('id_title').disabled = true;
-    document.getElementById('id_AY').disabled = true;
-    document.getElementById('id_first_author').disabled = true;
-    document.getElementById('id_second_author').disabled = true;
-    document.getElementById('id_third_author').disabled = true;
-    document.getElementById('id_other_authors').disabled = true;
-    document.getElementById('id_is_student_author').disabled = true;
-    document.getElementById('id_student_name').disabled = true;
-    document.getElementById('id_student_batch').disabled = true;
-    document.getElementById('id_specification').disabled = true;
-    document.getElementById('id_publication_type').disabled = true;
-    document.getElementById('id_publication_name').disabled = true;
-    document.getElementById('id_publisher').disabled = true;
-    document.getElementById('id_year_of_publishing').disabled = true;
-    document.getElementById('id_month_of_publishing').disabled = true;
-    document.getElementById('id_volume').disabled = true;
-    document.getElementById('id_page_number').disabled = true;
-    document.getElementById('id_indexing').disabled = true;
-    document.getElementById('id_quartile').disabled = true;
-    document.getElementById('id_citation').disabled = true;
-    document.getElementById('id_doi').disabled = false;
-    document.getElementById('id_front_page_path').disabled = true;
-    document.getElementById('id_url').disabled = true;
-    document.getElementById('id_issn').disabled = true;
-    document.getElementById('fetchData').disabled = false;
-});
-
-function edit_before_verify(uniqueId) {
-    var row = document.querySelector('#tableBody tr[data-uniqueid="' + uniqueId + '"]');
-    console.log(row);
-
-    if (row) {
-        Array.from(row.cells).forEach(function(cell, index) {
-            if (index === findHeaderIndex("Is Student Author")) {
-                var selectElement = document.createElement('select');
-                selectElement.id = 'studentAuthor';
-                selectElement.name = 'SA';
-                var optionElement = document.createElement('option');
-                optionElement.value = "Yes";
-                optionElement.textContent = "Yes";
-                selectElement.appendChild(optionElement);
-                var optionElement = document.createElement('option');
-                optionElement.value = "No";
-                optionElement.textContent = "No";
-                selectElement.appendChild(optionElement);
-                cell.innerHTML = '';
-                cell.appendChild(selectElement);
-            }
-            if (cell.textContent.trim() === 'NULL' && index != findHeaderIndex("FPP")) {
-                var inputElement = document.createElement('input');
-                inputElement.type = 'text';
-                inputElement.value = cell.textContent.trim();
-                cell.innerHTML = '';
-                cell.appendChild(inputElement);
-            } else if (index === findHeaderIndex("FPP")) {
-                console.log("FPP");
-            }
-        })
-        var btnelts = document.getElementsByClassName('verify-btn');
-
-        var btnlen = btnelts.length
-        for (var i = 0; i < btnlen; i++) {
-            // console.log(btnelts[i])
-            if (btnelts[i].value == uniqueId) {
-                var btn = btnelts[i];
-                break;
-            }
-        }
-        btn.innerText = "Validate";
-        btn.setAttribute('onclick', 'verify(this.value)');
-    }
-}
-
-function disableFetch() {
-    fetch_btn = document.getElementById("fetchData");
-    fetch_btn.disabled = true;
-    fetch_btn.classList.remove("scrape-btn");
-    fetch_btn.classList.add("scraped-btn");
-    console.log("Changing class to disabled");
-    document.getElementById('fetchData').innerHTML = "Fetching...";
-}
-
-function enableFetch() {
-    document.getElementById('fetchData').disabled = false;
-    document.getElementById('fetchData').innerHTML = "Submit";
-    console.log("Changing class to enabled");
-    fetch_btn = document.getElementById("fetchData");
-    fetch_btn.disabled = false;
-    fetch_btn.classList.remove("scraped-btn");
-    fetch_btn.classList.add("scrape-btn");
-}
-
-function enableFetchNoResponse() {
-    document.getElementById('fetchData').disabled = false;
-    document.getElementById('fetchData').innerHTML = "Fetch";
-    console.log("Changing class to enabled");
-    fetch_btn = document.getElementById("fetchData");
-    fetch_btn.disabled = false;
-    fetch_btn.classList.remove("scraped-btn");
-    fetch_btn.classList.add("scrape-btn");
-}
-
 function formatDate(date) {
     var year = date.getFullYear();
     var month = String(date.getMonth() + 1).padStart(2, '0');
@@ -177,9 +58,6 @@ function downloadCSV() {
         if (i === rows.length - 1) {
             row_content = rows[i].querySelectorAll('td,th');
             content = row_content[1].innerHTML;
-            if (content.includes("input")) {
-                continue;
-            }
         }
         // Check if the row is visible (style.display is not "none")
         if (window.getComputedStyle(rows[i]).display !== 'none') {
@@ -189,9 +67,6 @@ function downloadCSV() {
             for (var j = 0; j < cols.length - 1; j++) {
                 // console.log(cols[j].innerHTML)
                 // Add automatic serial numbers for the first row
-                if (j === findHeaderIndex("Verification") || i === findHeaderIndex("Actions") || i === findHeaderIndex("Faculty Verification Status")) {
-                    continue;
-                }
 
                 if (window.getComputedStyle(cols[j]).display !== 'none') {
                     // Add double quotes to the 8th column (index 7)
@@ -199,6 +74,18 @@ function downloadCSV() {
                     if (i === 0 && j === 0) {
                         csvrow.push("Serial Number");
                     } else {
+
+                        if (i !== 0 && (j === findHeaderIndex("Title"))){
+                            cellContent = cols[j].getElementsByTagName("a");
+                            if (cellContent.length != 0) {
+                                console.log(cellContent);
+                                cellContent = cellContent[0].textContent;
+                            } else {
+                                cellContent = 'NULL';
+                            }
+                            csvrow.push('"' + cellContent + '"');
+                            continue;
+                        }
 
                         if (i !== 0 && (j === findHeaderIndex("URL") || j === findHeaderIndex("FPP"))) {
 
@@ -263,10 +150,10 @@ function downloadCSVFile(csv_data) {
 }
 
 function lookForEmptySearch() {
-    var input, filter, table, tr, td, i, j, txtValue;
+    var input, filter, table, tr, i;
     input = document.getElementById("searchBox");
     filter = input.value.toUpperCase();
-    table = document.getElementById("tableBody");
+    table = document.getElementById("mytable");
     tr = table.getElementsByTagName("tr");
 
     if (filter === "") {
@@ -393,17 +280,37 @@ function sortTablenum(n) {
     }
 }
 
+
 function applyFilter() {
-    var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
     var scopusCheckbox = document.querySelector('input[name="scopus"]');
     var webOfSciencesCheckbox = document.querySelector('input[name="webOfSciences"]');
     var quartileSelect = document.getElementById("quartile");
     var AYSelect = document.getElementById("AY");
+    var authorCheckboxes = document.getElementsByName("author"); // Add this line to get author checkboxes
     var table = document.getElementById("mytable");
     var rows = table.getElementsByTagName("tr");
 
+    var flag = false;
+
+
     for (var i = 1; i < rows.length; i++) {
-        var indexingCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Indexing")]; // Assuming indexing is at index 19, adjust if needed
+        var authorMatch = Array.from(authorCheckboxes).some(function(checkbox) {
+            var authorName = checkbox.value;
+            console.log(authorName);
+            authorName = authorName.split(" ")[0];
+            console.log(authorName);
+            return checkbox.checked;
+        });
+
+        if (authorMatch === true) {
+            flag = true;
+            break;
+        }
+
+    }
+
+    for (var i = 1; i < rows.length; i++) {
+        var indexingCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Indexing")];
         var quartileCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Quartile")]; // Assuming quartile is at index 20, adjust if needed
         var AYCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Academic Year")]; // Assuming Academic Year is at index 3, adjust if needed
 
@@ -412,8 +319,27 @@ function applyFilter() {
         var quartileSelected = quartileSelect.value;
         var selectedAY = AYSelect.value;
 
+        // Get the authors of the paper
+        var firstAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("First Author")].textContent;
+        var secondAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("Second Author")].textContent;
+        var thirdAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("Third Author")].textContent;
+        var otherAuthors = rows[i].getElementsByTagName("td")[findHeaderIndex("Other Authors")].textContent;
+
+        var authorMatch = true;
+
+        // Check if any of the selected authors match the authors of the paper
+        if (flag) {
+            authorMatch = Array.from(authorCheckboxes).some(function(checkbox) {
+                var authorName = checkbox.value;
+                authorName = authorName.split(" ")[0];
+                return checkbox.checked && (firstAuthor.includes(authorName) || secondAuthor.includes(authorName) || thirdAuthor.includes(authorName) || otherAuthors.includes(authorName));
+            });
+        }
+
+
         var containsWebOfScience = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("web of science") : false;
         var containsScopus = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("scopus") : false;
+
         var matchesQuartile = quartileCell ? quartileCell.innerHTML.toLowerCase().includes(quartileSelected) : false;
         var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
 
@@ -423,6 +349,7 @@ function applyFilter() {
             if (
                 (webOfSciencesChecked && !containsWebOfScience) ||
                 (scopusChecked && !containsScopus) ||
+                !authorMatch || // Check for author match
                 (quartileSelected !== "" && !matchesQuartile) ||
                 !matchesAY
             ) {
@@ -431,12 +358,16 @@ function applyFilter() {
         } else {
             // Show all rows when "All Quartiles" is selected
             if (webOfSciencesChecked && !containsWebOfScience) {
+                // console.log("Contains web of science");
                 shouldBeHidden = true;
             }
             if (scopusChecked && !containsScopus) {
+                // console.log("Contains scopus");
                 shouldBeHidden = true;
             }
-            if (!matchesAY) {
+            if (!authorMatch || !matchesAY) { // Check for author match
+                // console.log("Contains author match");
+
                 shouldBeHidden = true;
             }
         }
@@ -448,6 +379,7 @@ function applyFilter() {
         }
     }
 }
+
 
 function sortTableByQuartile() {
     var table = document.getElementById("mytable");
@@ -468,9 +400,6 @@ function sortTableByQuartile() {
     }
 }
 
-function upload(uniqueid) {
-    window.open("/rpa/auth/upload/" + uniqueid, "_blank");
-}
 
 function findHeaderIndex(headerText) {
     // Get the table element by its ID
@@ -509,3 +438,108 @@ document.getElementById('quartile').addEventListener('change', function() {
 
 
 setInterval(lookForEmptySearch, 100);
+
+function openFilterModal() {
+    document.getElementById('filterModal').style.display = 'block';
+}
+
+// Function to close filter modal
+function closeFilterModal() {
+    document.getElementById('filterModal').style.display = 'none';
+}
+
+// Function to dynamically populate checkboxes with column names from table headers
+function populateColumnCheckboxes() {
+    var columnCheckboxes = document.getElementById('columnCheckboxes');
+    var tableHeaders = document.querySelectorAll('#mytable thead th');
+    var rowDiv = document.createElement('div');
+    rowDiv.classList.add('flex', 'flex-wrap');
+    var counter = 0;
+    tableHeaders.forEach(function(header) {
+        var columnName = header.textContent.trim();
+        var checkboxDiv = document.createElement('div');
+        checkboxDiv.classList.add('form-check', 'w-1/4', 'mb-2');
+        checkboxDiv.innerHTML = `
+            <input type="checkbox" class="form-check-input" id="${columnName}" checked>
+            <label class="form-check-label" for="${columnName}">${columnName}</label>`;
+        rowDiv.appendChild(checkboxDiv);
+        counter++;
+        if (counter === 4) {
+            columnCheckboxes.appendChild(rowDiv);
+            rowDiv = document.createElement('div');
+            rowDiv.classList.add('flex', 'flex-wrap');
+            counter = 0;
+        }
+    });
+    if (counter > 0) {
+        columnCheckboxes.appendChild(rowDiv);
+    }
+}
+
+// Call populateColumnCheckboxes function when the page loads
+window.onload = function() {
+    populateColumnCheckboxes();
+    populateAuthorCheckboxes();
+};
+
+// Function to apply filters
+function applyFilters() {
+    var checkboxes = document.querySelectorAll('#columnCheckboxes input[type="checkbox"]');
+    checkboxes.forEach(function(checkbox) {
+        var columnName = checkbox.id;
+        var columnIndex = Array.from(document.querySelectorAll('#mytable thead th')).findIndex(th => th.textContent.trim() === columnName) + 1;
+        var tableCells = document.querySelectorAll('#mytable tr td:nth-child(' + columnIndex + '), #mytable tr th:nth-child(' + columnIndex + ')');
+        if (checkbox.checked) {
+            tableCells.forEach(cell => cell.style.display = '');
+        } else {
+            tableCells.forEach(cell => cell.style.display = 'none');
+        }
+    });
+    closeFilterModal();
+}
+
+// Function to select all columns
+function selectAllColumns() {
+    var checkboxes = document.querySelectorAll('#columnCheckboxes input[type="checkbox"]');
+    checkboxes.forEach(function(checkbox) {
+        checkbox.checked = true;
+    });
+}
+
+// Function to clear all columns
+function clearAllColumns() {
+    var checkboxes = document.querySelectorAll('#columnCheckboxes input[type="checkbox"]');
+    checkboxes.forEach(function(checkbox) {
+        checkbox.checked = false;
+    });
+}
+function openAuthorFilterModal() {
+    document.getElementById('authorFilterModal').style.display = 'block';
+}
+
+// Function to close filter modal
+function closeAuthorFilterModal() {
+    document.getElementById('authorFilterModal').style.display = 'none';
+}
+
+
+// Function to select all columns
+function selectAllAuthors() {
+    var checkboxes = document.querySelectorAll('#authorCheckboxes input[type="checkbox"]');
+    checkboxes.forEach(function(checkbox) {
+        checkbox.checked = true;
+    });
+}
+
+// Function to clear all columns
+function clearAllAuthors() {
+    var checkboxes = document.querySelectorAll('#authorCheckboxes input[type="checkbox"]');
+    checkboxes.forEach(function(checkbox) {
+        checkbox.checked = false;
+    });
+}
+
+// Function to apply filters
+function applyAuthorFilter(){
+    closeAuthorFilterModal();
+}

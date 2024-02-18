@@ -1,0 +1,306 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- UIKit CSS for the table -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.2/css/uikit.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .scroll-arrow {
+            cursor: pointer;
+        }
+
+        #body .flex {
+            display: flex;
+        }
+
+        #body .justify-end {
+            justify-content: flex-end;
+        }
+
+        .hide {
+            display:none;
+        }
+
+        .uk-table th {
+            background-color: #4b5563; /* Change to your desired color */
+            color: #ffffff; /* Change to your desired color */
+            text-align: center; /* Center-align table headings */
+        }
+    </style>
+    
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-4">
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-center text-4xl font-bold">Dashboard</h1>
+            <div class="profile-btn">
+                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Profile
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                    <li class="text-center mb-2">Hi {{ name }}! 👋</li>
+                    <hr>
+                    <li><a class="dropdown-item" href="/rpa/dbadmin/get_doi">Add Publication</a></li>
+                    <li><a class="dropdown-item" href="/rpa/dbadmin/manual_add_paper">Manually Add Publication</a></li>
+                    <li><a class="dropdown-item" href="/rpa/dbadmin/home">All Publications</a></li>
+                    <li><a class="dropdown-item" href="/rpa/dbadmin/dashboard">Advanced Dashboard</a></li>
+                    <li><a class="dropdown-item" href="/rpa/dbadmin/verification">Verify Publications</a></li>
+                    <li><button onclick="logOut()" class="dropdown-item btn btn-danger">Logout</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <form class="flex flex-wrap gap-4 justify-center items-center">
+
+
+            <div class="flex-1">
+                <label for="quartile" class="form-label">Quartile:</label>
+                <select id="quartile" name="quartile" class="form-select">
+                    <option value="all">All</option>
+                    <option value="q1">Q1</option>
+                    <option value="q2">Q2</option>
+                    <option value="q3">Q3</option>
+                    <option value="q4">Q4</option>
+                </select>
+            </div>
+
+            <div class="flex-1">
+                <label for="AY" class="form-label">AY:</label>
+                <select id="AY" name="AY" class="form-select">
+                    <option value="all">All Years</option>
+                    <option value="JUL 2015 - JUN 2016">JUL 2015 - JUN 2016</option>
+                    <option value="JUL 2016 - JUN 2017">JUL 2016 - JUN 2017</option>
+                    <option value="JUL 2017 - JUN 2018">JUL 2017 - JUN 2018</option>
+                    <option value="JUL 2018 - JUN 2019">JUL 2018 - JUN 2019</option>
+                    <option value="JUL 2019 - JUN 2020">JUL 2019 - JUN 2020</option>
+                    <option value="JUL 2020 - JUN 2021">JUL 2020 - JUN 2021</option>
+                    <option value="JUL 2021 - JUN 2022">JUL 2021 - JUN 2022</option>
+                    <option value="JUL 2022 - JUN 2023">JUL 2022 - JUN 2023</option>
+                    <option value="JUL 2023 - JUN 2024">JUL 2023 - JUN 2024</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="scopus" name="scopus">
+                    <label class="form-check-label" for="scopus">
+                       Scopus
+                    </label>
+                </div>
+            </div>
+            
+            <div class="flex-1">
+                <br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="webOfSciences" name="webOfSciences">
+                    <label class="form-check-label" for="webOfSciences">
+                        Web of Sciences
+                    </label>
+                </div>
+            </div>
+
+            <button id="authorFilterBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded flex items-center focus:outline-none focus:shadow-outline" type="button" onclick="openAuthorFilterModal()">
+                Filter Authors
+            </button>
+            
+            <button id="filterBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded flex items-center focus:outline-none focus:shadow-outline" type="button" onclick="openFilterModal()">
+                Options
+            </button>
+
+            <button class="btn btn-primary" type="button" onclick="applyFilter()">Search</button>
+            
+            <!-- Filter Modal -->
+            <div id="filterModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeFilterModal()">&times;</span>
+                    <form id="filterForm">
+                        <div class="button-container">
+                            <input type="button" class="btn btn-primary" id="selectAll" value = "Select All" onclick="selectAllColumns()">
+                            <input type="button" class="btn btn-danger" id="clearAll" value = "Clear All" onclick="clearAllColumns()">
+                        </div>
+                        <div id="columnCheckboxes">
+                            <!-- Checkboxes will be dynamically generated here -->
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="applyFilters()">Apply</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="authorFilterModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeAuthorFilterModal()">&times;</span>
+                    <form id="authorFilterForm">
+                        <div class="button-container">
+                            <input type="button" class="btn btn-primary" id="authorSelectAll" value="Select All" onclick="selectAllAuthors()">
+                            <input type="button" class="btn btn-danger" id="authorClearAll" value="Clear All" onclick="clearAllAuthors()">
+                        </div>
+                        <div id="authorCheckboxes">
+                            <!-- Checkboxes will be dynamically generated -->
+                        </div>
+                        <button type="button" class="btn btn-primary m-3" onclick="applyAuthorFilter()">Apply</button>
+                    </form>
+                </div>
+            </div>
+
+        </form>
+        
+    </div>
+
+    <div class="container mx-auto py-4">
+        <input type="text" class="form-control mb-3" id="searchBox" placeholder="Search..." oninput="filterTable()">
+        <button id="downloadCSV" class="btn btn-primary mt-3" onclick="downloadCSV()">Download CSV</button>
+        <div class="flex justify-end">
+            <span class="scroll-arrow" onclick="scrollToLeft()">⬅️</span>
+            <span class="scroll-arrow" onclick="scrollToRight()">➡️</span>
+        </div>
+        <div class="overflow-x-auto relative">
+            
+            <table id="mytable" class="uk-table uk-table-bordered uk-table-striped">
+                    <thead>
+                        <th>S.No</th>
+                        <th>UniqueID</th>
+                        <th style="width: 30%;" onclick="sortTable(2)">Title</th>
+                        <th>Academic Year</th>
+                        <th>First Author</th>
+                        <th>Second Author</th>
+                        <th>Third Author</th>
+                        <th>Other Authors</th>
+                        <th>Is Student Author</th>
+                        <th>Student Name</th>
+                        <th>Student Batch</th>
+                        <th>Specification</th>
+                        <th>Publication Type</th>
+                        <th>Publication Name</th>
+                        <th>Publisher</th>
+                        <th onclick="sortTablenum(15)">Publication Year</th>
+                        <th>Publication Month</th>
+                        <th>Volume</th>
+                        <th>Page Numbers</th>
+                        <th>Indexing</th>
+                        <th>Quartile</th>
+                        <th onclick="sortTablenum(21)">Citations</th>
+                        <th>DOI</th>
+                        <th>FPP</th>
+                        <th>URL</th>
+                        <th>ISSN</th>
+                    </thead>
+                    {% for paper in papers %}
+                    <tr data-uniqueid="{{ paper.uniqueid }}">
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ paper.uniqueid }}</td>
+                        <td><a href="/rpa/dbadmin/paper/{{ paper.uniqueid }}" target="_blank">{{ paper.title }}</a></td>
+                        <td>{{ paper.start_academic_month }} {{ paper.start_academic_year }} - {{ paper.end_academic_month }} {{ paper.end_academic_year }}</td>
+                        <td>{{ paper.first_author }}</td>
+                        <td>{{ paper.second_author }}</td>
+                        <td>{{ paper.third_author }}</td>
+                        <td>{{ paper.other_authors }}</td>
+                        <td>{{ paper.is_student_author }}</td>
+                        <td>{{ paper.student_name }}</td>
+                        <td>{{ paper.student_batch }}</td>
+                        <td>{{ paper.specification }}</td>
+                        <td>{{ paper.publication_type }}</td>
+                        <td>{{ paper.publication_name }}</td>
+                        <td>{{ paper.publisher }}</td>
+                        <td>{{ paper.year_of_publishing }}</td>
+                        <td>{{ paper.month_of_publishing }}</td>
+                        <td>{{ paper.volume }}</td>
+                        <td>{{ paper.page_number }}</td>
+                        <td>{{ paper.indexing }}</td>
+                        <td>{{ paper.quartile }}</td>
+                        <td>{{ paper.citation }}</td>
+                        <td>{{ paper.doi }}</td>
+                        {% if paper.front_page_path == 'NULL' or paper.front_page_path == 'None' %}
+                            <td>{{ paper.front_page_path }}</td>
+                        {% else %}
+                            <td><a href="/{{ paper.front_page_path }}" target="_blank">View File</a></td>
+                        {% endif %}
+                        <td><a href="{{ paper.url }}" target="_blank">{{ paper.url }}</a></td>
+                        <td>{{ paper.issn }}</td>    
+                    </tr>
+                    {% endfor %}
+            </table>
+            <div class="text-center mt-3">
+                <span class="scroll-arrow" onclick="scrollToTop()">⬆️</span>
+            </div>            
+        </div>
+        
+    </div>
+    
+    <script>
+        // Arrow scroll functions
+        function scrollToLeft() {
+            document.querySelector('.overflow-x-auto').scrollLeft -= 250; // Adjust the scroll amount as needed
+        }
+        
+        function scrollToRight() {
+            document.querySelector('.overflow-x-auto').scrollLeft += 250; // Adjust the scroll amount as needed
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+    </script>
+    <script src="{% static 'js/admin_dashboard.js' %}"></script>
+    <!-- UIKit JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.2/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.2/js/uikit-icons.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        
+        function logOut(){
+            $.ajax({
+                type: "POST",
+                url: "{% url 'log_out' %}",
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                },
+                success: function(response) {
+                    alert(response);
+                    window.location.replace("/rpa/login");
+                }
+            });
+        }
+
+        
+
+    // Function to dynamically populate checkboxes with column names from table headers
+    function populateAuthorCheckboxes() {
+        var authorCheckboxes = document.getElementById('authorCheckboxes');
+        var rowDiv = document.createElement('div');
+        rowDiv.classList.add('flex', 'flex-wrap');
+        var counter = 0;
+        {% for faculty in faculties %}
+            var authorName = "{{ faculty }}".trim();
+            var checkboxDiv = document.createElement('div');
+            checkboxDiv.classList.add('form-check', 'w-1/4', 'mb-2');
+            checkboxDiv.innerHTML = `
+                <input type="checkbox" name="author" class="form-check-input" value = "{{ faculty }}" id="{{ faculty }}" checked>
+                <label class="form-check-label" for="{{ faculty }}">{{ faculty }}</label>`;
+            rowDiv.appendChild(checkboxDiv);
+            counter++;
+            if (counter === 4) {
+                authorCheckboxes.appendChild(rowDiv);
+                rowDiv = document.createElement('div');
+                rowDiv.classList.add('flex', 'flex-wrap');
+                counter = 0;
+            }
+        {% endfor %}
+        if (counter > 0) {
+            authorCheckboxes.appendChild(rowDiv);
+        }
+    }
+
+    </script>
+
+</body>
+</html>

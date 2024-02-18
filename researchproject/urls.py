@@ -22,6 +22,6 @@ from django.shortcuts import redirect
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', lambda request: redirect('/rpa/login')),
+    path("", lambda request: redirect("/rpa/login")),
     path("rpa/", include("rpa.urls")),
 ]

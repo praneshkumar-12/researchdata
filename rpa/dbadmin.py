@@ -3,6 +3,26 @@ from rpa.forms import PublicationsForm
 from rpa.models import Users
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+import os
+import rpa.extractor.extractor as Extractor
+
+
+def admin_home(request):
+    papers = Publications.objects.all()
+
+    publication_list = []
+
+    name = str(request.session.get("FACULTY_NAME"))
+
+    if name is None or name != "admin" or name == str(None):
+        return redirect("/rpa/login")
+
+    for paper in papers:
+        publication_list.append(paper)
+
+    context = {"papers": publication_list, "name": name}
+
+    return render(request, "admin_home.html", context)
 
 
 def admin_dashboard(request):
@@ -10,19 +30,19 @@ def admin_dashboard(request):
 
     publication_list = []
 
-    name = request.session.get("FACULTY_NAME")
-    
-    if name != "admin":
-        return redirect("/rpa/login")
-
     facs = []
-
-    form = PublicationsForm()
 
     faculties = Users.objects.all().order_by("staff_name")
 
     for row in faculties:
         facs.append(row.staff_name)
+
+    name = str(request.session.get("FACULTY_NAME"))
+
+    if name is None or name != "admin" or name == "None":
+        return redirect("/rpa/login")
+
+    form = PublicationsForm()
 
     for paper in papers:
         first_author = paper.first_author if paper.first_author else ""
@@ -73,15 +93,315 @@ def admin_dashboard(request):
         "papers": publication_list,
         "form": form,
         "new_sno": f"{int(len(publication_list)) + 1}",
+        "name": name,
         "faculties": facs,
     }
 
-    return render(request, "admin_layout.html", context)
+    # paper_records =
+    return render(request, "admin_dashboard.html", context)
+
+
+def admin_view_paper_details(request, paperid):
+    if request.method != "GET":
+        return render(request, "error.html")
+
+    if not paperid:
+        return render(request, "error.html")
+
+    try:
+        paper = Publications.objects.get(uniqueid=paperid)
+    except Publications.DoesNotExist:
+        return render(request, "error.html")
+
+    name = str(request.session.get("FACULTY_NAME"))
+
+    if name.lower().strip() != "admin":
+        return render(
+            request,
+            "custom_error.html",
+            {
+                "error_title": "Unauthorized!",
+                "error_message": "You are unauthorized to view the details of this publication.",
+            },
+        )
+
+    return render(request, "admin_publication.html", {"paper": paper, "name": name})
+
+
+def admin_upload_paper(request, uniqueid):
+    if request.method == "GET":
+        try:
+            publ = Publications.objects.get(uniqueid=uniqueid)
+        except Publications.DoesNotExist:
+            return render(request, "error.html")
+
+        name = str(request.session.get("FACULTY_NAME"))
+
+        if name.lower() != "admin":
+            return render(
+                request,
+                "custom_error.html",
+                {
+                    "error_title": "Unauthorized!",
+                    "error_message": "You are unauthorized to view the details of this publication.",
+                },
+            )
+
+        return render(
+            request, "admin_upload.html", {"title": publ.title, "uniqueid": uniqueid}
+        )
+    else:
+        publ = Publications.objects.get(uniqueid=uniqueid)
+        name = str(request.session.get("FACULTY_NAME"))
+
+        if name.lower() != "admin":
+            return render(
+                request,
+                "custom_error.html",
+                {
+                    "error_title": "Unauthorized!",
+                    "error_message": "You are unauthorized to view the details of this publication.",
+                },
+            )
+        try:
+            if not os.path.exists("rpa/static/upload/"):
+                os.mkdir("rpa/static/upload/")
+
+            upload_file = request.FILES["file"]
+
+            complete_path = "rpa/static/upload/" + uniqueid.strip() + ".pdf"
+
+            publ = Publications.objects.get(uniqueid=uniqueid)
+
+            with open(complete_path, "wb+") as destination:
+                for chunk in upload_file.chunks():
+                    destination.write(chunk)
+
+            publ.front_page_path = complete_path
+
+            publ.save()
+
+            return render(
+                request,
+                "upload.html",
+                {"alertmessage": "Upload successful!", "uniqueid": uniqueid},
+            )
+        except Exception as e:
+            return render(
+                request,
+                "upload.html",
+                {"alertmessage": str(e), "reload": "yes", "uniqueid": uniqueid},
+            )
+
+
+def admin_remove_upload(request):
+    uniqueid = request.POST.get("uniqueid")
+
+    name = str(request.session.get("FACULTY_NAME", ""))
+
+    if name != "admin":
+        return HttpResponse("Unauthorized")
+
+    if not Publications.objects.filter(uniqueid=uniqueid):
+        return HttpResponse("Paper not found!")
+
+    publ = Publications.objects.get(uniqueid=uniqueid)
+
+    publ.front_page_path = None
+
+    publ.save()
+
+    print("saved")
+
+    return HttpResponse("OK")
+
+
+def admin_verify_paper(request):
+    uniqueid = request.POST.get("uniqueid")
+
+    name = str(request.session.get("FACULTY_NAME"))
+
+    if name != "admin":
+        return HttpResponse("Unauthorized")
+
+    if not Publications.objects.filter(uniqueid=uniqueid):
+        return HttpResponse("Paper not found!")
+
+    current_paper = Publications.objects.get(uniqueid=uniqueid)
+    current_paper.admin_verified = "True"
+    current_paper.save()
+
+    return HttpResponse("OK")
+
+
+def admin_update_paper(request):
+    uniqueid = request.POST.get("uniqueid")
+
+    name = str(request.session.get("FACULTY_NAME"))
+
+    if name != "admin":
+        return HttpResponse("Unauthorized")
+
+    if not Publications.objects.filter(uniqueid=uniqueid):
+        return HttpResponse("Paper not found!")
+
+    updateData = dict(request.POST)
+
+    updates = {}
+
+    for key, value in updateData.items():
+        if (
+            key != "csrfmiddlewaretoken"
+            and key != "uniqueid"
+            and key != "academic_year"
+        ):
+            if key == "student_author":
+                key = "is_student_author"
+            if key == "publication_year":
+                key = "year_of_publishing"
+            if key == "publication_month":
+                key = "month_of_publishing"
+            if key == "citations":
+                key = "citation"
+            if key == "page_numbers":
+                key = "page_number"
+            try:
+                updates[key] = value[0]
+            except IndexError:
+                updates[key] = "NULL"
+
+    academic_year = request.POST.get("academic_year").replace(" -", "").split(" ")
+
+    start_academic_month = academic_year[0]
+    start_academic_year = academic_year[1]
+    end_academic_month = academic_year[2]
+    end_academic_year = academic_year[3]
+
+    updates["start_academic_year"] = int(start_academic_year)
+    updates["start_academic_month"] = start_academic_month
+    updates["end_academic_year"] = int(end_academic_year)
+    updates["end_academic_month"] = end_academic_month
+    updates["volume"] = int(updates["volume"])
+    updates["citation"] = int(updates["citation"])
+    updates["year_of_publishing"] = int(updates["year_of_publishing"])
+
+    updates["verified"] = "False"
+    updates["admin_verified"] = "False"
+
+    Publications.objects.filter(uniqueid=uniqueid).update(**updates)
+
+    return HttpResponse("OK")
+
+
+def admin_verification(request):
+    papers = Publications.objects.all()
+
+    publication_list = []
+
+    name = str(request.session.get("FACULTY_NAME"))
+
+    if name is None or name != "admin" or name == str(None):
+        return redirect("/rpa/login")
+
+    for paper in papers:
+        publication_list.append(paper)
+
+    context = {"papers": publication_list, "name": name}
+
+    return render(request, "admin_verification.html", context)
+
+
+def admin_get_doi(request):
+    if request.method == "POST":
+        doi = request.POST.get("doi")
+        ay = request.POST.get("AY")
+
+        title = Extractor.get_title(doi)
+
+        if not title:
+            return render(request, "admin_get_title.html", {"doi": doi, "AY": ay})
+
+        search_query = title
+
+        try:
+            result = Extractor.main(search_query, ay)
+        except (IndexError, KeyError):
+            return render(
+                request,
+                "custom_error.html",
+                {
+                    "error_title": "Uh-Oh! Unable to fetch!",
+                    "error_message": "Cannot fetch data for the given term!",
+                },
+            )
+
+        if (result is None) or (result == False):
+            return render(
+                request,
+                "custom_error.html",
+                {
+                    "error_title": "Uh-Oh! Unable to fetch!",
+                    "error_message": "Cannot fetch data for the given term!",
+                },
+            )
+        else:
+            return render(request, "admin_add_publication.html", {"result": result})
+
+    name = request.session.get("FACULTY_NAME", "")
+
+    if name != "admin":
+        return redirect("/rpa/user/error")
+
+    return render(request, "admin_get_doi.html", {"name": name})
+
+
+def admin_get_title(request):
+    if request.method == "POST":
+        title = request.POST.get("title", "")
+        doi = request.POST.get("doi", "")
+        ay = request.POST.get("AY", "")
+
+        search_query = title + doi
+
+        try:
+            result = Extractor.main(search_query, ay)
+        except (IndexError, KeyError):
+            return render(
+                request,
+                "custom_error.html",
+                {
+                    "error_title": "Uh-Oh! Unable to fetch!",
+                    "error_message": "Cannot fetch data for the given term!",
+                },
+            )
+
+        if (result is None) or (result == False):
+            return render(
+                request,
+                "custom_error.html",
+                {
+                    "error_title": "Uh-Oh! Unable to fetch!",
+                    "error_message": "Cannot fetch data for the given term!",
+                },
+            )
+        else:
+            return render(request, "admin_add_publication.html", {"result": result})
+
+    name = request.session.get("FACULTY_NAME", "")
+
+    if name != "admin":
+        return redirect("/rpa/user/error")
+
+    return render(request, "admin_get_title.html", {"name": name})
 
 
 def admin_insert_paper(request):
+    data_to_be_inserted = {}
 
-    args = {}
+    faculty_name = request.session["FACULTY_NAME"]
+
+    if faculty_name != "admin":
+        return HttpResponse("Paper already exists! Cannot add paper.")
 
     uniqueid = request.POST.get("uniqueid")
 
@@ -90,262 +410,148 @@ def admin_insert_paper(request):
     if exists:
         return HttpResponse("Paper already exists! Cannot add paper.")
 
-    title = request.POST.get("title")
-    first_author = request.POST.get("first_author")
-    second_author = request.POST.get("second_author")
-    third_author = request.POST.get("third_author")
-    other_authors = request.POST.get("other_authors")
-    is_student_author = request.POST.get("is_student_author")
-    student_name = request.POST.get("student_name")
-    student_batch = request.POST.get("student_batch")
-    specification = request.POST.get("specification")
-    publication_type = request.POST.get("publication_type")
-    publication_name = request.POST.get("publication_name")
-    publisher = request.POST.get("publisher")
-    month_of_publishing = request.POST.get("month_of_publishing")
-    page_number = request.POST.get("page_number")
-    indexing = request.POST.get("indexing")
-    quartile = request.POST.get("quartile")
-    doi = request.POST.get("doi")
-    url = request.POST.get("url")
-    issn = request.POST.get("issn")
+    data_to_be_inserted = {}
 
-    front_page_path = request.POST.get("front_page_path")
-    AY = request.POST.get("AY")
-    split_content = AY.split(" - ")
-    start_AY = split_content[0]
-    end_AY = split_content[1]
+    for key, value in request.POST.items():
+        if (
+            key != "csrfmiddlewaretoken"
+            and key != "uniqueid"
+            and key != "academic_year"
+        ):
+            if key == "student_author":
+                key = "is_student_author"
+            if key == "publication_year":
+                key = "year_of_publishing"
+            if key == "publication_month":
+                key = "month_of_publishing"
+            if key == "citations":
+                key = "citation"
+            if key == "page_numbers":
+                key = "page_number"
+            try:
+                data_to_be_inserted[key] = value
+            except IndexError:
+                data_to_be_inserted[key] = "NULL"
 
-    start_academic_month, start_academic_year = start_AY.split(" ")
-    end_academic_month, end_academic_year = end_AY.split(" ")
+    data_to_be_inserted["uniqueid"] = uniqueid
 
-    year_of_publishing = request.POST.get("year_of_publishing")
-    citation = request.POST.get("citation")
-    volume = request.POST.get("volume")
+    academic_year = request.POST.get("academic_year").replace(" -", "").split(" ")
 
-    integer_fields = ["year_of_publishing", "citation", "volume"]
+    start_academic_month = academic_year[0]
+    start_academic_year = academic_year[1]
+    end_academic_month = academic_year[2]
+    end_academic_year = academic_year[3]
 
-    if uniqueid is None or (not uniqueid):
-        uniqueid = (
-        str(start_academic_year)
-        + str(start_academic_month)
-        + "".join(letter for letter in doi if letter.isalnum())
+    data_to_be_inserted["start_academic_year"] = int(start_academic_year)
+    data_to_be_inserted["start_academic_month"] = start_academic_month
+    data_to_be_inserted["end_academic_year"] = int(end_academic_year)
+    data_to_be_inserted["end_academic_month"] = end_academic_month
+    data_to_be_inserted["volume"] = int(data_to_be_inserted["volume"])
+    data_to_be_inserted["citation"] = int(data_to_be_inserted["citation"])
+    data_to_be_inserted["year_of_publishing"] = int(
+        data_to_be_inserted["year_of_publishing"]
     )
-        
-        
 
-    fields = {
-        "uniqueid": uniqueid,
-        "title": title,
-        "first_author": first_author,
-        "second_author": second_author,
-        "third_author": third_author,
-        "other_authors": other_authors,
-        "is_student_author": is_student_author,
-        "student_name": student_name,
-        "student_batch": student_batch,
-        "specification": specification,
-        "publication_type": publication_type,
-        "publication_name": publication_name,
-        "publisher": publisher,
-        "month_of_publishing": month_of_publishing,
-        "page_number": page_number,
-        "indexing": indexing,
-        "quartile": quartile,
-        "doi": doi,
-        "url": url,
-        "issn": issn,
-        "start_academic_month": start_academic_month,
-        "start_academic_year": start_academic_year,
-        "end_academic_month": end_academic_month,
-        "end_academic_year": end_academic_year,
-        "front_page_path": front_page_path,
-        "year_of_publishing": year_of_publishing,
-        "citation": citation,
-        "volume": volume,
-    }
-
-    for key, val in fields.items():
-        if val == "NULL":
-            continue
-        else:
-            if key in integer_fields:
-                if val == "":
-                    args[key] = 0
-                else:
-                    args[key] = int(val)
-            elif key == "front_page_path" and "Yet" in val:
-                continue
-            else:
-                args[key] = val
-
-
-    new_record = Publications(**args)
+    new_record = Publications(**data_to_be_inserted)
 
     new_record.save()
 
-    return HttpResponse("Paper inserted successfully!")
+    return HttpResponse("OK")
 
 
-def admin_verify_paper(request):
-    uniqueid = request.POST.get("uniqueid")
+def admin_manually_insert_paper(request):
+    if request.method == "GET":
+        name = request.session.get("FACULTY_NAME", "")
 
-    current_paper = Publications.objects.get(uniqueid=uniqueid)
-    current_paper.admin_verified = "True"
-    current_paper.save()
+        if name != "admin":
+            return render(
+                request,
+                "custom_error.html",
+                {
+                    "error_title": "Unauthorized!",
+                    "error_message": "You are unauthorized to do this operation!",
+                },
+            )
 
-    return HttpResponse(f"Updated verification status for {current_paper.title}")
+        return render(request, "admin_manually_add_paper.html", {"name": name})
+
+    elif request.method == "POST":
+        name = str(request.session.get("FACULTY_NAME"))
+
+        if name != "admin":
+            return HttpResponse("Unauthorized")
+
+        updateData = dict(request.POST)
+
+        updates = {}
+
+        for key, value in updateData.items():
+            if (
+                key != "csrfmiddlewaretoken"
+                and key != "uniqueid"
+                and key != "academic_year"
+            ):
+                if key == "student_author":
+                    key = "is_student_author"
+                if key == "publication_year":
+                    key = "year_of_publishing"
+                if key == "publication_month":
+                    key = "month_of_publishing"
+                if key == "citations":
+                    key = "citation"
+                if key == "page_numbers":
+                    key = "page_number"
+                try:
+                    updates[key] = value[0]
+                except IndexError:
+                    updates[key] = "NULL"
+
+        academic_year = request.POST.get("academic_year").replace(" -", "").split(" ")
+
+        start_academic_month = academic_year[0]
+        start_academic_year = academic_year[1]
+        end_academic_month = academic_year[2]
+        end_academic_year = academic_year[3]
+
+        updates["start_academic_year"] = int(start_academic_year)
+        updates["start_academic_month"] = start_academic_month
+        updates["end_academic_year"] = int(end_academic_year)
+        updates["end_academic_month"] = end_academic_month
+        updates["volume"] = int(updates["volume"])
+        updates["citation"] = int(updates["citation"])
+        updates["year_of_publishing"] = int(updates["year_of_publishing"])
+
+        updates["verified"] = "False"
+        updates["admin_verified"] = "False"
+
+        uniqueid = (
+            str(start_academic_year)
+            + str(start_academic_month)
+            + "".join(letter for letter in updates["doi"] if letter.isalnum())
+        )
+
+        updates["uniqueid"] = uniqueid
+
+        if Publications.objects.filter(uniqueid=uniqueid):
+            return HttpResponse("Paper already exists! Cannot add paper.")
+
+        new_record = Publications(**updates)
+
+        new_record.save()
+
+        return HttpResponse("OK")
 
 
 def admin_delete_paper(request):
     uniqueid = request.POST.get("uniqueid")
 
-    publications = Publications.objects.get(uniqueid=uniqueid)
+    print(uniqueid, Publications.objects.filter(uniqueid=uniqueid))
 
-    name = publications.title
+    if not Publications.objects.filter(uniqueid=uniqueid):
+        return HttpResponse("Paper not found!")
 
-    publications.delete()
+    publication = Publications.objects.get(uniqueid=uniqueid)
 
-    return HttpResponse(f"Deleted paper: {name}")
+    publication.delete()
 
-
-def admin_update_paper(request):
-    try:
-        args = {}
-
-        uniqueid = request.POST.get("uniqueid")
-        title = request.POST.get("title")
-        first_author = request.POST.get("first_author")
-        second_author = request.POST.get("second_author")
-        third_author = request.POST.get("third_author")
-        other_authors = request.POST.get("other_authors")
-        is_student_author = request.POST.get("is_student_author")
-        student_name = request.POST.get("student_name")
-        student_batch = request.POST.get("student_batch")
-        specification = request.POST.get("specification")
-        publication_type = request.POST.get("publication_type")
-        publication_name = request.POST.get("publication_name")
-        publisher = request.POST.get("publisher")
-        month_of_publishing = request.POST.get("month_of_publishing")
-        page_number = request.POST.get("page_number")
-        indexing = request.POST.get("indexing")
-        quartile = request.POST.get("quartile")
-        doi = request.POST.get("doi")
-        url = request.POST.get("url")
-        issn = request.POST.get("issn")
-
-        front_page_path = request.POST.get("front_page_path")
-        AY = request.POST.get("AY")
-        split_content = AY.split(" - ")
-        start_AY = split_content[0]
-        end_AY = split_content[1]
-
-        start_academic_month, start_academic_year = start_AY.split(" ")
-        end_academic_month, end_academic_year = end_AY.split(" ")
-
-        year_of_publishing = request.POST.get("year_of_publishing")
-        citation = request.POST.get("citation")
-        volume = request.POST.get("volume")
-
-        integer_fields = ["year_of_publishing", "citation", "volume"]
-
-        fields = {
-            "uniqueid": uniqueid,
-            "title": title,
-            "first_author": first_author,
-            "second_author": second_author,
-            "third_author": third_author,
-            "other_authors": other_authors,
-            "is_student_author": is_student_author,
-            "student_name": student_name,
-            "student_batch": student_batch,
-            "specification": specification,
-            "publication_type": publication_type,
-            "publication_name": publication_name,
-            "publisher": publisher,
-            "month_of_publishing": month_of_publishing,
-            "page_number": page_number,
-            "indexing": indexing,
-            "quartile": quartile,
-            "doi": doi,
-            "url": url,
-            "issn": issn,
-            "start_academic_month": start_academic_month,
-            "start_academic_year": start_academic_year,
-            "end_academic_month": end_academic_month,
-            "end_academic_year": end_academic_year,
-            "front_page_path": front_page_path,
-            "year_of_publishing": year_of_publishing,
-            "citation": citation,
-            "volume": volume,
-        }
-
-        for key, val in fields.items():
-            if val == "NULL":
-                continue
-            else:
-                if key in integer_fields:
-                    if val == "":
-                        args[key] = 0
-                    else:
-                        args[key] = int(val)
-                elif key == "front_page_path" and (
-                    "Yet" in (val if val is not None else "Yet")
-                ):
-                    continue
-                else:
-                    args[key] = val
-
-
-        existing_data = Publications.objects.get(uniqueid=uniqueid)
-
-        existing_data.uniqueid = args.get("uniqueid")
-        existing_data.title = args.get("title")
-        existing_data.first_author = args.get("first_author")
-        existing_data.second_author = args.get("second_author")
-        existing_data.third_author = args.get("third_author")
-        existing_data.other_authors = args.get("other_authors")
-        existing_data.is_student_author = args.get("is_student_author")
-        existing_data.student_name = args.get("student_name")
-        existing_data.student_batch = args.get("student_batch")
-        existing_data.specification = args.get("specification")
-        existing_data.publication_type = args.get("publication_type")
-        existing_data.publication_name = args.get("publication_name")
-        existing_data.publisher = args.get("publisher")
-        existing_data.month_of_publishing = args.get("month_of_publishing")
-        existing_data.page_number = args.get("page_number")
-        existing_data.indexing = args.get("indexing")
-        existing_data.quartile = args.get("quartile")
-        existing_data.doi = args.get("doi")
-        existing_data.url = args.get("url")
-        existing_data.issn = args.get("issn")
-        existing_data.start_academic_month = args.get("start_academic_month")
-        existing_data.start_academic_year = args.get("start_academic_year")
-        existing_data.end_academic_month = args.get("end_academic_month")
-        existing_data.end_academic_year = args.get("end_academic_year")
-        existing_data.front_page_path = args.get("front_page_path")
-        existing_data.year_of_publishing = args.get("year_of_publishing")
-        existing_data.citation = args.get("citation")
-        existing_data.volume = args.get("volume")
-        existing_data.verified = "False"
-        existing_data.admin_verified = "False"
-
-        # Save the updated instance
-        existing_data.save()
-        return HttpResponse(f"Update successful for {args['title']}")
-
-    except Exception as e:
-        return HttpResponse(str(e))
-
-
-def admin_remove_upload(request):
-    uniqueid = request.POST.get("uniqueid")
-
-
-    publ = Publications.objects.get(uniqueid=uniqueid)
-
-    publ.front_page_path = None
-
-    publ.save()
-
-    return HttpResponse(f"Removed first page path for {publ.title}")
+    return HttpResponse("OK")
