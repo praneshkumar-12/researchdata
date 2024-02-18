@@ -233,7 +233,7 @@ def user_verify_paper(request):
             if key == "page_numbers":
                 key = "page_number"
             try:
-                updates[key] = value
+                updates[key] = value[0]
             except IndexError:
                 updates[key] = "NULL"
 
