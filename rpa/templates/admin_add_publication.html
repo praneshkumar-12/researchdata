@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ paper.title }}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-bold mb-8">
+            {{ result.title }}
+        </h1>
+        <table id="publicationTable" class="table table-striped">
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Unique ID</td>
+                <td>{{ result.uniqueid }}</td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>{{ result.title }}</td>
+            </tr>
+            <tr>
+                <td>Academic Year</td>
+                <td>{{ result.start_academic_month }} {{ result.start_academic_year }} - {{ result.end_academic_month }} {{ result.end_academic_year }}</td>
+            </tr>
+            <tr>
+                <td>First Author</td>
+                <td>{{ result.first_author }}</td>
+            </tr>
+            <tr>
+                <td>Second Author</td>
+                <td>{{ result.second_author }}</td>
+            </tr>
+            <tr>
+                <td>Third Author</td>
+                <td>{{ result.third_author }}</td>
+            </tr>
+            <tr>
+                <td>Other Authors</td>
+                <td>{{ result.other_authors }}</td>
+            </tr>
+            <tr>
+                <td>Student Author</td>
+                <td>{{ result.is_student_author }}</td>
+            </tr>
+            <tr>
+                <td>Student Name</td>
+                <td>{{ result.student_name }}</td>
+            </tr>
+            <tr>
+                <td>Student Batch</td>
+                <td>{{ result.student_batch }}</td>
+            </tr>
+            <tr>
+                <td>Specification</td>
+                <td>{{ result.specification }}</td>
+            </tr>
+            <tr>
+                <td>Publication Type</td>
+                <td>{{ result.publication_type }}</td>
+            </tr>
+            <tr>
+                <td>Publication Name</td>
+                <td>{{ result.publication_name }}</td>
+            </tr>
+            <tr>
+                <td>Publisher</td>
+                <td>{{ result.publisher }}</td>
+            </tr>
+            <tr>
+                <td>Publication Year</td>
+                <td>{{ result.year_of_publishing }}</td>
+            </tr>
+            <tr>
+                <td>Publication Month</td>
+                <td>{{ result.month_of_publishing }}</td>
+            </tr>
+            <tr>
+                <td>Volume</td>
+                <td>{{ result.volume }}</td>
+            </tr>
+            <tr>
+                <td>Page Numbers</td>
+                <td>{{ result.page_number }}</td>
+            </tr>
+            <tr>
+                <td>Indexing</td>
+                <td>{{ result.indexing }}</td>
+            </tr>
+            <tr>
+                <td>Quartile</td>
+                <td>{{ result.quartile }}</td>
+            </tr>
+            <tr>
+                <td>Citations</td>
+                <td>{{ result.citation }}</td>
+            </tr>
+            <tr>
+                <td>DOI</td>
+                <td>{{ result.doi }}</td>
+            </tr>
+            <tr>
+                <td>ISSN</td>
+                <td>{{ result.ISSN }}</td>
+            </tr>
+        </table>
+        <div class="mt-8">
+            <a href="{{ result.url }}" class="btn btn-success" target="_blank">View Publication</a>
+            <button class="btn btn-primary" onclick="insertPaper()">Insert Paper</button>
+        </div>
+    </div>
+
+    {% load static %}
+    <script src="{% static 'js/admin_publication.js' %}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        var table = document.getElementById("publicationTable");
+        for (var i = 0, row; row = table.rows[i]; i++) {
+            // Loop through each row in the table
+
+            // Assuming the second column contains the value to be checked
+            var cell = row.cells[1]; // Change the index to match your column number
+            
+            // Check if the cell contains 'None' or 'NULL'
+            if (cell.textContent.trim() === 'None' || cell.textContent.trim() === 'NULL' || cell.textContent.trim() === '0') {
+
+                if (i == getIndexByKey('Student Author')){
+                    var selectElement = document.createElement('select');
+                    selectElement.id = 'studentAuthor';
+                    selectElement.name = 'studentAuthor';
+                    var optionElement = document.createElement('option');
+                    optionElement.value = "No";
+                    optionElement.textContent = "No";
+                    selectElement.appendChild(optionElement);
+                    var optionElement = document.createElement('option');
+                    optionElement.value = "Yes";
+                    optionElement.textContent = "Yes";
+                    selectElement.appendChild(optionElement);
+                    selectElement.classList.add("form-control");
+
+                    cell.innerHTML = '';
+                    cell.appendChild(selectElement);
+                }
+
+                else if (i == getIndexByKey('Publication Month')){
+                    var inputElement = document.createElement("input");
+                    inputElement.setAttribute("min", "0");
+                    inputElement.setAttribute("max", "12");
+                    inputElement.value = cell.textContent.trim();
+                    inputElement.classList.add("form-control");
+                    cell.innerHTML = "";
+                    cell.appendChild(inputElement);
+                }
+
+                else if (i == getIndexByKey('Volume')){
+                    var inputElement = document.createElement("input");
+                    inputElement.setAttribute("min", "0");
+                    inputElement.value = 0
+                    inputElement.classList.add("form-control");
+                    cell.innerHTML = "";
+                    cell.appendChild(inputElement);
+                }
+
+                else if (i == getIndexByKey('Citations')){
+                    var inputElement = document.createElement("input");
+                    inputElement.setAttribute("min", "0");
+                    inputElement.value = 0
+                    inputElement.classList.add("form-control");
+                    cell.innerHTML = "";
+                    cell.appendChild(inputElement);
+                }
+                
+                else{
+                    // Replace the cell content with a textbox
+                    var textBox = document.createElement("input");
+                    textBox.type = "text";
+                    textBox.value = cell.textContent.trim();
+                    textBox.classList.add("form-control");
+
+                    cell.innerHTML = "";
+                    cell.appendChild(textBox);
+                }
+
+            }
+        }   
+        
+        function insertPaper(){
+
+            var table = document.getElementById("publicationTable");
+            var updates = {};
+            for (var i = 2, row; row = table.rows[i]; i++) {
+                var cell = row.cells[1];
+                
+                data_in_cell = cell;
+                input_in_cell = cell.getElementsByTagName("input")[0];
+                select_in_cell = cell.getElementsByTagName("select")[0];
+
+                if (input_in_cell){
+                    var inputElement = cell.querySelector('input');
+                    if (inputElement) {
+                        cellContent = inputElement ? inputElement.value : '';
+                    } else {
+                        cellContent = cell.textContent.trim();
+                    }
+                    updates[convertToSnakeCase(getKeyByIndex(i))] = cellContent;
+                }
+                else if (select_in_cell){
+                    var selectElement = cell.querySelector('select');
+                    cellContent = selectElement ? selectElement.value : '';
+                    updates[convertToSnakeCase(getKeyByIndex(i))] = cellContent;
+                }
+                else if (data_in_cell){
+                    cellContent = data_in_cell.innerHTML ? data_in_cell.innerHTML : '';
+                    updates[convertToSnakeCase(getKeyByIndex(i))] = cellContent;
+                }
+            }
+
+            updates['uniqueid'] = '{{ result.uniqueid }}';
+            updates['csrfmiddlewaretoken'] = '{{ csrf_token }}';
+            updates['url'] = '{{ result.url }}';
+
+            var result;
+
+            $.ajaxSetup({
+                async: false
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "{% url 'admin_insert_paper' %}",
+                data: updates,
+                success: function(response){
+                    result = response;
+                }
+            })
+
+            if (result === "Paper already exists! Cannot add paper."){
+                alert("Paper already exists! Cannot add paper.");
+                window.location.replace("/rpa/dbadmin/home");
+            }
+            else if (result === "OK"){
+                alert("Paper added successfully!");
+                window.location.replace("/rpa/dbadmin/home");
+            }
+            else{
+                window.location.replace("/rpa/dbadmin/error");
+            }
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Publication</title>
+  
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-4">
+        <div class="flex justify-between items-center mb-4">
+            <div class="text-center flex-1">
+                <h1 class="text-4xl font-bold">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Add Publications</h1>
+            </div>
+            <div class="profile-btn">
+                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Profile
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                    <li class="text-center mb-2">Hi {{ name }}! 👋</li>
+                    <hr>
+                    <li><a class="dropdown-item" href="/rpa/user/get_doi">Add Publication</a></li>
+                    <li><a class="dropdown-item" href="/rpa/user/home">Your Publications</a></li>
+                    <li><a class="dropdown-item" href="/rpa/user/dashboard">Advanced Dashboard</a></li>
+                    <li><a class="dropdown-item" href="/rpa/user/verification">Verify Publications</a></li>
+                    <li><button onclick="logOut()" class="dropdown-item btn btn-danger">Logout</button></li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <br><br><br>
+        <div class="flex justify-center items-center mb-3">
+            <div class="w-1/3">
+                <h2 class="text-2xl font-bold mb-4 text-center">Enter DOI</h2>
+                <form method="post" action="{% url 'user_get_doi' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <input type="text" name="doi" class="form-control" id="doiInput" placeholder="Enter DOI">
+                        <label for="AY" class="lbl mt-2 mb-2">Select Academic Year:</label>
+                        
+                        <select id="AY" name="AY" class="form-control">
+                            <option value="JUL 2015 - JUN 2016">JUL 2015 - JUN 2016</option>
+                            <option value="JUL 2016 - JUN 2017">JUL 2016 - JUN 2017</option>
+                            <option value="JUL 2017 - JUN 2018">JUL 2017 - JUN 2018</option>
+                            <option value="JUL 2018 - JUN 2019">JUL 2018 - JUN 2019</option>
+                            <option value="JUL 2019 - JUN 2020">JUL 2019 - JUN 2020</option>
+                            <option value="JUL 2020 - JUN 2021">JUL 2020 - JUN 2021</option>
+                            <option value="JUL 2021 - JUN 2022">JUL 2021 - JUN 2022</option>
+                            <option value="JUL 2022 - JUN 2023">JUL 2022 - JUN 2023</option>
+                            <option value="JUL 2023 - JUN 2024">JUL 2023 - JUN 2024</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        
+        function logOut(){
+            $.ajax({
+                type: "POST",
+                url: "{% url 'log_out' %}",
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                },
+                success: function(response) {
+                    alert(response);
+                    window.location.replace("/rpa/login");
+                }
+            });
+        }
+
+
+    </script> 
+</body>
+</html>
