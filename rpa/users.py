@@ -18,6 +18,12 @@ def login(request):
 
         adminusers = AdminUsers.objects.all()
 
+        if Users.objects.filter(email_id=email) and passcode == "Welcome123":
+            return render(request, "reset_password.html", {"email": email})
+
+        if AdminUsers.objects.filter(email_id=email) and passcode == "Admin@123":
+            return render(request, "reset_password.html", {"email": email})
+
         for adminuser in adminusers:
             if adminuser.email_id == email and adminuser.passkey == passcode:
                 request.session["FACULTY_NAME"] = "admin"
@@ -27,6 +33,7 @@ def login(request):
             if user.email_id == email and user.passkey == passcode:
                 request.session["FACULTY_NAME"] = user.staff_name.split(" ")[0]
                 return redirect("/rpa/user/home")
+
 
         return render(request, "index.html", context={"invalidlogin": "yes"})
 
@@ -43,7 +50,6 @@ def forgot_password(request):
         user = Users.objects.filter(email_id=email)
         admin = AdminUsers.objects.filter(email_id=email)
 
-        print(email, user, admin)
 
         if (not admin) and (not user):
             return render(request, "forgot_password.html", {"alertmessage": "Cannot find email id!"})
@@ -59,6 +65,39 @@ def forgot_password(request):
 
 
     return render(request, "forgot_password.html")
+
+
+def reset_password(request):
+    if request.method == "POST":
+        password = request.POST.get("pass", "")
+        confirm_password = request.POST.get("confirm_pass", "")
+        email = request.POST.get("email", "")
+
+        if not email:
+            return redirect("/rpa/user/error")
+
+        if (not password) or (not confirm_password):
+            return render(request, "reset_password.html", {"alertmessage": "Please fill the password field!", "email": email})
+        
+        if password != confirm_password:
+            return render(request, "reset_password.html", {"alertmessage": "Passwords do not match!", "email": email})
+
+        if password == "Welcome123" or password == "Admin@123":
+            return render(request, "reset_password.html", {"alertmessage": "Password cannot be default password!", "email": email})
+        
+        updates = {"passkey": password}
+
+        
+        if Users.objects.filter(email_id=email):
+            Users.objects.filter(email_id=email).update(**updates)
+        elif AdminUsers.objects.filter(email_id=email):
+            AdminUsers.objects.filter(email_id=email).update(**updates)
+        else:
+            return redirect("/rpa/users/error")
+
+        return render(request, "index.html", {"alertmessage": "Password change successful!"})
+
+    return redirect("/rpa/user/error")
 
 
 def otp_verification(request):
