@@ -7,7 +7,10 @@ from . import views
 
 urlpatterns = [
     path("login/", views.login, name="login"),
+    path("forgot_password/", views.forgot_password, name="forgot_password"),
+    path("otp_verification/", views.otp_verification, name="otp_verification"),
     path("user/home", views.user_home, name="user_home"),
+    path("reset_password/", views.reset_password, name="reset_password"),
     path(
         "user/paper/<paperid>",
         views.user_view_paper_details,

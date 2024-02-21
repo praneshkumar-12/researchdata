@@ -122,26 +122,25 @@
         </table>
         <div class="mt-8">
             {% if paper.front_page_path == 'NULL' or paper.front_page_path == 'None' or not paper.front_page_path %}
-                <a href="/rpa/dbadmin/paper/upload/{{paper.uniqueid}}" class="btn btn-primary" target="_blank">Upload Front Page</a>
+                <a href="/rpa/dbadmin/paper/upload/{{paper.uniqueid}}" id="frontPageBtn" class="btn btn-primary" target="_blank">Upload Front Page</a>
             {% else %}
-                <a href="/{{ paper.front_page_path }}/admin" class="btn btn-primary" target="_blank">Download Front Page</a>
-                <a href="/rpa/dbadmin/paper/upload/{{paper.uniqueid}}" class="btn btn-secondary" target="_blank">Reupload Front Page</a>
-                <button class="btn btn-warning" onclick="remove_upload()">Remove Front Page</button>
+                <a href="/{{ paper.front_page_path }}/admin" id="frontPageBtn" class="btn btn-primary" target="_blank">Download Front Page</a>
+                <a href="/rpa/dbadmin/paper/upload/{{paper.uniqueid}}" id="frontPageBtn" class="btn btn-secondary" target="_blank">Reupload Front Page</a>
+                <button class="btn btn-warning" id="frontPageBtn" onclick="remove_upload()">Remove Front Page</button>
             {% endif %}
 
-            <a href="{{ paper.url }}" class="btn btn-success" target="_blank">View Publication</a>
+            <a href="{{ paper.url }}" id="viewBtn" class="btn btn-success" target="_blank">View Publication</a>
 
             {% if paper.admin_verified == 'False' and paper.verified == 'True' %}
-                <button id="verify-btn" type="button" class="btn btn-danger text-white" value="{{ paper.uniqueid }}" onclick="verify()">
+                <button id="verify-btn" id="verifyBtn" type="button" class="btn btn-danger text-white" value="{{ paper.uniqueid }}" onclick="verify()">
                     Verify
                 </button>
             {% elif paper.admin_verified == 'True' and paper.verified == 'True' %}
-                <button type="button" class="btn btn-danger text-white" disabled>Verified</button>
+                <button type="button" id="verifyBtn" class="btn btn-danger text-white" disabled>Verified</button>
             {% endif %}
 
             <button id="edit-btn" class="btn btn-info" onclick = "edit_paper()">Edit</button>
-            <button id="edit-btn" class="btn btn-danger" onclick = "delete_paper()">Delete</button>
-            
+            <button id="deleteBtn" class="btn btn-danger" onclick = "delete_paper()">Delete</button>            
         </div>
     </div>
 
@@ -250,6 +249,13 @@
             if ("{{ name }}" != "admin"){
                 alert("You are unauthorized to edit this paper!");
                 window.location.replace("/rpa/dbadmin/error");
+            }
+
+            document.getElementById("frontPageBtn").hidden = true;
+            document.getElementById("viewBtn").hidden = true;
+            document.getElementById("deleteBtn").hidden = true;
+            if (document.getElementById("verifyBtn")){
+                document.getElementById("verifyBtn").hidden = true;
             }
         
             var table = document.getElementById("publicationTable")
@@ -421,7 +427,10 @@
             else{
                 window.location.replace("/rpa/dbadmin/error");
             }
-        
+            document.getElementById("frontPageBtn").hidden = true;
+            document.getElementById("viewBtn").hidden = true;
+            document.getElementById("deleteBtn").hidden = true;
+            document.getElementById("verifyBtn").hidden = true;
         }
 
         function delete_paper(){

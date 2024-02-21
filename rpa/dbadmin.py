@@ -211,8 +211,6 @@ def admin_remove_upload(request):
 
     publ.save()
 
-    print("saved")
-
     return HttpResponse("OK")
 
 

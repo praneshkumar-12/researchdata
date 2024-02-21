@@ -13,12 +13,22 @@ def login(request):
     return users.login(request)
 
 
+def forgot_password(request):
+    return users.forgot_password(request)
+
+
+def otp_verification(request):
+    return users.otp_verification(request)
+
+
 def logout(request):
     name = str(request.session.get("FACULTY_NAME"))
     request.session["FACULTY_NAME"] = None
-    print("Logged out by", name)
     return HttpResponse("Logged out successfully!")
 
+
+def reset_password(request):
+    return users.reset_password(request)
 
 # User specific
 
