@@ -114,11 +114,11 @@
         </table>
         <div class="mt-8">
             {% if paper.front_page_path == 'NULL' or paper.front_page_path == 'None' or not paper.front_page_path %}
-                <a href="/rpa/user/paper/upload/{{paper.uniqueid}}" class="btn btn-primary" target="_blank">Upload Front Page</a>
-                <a href="{{ paper.url }}" class="btn btn-success" target="_blank">View Publication</a>
+                <a href="/rpa/user/paper/upload/{{paper.uniqueid}}" id="frontPageBtn" class="btn btn-primary" target="_blank">Upload Front Page</a>
+                <a href="{{ paper.url }}" class="btn btn-success" id="viewBtn" target="_blank">View Publication</a>
             {% else %}
-                <a href="/{{ paper.front_page_path }}" class="btn btn-primary" target="_blank">Download Front Page</a>
-                <a href="{{ paper.url }}" class="btn btn-success" target="_blank">View Publication</a>
+                <a href="/{{ paper.front_page_path }}" id="frontPageBtn" class="btn btn-primary" target="_blank">Download Front Page</a>
+                <a href="{{ paper.url }}" id="viewBtn" class="btn btn-success" target="_blank">View Publication</a>
             {% endif %}
 
 
@@ -141,6 +141,9 @@
     <script>
         
         function modify(){
+
+            document.getElementById("frontPageBtn").hidden = true;
+            document.getElementById("viewBtn").hidden = true;
 
             $.ajaxSetup({
                 async: false
