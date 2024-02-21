@@ -211,7 +211,6 @@ def admin_remove_upload(request):
 
     publ.save()
 
-
     return HttpResponse("OK")
 
 
@@ -544,6 +543,7 @@ def admin_manually_insert_paper(request):
 def admin_delete_paper(request):
     uniqueid = request.POST.get("uniqueid")
 
+    print(uniqueid, Publications.objects.filter(uniqueid=uniqueid))
 
     if not Publications.objects.filter(uniqueid=uniqueid):
         return HttpResponse("Paper not found!")

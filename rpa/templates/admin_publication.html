@@ -140,8 +140,7 @@
             {% endif %}
 
             <button id="edit-btn" class="btn btn-info" onclick = "edit_paper()">Edit</button>
-            <button id="deleteBtn" class="btn btn-danger" onclick = "delete_paper()">Delete</button>
-            
+            <button id="deleteBtn" class="btn btn-danger" onclick = "delete_paper()">Delete</button>            
         </div>
     </div>
 
@@ -428,12 +427,10 @@
             else{
                 window.location.replace("/rpa/dbadmin/error");
             }
-
             document.getElementById("frontPageBtn").hidden = true;
             document.getElementById("viewBtn").hidden = true;
             document.getElementById("deleteBtn").hidden = true;
             document.getElementById("verifyBtn").hidden = true;
-        
         }
 
         function delete_paper(){
