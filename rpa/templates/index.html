@@ -31,6 +31,7 @@
                 </div>
               </div>
               <div class="d-grid gap-2">
+                <a href="/rpa/forgot_password" target="_blank" class="underline text-blue-800 mb-2">Forgot Password</a>
                 <button type="submit" class="btn btn-primary">Login</button>
               </div>
             </form>
@@ -45,6 +46,10 @@
 		<script>alert("Please check your credentials!");</script>
 	
 	{% endif %}
+
+  {% if alertmessage %} 
+        <script>alert("{{ alertmessage }}");</script>
+  {% endif %}
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {

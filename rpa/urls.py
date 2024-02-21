@@ -7,6 +7,8 @@ from . import views
 
 urlpatterns = [
     path("login/", views.login, name="login"),
+    path("forgot_password/", views.forgot_password, name="forgot_password"),
+    path("otp_verification/", views.otp_verification, name="otp_verification"),
     path("user/home", views.user_home, name="user_home"),
     path(
         "user/paper/<paperid>",

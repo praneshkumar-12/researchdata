@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP and Password</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">OTP and Password</div>
+          <div class="card-body">
+            <form method="post" action="{% url 'otp_verification' %}">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="otp" class="form-label">OTP</label>
+                <input type="text" class="form-control" id="otp" name="otp" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <div class="relative">
+                  <input type="password" class="form-control" id="password" name="pass" required>
+                  <button type="button" class="absolute right-0 top-0 bg-transparent border-0 p-1" onclick="togglePassword()">
+                    <div id="eyeClosed"><?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="https://www.w3.org/2000/svg" color="#000000"><path d="M19.5 16L17.0248 12.6038" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 17.5V14" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4.5 16L6.96895 12.6124" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 8C6.6 16 17.4 16 21 8" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                    <div id="eyeOpen"><?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="https://www.w3.org/2000/svg" color="#000000" stroke-width="1.5"><path d="M3 13C6.6 5 17.4 5 21 13" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 17C10.3431 17 9 15.6569 9 14C9 12.3431 10.3431 11 12 11C13.6569 11 15 12.3431 15 14C15 15.6569 13.6569 17 12 17Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="sc-8753d4f7-9 dqriVB"></div></div>
+                  </button>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <div class="relative">
+                  <input type="password" class="form-control" id="confirmPassword" name="confirm_pass" required>
+                  <button type="button" class="absolute right-0 top-0 bg-transparent border-0 p-1" onclick="togglePassword()">
+                    <div id="eyeClosedConfirm"><?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="https://www.w3.org/2000/svg" color="#000000"><path d="M19.5 16L17.0248 12.6038" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 17.5V14" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4.5 16L6.96895 12.6124" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 8C6.6 16 17.4 16 21 8" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                    <div id="eyeOpenConfirm"><?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="https://www.w3.org/2000/svg" color="#000000" stroke-width="1.5"><path d="M3 13C6.6 5 17.4 5 21 13" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 17C10.3431 17 9 15.6569 9 14C9 12.3431 10.3431 11 12 11C13.6569 11 15 12.3431 15 14C15 15.6569 13.6569 17 12 17Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="sc-8753d4f7-9 dqriVB"></div></div>
+                  </button>
+                </div>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    {% if alertmessage %} 
+        <script>alert("{{ alertmessage }}");</script>
+    {% endif %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("eyeClosed").style = "display: none";
+            document.getElementById("eyeOpen").style = "";
+            document.getElementById("eyeClosedConfirm").style = "display: none";
+            document.getElementById("eyeOpenConfirm").style = "";
+        });
+    
+        function togglePassword() {
+          let password = document.getElementById("password");
+          let confirm_password = document.getElementById("confirmPassword");
+          if (password.type === "password") {
+              password.type = "text";
+              confirm_password.type = "text";
+              document.getElementById("eyeOpen").style = "display: none";
+              document.getElementById("eyeClosed").style = "";
+              document.getElementById("eyeOpenConfirm").style = "display: none";
+              document.getElementById("eyeClosedConfirm").style = "";
+        } else {
+            password.type = "password";
+            confirm_password.type = "password";
+            document.getElementById("eyeClosed").style = "display: none";
+            document.getElementById("eyeOpen").style = "";
+            document.getElementById("eyeClosedConfirm").style = "display: none";
+            document.getElementById("eyeOpenConfirm").style = "";
+          }
+        }
+    </script>
+</body>
+</html>

@@ -6,6 +6,7 @@ from rpa.models import AdminUsers
 from rpa.forms import PublicationsForm
 import rpa.extractor.extractor as Extractor
 import os
+import random
 
 
 def login(request):
@@ -32,6 +33,72 @@ def login(request):
     return render(request, "index.html")
 
 
+def forgot_password(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
+        
+        if not email:
+            return render(request, "forgot_password.html", {"alertmessage": "Please fill the email field!"})
+        
+        user = Users.objects.filter(email_id=email)
+        admin = AdminUsers.objects.filter(email_id=email)
+
+        print(email, user, admin)
+
+        if (not admin) and (not user):
+            return render(request, "forgot_password.html", {"alertmessage": "Cannot find email id!"})
+        
+        otp = random.randint(11111,99999)
+
+        print(otp)
+
+        request.session['otp'] = int(otp)
+        request.session['email'] = email
+
+        return render(request, "verify_otp.html")
+
+
+    return render(request, "forgot_password.html")
+
+
+def otp_verification(request):
+    if request.method == "POST":
+        otp = request.POST.get("otp", "")
+        password = request.POST.get("pass", "")
+        confirm_password = request.POST.get("confirm_pass", "")
+
+
+        if not otp.isnumeric():
+            return render(request, "verify_otp.html", {"alertmessage": "Invalid OTP!"})
+
+        if int(otp) != int(request.session.get("otp", 0)):
+            return render(request, "verify_otp.html", {"alertmessage": "Invalid OTP!"})
+
+        if (not password) or (not confirm_password):
+            return render(request, "verify_otp.html", {"alertmessage": "Please fill the password field!"})
+        
+        if password != confirm_password:
+            return render(request, "verify_otp.html", {"alertmessage": "Passwords do not match!"})
+        
+
+        email = request.session.get("email", "")
+
+        updates = {"passkey": password}
+
+        if not email:
+            return redirect("/rpa/user/error")
+        
+        if Users.objects.filter(email_id=email):
+            Users.objects.filter(email_id=email).update(**updates)
+        elif AdminUsers.objects.filter(email_id=email):
+            AdminUsers.objects.filter(email_id=email).update(**updates)
+        else:
+            return redirect("/rpa/users/error")
+
+        return render(request, "index.html", {"alertmessage": "Password change successful!"})
+    else:
+        return redirect("/rpa/user/error")
+    
 def user_home(request):
     papers = Publications.objects.all()
 
@@ -202,11 +269,7 @@ def authenticate_user(request, unqiueid, name):
 def error(request):
     return render(
         request,
-        "custom_error.html",
-        {
-            "error_title": "Unauthorized!",
-            "error_message": "You are unauthorized to view the details of this publication.",
-        },
+        "error.html"
     )
 
 

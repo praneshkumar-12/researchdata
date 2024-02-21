@@ -13,6 +13,14 @@ def login(request):
     return users.login(request)
 
 
+def forgot_password(request):
+    return users.forgot_password(request)
+
+
+def otp_verification(request):
+    return users.otp_verification(request)
+
+
 def logout(request):
     name = str(request.session.get("FACULTY_NAME"))
     request.session["FACULTY_NAME"] = None
