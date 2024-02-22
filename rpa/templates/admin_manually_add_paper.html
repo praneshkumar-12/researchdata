@@ -118,8 +118,8 @@
     </div>
 
     {% load static %}
-    <script src="{% static 'js/admin_publication.js' %}"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="application/x-javascript" src="{% static 'js/admin_publication.js' %}"></script>
+    <script type="application/x-javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>
         function create_fields(){
             if ("{{ name }}" != "admin"){

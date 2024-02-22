@@ -21,13 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-$2rhmd1c*cya3a*ahd=e-%onrd3+cg_5kd7ajn=isfdpu-k0h0"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
+DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
 
 # Application definition
 
@@ -81,7 +82,7 @@ DATABASES = {
         'ENGINE': 'sql_server.pyodbc',
         'NAME': 'researchdata',
         'USER': 'dbadmin',
-        'PASSWORD': 'Db4SSNIT',
+        'PASSWORD': DATABASE_PASSWORD,
         'HOST': 'ssn-it-researchdata.database.windows.net',
         'PORT': '1433',
         'OPTIONS': {
@@ -149,3 +150,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CSRF_TRUSTED_ORIGINS = ["https://ssn-it-researchdata.azurewebsites.net", "https://www.ssn-it-researchdata.azurewebsites.net"]
+
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
