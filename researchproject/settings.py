@@ -28,6 +28,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
+DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
 
 # Application definition
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -75,35 +77,33 @@ WSGI_APPLICATION = "researchproject.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
+DATABASES = {
+    'default': {
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'researchdata',
+        'USER': 'dbadmin',
+        'PASSWORD': DATABASE_PASSWORD,
+        'HOST': 'ssn-it-researchdata.database.windows.net',
+        'PORT': '1433',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 18 for SQL Server',
+            'encrypt': 'yes',
+            'trust_server_certificate': 'no',
+            'connection_timeout': 30,
+        },
+    },
+}
 
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'sql_server.pyodbc',
-#         'NAME': 'researchdata',
-#         'USER': 'dbadmin',
-#         'PASSWORD': 'Db4SSNIT',
-#         'HOST': 'ssn-it-researchdata.database.windows.net',
-#         'PORT': '1433',
-#         'OPTIONS': {
-#             'driver': 'ODBC Driver 18 for SQL Server',
-#             'encrypt': 'yes',
-#             'trust_server_certificate': 'no',
-#             'connection_timeout': 30,
-#         },
-#     },
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "ssn_new",
+#         "USER": "root",
+#         "HOST": "localhost",
+#         "PORT": 3306,
+#         "PASSWORD": "Test-Database4Me",
+#     }
 # }
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "ssn_new",
-        "USER": "root",
-        "HOST": "localhost",
-        "PORT": 3306,
-        "PASSWORD": DATABASE_PASSWORD,
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -140,9 +140,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "/static/"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CSRF_TRUSTED_ORIGINS = ["https://ssn-it-researchdata.azurewebsites.net", "https://www.ssn-it-researchdata.azurewebsites.net"]
+
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
