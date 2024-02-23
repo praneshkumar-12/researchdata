@@ -333,12 +333,13 @@
                         selectElement.appendChild(optionElement);
                     } 
 
-                    cell.innerHTML = '';
-                    cell.appendChild(selectElement);
-        
                     if (academic_years.includes(cell.textContent.trim())){
                         selectElement.value = cell.textContent.trim();
                     }
+                    
+                    cell.innerHTML = '';
+                    cell.appendChild(selectElement);
+        
 
 
                 }
