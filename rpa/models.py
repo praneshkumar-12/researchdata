@@ -32,7 +32,7 @@ class Publications(models.Model):
     indexing = models.CharField(max_length=100, blank=True, null=True)
     quartile = models.CharField(max_length=10, blank=True, null=True)
     citation = models.IntegerField(blank=True, null=True, default=0)
-    doi = models.CharField(max_length=500, blank=True, null=True)
+    doi = models.CharField(max_length=255, blank=True, null=True, unique=True)
     front_page_path = models.CharField(max_length=500, blank=True, null=True)
     url = models.CharField(max_length=500, blank=True, null=True)
     issn = models.CharField(

@@ -4,6 +4,7 @@ from rpa.models import Publications
 from rpa.models import Users
 from rpa.models import AdminUsers
 from rpa.forms import PublicationsForm
+import django.db.utils
 import rpa.extractor.extractor as Extractor
 import os
 import random
@@ -630,6 +631,9 @@ def user_insert_paper(request):
 
     new_record = Publications(**data_to_be_inserted)
 
-    new_record.save()
+    try:
+        new_record.save()
+    except django.db.utils.IntegrityError:
+        return HttpResponse("Paper already exists! Cannot add paper.")
 
     return HttpResponse("OK")

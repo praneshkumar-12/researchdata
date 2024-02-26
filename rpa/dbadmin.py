@@ -3,6 +3,7 @@ from rpa.forms import PublicationsForm
 from rpa.models import Users
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+import django.db.utils
 import os
 import rpa.extractor.extractor as Extractor
 
@@ -399,7 +400,7 @@ def admin_insert_paper(request):
     faculty_name = request.session["FACULTY_NAME"]
 
     if faculty_name != "admin":
-        return HttpResponse("Paper already exists! Cannot add paper.")
+        return HttpResponse("Unauthorized")
 
     uniqueid = request.POST.get("uniqueid")
 
@@ -451,8 +452,10 @@ def admin_insert_paper(request):
     )
 
     new_record = Publications(**data_to_be_inserted)
-
-    new_record.save()
+    try:
+        new_record.save()
+    except django.db.utils.IntegrityError:
+        return HttpResponse("Paper already exists! Cannot add paper.")
 
     return HttpResponse("OK")
 
