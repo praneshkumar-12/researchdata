@@ -538,7 +538,10 @@ def admin_manually_insert_paper(request):
 
         new_record = Publications(**updates)
 
-        new_record.save()
+        try:
+            new_record.save()
+        except django.db.utils.IntegrityError:
+            return HttpResponse("Paper already exists! Cannot add paper.")
 
         return HttpResponse("OK")
 

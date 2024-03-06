@@ -11,13 +11,13 @@ import random
 
 
 def login(request):
+    users = Users.objects.all()
+    adminusers = AdminUsers.objects.all()
+    
     if request.method == "POST":
         email = request.POST.get("email")
         passcode = request.POST.get("pass")
 
-        users = Users.objects.all()
-
-        adminusers = AdminUsers.objects.all()
 
         if Users.objects.filter(email_id=email) and passcode == "Welcome123":
             return render(request, "reset_password.html", {"email": email})
@@ -38,6 +38,14 @@ def login(request):
 
         return render(request, "index.html", context={"invalidlogin": "yes"})
 
+    user_name = request.session.get("FACULTY_NAME")
+
+    if user_name:
+        if user_name == "admin":
+            return redirect("/rpa/dbadmin/home")
+        elif user_name in [user.staff_name.split(" ")[0] for user in users]:
+            return redirect("/rpa/user/home")
+    
     return render(request, "index.html")
 
 
