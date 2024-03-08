@@ -18,24 +18,20 @@ def login(request):
         email = request.POST.get("email")
         passcode = request.POST.get("pass")
 
-
-        if Users.objects.filter(email_id=email) and passcode == "Welcome123":
-            return render(request, "reset_password.html", {"email": email})
-
-        if AdminUsers.objects.filter(email_id=email) and passcode == "Admin@123":
-            return render(request, "reset_password.html", {"email": email})
-
         for adminuser in adminusers:
-            if adminuser.email_id == email and adminuser.passkey == passcode:
+            if adminuser.email_id == email and adminuser.passkey == passcode and passcode == "Admin@123":
+                return render(request, "reset_password.html", {"email": email})
+            elif adminuser.email_id == email and adminuser.passkey == passcode:
                 request.session["FACULTY_NAME"] = "admin"
                 return redirect("/rpa/dbadmin/home")
 
         for user in users:
-            if user.email_id == email and user.passkey == passcode:
+            if user.email_id == email and user.passkey == passcode and passcode == "Welcome123":
+                return render(request, "reset_password.html", {"email": email})
+            elif user.email_id == email and user.passkey == passcode:
                 request.session["FACULTY_NAME"] = user.staff_name.split(" ")[0]
                 return redirect("/rpa/user/home")
-
-
+            
         return render(request, "index.html", context={"invalidlogin": "yes"})
 
     user_name = request.session.get("FACULTY_NAME")
