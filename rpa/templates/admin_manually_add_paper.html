@@ -11,9 +11,13 @@
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto py-8">
-        <h1 class="text-3xl font-bold mb-8">
-            {{ result.title }}
-        </h1>
+        <div class="flex justify-between items-center mb-4">
+            {% load static %}
+            <img src="{% static 'img/ssn.jpg' %}" class="h-8 w-16" alt="SSN Logo">
+            <div class="text-center flex-1">
+                <h1 class="text-4xl font-bold">&nbsp; Add Publications</h1>
+            </div>
+        </div>
         <table id="publicationTable" class="table table-striped">
             <tr>
                 <th>Field</th>
