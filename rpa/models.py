@@ -22,7 +22,7 @@ class Publications(models.Model):
     specification = models.CharField(max_length=30, blank=True, null=True)
     publication_type = models.CharField(max_length=30, blank=True, null=True)
     publication_name = models.CharField(max_length=500, blank=True, null=True)
-    publisher = models.CharField(max_length=100, blank=True, null=True)
+    publisher = models.CharField(max_length=500, blank=True, null=True)
     year_of_publishing = models.IntegerField(
         blank=True, null=True
     )  # This field type is a guess.
