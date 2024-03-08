@@ -177,6 +177,8 @@ def user_home(request):
             or name in other_authors
         ):
             publication_list.append(paper)
+        
+    publication_list.sort(reverse=True, key=lambda x: x.end_academic_year)
 
     context = {"papers": publication_list, "name": name}
 
@@ -430,6 +432,8 @@ def user_dashboard(request):
             or name in other_authors
         ):
             publication_list.append(paper)
+    
+    publication_list.sort(reverse=True, key=lambda x: x.end_academic_year)
 
     context = {
         "papers": publication_list,
@@ -477,6 +481,8 @@ def user_verification(request):
         ):
             publication_list.append(paper)
 
+    publication_list.sort(reverse=True, key=lambda x: x.end_academic_year)
+    
     context = {"papers": publication_list, "name": name}
 
     return render(request, "verification.html", context)

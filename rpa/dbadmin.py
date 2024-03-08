@@ -20,6 +20,8 @@ def admin_home(request):
 
     for paper in papers:
         publication_list.append(paper)
+    
+    publication_list.sort(reverse=True, key=lambda x: x.end_academic_year)
 
     context = {"papers": publication_list, "name": name}
 
@@ -89,6 +91,8 @@ def admin_dashboard(request):
             paper.front_page_path = "NULL"
 
         publication_list.append(paper)
+    
+    publication_list.sort(reverse=True, key=lambda x: x.end_academic_year)
 
     context = {
         "papers": publication_list,
@@ -304,6 +308,8 @@ def admin_verification(request):
 
     for paper in papers:
         publication_list.append(paper)
+    
+    publication_list.sort(reverse=True, key=lambda x: x.end_academic_year)
 
     context = {"papers": publication_list, "name": name}
 
