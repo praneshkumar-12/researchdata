@@ -11,6 +11,16 @@
 </head>
 <body>
   <div class="container mt-5">
+    {% load static %}
+    <div id="header" class="p-4">
+      <div class="flex items-center justify-center mb-4">
+        <img src="{% static 'img/ssn.jpg' %}" class="h-16 w-32" alt="SSN Logo">
+      </div>
+      <div class="flex flex-col items-center justify-center">
+        <h1 class="text-xl font-bold">Department of Information Technology</h1>
+        <h2 class="text-lg">Research Publications Portal</h2>
+      </div>
+    </div>
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card">
