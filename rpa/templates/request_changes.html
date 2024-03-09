@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ paper.title }}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7fafc;
+            padding: 20px;
+        }
+
+        .container {
+            margin: auto;
+        }
+
+        .paper-title {
+            color: #2d3748;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .table th {
+            background-color: #4b5563;
+            color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        .table td {
+            background-color: #ffffff;
+            color: #2d3748;
+        }
+
+        .table th:first-child,
+        .table td:first-child {
+            padding-left: 20px;
+        }
+
+        .table th:last-child,
+        .table td:last-child {
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <form method="post" action="{% url 'request_changes' paper.uniqueid %}"> <!-- Enclosing form tag -->
+        {% csrf_token %}
+        <div class="container mx-auto py-8">
+            <div class="flex justify-between items-center mb-4">
+                {% load static %}
+                <img src="{% static 'img/ssn.jpg' %}" class="h-8 w-16" alt="SSN Logo">
+                <div class="text-center flex-1">
+                    <br>
+                    <h1 class="text-3xl font-bold mb-8 ml-2">{{ paper.title }}</h1>
+                </div>
+            </div>
+            <table id="publicationTable" class="table table-striped">
+                <tr>
+                    <th class="text-white">Field</th>
+                    <th class="text-white">Value</th>
+                </tr>
+                <tr>
+                    <td id="td-select">     
+                    </td>
+                    <td id="td-input">
+                    </td>
+                </tr>
+            </table>  
+            <button type="button" onclick="addField()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded">
+                + Add Field
+            </button>    
+            <input type="submit" value="Request" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded">  
+        </div>
+    </form> <!-- Closing form tag -->
+
+    <script>
+        function addField(){
+            var container = document.createElement("div");
+            container.classList.add("flex", "mb-2");
+
+            var select_td = document.getElementById("td-select");
+            var input_td = document.getElementById("td-input");
+
+            var selectElement = document.createElement("select");
+            selectElement.setAttribute("id", "field-select");
+            selectElement.classList.add("form-control");
+
+            {% for field in fields %}
+                var option = document.createElement("option");
+                option.setAttribute("value", "{{ field }}");
+                option.text = "{{ field }}";
+                selectElement.appendChild(option);
+            {% endfor %}
+
+            container.appendChild(selectElement);
+            select_td.appendChild(container);
+
+            var inputcontainer = document.createElement("div");
+            inputcontainer.classList.add("flex", "mb-2");
+
+            var inputElement = document.createElement("input");
+            inputElement.type = "text";
+            inputElement.value = "{{ paper.title }}";
+            inputElement.name = "Title";
+            inputElement.classList.add("form-control");
+            inputcontainer.append(inputElement);
+            input_td.appendChild(inputcontainer);
+
+            selectElement.addEventListener("change", function() {
+                {% for field in fields %}
+                    if (selectElement.value == "{{ field }}"){
+                        count =  "{{ forloop.counter0 }}";
+                        {% for key, value in fields_dict.items %}
+                            if ("{{key}}" == "{{field}}"){
+                                inputElement.value = "{{ value }}";
+                                inputElement.name = "{{ key }}";
+                            }
+                        {% endfor %}
+                    }   
+                {% endfor %}
+            });
+        }
+    </script>
+
+</body>
+</html>

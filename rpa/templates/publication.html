@@ -155,10 +155,10 @@
                 <td>Page Numbers</td>
                 <td>{{ paper.page_number }}</td>
             </tr>
-            <tr>
-                <td>Indexing</td>
-                <td>{{ paper.indexing }}</td>
-            </tr>
+                <tr>
+                    <td>Indexing</td>
+                    <td>{{ paper.indexing }}</td>
+                </tr>
             <tr>
                 <td>Quartile</td>
                 <td>{{ paper.quartile }}</td>
@@ -195,6 +195,8 @@
             {% elif paper.verified == 'True' and paper.admin_verified == 'True' %}
                 <button type="button" class="btn btn-danger text-white" disabled>Verified</button>
             {% endif %}
+
+        <a href="/rpa/user/request/{{ paper.uniqueid }}/" id="btn-changes" class="btn btn-info text-black">Request for changes</a>
             
         </div>
     </div>
@@ -208,6 +210,7 @@
 
             document.getElementById("frontPageBtn").hidden = true;
             document.getElementById("viewBtn").hidden = true;
+            document.getElementById("btn-changes").hidden = true;
             $.ajaxSetup({
                 async: false
             });

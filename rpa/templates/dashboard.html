@@ -258,5 +258,14 @@
 
     </script> 
 
+    <script>
+        {% if alertmessage %}
+            alert("{{alertmessage}}");
+            {% if close %}
+                window.close();
+            {% endif %}
+        {% endif %}
+    </script>
+    
 </body>
 </html>

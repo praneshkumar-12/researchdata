@@ -26,6 +26,11 @@ urlpatterns = [
         views.autheticate_user,
         name="authenticate_user",
     ),
+    path(
+        "user/request/<uniqueid>/", 
+        views.request_changes, 
+        name="request_changes",
+    ),
     path("user/paper_verify/verify", views.user_verify_paper, name="user_verify_paper"),
     path("user/dashboard", views.user_dashboard, name="user_dashboard"),
     path("user/verification", views.user_verification, name="user_verification"),

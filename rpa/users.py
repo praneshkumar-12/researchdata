@@ -6,6 +6,7 @@ from rpa.models import AdminUsers
 from rpa.forms import PublicationsForm
 import django.db.utils
 import rpa.extractor.extractor as Extractor
+from send_email import send_email
 import os
 import random
 
@@ -23,6 +24,7 @@ def login(request):
                 return render(request, "reset_password.html", {"email": email})
             elif adminuser.email_id == email and adminuser.passkey == passcode:
                 request.session["FACULTY_NAME"] = "admin"
+                request.session["email"] = email
                 return redirect("/rpa/dbadmin/home")
 
         for user in users:
@@ -30,6 +32,7 @@ def login(request):
                 return render(request, "reset_password.html", {"email": email})
             elif user.email_id == email and user.passkey == passcode:
                 request.session["FACULTY_NAME"] = user.staff_name.split(" ")[0]
+                request.session["email"] = email
                 return redirect("/rpa/user/home")
             
         return render(request, "index.html", context={"invalidlogin": "yes"})
@@ -312,6 +315,107 @@ def authenticate_user(request, unqiueid, name):
     return HttpResponse("false")
 
 
+def request_changes(request, uniqueid):
+    if request.method == "GET":
+        try:
+            publ = Publications.objects.get(uniqueid=uniqueid)
+        except Publications.DoesNotExist:
+            return render(request, "error.html")
+        
+        name = str(request.session.get("FACULTY_NAME"))
+
+        if not (
+            name in publ.first_author
+            or name in publ.second_author
+            or name in publ.third_author
+            or name in publ.other_authors
+        ):
+            return render(
+                request,
+                "custom_error.html",
+                {
+                    "error_title": "Unauthorized!",
+                    "error_message": "You are unauthorized to view the details of this publication.",
+                },
+            )
+        
+        all_fields = [x.name.title().replace("_", " ") for x in Publications._meta.get_fields()]
+
+        fields = []
+        original_fields = []
+
+        for field in all_fields:
+            if field.lower() == "uniqueid":
+                # original_fields.append(field.lower().replace(" ", "_"))
+                continue
+
+            if "front page path" in field.lower():
+                continue
+
+            if "start academic" in field.lower() or "end academic" in field.lower():
+                # original_fields.append(field.lower().replace(" ", "_"))
+                continue
+
+            if "verified" in field.lower():
+                continue
+
+            if "doi" == field.lower():
+                field = "DOI"
+            
+            if "url" == field.lower():
+                field = "URL"
+            
+            if "issn" == field.lower():
+                field = "ISSN"
+
+            fields.append(field)
+            original_fields.append(field.lower().replace(" ", "_"))
+        
+
+        fields_dict = {}
+
+        for original_field in original_fields:
+            temp = original_field.title().replace("_", " ")
+
+            if temp == "Doi":
+                temp = "DOI"
+            if temp == "Url":
+                temp = "URL"
+            if temp == "Issn":
+                temp = "ISSN"
+
+            fields_dict[temp] = eval(f"publ.{original_field}")
+        
+
+        return render(request, "request_changes.html", {"paper": publ, "fields": fields, "fields_dict": fields_dict})
+    
+    if request.method == "POST":
+        updates = dict(request.POST)
+
+        del updates['csrfmiddlewaretoken']
+
+        faculty_name = str(request.session.get("FACULTY_NAME"))     
+        faculty_email = str(request.session.get("email"))  
+
+        import datetime
+
+        
+        email_message = f"Faculty Name: {faculty_name}\nFaculty Email: {faculty_email}\nRequest Date and Time: {datetime.datetime.now()}\n"
+        email_message += f"UniqueID: {uniqueid}\n"
+        email_message += "The following are the changes that are requested:\n\n"
+
+        counter = 1
+
+        for update, value in updates.items():
+            email_message += f"{counter}. {update}: {value[0]}\n"
+            counter += 1
+        
+
+        send_email("Requesting updates in research paper", email_message)
+
+        return render(request, 'dashboard.html', {"alertmessage": "Changes requested successfully!", "close": "yes"})
+        
+
 def error(request):
     return render(
         request,
@@ -442,7 +546,6 @@ def user_dashboard(request):
         "name": name,
     }
 
-    # paper_records =
     return render(request, "dashboard.html", context)
 
 
