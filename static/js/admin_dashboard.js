@@ -55,7 +55,7 @@ function downloadCSV() {
     var row_content = "";
 
     for (var i = 0; i < rows.length; i++) { // Exclude the last row
-        if (i === rows.length - 1) {
+        if (i === rows.length) {
             row_content = rows[i].querySelectorAll('td,th');
             content = row_content[1].innerHTML;
         }
@@ -64,8 +64,7 @@ function downloadCSV() {
             var cols = rows[i].querySelectorAll('td,th');
             var csvrow = [];
 
-            for (var j = 0; j < cols.length - 1; j++) {
-                // console.log(cols[j].innerHTML)
+            for (var j = 0; j < cols.length; j++) {
                 // Add automatic serial numbers for the first row
 
                 if (window.getComputedStyle(cols[j]).display !== 'none') {
@@ -78,7 +77,6 @@ function downloadCSV() {
                         if (i !== 0 && (j === findHeaderIndex("Title"))){
                             cellContent = cols[j].getElementsByTagName("a");
                             if (cellContent.length != 0) {
-                                console.log(cellContent);
                                 cellContent = cellContent[0].textContent;
                             } else {
                                 cellContent = 'NULL';
@@ -92,7 +90,6 @@ function downloadCSV() {
                             cellContent = cols[j].getElementsByTagName("a");
 
                             if (cellContent.length != 0) {
-                                console.log(cellContent);
                                 cellContent = cellContent[0].getAttribute("href");
                             } else {
                                 cellContent = 'NULL';
