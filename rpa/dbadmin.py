@@ -3,6 +3,8 @@ from rpa.forms import PublicationsForm
 from rpa.models import Users
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+import random
+import string
 import django.db.utils
 import os
 import rpa.extractor.extractor as Extractor
@@ -534,7 +536,7 @@ def admin_manually_insert_paper(request):
         uniqueid = (
             str(start_academic_year)
             + str(start_academic_month)
-            + "".join(letter for letter in updates["doi"] if letter.isalnum())
+            + "".join(random.choices(string.ascii_letters, k=7))
         )
 
         updates["uniqueid"] = uniqueid
