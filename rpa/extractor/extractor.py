@@ -6,6 +6,8 @@ import requests
 import logging
 from unidecode import unidecode
 import re
+import string
+import random
 import jellyfish
 from rpa.extractor.fetch_quartile_indexing import (
     create_combined_dataset_indexing_quartile,
@@ -200,11 +202,18 @@ def extract_from_json(fetched_data):
         " ".join(fetched_data["ISSN"]) if fetched_data.get("ISSN") is not None else None
     )
 
-    database_fields["uniqueid"] = (
-        str(database_fields["start_academic_year"])
-        + str(database_fields["start_academic_month"])
-        + "".join(letter for letter in database_fields["doi"] if letter.isalnum())
-    )
+    if database_fields["doi"].lower() == "null":
+        database_fields["uniqueid"] = (
+            str(database_fields["start_academic_year"])
+            + str(database_fields["start_academic_month"])
+            + "".join(random.choices(string.ascii_letters, k=7))
+        )
+    else:
+        database_fields["uniqueid"] = (
+            str(database_fields["start_academic_year"])
+            + str(database_fields["start_academic_month"])
+            + "".join(letter for letter in database_fields["doi"] if letter.isalnum())
+        )
 
 
 def set_title(fetched_data):
