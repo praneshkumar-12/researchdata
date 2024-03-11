@@ -50,7 +50,7 @@ class Publications(models.Model):
 
 class Users(models.Model):
     author_id = models.CharField(primary_key=True, max_length=35)
-    email_id = models.CharField(max_length=35, blank=True, null=True)
+    email_id = models.CharField(max_length=35, blank=True, null=True, unique=True)
     staff_name = models.CharField(max_length=50, blank=True, null=True)
     passkey = models.CharField(max_length=100, blank=True, null=True)
 

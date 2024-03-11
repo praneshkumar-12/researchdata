@@ -214,6 +214,13 @@ def admin_remove_upload(request):
 
     publ = Publications.objects.get(uniqueid=uniqueid)
 
+    complete_path = "rpa/static/upload/" + uniqueid.strip() + ".pdf"
+
+    if os.path.exists(complete_path):
+        os.remove(complete_path)
+    else:
+        return HttpResponse("File not found!")
+
     publ.front_page_path = None
 
     publ.save()

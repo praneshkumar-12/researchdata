@@ -25,6 +25,18 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
 
+DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_ID")
+SERVER_EMAIL = os.environ.get("EMAIL_ID")
+
+ADMINS = [("Debug", os.environ.get("EMAIL_ID"))]
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = os.environ.get("EMAIL_ID")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -77,23 +89,6 @@ WSGI_APPLICATION = "researchproject.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'sql_server.pyodbc',
-#         'NAME': 'researchdata',
-#         'USER': 'dbadmin',
-#         'PASSWORD': 'Db4SSNIT',
-#         'HOST': 'ssn-it-researchdata.database.windows.net',
-#         'PORT': '1433',
-#         'OPTIONS': {
-#             'driver': 'ODBC Driver 18 for SQL Server',
-#             'encrypt': 'yes',
-#             'trust_server_certificate': 'no',
-#             'connection_timeout': 30,
-#         },
-#     },
-# }
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
@@ -140,9 +135,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "/static/"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CSRF_TRUSTED_ORIGINS = ["https://ssn-it-researchdata.azurewebsites.net", 
+                        "https://www.ssn-it-researchdata.azurewebsites.net"]
+
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
+
+SECURE_SSL_REDIRECT = False

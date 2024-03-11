@@ -26,7 +26,7 @@ CREATE TABLE publications
      specification       VARCHAR(30),
      publication_type    VARCHAR(30),
      publication_name    VARCHAR(500),
-     publisher           VARCHAR(100),
+     publisher           VARCHAR(500),
      year_of_publishing  YEAR,
      month_of_publishing VARCHAR(10),
      volume              INT,
@@ -50,6 +50,9 @@ CREATE TABLE publications
 desc publications;
 
 select * from publications; 
+
+alter table publications modify column doi varchar(500);
+alter table publications drop constraint unique_doi;
 
 -- update publications set issn=NULL where title='Assurance on data integrity in cloud data centre using PKI built RDIC method';
 

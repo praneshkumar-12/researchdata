@@ -4,8 +4,8 @@ import os
 
 
 def send_email(subject, content):
-    user = "clinic.management.system.service@gmail.com"
-    key = "rrsfsilblgzbiaep"
+    user = os.environ.get('RESEARCH_MAIL_USER')
+    key = os.environ.get('RESEARCH_MAIL_PASSWORD')
 
     msg = EmailMessage()
 

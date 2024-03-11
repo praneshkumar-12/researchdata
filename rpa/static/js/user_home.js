@@ -1,5 +1,5 @@
 const publications = document.querySelectorAll('.publication');
-const recordsPerPage = 5;
+const recordsPerPage = 8;
 const totalPublications = publications.length;
 let currentPage = 0;
 
