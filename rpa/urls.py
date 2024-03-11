@@ -27,8 +27,8 @@ urlpatterns = [
         name="authenticate_user",
     ),
     path(
-        "user/request/<uniqueid>/", 
-        views.request_changes, 
+        "user/request/<uniqueid>/",
+        views.request_changes,
         name="request_changes",
     ),
     path("user/paper_verify/verify", views.user_verify_paper, name="user_verify_paper"),

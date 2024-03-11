@@ -14,13 +14,17 @@ import random
 def login(request):
     users = Users.objects.all()
     adminusers = AdminUsers.objects.all()
-    
+
     if request.method == "POST":
         email = request.POST.get("email")
         passcode = request.POST.get("pass")
 
         for adminuser in adminusers:
-            if adminuser.email_id == email and adminuser.passkey == passcode and passcode == "Admin@123":
+            if (
+                adminuser.email_id == email
+                and adminuser.passkey == passcode
+                and passcode == "Admin@123"
+            ):
                 return render(request, "reset_password.html", {"email": email})
             elif adminuser.email_id == email and adminuser.passkey == passcode:
                 request.session["FACULTY_NAME"] = "admin"
@@ -28,13 +32,17 @@ def login(request):
                 return redirect("/rpa/dbadmin/home")
 
         for user in users:
-            if user.email_id == email and user.passkey == passcode and passcode == "Welcome123":
+            if (
+                user.email_id == email
+                and user.passkey == passcode
+                and passcode == "Welcome123"
+            ):
                 return render(request, "reset_password.html", {"email": email})
             elif user.email_id == email and user.passkey == passcode:
                 request.session["FACULTY_NAME"] = user.staff_name.split(" ")[0]
                 request.session["email"] = email
                 return redirect("/rpa/user/home")
-            
+
         return render(request, "index.html", context={"invalidlogin": "yes"})
 
     user_name = request.session.get("FACULTY_NAME")
@@ -44,33 +52,39 @@ def login(request):
             return redirect("/rpa/dbadmin/home")
         elif user_name in [user.staff_name.split(" ")[0] for user in users]:
             return redirect("/rpa/user/home")
-    
+
     return render(request, "index.html")
 
 
 def forgot_password(request):
     if request.method == "POST":
         email = request.POST.get("email")
-        
+
         if not email:
-            return render(request, "forgot_password.html", {"alertmessage": "Please fill the email field!"})
-        
+            return render(
+                request,
+                "forgot_password.html",
+                {"alertmessage": "Please fill the email field!"},
+            )
+
         user = Users.objects.filter(email_id=email)
         admin = AdminUsers.objects.filter(email_id=email)
 
-
         if (not admin) and (not user):
-            return render(request, "forgot_password.html", {"alertmessage": "Cannot find email id!"})
-        
-        otp = random.randint(11111,99999)
+            return render(
+                request,
+                "forgot_password.html",
+                {"alertmessage": "Cannot find email id!"},
+            )
+
+        otp = random.randint(11111, 99999)
 
         print(otp)
 
-        request.session['otp'] = int(otp)
-        request.session['email'] = email
+        request.session["otp"] = int(otp)
+        request.session["email"] = email
 
         return render(request, "verify_otp.html")
-
 
     return render(request, "forgot_password.html")
 
@@ -85,17 +99,31 @@ def reset_password(request):
             return redirect("/rpa/user/error")
 
         if (not password) or (not confirm_password):
-            return render(request, "reset_password.html", {"alertmessage": "Please fill the password field!", "email": email})
-        
+            return render(
+                request,
+                "reset_password.html",
+                {"alertmessage": "Please fill the password field!", "email": email},
+            )
+
         if password != confirm_password:
-            return render(request, "reset_password.html", {"alertmessage": "Passwords do not match!", "email": email})
+            return render(
+                request,
+                "reset_password.html",
+                {"alertmessage": "Passwords do not match!", "email": email},
+            )
 
         if password == "Welcome123" or password == "Admin@123":
-            return render(request, "reset_password.html", {"alertmessage": "Password cannot be default password!", "email": email})
-        
+            return render(
+                request,
+                "reset_password.html",
+                {
+                    "alertmessage": "Password cannot be default password!",
+                    "email": email,
+                },
+            )
+
         updates = {"passkey": password}
 
-        
         if Users.objects.filter(email_id=email):
             Users.objects.filter(email_id=email).update(**updates)
         elif AdminUsers.objects.filter(email_id=email):
@@ -103,7 +131,9 @@ def reset_password(request):
         else:
             return redirect("/rpa/users/error")
 
-        return render(request, "index.html", {"alertmessage": "Password change successful!"})
+        return render(
+            request, "index.html", {"alertmessage": "Password change successful!"}
+        )
 
     return redirect("/rpa/user/error")
 
@@ -114,7 +144,6 @@ def otp_verification(request):
         password = request.POST.get("pass", "")
         confirm_password = request.POST.get("confirm_pass", "")
 
-
         if not otp.isnumeric():
             return render(request, "verify_otp.html", {"alertmessage": "Invalid OTP!"})
 
@@ -122,11 +151,16 @@ def otp_verification(request):
             return render(request, "verify_otp.html", {"alertmessage": "Invalid OTP!"})
 
         if (not password) or (not confirm_password):
-            return render(request, "verify_otp.html", {"alertmessage": "Please fill the password field!"})
-        
+            return render(
+                request,
+                "verify_otp.html",
+                {"alertmessage": "Please fill the password field!"},
+            )
+
         if password != confirm_password:
-            return render(request, "verify_otp.html", {"alertmessage": "Passwords do not match!"})
-        
+            return render(
+                request, "verify_otp.html", {"alertmessage": "Passwords do not match!"}
+            )
 
         email = request.session.get("email", "")
 
@@ -134,7 +168,7 @@ def otp_verification(request):
 
         if not email:
             return redirect("/rpa/user/error")
-        
+
         if Users.objects.filter(email_id=email):
             Users.objects.filter(email_id=email).update(**updates)
         elif AdminUsers.objects.filter(email_id=email):
@@ -142,10 +176,13 @@ def otp_verification(request):
         else:
             return redirect("/rpa/users/error")
 
-        return render(request, "index.html", {"alertmessage": "Password change successful!"})
+        return render(
+            request, "index.html", {"alertmessage": "Password change successful!"}
+        )
     else:
         return redirect("/rpa/user/error")
-    
+
+
 def user_home(request):
     papers = Publications.objects.all()
 
@@ -180,7 +217,7 @@ def user_home(request):
             or name in other_authors
         ):
             publication_list.append(paper)
-        
+
     publication_list.sort(reverse=True, key=lambda x: x.end_academic_year)
 
     context = {"papers": publication_list, "name": name}
@@ -321,7 +358,7 @@ def request_changes(request, uniqueid):
             publ = Publications.objects.get(uniqueid=uniqueid)
         except Publications.DoesNotExist:
             return render(request, "error.html")
-        
+
         name = str(request.session.get("FACULTY_NAME"))
 
         if not (
@@ -338,8 +375,10 @@ def request_changes(request, uniqueid):
                     "error_message": "You are unauthorized to view the details of this publication.",
                 },
             )
-        
-        all_fields = [x.name.title().replace("_", " ") for x in Publications._meta.get_fields()]
+
+        all_fields = [
+            x.name.title().replace("_", " ") for x in Publications._meta.get_fields()
+        ]
 
         fields = []
         original_fields = []
@@ -361,16 +400,15 @@ def request_changes(request, uniqueid):
 
             if "doi" == field.lower():
                 field = "DOI"
-            
+
             if "url" == field.lower():
                 field = "URL"
-            
+
             if "issn" == field.lower():
                 field = "ISSN"
 
             fields.append(field)
             original_fields.append(field.lower().replace(" ", "_"))
-        
 
         fields_dict = {}
 
@@ -385,21 +423,23 @@ def request_changes(request, uniqueid):
                 temp = "ISSN"
 
             fields_dict[temp] = eval(f"publ.{original_field}")
-        
 
-        return render(request, "request_changes.html", {"paper": publ, "fields": fields, "fields_dict": fields_dict})
-    
+        return render(
+            request,
+            "request_changes.html",
+            {"paper": publ, "fields": fields, "fields_dict": fields_dict},
+        )
+
     if request.method == "POST":
         updates = dict(request.POST)
 
-        del updates['csrfmiddlewaretoken']
+        del updates["csrfmiddlewaretoken"]
 
-        faculty_name = str(request.session.get("FACULTY_NAME"))     
-        faculty_email = str(request.session.get("email"))  
+        faculty_name = str(request.session.get("FACULTY_NAME"))
+        faculty_email = str(request.session.get("email"))
 
         import datetime
 
-        
         email_message = f"Faculty Name: {faculty_name}\nFaculty Email: {faculty_email}\nRequest Date and Time: {datetime.datetime.now()}\n"
         email_message += f"UniqueID: {uniqueid}\n"
         email_message += "The following are the changes that are requested:\n\n"
@@ -409,18 +449,18 @@ def request_changes(request, uniqueid):
         for update, value in updates.items():
             email_message += f"{counter}. {update}: {value[0]}\n"
             counter += 1
-        
 
         send_email("Requesting updates in research paper", email_message)
 
-        return render(request, 'dashboard.html', {"alertmessage": "Changes requested successfully!", "close": "yes"})
-        
+        return render(
+            request,
+            "dashboard.html",
+            {"alertmessage": "Changes requested successfully!", "close": "yes"},
+        )
+
 
 def error(request):
-    return render(
-        request,
-        "error.html"
-    )
+    return render(request, "error.html")
 
 
 def user_verify_paper(request):
@@ -536,7 +576,7 @@ def user_dashboard(request):
             or name in other_authors
         ):
             publication_list.append(paper)
-    
+
     publication_list.sort(reverse=True, key=lambda x: x.end_academic_year)
 
     context = {
@@ -585,7 +625,7 @@ def user_verification(request):
             publication_list.append(paper)
 
     publication_list.sort(reverse=True, key=lambda x: x.end_academic_year)
-    
+
     context = {"papers": publication_list, "name": name}
 
     return render(request, "verification.html", context)

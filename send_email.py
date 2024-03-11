@@ -4,8 +4,8 @@ import os
 
 
 def send_email(subject, content):
-    user = os.environ.get('RESEARCH_MAIL_USER')
-    key = os.environ.get('RESEARCH_MAIL_PASSWORD')
+    user = os.environ.get("RESEARCH_MAIL_USER")
+    key = os.environ.get("RESEARCH_MAIL_PASSWORD")
 
     msg = EmailMessage()
 

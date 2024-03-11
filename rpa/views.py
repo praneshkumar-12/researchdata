@@ -30,6 +30,7 @@ def logout(request):
 def reset_password(request):
     return users.reset_password(request)
 
+
 # User specific
 
 
@@ -44,8 +45,10 @@ def user_view_paper_details(request, paperid):
 def autheticate_user(request, uniqueid, name):
     return users.authenticate_user(request, uniqueid, name)
 
+
 def request_changes(request, uniqueid):
     return users.request_changes(request, uniqueid)
+
 
 def error(request):
     return users.error(request)
