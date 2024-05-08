@@ -193,7 +193,7 @@
                 <button class="btn btn-warning" id="frontPageBtn" onclick="remove_upload()">Remove Front Page</button>
             {% endif %}
 
-            <a href="{{ paper.url }}" id="viewBtn" class="btn btn-success" target="_blank">View Publication</a>
+            <a href="{{ paper.url }}" id="viewBtn" class="btn btn-success" target="_blank">Additional Info</a>
 
             {% if paper.admin_verified == 'False' and paper.verified == 'True' %}
                 <button id="verify-btn" id="verifyBtn" type="button" class="btn btn-danger text-white" value="{{ paper.uniqueid }}" onclick="verify()">

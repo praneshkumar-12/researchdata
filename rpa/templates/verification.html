@@ -140,11 +140,11 @@
                         Academic Year: {{ paper.start_academic_month }} {{ paper.start_academic_year }} - {{ paper.end_academic_month }} {{ paper.end_academic_year }}
                     </div>
                 </div>
-                <div class="doi mt-3">
+                <div class="doi mt-1">
                     DOI: {{ paper.doi }}
                 </div>
-                <div class="hyperlink mt-3">
-                    <a target="_blank" href="{{ paper.url }}" class="text-blue-500 underline">View Publication</a>
+                <div class="hyperlink mt-1">
+                    <a target="_blank" href="{{ paper.url }}" class="text-blue-500 underline">Additional Info</a>
                 </div>
                 <br>
                 {% if paper.admin_verified == 'True' and paper.verified == 'True' %}

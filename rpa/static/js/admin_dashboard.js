@@ -64,7 +64,7 @@ function downloadCSV() {
             var cols = rows[i].querySelectorAll('td,th');
             var csvrow = [];
 
-            for (var j = 0; j < cols.length - 1; j++) {
+            for (var j = 0; j < cols.length; j++) {
                 // console.log(cols[j].innerHTML)
                 // Add automatic serial numbers for the first row
 

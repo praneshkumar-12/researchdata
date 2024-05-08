@@ -79,7 +79,11 @@ def forgot_password(request):
 
         otp = random.randint(11111, 99999)
 
-        print(otp)
+        send_email(
+            "Reset Password - Research Publications Portal",
+            f"Please provide the below OTP for resetting your password: \n \t\t {otp}",
+            to=email,
+        )
 
         request.session["otp"] = int(otp)
         request.session["email"] = email

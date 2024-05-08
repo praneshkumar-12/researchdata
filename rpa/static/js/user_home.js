@@ -33,8 +33,8 @@ function showPrev() {
 }
 
 function updatePageNumber() {
-    document.getElementById('pageNumberTop').innerText = `${currentPage + 1} of ${Math.ceil(totalPublications / recordsPerPage)}`;
-    document.getElementById('pageNumberBottom').innerText = `${currentPage + 1} of ${Math.ceil(totalPublications / recordsPerPage)}`;
+    document.getElementById('pageNumberTop').innerText = `Page ${currentPage + 1} of ${Math.ceil(totalPublications / recordsPerPage)}`;
+    document.getElementById('pageNumberBottom').innerText = `Page ${currentPage + 1} of ${Math.ceil(totalPublications / recordsPerPage)}`;
 }
 
 // Initially show the first page of publications and update page number
