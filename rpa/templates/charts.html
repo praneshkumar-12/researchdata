@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charts</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.2/css/uikit.min.css" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -134,6 +135,7 @@ function downloadChart(chartId) {
     document.body.removeChild(a);
 }
 
+        Chart.register(ChartDataLabels);
 
 
         // Initialize Donut Chart
@@ -160,9 +162,17 @@ function downloadChart(chartId) {
                 }]
             },
             options: {
-                
-
                 aspectRatio: 2,
+                plugins: {
+                    labels: {
+                    render: 'value',
+                    fontSize: 14,
+                    fontStyle: 'bold',
+                    fontColor: '#000',
+                    fontFamily: '"Lucida Console", Monaco, monospace'
+                    
+                }
+            }
                 // Add options here if needed
             }
         });
@@ -182,7 +192,16 @@ function downloadChart(chartId) {
                 }]
             },
             options: {
-                aspectRatio: 2
+                aspectRatio: 2,
+                plugins: {
+                    labels: {
+                    render: 'value',
+                    fontSize: 14,
+                    fontStyle: 'bold',
+                    fontColor: '#000',
+                    fontFamily: '"Lucida Console", Monaco, monospace'
+                }
+            }
                 // Add options here if needed
             }
         });
@@ -202,7 +221,16 @@ function downloadChart(chartId) {
                 }]
             },
             options: {
-                aspectRatio: 2
+                aspectRatio: 2,
+                plugins: {
+                    labels: {
+                    render: 'value',
+                    fontSize: 14,
+                    fontStyle: 'bold',
+                    fontColor: '#000',
+                    fontFamily: '"Lucida Console", Monaco, monospace'
+                }
+            }
                 // Add options here if needed
             }
         });
@@ -222,7 +250,16 @@ function downloadChart(chartId) {
                 }]
             },
             options: {
-                aspectRatio: 2
+                aspectRatio: 2,
+                plugins: {
+                    labels: {
+                    render: 'value',
+                    fontSize: 14,
+                    fontStyle: 'bold',
+                    fontColor: '#000',
+                    fontFamily: '"Lucida Console", Monaco, monospace'
+                }
+            }
                 // Add options here if needed
             }
         });
