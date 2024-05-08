@@ -51,24 +51,24 @@
     
     <div class="grid-container">
         <div class="chart-container">
-            <h1><strong>Indexed Publications</strong></h1>
+            <h1><strong class="chart-title">Indexed Publications</strong></h1>
             <canvas id="donutChart" width="400" height="400"></canvas>
-            <button onclick="downloadChart('donutChart')">Download</button>
+            <button class="text-primary underline" onclick="downloadChart('donutChart')">Download</button>
         </div>
         <div class="chart-container">
-            <h1><strong>Academic Yearwise Publications</strong></h1>
+            <h1><strong class="chart-title">Academic Yearwise Publications</strong></h1>
             <canvas id="barChart" width="400" height="400"></canvas>
-            <button onclick="downloadChart('barChart')">Download</button>
+            <button class="text-primary underline" onclick="downloadChart('barChart')">Download</button>
         </div>
         <div class="chart-container">
-            <h1><strong>Publication Type</strong></h1>
+            <h1><strong class="chart-title">Publication Type</strong></h1>
             <canvas id="publicationTypeBarChart" width="400" height="400"></canvas>
-            <button onclick="downloadChart('publicationTypeBarChart')">Download</button>
+            <button class="text-primary underline" onclick="downloadChart('publicationTypeBarChart')">Download</button>
         </div>
         <div class="chart-container">
-            <h1><strong>Publication Quartiles</strong></h1>
+            <h1><strong class="chart-title">Publication Quartiles</strong></h1>
             <canvas id="quartileBarChart" width="400" height="400"></canvas>
-            <button onclick="downloadChart('quartileBarChart')">Download</button>
+            <button class="text-primary underline" onclick="downloadChart('quartileBarChart')">Download</button>
         </div>
     </div>
 
@@ -99,10 +99,13 @@ function downloadChart(chartId) {
     var chartCanvas = document.getElementById(chartId);
     var chartContext = chartCanvas.getContext('2d');
 
+    // Get the chart title
+    var chartTitle = chartCanvas.closest('.chart-container').querySelector('.chart-title').innerText;
+
     // Create a temporary canvas
     var tempCanvas = document.createElement('canvas');
     tempCanvas.width = chartCanvas.width;
-    tempCanvas.height = chartCanvas.height;
+    tempCanvas.height = chartCanvas.height + 80; // Add extra height for title
     var tempContext = tempCanvas.getContext('2d');
 
     // Set the background color to white
@@ -110,8 +113,15 @@ function downloadChart(chartId) {
     tempContext.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
 
     // Draw the chart onto the temporary canvas
-    tempContext.drawImage(chartCanvas, 0, 0);
+    tempContext.drawImage(chartCanvas, 15, 30); // Start drawing from y-coordinate 30 for title
 
+    // Add the chart title
+    tempContext.font = 'bold 25px Arial';
+    tempContext.fillStyle = '#000000';
+    tempContext.textAlign = 'center';
+    //tempContext.fillText(chartTitle, tempCanvas.width / 2, 20);
+    var titleY = 30; // Adjust the space between top and title here
+    tempContext.fillText(chartTitle, tempCanvas.width / 2, titleY);
     // Get the data URL of the temporary canvas
     var url = tempCanvas.toDataURL("image/png");
 
@@ -123,6 +133,7 @@ function downloadChart(chartId) {
     a.click();
     document.body.removeChild(a);
 }
+
 
 
         // Initialize Donut Chart
@@ -149,6 +160,8 @@ function downloadChart(chartId) {
                 }]
             },
             options: {
+                
+
                 aspectRatio: 2,
                 // Add options here if needed
             }
