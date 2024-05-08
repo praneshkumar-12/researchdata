@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +22,7 @@
     border: 1px solid #ccc;
     padding: 10px;
 }
+
 
     </style>
 </head>
@@ -51,20 +51,24 @@
     
     <div class="grid-container">
         <div class="chart-container">
-            <h1>Indexed Publications</h1>
+            <h1><strong>Indexed Publications</strong></h1>
             <canvas id="donutChart" width="400" height="400"></canvas>
+            <button onclick="downloadChart('donutChart')">Download</button>
         </div>
         <div class="chart-container">
-            <h1>Academic Yearwise Publications</h1>
+            <h1><strong>Academic Yearwise Publications</strong></h1>
             <canvas id="barChart" width="400" height="400"></canvas>
+            <button onclick="downloadChart('barChart')">Download</button>
         </div>
         <div class="chart-container">
-            <h1>Publication Type</h1>
+            <h1><strong>Publication Type</strong></h1>
             <canvas id="publicationTypeBarChart" width="400" height="400"></canvas>
+            <button onclick="downloadChart('publicationTypeBarChart')">Download</button>
         </div>
         <div class="chart-container">
-            <h1>Publication Quartiles</h1>
+            <h1><strong>Publication Quartiles</strong></h1>
             <canvas id="quartileBarChart" width="400" height="400"></canvas>
+            <button onclick="downloadChart('quartileBarChart')">Download</button>
         </div>
     </div>
 
@@ -78,6 +82,48 @@
         var publicationTypeValues = {{ publication_type_values | safe }};
         var quartileLabels = {{ quartile_labels | safe }};
         var quartileValues = {{ quartile_values | safe }};
+
+        // Function to download chart image
+        // function downloadChart(chartId) {
+        //     var chartCanvas = document.getElementById(chartId);
+        //     var url = chartCanvas.toDataURL("image/png");
+        //     var a = document.createElement('a');
+        //     a.href = url;
+        //     a.download = 'chart.png';
+        //     document.body.appendChild(a);
+        //     a.click();
+        //     document.body.removeChild(a);
+        // }
+        // Function to download chart image with white background
+function downloadChart(chartId) {
+    var chartCanvas = document.getElementById(chartId);
+    var chartContext = chartCanvas.getContext('2d');
+
+    // Create a temporary canvas
+    var tempCanvas = document.createElement('canvas');
+    tempCanvas.width = chartCanvas.width;
+    tempCanvas.height = chartCanvas.height;
+    var tempContext = tempCanvas.getContext('2d');
+
+    // Set the background color to white
+    tempContext.fillStyle = '#ffffff';
+    tempContext.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+    // Draw the chart onto the temporary canvas
+    tempContext.drawImage(chartCanvas, 0, 0);
+
+    // Get the data URL of the temporary canvas
+    var url = tempCanvas.toDataURL("image/png");
+
+    // Create a link element to download the image
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'chart.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
 
         // Initialize Donut Chart
         var donutCtx = document.getElementById('donutChart').getContext('2d');
@@ -148,9 +194,6 @@
             }
         });
 
-
-        
-
         // Initialize Quartile Bar Chart
         var quartileBarCtx = document.getElementById('quartileBarChart').getContext('2d');
         var quartileBarChart = new Chart(quartileBarCtx, {
@@ -173,7 +216,3 @@
     </script>
 </body>
 </html>
-
-
-
-
