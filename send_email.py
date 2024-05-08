@@ -14,9 +14,8 @@ def send_email(subject, content, to=None):
     msg["From"] = user
 
     if to:
-
         msg["To"] = to
-    
+
     else:
         msg["To"] = os.environ.get("ADMIN_EMAIL")
 

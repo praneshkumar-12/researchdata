@@ -174,6 +174,10 @@ def admin_get_title(request):
     return dbadmin.admin_get_title(request)
 
 
+def admin_get_charts(request):
+    return dbadmin.admin_get_charts(request)
+
+
 class AdminFileDownloadView(View):
     def get(self, request, filename):
         file_path = f"rpa/static/upload/{filename}"

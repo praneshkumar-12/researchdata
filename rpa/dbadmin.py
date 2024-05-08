@@ -2,7 +2,8 @@ from rpa.models import Publications
 from rpa.forms import PublicationsForm
 from rpa.models import Users
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.db.models import Count
 import random
 import string
 import django.db.utils
@@ -574,3 +575,83 @@ def admin_delete_paper(request):
     publication.delete()
 
     return HttpResponse("OK")
+
+
+def admin_get_charts(request):
+    # Fetch data for donut chart
+    chart_records = {}
+    all_records = Publications.objects.all()
+    for record in all_records:
+        if (
+            not record.indexing
+            or record.indexing == "NULL"
+            or record.indexing == "None"
+        ):
+            key = "Others"
+        else:
+            key = record.indexing
+        chart_records[key] = chart_records.get(key, 0) + 1
+
+    donut_labels = list(chart_records.keys())
+    donut_values = list(chart_records.values())
+
+    # Fetch data for bar chart based on academic year/month
+    bar_data = Publications.objects.values(
+        "start_academic_year",
+        "start_academic_month",
+        "end_academic_year",
+        "end_academic_month",
+    ).annotate(total=Count("uniqueid"))
+    bar_labels = []
+    bar_values = []
+    for data in bar_data:
+        start_academic_year = data["start_academic_year"]
+        start_academic_month = data["start_academic_month"]
+        end_academic_year = data["end_academic_year"]
+        end_academic_month = data["end_academic_month"]
+        label = f"{start_academic_month} {start_academic_year} - {end_academic_month} {end_academic_year}"
+        bar_labels.append(label)
+        bar_values.append(data["total"])
+
+    # Fetch data for another bar chart based on publication types
+    publication_types_data = Publications.objects.values("publication_type").annotate(
+        total=Count("uniqueid")
+    )
+    publication_type_labels = []
+    publication_type_values = []
+    for pub_type_data in publication_types_data:
+        publication_type_labels.append(pub_type_data["publication_type"])
+        publication_type_values.append(pub_type_data["total"])
+
+    # Fetch data for quartile bar chart
+    quartile_records = {}
+    quartile_labels = []
+    quartile_values = []
+    qr_records = Publications.objects.all()
+    for record in qr_records:
+        if (
+            not record.quartile
+            or record.quartile == "NULL"
+            or record.quartile == "None"
+        ):
+            key = "Others"
+        else:
+            key = record.quartile
+        quartile_records[key] = quartile_records.get(key, 0) + 1
+
+    quartile_labels = list(quartile_records.keys())
+    quartile_values = list(quartile_records.values())
+
+    # Prepare data for rendering
+    data = {
+        "donut_labels": donut_labels,
+        "donut_values": donut_values,
+        "bar_labels": bar_labels,
+        "bar_values": bar_values,
+        "publication_type_labels": publication_type_labels,
+        "publication_type_values": publication_type_values,
+        "quartile_labels": quartile_labels,
+        "quartile_values": quartile_values,
+    }
+
+    return render(request, "charts.html", data)

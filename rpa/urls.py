@@ -78,5 +78,6 @@ urlpatterns = [
         name="admin_manually_insert_paper",
     ),
     path("dbadmin/delete_paper", views.admin_delete_paper, name="admin_delete_paper"),
+    path("dbadmin/charts", views.admin_get_charts, name="admin_get_charts"),
     path("dbadmin/error", views.error, name="error"),
 ]
