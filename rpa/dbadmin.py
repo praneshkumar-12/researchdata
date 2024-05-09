@@ -591,6 +591,7 @@ def admin_get_charts(request):
             not record.indexing
             or record.indexing == "NULL"
             or record.indexing == "None"
+            or record.indexing not in ['Scopus', 'Web of Sciences']
         ):
             key = "Others"
         else:

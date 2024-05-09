@@ -49,7 +49,7 @@ def login(request):
 
     if user_name:
         if user_name == "admin":
-            return redirect("/rpa/dbadmin/home")
+            return redirect("/rpa/dbadmin/charts")
         elif user_name in [user.staff_name.split(" ")[0] for user in users]:
             return redirect("/rpa/user/home")
 
