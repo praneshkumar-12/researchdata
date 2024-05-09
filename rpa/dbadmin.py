@@ -28,7 +28,7 @@ def admin_home(request):
 
     context = {"papers": publication_list, "name": name}
 
-    return render(request, "admin_home.html", context)
+    return render(request, "charts.html", context)
 
 
 def admin_dashboard(request):
