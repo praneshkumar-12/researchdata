@@ -578,6 +578,11 @@ def admin_delete_paper(request):
 
 
 def admin_get_charts(request):
+    name = str(request.session.get("FACULTY_NAME"))
+
+    if name is None or name != "admin" or name == str(None):
+        return redirect("/rpa/login")
+        
     # Fetch data for donut chart
     chart_records = {}
     all_records = Publications.objects.all()
@@ -642,6 +647,8 @@ def admin_get_charts(request):
     quartile_labels = list(quartile_records.keys())
     quartile_values = list(quartile_records.values())
 
+    
+
     # Prepare data for rendering
     data = {
         "donut_labels": donut_labels,
@@ -652,6 +659,7 @@ def admin_get_charts(request):
         "publication_type_values": publication_type_values,
         "quartile_labels": quartile_labels,
         "quartile_values": quartile_values,
+        "name": name
     }
 
     return render(request, "charts.html", data)
