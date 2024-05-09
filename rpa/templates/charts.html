@@ -110,7 +110,7 @@ function downloadChart(chartId) {
     tempContext.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
 
     // Draw the chart onto the temporary canvas
-    tempContext.drawImage(chartCanvas, 15, 30); // Start drawing from y-coordinate 30 for title
+    tempContext.drawImage(chartCanvas, 15, 50); // Start drawing from y-coordinate 30 for title
 
     // Add the chart title
     tempContext.font = 'bold 25px Arial';
@@ -118,7 +118,7 @@ function downloadChart(chartId) {
     tempContext.textAlign = 'center';
     //tempContext.fillText(chartTitle, tempCanvas.width / 2, 20);
     var titleY = 30; // Adjust the space between top and title here
-    tempContext.fillText(chartTitle, tempCanvas.width / 2, titleY);
+    tempContext.fillText(chartTitle, tempCanvas.width / 1.9, titleY);
     // Get the data URL of the temporary canvas
     var url = tempCanvas.toDataURL("image/png");
 
