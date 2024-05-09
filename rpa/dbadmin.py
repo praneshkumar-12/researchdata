@@ -21,16 +21,14 @@ def admin_home(request):
     if name is None or name != "admin" or name == str(None):
         return redirect("/rpa/login")
 
-    # for paper in papers:
-    #     publication_list.append(paper)
+    for paper in papers:
+        publication_list.append(paper)
 
-    # publication_list.sort(reverse=True, key=lambda x: x.end_academic_year)
+    publication_list.sort(reverse=True, key=lambda x: x.end_academic_year)
 
-    # context = {"papers": publication_list, "name": name}
+    context = {"papers": publication_list, "name": name}
 
-    # return render(request, "admin_home.html", context)
-
-    return redirect("/rpa/dbadmin/charts")
+    return render(request, "admin_home.html", context)
 
 
 def admin_dashboard(request):

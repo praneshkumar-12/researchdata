@@ -29,7 +29,7 @@ def login(request):
             elif adminuser.email_id == email and adminuser.passkey == passcode:
                 request.session["FACULTY_NAME"] = "admin"
                 request.session["email"] = email
-                return redirect("/rpa/dbadmin/home")
+                return redirect("/rpa/dbadmin/charts")
 
         for user in users:
             if (
