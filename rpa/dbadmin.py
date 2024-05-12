@@ -587,16 +587,21 @@ def admin_get_charts(request):
     chart_records = {}
     all_records = Publications.objects.all()
     for record in all_records:
+        indices = record.indexing.split(", ")
         if (
             not record.indexing
             or record.indexing == "NULL"
             or record.indexing == "None"
-            or record.indexing not in ['Scopus', 'Web of Sciences']
         ):
             key = "Others"
         else:
-            key = record.indexing
-        chart_records[key] = chart_records.get(key, 0) + 1
+            for index in indices:
+                if index not in ['Scopus', 'Web of Sciences']:
+                    key = "Others"
+                    chart_records[key] = chart_records.get(key, 0) + 1
+                    continue
+                key = index
+                chart_records[key] = chart_records.get(key, 0) + 1
 
     donut_labels = list(chart_records.keys())
     donut_values = list(chart_records.values())
