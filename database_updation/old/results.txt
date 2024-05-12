@@ -1,0 +1,1742 @@
+==================================================
+ISSN: 2096-1081 2509-3312
+Title: State of Art: Vertical Handover Decision Schemes in Next-Generation Wireless Network
+Old Publication: Journal of Communications and Information Networks
+Old Publisher: Institute of Electrical and Electronics Engineers (IEEE)
+Title: State of Art: Vertical Handover Decision Schemes in Next-Generation Wireless Network
+Old: Journal of Communications and Information Networks
+New: Journal of Communications and Information Networks
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 978-981-19-4960-9
+Title: M-SHIELD - An Application for Tracking Lost Phones
+Old Publication: Inventive Communication and Computational Technologies. Lecture Notes in Networks and Systems
+Old Publisher: Springer Singapore
+Not found!
+==================================================
+ISSN: 1084-8045
+Title: A survey on technologies and security protocols: Reference for future generation IoT
+Old Publication: Journal of Network and Computer Applications
+Old Publisher: Elsevier BV
+Title: A survey on technologies and security protocols: Reference for future generation IoT
+Old: Journal of Network and Computer Applications
+New: Journal of Network and Computer Applications
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0883-9514 1087-6545
+Title: Texture Image Classification and Retrieval Using Multi-resolution Radial Gradient Binary Pattern
+Old Publication: Applied Artificial Intelligence
+Old Publisher: Informa UK Limited
+Title: Texture Image Classification and Retrieval Using Multi-resolution Radial Gradient Binary Pattern
+Old: Applied Artificial Intelligence
+New: Applied Artificial Intelligence
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 3276716
+Title: A Layer-Wise Relevance Propagation Based Feature Selection and Hybid Classification Model for Automatic Detection of Parkinson's Disease Using Gait Signals
+Old Publication: Revista Argentina de Clinica Psicologica
+Old Publisher: Fundacion Aigle
+Title: A Layer-Wise Relevance Propagation Based Feature Selection and Hybid Classification Model for Automatic Detection of Parkinson's Disease Using Gait Signals
+Old: Revista Argentina de Clinica Psicologica
+New: Revista Argentina de Clinica Psicologica
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1064-1246 1875-8967
+Title: Veracity assessment by single and multi-source identification algorithms during the crisis
+Old Publication: Journal of Intelligent &amp;amp; Fuzzy Systems
+Old Publisher: IOS Press
+Title: Veracity assessment by single and multi-source identification algorithms during the crisis
+Old: Journal of Intelligent &amp;amp; Fuzzy Systems
+New: Journal of Intelligent and Fuzzy Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0302-9743 1611-3349
+Title: Feature Engineering and Characterization of Classifiers for Consumer Health Information Search
+Old Publication: Text Processing
+Old Publisher: Springer International Publishing
+Title: Feature Engineering and Characterization of Classifiers for Consumer Health Information Search
+Old: Text Processing
+New: Lecture Notes in Computer Science
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1876-1100 1876-1119
+Title: An ECC-Based Algorithm to Handle Secure Communication Between Heterogeneous IoT Devices
+Old Publication: Lecture Notes in Electrical Engineering
+Old Publisher: Springer Singapore
+Title: An ECC-Based Algorithm to Handle Secure Communication Between Heterogeneous IoT Devices
+Old: Lecture Notes in Electrical Engineering
+New: Lecture Notes in Electrical Engineering
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1865-0929 1865-0937
+Title: A Generic Context-Aware Service Discovery Architecture for IoT Services
+Old Publication: Communications in Computer and Information Science
+Old Publisher: Springer Singapore
+Title: A Generic Context-Aware Service Discovery Architecture for IoT Services
+Old: Communications in Computer and Information Science
+New: Communications in Computer and Information Science
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2367-3370 2367-3389
+Title: Communalyzer--Understanding Life Cycle of Community in Social Networks
+Old Publication: Innovations in Computer Science and Engineering
+Old Publisher: Springer Singapore
+Title: Communalyzer--Understanding Life Cycle of Community in Social Networks
+Old: Innovations in Computer Science and Engineering
+New: Lecture Notes in Networks and Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2194-5357 2194-5365
+Title: RCE-OIE: Open Information Extraction Using a Rule-Based Clause Extraction Engine for Semantic Applications
+Old Publication: Advances in Intelligent Systems and Computing
+Old Publisher: Springer Singapore
+Title: RCE-OIE: Open Information Extraction Using a Rule-Based Clause Extraction Engine for Semantic Applications
+Old: Advances in Intelligent Systems and Computing
+New: Advances in Intelligent Systems and Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2367-3370 2367-3389
+Title: Video Redundancy Investigation and Cooperative Cache Model in Wireless Network
+Old Publication: Information and Communication Technology for Competitive Strategies
+Old Publisher: Springer Singapore
+Title: Video Redundancy Investigation and Cooperative Cache Model in Wireless Network
+Old: Information and Communication Technology for Competitive Strategies
+New: Lecture Notes in Networks and Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1865-0929 1865-0937
+Title: A Dual Protocol Stack for Intelligent Traffic Monitoring System
+Old Publication: Communications in Computer and Information Science
+Old Publisher: Springer Singapore
+Title: A Dual Protocol Stack for Intelligent Traffic Monitoring System
+Old: Communications in Computer and Information Science
+New: Communications in Computer and Information Science
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2367-3370 2367-3389
+Title: A Comparative Evaluation of QoS-Based Network Selection Between TOPSIS and VIKOR
+Old Publication: International Conference on Innovative Computing and Communications
+Old Publisher: Springer Singapore
+Title: A Comparative Evaluation of QoS-Based Network Selection Between TOPSIS and VIKOR
+Old: International Conference on Innovative Computing and Communications
+New: Lecture Notes in Networks and Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 978-981-13-2354-6
+Title: Improving Recognition of Speech System Using Multimodal Approach
+Old Publication: International Conference on Innovative Computing and Communications
+Old Publisher: Springer Singapore
+Not found!
+==================================================
+ISSN: 2194-5357 2194-5365
+Title: #BiggBoss--Long-Run Event Detection and Sentiment Mining in Twitter
+Old Publication: Information and Communication Technology for Sustainable Development
+Old Publisher: Springer Singapore
+Title: #BiggBoss--Long-Run Event Detection and Sentiment Mining in Twitter
+Old: Information and Communication Technology for Sustainable Development
+New: Advances in Intelligent Systems and Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0278-081X 1531-5878
+Title: Speech-Input Speech-Output Communication for Dysarthric Speakers Using HMM-Based Speech Recognition and Adaptive Synthesis System
+Old Publication: Circuits, Systems, and Signal Processing
+Old Publisher: Springer Science and Business Media LLC
+Title: Speech-Input Speech-Output Communication for Dysarthric Speakers Using HMM-Based Speech Recognition and Adaptive Synthesis System
+Old: Circuits, Systems, and Signal Processing
+New: Circuits, Systems, and Signal Processing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0278-081X 1531-5878
+Title: Significance of Differenced EGG Signal as a Spectrum in Phase Difference Computation for the Estimation of Glottal Closure Instants
+Old Publication: Circuits, Systems, and Signal Processing
+Old Publisher: Springer Science and Business Media LLC
+Title: Significance of Differenced EGG Signal as a Spectrum in Phase Difference Computation for the Estimation of Glottal Closure Instants
+Old: Circuits, Systems, and Signal Processing
+New: Circuits, Systems, and Signal Processing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0278-081X 1531-5878
+Title: A Multilingual to Polyglot Speech Synthesizer for Indian Languages Using a Voice-Converted Polyglot Speech Corpus
+Old Publication: Circuits, Systems, and Signal Processing
+Old Publisher: Springer Science and Business Media LLC
+Title: A Multilingual to Polyglot Speech Synthesizer for Indian Languages Using a Voice-Converted Polyglot Speech Corpus
+Old: Circuits, Systems, and Signal Processing
+New: Circuits, Systems, and Signal Processing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1432-7643 1433-7479
+Title: Reliability score inference and recommendation using fuzzy-based technique for social media applications
+Old Publication: Soft Computing
+Old Publisher: Springer Science and Business Media LLC
+Title: Reliability score inference and recommendation using fuzzy-based technique for social media applications
+Old: Soft Computing
+New: Soft Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0148-5598 1573-689X
+Title: Behavioral Modeling for Mental Health using Machine Learning Algorithms
+Old Publication: Journal of Medical Systems
+Old Publisher: Springer Science and Business Media LLC
+Title: Behavioral Modeling for Mental Health using Machine Learning Algorithms
+Old: Journal of Medical Systems
+New: Journal of Medical Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1380-7501 1573-7721
+Title: Disc bulge diagnostic model in axial lumbar MR images using Intervertebral disc Descriptor (IdD)
+Old Publication: Multimedia Tools and Applications
+Old Publisher: Springer Science and Business Media LLC
+Title: Disc bulge diagnostic model in axial lumbar MR images using Intervertebral disc Descriptor (IdD)
+Old: Multimedia Tools and Applications
+New: Multimedia Tools and Applications
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1380-7501 1573-7721
+Title: Real time blink recognition from various head pose using single eye
+Old Publication: Multimedia Tools and Applications
+Old Publisher: Springer Science and Business Media LLC
+Title: Real time blink recognition from various head pose using single eye
+Old: Multimedia Tools and Applications
+New: Multimedia Tools and Applications
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0923-6082 1573-0824
+Title: A wavelet transform based contrast enhancement method for underwater acoustic images
+Old Publication: Multidimensional Systems and Signal Processing
+Old Publisher: Springer Science and Business Media LLC
+Title: A wavelet transform based contrast enhancement method for underwater acoustic images
+Old: Multidimensional Systems and Signal Processing
+New: Multidimensional Systems and Signal Processing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0256-2499 0973-7677
+Title: Ontology-based Tamil-English cross-lingual information retrieval system
+Old Publication: Sadhana
+Old Publisher: Springer Science and Business Media LLC
+Title: Ontology-based Tamil-English cross-lingual information retrieval system
+Old: Sadhana
+New: Sadhana - Academy Proceedings in Engineering Sciences
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0045-7906
+Title: An efficient framework for image retrieval using color, texture and edge features
+Old Publication: Computers and Electrical Engineering
+Old Publisher: Elsevier BV
+Not found!
+==================================================
+ISSN: 0026-2714
+Title: Heavy ion impact on narrow band cascoded low noise amplifier
+Old Publication: Microelectronics Reliability
+Old Publisher: Elsevier BV
+Not found!
+==================================================
+ISSN: 0167-8655
+Title: An analysis of the effect of combining standard and alternate sensor signals on recognition of syllabic units for multimodal speech recognition
+Old Publication: Pattern Recognition Letters
+Old Publisher: Elsevier BV
+Not found!
+==================================================
+ISSN: 1751-9632 1751-9640
+Title: Automated skin lesion segmentation of dermoscopic images using GrabCut and k-means algorithms
+Old Publication: IET Computer Vision
+Old Publisher: Institution of Engineering and Technology (IET)
+Title: Automated skin lesion segmentation of dermoscopic images using GrabCut and k-means algorithms
+Old: IET Computer Vision
+New: IET Computer Vision
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0824-7935 1467-8640
+Title: A Naive Bayes approach for URL classification with supervised feature selection and rejection framework
+Old Publication: Computational Intelligence
+Old Publisher: Wiley
+Title: A Naive Bayes approach for URL classification with supervised feature selection and rejection framework
+Old: Computational Intelligence
+New: Computational Intelligence
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2375-4699 2375-4702
+Title: Pause-Based Phrase Extraction and Effective OOV Handling for Low-Resource Machine Translation Systems
+Old Publication: ACM Transactions on Asian and Low-Resource Language Information Processing
+Old Publisher: Association for Computing Machinery (ACM)
+Title: Pause-Based Phrase Extraction and Effective OOV Handling for Low-Resource Machine Translation Systems
+Old: ACM Transactions on Asian and Low-Resource Language Information Processing
+New: ACM Transactions on Asian and Low-Resource Language Information Processing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2227-524X
+Title: Identification of Trending Topics Using Periodically  Collected Twitter Data
+Old Publication: International Journal of Engineering &amp;amp; Technology
+Old Publisher: Science Publishing Corporation
+Title: Identification of Trending Topics Using Periodically  Collected Twitter Data
+Old: International Journal of Engineering &amp;amp; Technology
+New: International Journal of Engineering and Technology(UAE)
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2227-524X
+Title: A Working Model for Mobile Charging using Wireless  Power Transmission
+Old Publication: International Journal of Engineering &amp;amp; Technology
+Old Publisher: Science Publishing Corporation
+Title: A Working Model for Mobile Charging using Wireless  Power Transmission
+Old: International Journal of Engineering &amp;amp; Technology
+New: International Journal of Engineering and Technology(UAE)
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2227-524X
+Title: Categorisation of Tweets Using Ensemble Classification Methods
+Old Publication: International Journal of Engineering &amp;amp; Technology
+Old Publisher: Science Publishing Corporation
+Title: Categorisation of Tweets Using Ensemble Classification Methods
+Old: International Journal of Engineering &amp;amp; Technology
+New: International Journal of Engineering and Technology(UAE)
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2227-524X
+Title: Outlier Detection using Clustering Techniques
+Old Publication: International Journal of Engineering &amp;amp; Technology
+Old Publisher: Science Publishing Corporation
+Title: Outlier Detection using Clustering Techniques
+Old: International Journal of Engineering &amp;amp; Technology
+New: International Journal of Engineering and Technology(UAE)
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2227-524X
+Title: A Smart Watchdog - Intruder Detection System
+Old Publication: International Journal of Engineering &amp;amp; Technology
+Old Publisher: Science Publishing Corporation
+Title: A Smart Watchdog - Intruder Detection System
+Old: International Journal of Engineering &amp;amp; Technology
+New: International Journal of Engineering and Technology(UAE)
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2227-524X
+Title: A Lightweight Trust Scheme for Iot
+Old Publication: International Journal of Engineering &amp;amp; Technology
+Old Publisher: Science Publishing Corporation
+Title: A Lightweight Trust Scheme for Iot
+Old: International Journal of Engineering &amp;amp; Technology
+New: International Journal of Engineering and Technology(UAE)
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 1740-8865 1740-8873
+Title: Enhanced portable text to speech converter for visually impaired
+Old Publication: International Journal of Intelligent Systems Technologies and Applications
+Old Publisher: Inderscience Publishers
+Title: Enhanced portable text to speech converter for visually impaired
+Old: International Journal of Intelligent Systems Technologies and Applications
+New: International Journal of Intelligent Systems Technologies and Applications
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1740-8865 1740-8873
+Title: Empirical study of feature selection methods over classification algorithms
+Old Publication: International Journal of Intelligent Systems Technologies and Applications
+Old Publisher: Inderscience Publishers
+Title: Empirical study of feature selection methods over classification algorithms
+Old: International Journal of Intelligent Systems Technologies and Applications
+New: International Journal of Intelligent Systems Technologies and Applications
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1740-8865 1740-8873
+Title: Empirical study of feature selection methods over classification algorithms
+Old Publication: International Journal of Intelligent Systems Technologies and Applications
+Old Publisher: Inderscience Publishers
+Title: Empirical study of feature selection methods over classification algorithms
+Old: International Journal of Intelligent Systems Technologies and Applications
+New: International Journal of Intelligent Systems Technologies and Applications
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0011-3891
+Title: Optic Disc and Cup Segmentation in Fundus Retinal Images Using Feature Detection and Morphological Techniques
+Old Publication: Current Science
+Old Publisher: Current Science Association
+Not found!
+==================================================
+ISSN: 1303-6203 1300-0632
+Title: MutatedSocioAgentSim (MSAS): semisupervised modelling of multiagent simulation to predict and detect the mutation in a camouflaged social network
+Old Publication: TURKISH JOURNAL OF ELECTRICAL ENGINEERING &amp;amp; COMPUTER SCIENCES
+Old Publisher: The Scientific and Technological Research Council of Turkey (TUBITAK-ULAKBIM) - DIGITAL COMMONS JOURNALS
+Title: MutatedSocioAgentSim (MSAS): semisupervised modelling of multiagent simulation to predict and detect the mutation in a camouflaged social network
+Old: TURKISH JOURNAL OF ELECTRICAL ENGINEERING &amp;amp; COMPUTER SCIENCES
+New: Turkish Journal of Electrical Engineering and Computer Sciences
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2454-4248
+Title: Text to Speech Conversion of Documents using Concatenative Speech Synthesis
+Old Publication: International Journal on Future Revolution in computer science and communication engineering
+Old Publisher: Auricle Global Society of Education and Research
+Not found!
+==================================================
+ISSN: 2394-0697
+Title: Mobile Application For Out-Pass Generation
+Old Publication: International Journal Of Current Engineering And Scientific Research
+Old Publisher: nan
+Not found!
+==================================================
+ISSN: 2454-4248
+Title: Embodied Conversational Agent-based Control Interfaces for Home Automation System
+Old Publication: International Journal on Future Revolution in computer science and communication engineering
+Old Publisher: Auricle Global Society of Education and Research
+Not found!
+==================================================
+ISSN: 2454-4248
+Title: Automatic Gender recognition using ANFIS
+Old Publication: International Journal on Future Revolution in computer science and communication engineering
+Old Publisher:  Auricle Global Society of Education and Research
+Not found!
+==================================================
+ISSN: 1532-0626 1532-0634
+Title: Load balancing in cloud computing using water wave algorithm
+Old Publication: Concurrency and Computation: Practice and Experience
+Old Publisher: Wiley
+Title: Load balancing in cloud computing using water wave algorithm
+Old: Concurrency and Computation: Practice and Experience
+New: Concurrency Computation Practice and Experience
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 978-3-030-32150-5
+Title: Spinal Cord Segmentation in Lumbar MR Images
+Old Publication: Emerging Trends in Computing and Expert Technology
+Old Publisher: Springer Cham
+Not found!
+==================================================
+ISSN: 2367-4512 2367-4520
+Title: Optimization of Sensing Time in Cognitive Radio Networks Based on Localization Algorithm
+Old Publication: Sustainable Communication Networks and Application
+Old Publisher: Springer International Publishing
+Title: Optimization of Sensing Time in Cognitive Radio Networks Based on Localization Algorithm
+Old: Sustainable Communication Networks and Application
+New: Lecture Notes on Data Engineering and Communications Technologies
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 978-981-13-7166-0
+Title: Veracity Analysis and Prediction in Social Big Data
+Old Publication: Information and Communication Technology for Sustainable Development
+Old Publisher: Springer Singapore
+Not found!
+==================================================
+ISSN: 978-981-13-8676-3
+Title: Trendingtags - Classification and Prediction of Hashtag Popularity Using Twitter Features in Machine Learning Approach Proceedings
+Old Publication: Advances in Intelligent Systems and Computing
+Old Publisher: Springer Singapore
+Not found!
+==================================================
+ISSN: 1432-7643 1433-7479
+Title: Enhanced analysis of border surveillance using intruders' crossing strategies
+Old Publication: Soft Computing
+Old Publisher: Springer Science and Business Media LLC
+Title: Enhanced analysis of border surveillance using intruders' crossing strategies
+Old: Soft Computing
+New: Soft Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0942-4962 1432-1882
+Title: Automatic stenosis detection using SVM from CTA projection images
+Old Publication: Multimedia Systems
+Old Publisher: Springer Science and Business Media LLC
+Title: Automatic stenosis detection using SVM from CTA projection images
+Old: Multimedia Systems
+New: Multimedia Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1386-7857 1573-7543
+Title: Image fusion for MODIS and Landsat images using top hat based moving technique with FIS
+Old Publication: Cluster Computing
+Old Publisher: Springer Science and Business Media LLC
+Title: Image fusion for MODIS and Landsat images using top hat based moving technique with FIS
+Old: Cluster Computing
+New: Cluster Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1386-7857 1573-7543
+Title: Brain storm-based Whale Optimization Algorithm for privacy-protected data publishing in cloud computing
+Old Publication: Cluster Computing
+Old Publisher: Springer Science and Business Media LLC
+Title: Brain storm-based Whale Optimization Algorithm for privacy-protected data publishing in cloud computing
+Old: Cluster Computing
+New: Cluster Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1386-7857 1573-7543
+Title: An augmented approach for pseudo-free groups in smart cyber-physical system
+Old Publication: Cluster Computing
+Old Publisher: Springer Science and Business Media LLC
+Title: An augmented approach for pseudo-free groups in smart cyber-physical system
+Old: Cluster Computing
+New: Cluster Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1386-7857 1573-7543
+Title: An efficient seed points selection approach in dominant color descriptors (DCD)
+Old Publication: Cluster Computing
+Old Publisher: Springer Science and Business Media LLC
+Title: An efficient seed points selection approach in dominant color descriptors (DCD)
+Old: Cluster Computing
+New: Cluster Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1569-8025 1572-8137
+Title: Single-event radiation performance analysis of junction and junctionless FET-based low-noise amplifiers
+Old Publication: Journal of Computational Electronics
+Old Publisher: Springer Science and Business Media LLC
+Title: Single-event radiation performance analysis of junction and junctionless FET-based low-noise amplifiers
+Old: Journal of Computational Electronics
+New: Journal of Computational Electronics
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0923-6082 1573-0824
+Title: A two-level secure data hiding algorithm for video steganography
+Old Publication: Multidimensional Systems and Signal Processing
+Old Publisher: Springer Science and Business Media LLC
+Title: A two-level secure data hiding algorithm for video steganography
+Old: Multidimensional Systems and Signal Processing
+New: Multidimensional Systems and Signal Processing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2511-2104 2511-2112
+Title: Acoustic image denoising using various spatial filtering techniques
+Old Publication: International Journal of Information Technology
+Old Publisher: Springer Science and Business Media LLC
+Title: Acoustic image denoising using various spatial filtering techniques
+Old: International Journal of Information Technology
+New: International Journal of Information Technology (Singapore)
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0045-7906
+Title: BCI cinematics - A pre-release analyser for movies using H2O deep learning platform
+Old Publication: Computers &amp;amp; Electrical Engineering
+Old Publisher: Elsevier BV
+Not found!
+==================================================
+ISSN: 0268-1242 1361-6641
+Title: An extremely fast, energy-efficient RESET process in Ge2Sb2Te5 phase change memory device revealed by the choice of electrode materials and interface effects
+Old Publication: Semiconductor Science and Technology
+Old Publisher: IOP Publishing
+Title: An extremely fast, energy-efficient RESET process in Ge2Sb2Te5 phase change memory device revealed by the choice of electrode materials and interface effects
+Old: Semiconductor Science and Technology
+New: Semiconductor Science and Technology
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: nan
+Title: Med-Recommender System for Predictive Analysis of Hospitals and Doctors
+Old Publication: 2019 International Conference on Computational Intelligence in Data Science (ICCIDS)
+Old Publisher: IEEE
+Not found!
+==================================================
+ISSN: nan
+Title: Predicting Learning Behaviour of Online Course Learners' using Hybrid Deep Learning Model
+Old Publication: 2018 IEEE 6th International Conference on MOOCs, Innovation and Technology in Education (MITE)
+Old Publisher: IEEE
+Not found!
+==================================================
+ISSN: 2780070
+Title: Impact of Thermal Boundary Resistance on the Performance and Scaling of Phase-Change Memory Device
+Old Publication: IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems
+Old Publisher: Institute of Electrical and Electronics Engineers (IEEE)
+Title: Impact of Thermal Boundary Resistance on the Performance and Scaling of Phase-Change Memory Device
+Old: IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems
+New: IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1534-4320 1558-0210
+Title: A Weighted Speaker-Specific Confusion Transducer-Based Augmentative and Alternative Speech Communication Aid for Dysarthric Speakers
+Old Publication: IEEE Transactions on Neural Systems and Rehabilitation Engineering
+Old Publisher: Institute of Electrical and Electronics Engineers (IEEE)
+Title: A Weighted Speaker-Specific Confusion Transducer-Based Augmentative and Alternative Speech Communication Aid for Dysarthric Speakers
+Old: IEEE Transactions on Neural Systems and Rehabilitation Engineering
+New: IEEE Transactions on Neural Systems and Rehabilitation Engineering
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1017-9909
+Title: Direction-invariant binary pattern-encoded descriptor for texture classification and retrieval
+Old Publication: Journal of Electronic Imaging
+Old Publisher: SPIE-Intl Soc Optical Eng
+Title: Direction-invariant binary pattern-encoded descriptor for texture classification and retrieval
+Old: Journal of Electronic Imaging
+New: Journal of Electronic Imaging
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1757-2657 1757-2665
+Title: A safety system for school children using GRAG
+Old Publication: International Journal of Computer Aided Engineering and Technology
+Old Publisher: Inderscience Publishers
+Title: A safety system for school children using GRAG
+Old: International Journal of Computer Aided Engineering and Technology
+New: International Journal of Computer Aided Engineering and Technology
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1935-0090 2325-0399
+Title: A New Optimized Distributed Scheduling Service using Genetic Computing
+Old Publication: Applied Mathematics &amp;amp; Information Sciences
+Old Publisher: Natural Sciences Publishing
+Title: A New Optimized Distributed Scheduling Service using Genetic Computing
+Old: Applied Mathematics &amp;amp; Information Sciences
+New: Applied Mathematics and Information Sciences
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0534-0012 1820-6069
+Title: A novel microarray gene selection and classification using intelligent dynamic grey wolf optimization
+Old Publication: Genetika
+Old Publisher: National Library of Serbia
+Title: A novel microarray gene selection and classification using intelligent dynamic grey wolf optimization
+Old: Genetika
+New: Genetika
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2249-8958
+Title: Epileptic Seizure Prediction Through Machine Learning and Spatio-Temporal Features Based Time Series Analysis of Intracranial Electroencephalogram Data
+Old Publication: International Journal of Engineering and Advanced Technology
+Old Publisher: Blue Eyes Intelligence Engineering and Sciences Engineering and Sciences Publication - BEIESP
+Title: Epileptic Seizure Prediction Through Machine Learning and Spatio-Temporal Features Based Time Series Analysis of Intracranial Electroencephalogram Data
+Old: International Journal of Engineering and Advanced Technology
+New: International Journal of Engineering and Advanced Technology
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2249-8958
+Title: Prediction of West Nile Virus u sing Ensemble Classifiers
+Old Publication: International Journal of Engineering and Advanced Technology
+Old Publisher: Blue Eyes Intelligence Engineering and Sciences Engineering and Sciences Publication - BEIESP
+Title: Prediction of West Nile Virus u sing Ensemble Classifiers
+Old: International Journal of Engineering and Advanced Technology
+New: International Journal of Engineering and Advanced Technology
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2249-8958
+Title: Artificial Neural Network and Gray Level Co-Occurrence Matrix Based Automated Corrosion Detection
+Old Publication: International Journal of Engineering and Advanced Technology
+Old Publisher: Blue Eyes Intelligence Engineering and Sciences Engineering and Sciences Publication - BEIESP
+Title: Artificial Neural Network and Gray Level Co-Occurrence Matrix Based Automated Corrosion Detection
+Old: International Journal of Engineering and Advanced Technology
+New: International Journal of Engineering and Advanced Technology
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2278-3075
+Title: Identification of Duplication in Questions Posed on Knowledge Sharing Platform Quora using Machine Learning Techniques
+Old Publication: International Journal of Innovative Technology and Exploring Engineering
+Old Publisher: Blue Eyes Intelligence Engineering and Sciences Engineering and Sciences Publication - BEIESP
+Title: Identification of Duplication in Questions Posed on Knowledge Sharing Platform Quora using Machine Learning Techniques
+Old: International Journal of Innovative Technology and Exploring Engineering
+New: International Journal of Innovative Technology and Exploring Engineering
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2277-3878
+Title: RFID and PIR Motion Sensor based Automated Attendance System for Educational Institutions
+Old Publication: International Journal of Recent Technology and Engineering
+Old Publisher: Blue Eyes Intelligence Engineering and Sciences Engineering and Sciences Publication - BEIESP
+Title: RFID and PIR Motion Sensor based Automated Attendance System for Educational Institutions
+Old: International Journal of Recent Technology and Engineering
+New: International Journal of Recent Technology and Engineering
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2277-3878
+Title: Nelder-Mead Optimized MADM Decision Support for Vertical Handover
+Old Publication: International Journal of Recent Technology and Engineering
+Old Publisher: Blue Eyes Intelligence Engineering and Sciences Engineering and Sciences Publication - BEIESP
+Title: Nelder-Mead Optimized MADM Decision Support for Vertical Handover
+Old: International Journal of Recent Technology and Engineering
+New: International Journal of Recent Technology and Engineering
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2582-1369
+Title: Performance Evaluation of Flying Wireless Network With Vanet Routing Protocol
+Old Publication: Journal of ISMAC
+Old Publisher: Inventive Research Organization
+Not found!
+==================================================
+ISSN: 2582-4104
+Title: QOS and Defense Enhancement Using Block Chain for Fly Wireless Networks
+Old Publication: Journal of Trends in Computer Science and Smart Technology
+Old Publisher: Inventive Research Organization
+Not found!
+==================================================
+ISSN: 2582-4104
+Title: Delay Diminished Efficient Task Scheduling and Allocation for Heterogeneous Cloud Environment
+Old Publication: Journal of Trends in Computer Science and Smart Technology
+Old Publisher: Inventive Research Organization
+Not found!
+==================================================
+ISSN: 1303-6203
+Title: Optimized bilevel classifier for brain tumor type and grade discrimination usingevolutionary fuzzy computing
+Old Publication: TURKISH JOURNAL OF ELECTRICAL ENGINEERING &amp;amp; COMPUTER SCIENCES
+Old Publisher: The Scientific and Technological Research Council of Turkey (TUBITAK-ULAKBIM) - DIGITAL COMMONS JOURNALS
+Title: Optimized bilevel classifier for brain tumor type and grade discrimination usingevolutionary fuzzy computing
+Old: TURKISH JOURNAL OF ELECTRICAL ENGINEERING &amp;amp; COMPUTER SCIENCES
+New: Turkish Journal of Electrical Engineering and Computer Sciences
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 1548-3657 1548-3665
+Title: Speech Emotion Recognition Based on Gender Influence in Emotional Expression
+Old Publication: International Journal of Intelligent Information Technologies
+Old Publisher: IGI Global
+Title: Speech Emotion Recognition Based on Gender Influence in Emotional Expression
+Old: International Journal of Intelligent Information Technologies
+New: International Journal of Intelligent Information Technologies
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1868-4238 1868-422X
+Title: Sensitive Keyword Extraction Based on Cyber Keywords and LDA in Twitter to Avoid Regrets
+Old Publication: IFIP Advances in Information and Communication Technology
+Old Publisher: Springer International Publishing
+Title: Sensitive Keyword Extraction Based on Cyber Keywords and LDA in Twitter to Avoid Regrets
+Old: IFIP Advances in Information and Communication Technology
+New: IFIP Advances in Information and Communication Technology
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1868-4238 1868-422X
+Title: Social Media Veracity Detection System Using Calibrate Classifier
+Old Publication: IFIP Advances in Information and Communication Technology
+Old Publisher: Springer International Publishing
+Title: Social Media Veracity Detection System Using Calibrate Classifier
+Old: IFIP Advances in Information and Communication Technology
+New: IFIP Advances in Information and Communication Technology
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2367-3370 2367-3389
+Title: Resource Scheduling Algorithms for Cloud Computing Environment: A Literature Survey
+Old Publication: Lecture Notes in Networks and Systems
+Old Publisher: Springer Singapore
+Title: Resource Scheduling Algorithms for Cloud Computing Environment: A Literature Survey
+Old: Lecture Notes in Networks and Systems
+New: Lecture Notes in Networks and Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2194-5357 2194-5365
+Title: Modern Parking Business Using Blockchain and Internet of Things (IoT)
+Old Publication: Advances in Intelligent Systems and Computing
+Old Publisher: Springer Singapore
+Title: Modern Parking Business Using Blockchain and Internet of Things (IoT)
+Old: Advances in Intelligent Systems and Computing
+New: Advances in Intelligent Systems and Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1876-1100 1876-1119
+Title: Tweet Classification Using Deep Learning Approach to Predict Sensitive Personal Data
+Old Publication: Lecture Notes in Electrical Engineering
+Old Publisher: Springer Singapore
+Title: Tweet Classification Using Deep Learning Approach to Predict Sensitive Personal Data
+Old: Lecture Notes in Electrical Engineering
+New: Lecture Notes in Electrical Engineering
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1381-2416 1572-8110
+Title: Analysis of algorithms to estimate glottal closure instants from speech signals
+Old Publication: International Journal of Speech Technology
+Old Publisher: Springer Science and Business Media LLC
+Title: Analysis of algorithms to estimate glottal closure instants from speech signals
+Old: International Journal of Speech Technology
+New: International Journal of Speech Technology
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1569-8025 1572-8137
+Title: Reconfigurable silicon nanotube using numerical simulations
+Old Publication: Journal of Computational Electronics
+Old Publisher: Springer Science and Business Media LLC
+Title: Reconfigurable silicon nanotube using numerical simulations
+Old: Journal of Computational Electronics
+New: Journal of Computational Electronics
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1380-7501 1573-7721
+Title: Multi-model fusion based satellite image classification using versatile unsupervised vector zone (VUVZ) fusion and intensive pragmatic blossoms (IPB) technique
+Old Publication: Multimedia Tools and Applications
+Old Publisher: Springer Science and Business Media LLC
+Title: Multi-model fusion based satellite image classification using versatile unsupervised vector zone (VUVZ) fusion and intensive pragmatic blossoms (IPB) technique
+Old: Multimedia Tools and Applications
+New: Multimedia Tools and Applications
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0923-6082 1573-0824
+Title: A new multi-level radial difference encoded pattern for image classification and retrieval
+Old Publication: Multidimensional Systems and Signal Processing
+Old Publisher: Springer Science and Business Media LLC
+Title: A new multi-level radial difference encoded pattern for image classification and retrieval
+Old: Multidimensional Systems and Signal Processing
+New: Multidimensional Systems and Signal Processing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0250-541X 2250-1754
+Title: Construction and Evaluation of Tamil Speech Emotion Corpus
+Old Publication: National Academy Science Letters
+Old Publisher: Springer Science and Business Media LLC
+Title: Construction and Evaluation of Tamil Speech Emotion Corpus
+Old: National Academy Science Letters
+New: National Academy Science Letters
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0026-2692
+Title: Reconfigurable FET-Based SRAM and Its Single Event Upset Performance Analysis Using TCAD Simulations
+Old Publication: Microelectronics Journal
+Old Publisher: Elsevier BV
+Not found!
+==================================================
+ISSN: 0167-8655
+Title: Phoneme classification in reconstructed phase space with convolutional neural networks
+Old Publication: Pattern Recognition Letters
+Old Publisher: Elsevier BV
+Not found!
+==================================================
+ISSN: 1877-0509
+Title: Eye Blink Detection Using Back Ground Subtraction and Gradient-Based Corner Detection for Preventing CVS
+Old Publication: Procedia Computer Science
+Old Publisher: Elsevier BV
+Title: Eye Blink Detection Using Back Ground Subtraction and Gradient-Based Corner Detection for Preventing CVS
+Old: Procedia Computer Science
+New: Procedia Computer Science
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 1877-0509
+Title: Entropy Analysis on Planar Anamorphic Images
+Old Publication: Procedia Computer Science
+Old Publisher: Elsevier BV
+Title: Entropy Analysis on Planar Anamorphic Images
+Old: Procedia Computer Science
+New: Procedia Computer Science
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 1877-0509
+Title: Object Detection In Underwater Acoustic Images Using Edge Based Segmentation Method
+Old Publication: Procedia Computer Science
+Old Publisher: Elsevier BV
+Title: Object Detection In Underwater Acoustic Images Using Edge Based Segmentation Method
+Old: Procedia Computer Science
+New: Procedia Computer Science
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 1877-0509
+Title: Start to Finish Automation Achieve on Cloud with Build Channel: By DevOps Method
+Old Publication: Procedia Computer Science
+Old Publisher: Elsevier BV
+Title: Start to Finish Automation Achieve on Cloud with Build Channel: By DevOps Method
+Old: Procedia Computer Science
+New: Procedia Computer Science
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 1877-0509
+Title: Optimized Feature Integration and Minimized Search Space in Content Based Image Retrieval
+Old Publication: Procedia Computer Science
+Old Publisher: Elsevier BV
+Title: Optimized Feature Integration and Minimized Search Space in Content Based Image Retrieval
+Old: Procedia Computer Science
+New: Procedia Computer Science
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 1877-0509
+Title: Visual Speech Recognition using Fusion of Motion and Geometric Features
+Old Publication: Procedia Computer Science
+Old Publisher: Elsevier BV
+Title: Visual Speech Recognition using Fusion of Motion and Geometric Features
+Old: Procedia Computer Science
+New: Procedia Computer Science
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 1751-9675 1751-9683
+Title: Adaptive multi-band filter structure-based far-end speech enhancement
+Old Publication: IET Signal Processing
+Old Publisher: Institution of Engineering and Technology (IET)
+Title: Adaptive multi-band filter structure-based far-end speech enhancement
+Old: IET Signal Processing
+New: IET Signal Processing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0952-813X 1362-3079
+Title: Hierarchical classifier design for speech emotion recognition in the mixed-cultural environment
+Old Publication: Journal of Experimental &amp;amp; Theoretical Artificial Intelligence
+Old Publisher: Informa UK Limited
+Title: Hierarchical classifier design for speech emotion recognition in the mixed-cultural environment
+Old: Journal of Experimental &amp;amp; Theoretical Artificial Intelligence
+New: Journal of Experimental and Theoretical Artificial Intelligence
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0268-1242 1361-6641
+Title: Investigation of heavy-ion strikes on a fin field-effect transistor-based low-noise amplifier
+Old Publication: Semiconductor Science and Technology
+Old Publisher: IOP Publishing
+Title: Investigation of heavy-ion strikes on a fin field-effect transistor-based low-noise amplifier
+Old: Semiconductor Science and Technology
+New: Semiconductor Science and Technology
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0010-4620 1460-2067
+Title: An Improved Seed Point Selection-Based Unsupervised Color Clustering for Content-Based Image Retrieval Application
+Old Publication: The Computer Journal
+Old Publisher: Oxford University Press (OUP)
+Title: An Improved Seed Point Selection-Based Unsupervised Color Clustering for Content-Based Image Retrieval Application
+Old: The Computer Journal
+New: Computer Journal
+19819             Methods
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1932-4553 1941-0484
+Title: Data Augmentation using virtual microphone array synthesis and multi-resolution feature extraction for isolated word dysarthric speech recognition
+Old Publication: IEEE Journal of Selected Topics in Signal Processing
+Old Publisher: Institute of Electrical and Electronics Engineers (IEEE)
+Title: Data Augmentation using virtual microphone array synthesis and multi-resolution feature extraction for isolated word dysarthric speech recognition
+Old: IEEE Journal of Selected Topics in Signal Processing
+New: IEEE Journal on Selected Topics in Signal Processing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2329-9290 2329-9304
+Title: Multi-Level Single-Channel Speech Enhancement Using a Unified Framework for Estimating Magnitude and Phase Spectra
+Old Publication: IEEE/ACM Transactions on Audio, Speech, and Language Processing
+Old Publisher: Institute of Electrical and Electronics Engineers (IEEE)
+Title: Multi-Level Single-Channel Speech Enhancement Using a Unified Framework for Estimating Magnitude and Phase Spectra
+Old: IEEE/ACM Transactions on Audio, Speech, and Language Processing
+New: IEEE/ACM Transactions on Audio Speech and Language Processing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1573-4056
+Title: Influence of Primary Auditory Cortex in the Characterization of Autism Spectrum in Young Adults using Brain Connectivity Parameters and Deep Belief Networks: An fMRI Study
+Old Publication: Current Medical Imaging Formerly Current Medical Imaging Reviews
+Old Publisher: Bentham Science Publishers Ltd.
+Title: Influence of Primary Auditory Cortex in the Characterization of Autism Spectrum in Young Adults using Brain Connectivity Parameters and Deep Belief Networks: An fMRI Study
+Old: Current Medical Imaging Formerly Current Medical Imaging Reviews
+New: Current Medical Imaging
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0137-5075 2300-262X
+Title: A Study on the Impact of Lombard Effect on Recognition of Hindi Syllabic Units Using CNN Based Multimodal ASR Systems
+Old Publication: Archives of Acoustics
+Old Publisher: Polish Academy of Sciences Chancellery
+Title: A Study on the Impact of Lombard Effect on Recognition of Hindi Syllabic Units Using CNN Based Multimodal ASR Systems
+Old: Archives of Acoustics
+New: Archives of Acoustics
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0895-3996 1095-9114
+Title: An enhanced OCT image captioning system to assist ophthalmologists in detecting and classifying eye diseases
+Old Publication: Journal of X-Ray Science and Technology
+Old Publisher: IOS Press
+Title: An enhanced OCT image captioning system to assist ophthalmologists in detecting and classifying eye diseases
+Old: Journal of X-Ray Science and Technology
+New: Journal of X-Ray Science and Technology
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2278-3075
+Title: Epilepsy Prediction using a Combined LSTM - XGBoost System on EEG Signals
+Old Publication: International Journal of Innovative Technology and Exploring Engineering
+Old Publisher: Blue Eyes Intelligence Engineering and Sciences Engineering and Sciences Publication - BEIESP
+Title: Epilepsy Prediction using a Combined LSTM - XGBoost System on EEG Signals
+Old: International Journal of Innovative Technology and Exploring Engineering
+New: International Journal of Innovative Technology and Exploring Engineering
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2582-3051
+Title: Remaining Useful Life (RUL) Estimation of Lead Acid Battery using Bayesian Approach
+Old Publication: Journal of Electrical Engineering and Automation
+Old Publisher: Inventive Research Organization
+Not found!
+==================================================
+ISSN: 2582-3825
+Title: EL DAPP - An Electricity Meter Tracking Decentralized Application
+Old Publication: Mar-20
+Old Publisher: Inventive Research Organization
+Not found!
+==================================================
+ISSN: 2582-1369
+Title: Medical Data Management Using Blockchain
+Old Publication: Dec-20
+Old Publisher: Inventive Research Organization
+Not found!
+==================================================
+ISSN: 2582-418X
+Title: Fog Computing - A Rasperry Pi Decentralized Network
+Old Publication: Journal of Information Technology and Digital World
+Old Publisher: Inventive Research Organization
+Not found!
+==================================================
+ISSN: 2582-2640
+Title: MOOCVERSITY - Deep Learning Based Dropout Prediction in MOOCs over Weeks
+Old Publication: Journal of Soft Computing Paradigm
+Old Publisher: Inventive Research Organization
+Not found!
+==================================================
+ISSN: 2327-0411 2327-042X
+Title: Inter-Hemispherical Investigations on the Functional Connectivity in Controls and Autism Spectrum Using Resting State fMRI
+Old Publication: Advances in Computational Intelligence and Robotics
+Old Publisher: IGI Global
+Not found!
+==================================================
+ISSN: 1674-8301
+Title: Deep learning approach to detect seizure using reconstructed phase space images
+Old Publication: The Journal of Biomedical Research
+Old Publisher: Journal of Biomedical Research
+Title: Deep learning approach to detect seizure using reconstructed phase space images
+Old: The Journal of Biomedical Research
+New: Journal of Biomedical Research
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1074-5351 1099-1131
+Title: Metamaterial-loaded multiband antenna for embedded automotive Internet-of-Things communications
+Old Publication: International Journal of Communication Systems
+Old Publisher: Wiley
+Title: Metamaterial-loaded multiband antenna for embedded automotive Internet-of-Things communications
+Old: International Journal of Communication Systems
+New: International Journal of Communication Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2367-3370 2367-3389
+Title: NoRegINT--A Tool for Performing OSINT and Analysis from Social Media
+Old Publication: Inventive Computation and Information Technologies
+Old Publisher: Springer Nature Singapore
+Title: NoRegINT--A Tool for Performing OSINT and Analysis from Social Media
+Old: Inventive Computation and Information Technologies
+New: Lecture Notes in Networks and Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0178-2789 1432-2315
+Title: Degenerative disc disease diagnosis from lumbar MR images using hybrid features
+Old Publication: The Visual Computer
+Old Publisher: Springer Science and Business Media LLC
+Title: Degenerative disc disease diagnosis from lumbar MR images using hybrid features
+Old: The Visual Computer
+New: Visual Computer
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0178-2789 1432-2315
+Title: A novel data hiding by image interpolation using edge quad-tree block complexity
+Old Publication: The Visual Computer
+Old Publisher: Springer Science and Business Media LLC
+Title: A novel data hiding by image interpolation using edge quad-tree block complexity
+Old: The Visual Computer
+New: Visual Computer
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0219-1377 0219-3116
+Title: Tweet-scan-post: a system for analysis of sensitive private data disclosure in online social media
+Old Publication: Knowledge and Information Systems
+Old Publisher: Springer Science and Business Media LLC
+Title: Tweet-scan-post: a system for analysis of sensitive private data disclosure in online social media
+Old: Knowledge and Information Systems
+New: Knowledge and Information Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0269-2821 1573-7462
+Title: Understanding Lombard speech: a review of compensation techniques towards improving speech based recognition systems
+Old Publication: Artificial Intelligence Review
+Old Publisher: Springer Science and Business Media LLC
+Title: Understanding Lombard speech: a review of compensation techniques towards improving speech based recognition systems
+Old: Artificial Intelligence Review
+New: Artificial Intelligence Review
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1381-2416 1572-8110
+Title: A deep learning approach for robust speaker identification using chroma energy normalized statistics and mel frequency cepstral coefficients
+Old Publication: International Journal of Speech Technology
+Old Publisher: Springer Science and Business Media LLC
+Title: A deep learning approach for robust speaker identification using chroma energy normalized statistics and mel frequency cepstral coefficients
+Old: International Journal of Speech Technology
+New: International Journal of Speech Technology
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0923-6082 1573-0824
+Title: Secure data hiding by fruit fly optimization improved hybridized seeker algorithm
+Old Publication: Multidimensional Systems and Signal Processing
+Old Publisher: Springer Science and Business Media LLC
+Title: Secure data hiding by fruit fly optimization improved hybridized seeker algorithm
+Old: Multidimensional Systems and Signal Processing
+New: Multidimensional Systems and Signal Processing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1370-4621 1573-773X
+Title: EarNet: Biometric Embeddings for End to End Person Authentication System Using Transient Evoked Otoacoustic Emission Signals
+Old Publication: Neural Processing Letters
+Old Publisher: Springer Science and Business Media LLC
+Title: EarNet: Biometric Embeddings for End to End Person Authentication System Using Transient Evoked Otoacoustic Emission Signals
+Old: Neural Processing Letters
+New: Neural Processing Letters
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0929-6212 1572-834X
+Title: Blockchain Based Chameleon Hashing Technique for Privacy Preservation in E-Governance System
+Old Publication: Wireless Personal Communications
+Old Publisher: Springer Science and Business Media LLC
+Title: Blockchain Based Chameleon Hashing Technique for Privacy Preservation in E-Governance System
+Old: Wireless Personal Communications
+New: Wireless Personal Communications
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0929-6212 1572-834X
+Title: Hybrid Bird Swarm Optimized Quasi Affine Algorithm Based Node Location in Wireless Sensor Networks
+Old Publication: Wireless Personal Communications
+Old Publisher: Springer Science and Business Media LLC
+Title: Hybrid Bird Swarm Optimized Quasi Affine Algorithm Based Node Location in Wireless Sensor Networks
+Old: Wireless Personal Communications
+New: Wireless Personal Communications
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1868-5137 1868-5145
+Title: Performance analysis of nature inspired load balancing algorithm in cloud environment
+Old Publication: Journal of Ambient Intelligence and Humanized Computing
+Old Publisher: Springer Science and Business Media LLC
+Title: Performance analysis of nature inspired load balancing algorithm in cloud environment
+Old: Journal of Ambient Intelligence and Humanized Computing
+New: Journal of Ambient Intelligence and Humanized Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2511-2104 2511-2112
+Title: Performance evaluation of encryption algorithm using fruit fly optimization improved hybridized seeker and PVD algorithm
+Old Publication: International Journal of Information Technology
+Old Publisher: Springer Science and Business Media LLC
+Title: Performance evaluation of encryption algorithm using fruit fly optimization improved hybridized seeker and PVD algorithm
+Old: International Journal of Information Technology
+New: International Journal of Information Technology (Singapore)
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1746-8094
+Title: Reconstructed phase space portraits for detecting brain diseases using deep learning
+Old Publication: Biomedical Signal Processing and Control
+Old Publisher: Elsevier BV
+Title: Reconstructed phase space portraits for detecting brain diseases using deep learning
+Old: Biomedical Signal Processing and Control
+New: Biomedical Signal Processing and Control
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0377-2063 0974-780X
+Title: Miniaturized Dual-Band Metamaterial-Loaded Antenna for Heterogeneous Vehicular Communication Networks
+Old Publication: IETE Journal of Research
+Old Publisher: Informa UK Limited
+Title: Miniaturized Dual-Band Metamaterial-Loaded Antenna for Heterogeneous Vehicular Communication Networks
+Old: IETE Journal of Research
+New: IETE Journal of Research
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1543-5075 1543-5083
+Title: Proactive maintenance of small wind turbines using IoT and machine learning models
+Old Publication: International Journal of Green Energy
+Old Publisher: Informa UK Limited
+Title: Proactive maintenance of small wind turbines using IoT and machine learning models
+Old: International Journal of Green Energy
+New: International Journal of Green Energy
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1742-6588 1742-6596
+Title: Auto-Off ID: Automatic Detection of Offensive Language in Social Media
+Old Publication: Journal of Physics: Conference Series
+Old Publisher: IOP Publishing
+Title: Auto-Off ID: Automatic Detection of Offensive Language in Social Media
+Old: Journal of Physics: Conference Series
+New: Journal of Physics: Conference Series
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0010-4620 1460-2067
+Title: Rumor Identification and Verification for Text in Social Media Content
+Old Publication: The Computer Journal
+Old Publisher: Oxford University Press (OUP)
+Title: Rumor Identification and Verification for Text in Social Media Content
+Old: The Computer Journal
+New: Computer Journal
+19819             Methods
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0219-4775 1793-6780
+Title: Enhancing Speech Quality Using Artificial Bandwidth Expansion with Deep Shallow Convolution Neural Network Framework
+Old Publication: Fluctuation and Noise Letters
+Old Publisher: World Scientific Pub Co Pte Ltd
+Title: Enhancing Speech Quality Using Artificial Bandwidth Expansion with Deep Shallow Convolution Neural Network Framework
+Old: Fluctuation and Noise Letters
+New: Fluctuation and Noise Letters
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: nan
+Title: Assurance on data integrity in cloud data centre using PKI built RDIC method
+Old Publication: Recent Trends in Communication and Electronics
+Old Publisher: CRC Press
+Not found!
+==================================================
+ISSN: 0534-0012 1820-6069
+Title: Optimised feature selection for early cancer detection
+Old Publication: Genetika
+Old Publisher: National Library of Serbia
+Title: Optimised feature selection for early cancer detection
+Old: Genetika
+New: Genetika
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 3276716
+Title: Acoustic-visual based Accent Identification system using deep neural networks
+Old Publication: International Journal of Early Childhood Special Education (INT-JECSE)
+Old Publisher: INT-JECSE
+Title: Acoustic-visual based Accent Identification system using deep neural networks
+Old: International Journal of Early Childhood Special Education (INT-JECSE)
+New: Revista Argentina de Clinica Psicologica
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 3276716
+Title: Recognition of hand signs based on geometrical features using machine learning and deep learning approaches
+Old Publication: Revista Argentina de Clinica Psicologica
+Old Publisher: Fundacion Aigle
+Title: Recognition of hand signs based on geometrical features using machine learning and deep learning approaches
+Old: Revista Argentina de Clinica Psicologica
+New: Revista Argentina de Clinica Psicologica
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1546-2226
+Title: Intelligent Deep Learning Based Disease Diagnosis Using Biomedical Tongue Images
+Old Publication: Computers, Materials and Continua
+Old Publisher: Computers, Materials and Continua (Tech Science Press)
+Title: Intelligent Deep Learning Based Disease Diagnosis Using Biomedical Tongue Images
+Old: Computers, Materials and Continua
+New: Computers, Materials and Continua
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 1546-2226
+Title: IoT-Cloud Empowered Aerial Scene Classification for Unmanned Aerial Vehicles
+Old Publication: Computers, Materials and Continua
+Old Publisher: Computers, Materials and Continua (Tech Science Press)
+Title: IoT-Cloud Empowered Aerial Scene Classification for Unmanned Aerial Vehicles
+Old: Computers, Materials and Continua
+New: Computers, Materials and Continua
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 1079-8587
+Title: End-to-End Speech Recognition of Tamil Language
+Old Publication: Computers, Materials and Continua
+Old Publisher: Computers, Materials and Continua (Tech Science Press)
+Title: End-to-End Speech Recognition of Tamil Language
+Old: Computers, Materials and Continua
+New: Intelligent Automation and Soft Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0976-6553 0976-6545
+Title: Impact of Singing Bowl Playing on the Brain Using EEG
+Old Publication: INTERNATIONAL JOURNAL OF ELECTRICAL ENGINEERING AND TECHNOLOGY
+Old Publisher: IAEME Publication Chennai
+Title: Impact of Singing Bowl Playing on the Brain Using EEG
+Old: INTERNATIONAL JOURNAL OF ELECTRICAL ENGINEERING AND TECHNOLOGY
+New: International Journal of Electrical Engineering and Technology
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 3276716
+Title: Parkinson's Disease Detection using Machine Learning Techniques
+Old Publication: Revista Argentina de Clinica Psicologica
+Old Publisher: Fundacion Aigle
+Title: Parkinson's Disease Detection using Machine Learning Techniques
+Old: Revista Argentina de Clinica Psicologica
+New: Revista Argentina de Clinica Psicologica
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1551-0018
+Title: Fruit-Fly optimization-based feature integration in image retrieval
+Old Publication: Mathematical Biosciences and Engineering
+Old Publisher: American Institute of Mathematical Sciences (AIMS)
+Title: Fruit-Fly optimization-based feature integration in image retrieval
+Old: Mathematical Biosciences and Engineering
+New: Mathematical Biosciences and Engineering
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 1577-5097
+Title: Underwater Acoustic Image Denoising Using Stationary Wavelet Transform and Various Shrinkage Functions
+Old Publication: ELCVIA Electronic Letters on Computer Vision and Image Analysis
+Old Publisher: Universitat Autonoma de Barcelona
+Title: Underwater Acoustic Image Denoising Using Stationary Wavelet Transform and Various Shrinkage Functions
+Old: ELCVIA Electronic Letters on Computer Vision and Image Analysis
+New: Electronic Letters on Computer Vision and Image Analysis
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: nan
+Title: Privacy Enhancement for Wireless Sensor Networks and the Internet of Things Based on Cryptological Techniques
+Old Publication: Wireless Communication for Cybersecurity
+Old Publisher: Wiley
+Not found!
+==================================================
+ISSN: nan
+Title: Security and Confidentiality Concerns in Blockchain Technology
+Old Publication: Wireless Communication for Cybersecurity
+Old Publisher: Wiley
+Not found!
+==================================================
+ISSN: 1532-0626 1532-0634
+Title: An efficient hand gesture recognition based on optimal deep embedded hybrid convolutional neural network-long short term memory network model
+Old Publication: Concurrency and Computation: Practice and Experience
+Old Publisher: Wiley
+Title: An efficient hand gesture recognition based on optimal deep embedded hybrid convolutional neural network-long short term memory network model
+Old: Concurrency and Computation: Practice and Experience
+New: Concurrency Computation Practice and Experience
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1865-0929 1865-0937
+Title: Early Alzheimer Detection Through Speech Analysis and Vision Transformer Approach
+Old Publication: Communications in Computer and Information Science
+Old Publisher: Springer International Publishing
+Title: Early Alzheimer Detection Through Speech Analysis and Vision Transformer Approach
+Old: Communications in Computer and Information Science
+New: Communications in Computer and Information Science
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2522-8595 2522-8609
+Title: Challenges and Opportunities for Green Energy Harvesting in Sustainable IoT Systems
+Old Publication: Energy Harvesting Trends for Low Power Compact Electronic Devices
+Old Publisher: Springer International Publishing
+Title: Challenges and Opportunities for Green Energy Harvesting in Sustainable IoT Systems
+Old: Energy Harvesting Trends for Low Power Compact Electronic Devices
+New: EAI/Springer Innovations in Communication and Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2367-3370 2367-3389
+Title: Automatic Credit Fraud Detection Using Ensemble Model
+Old Publication: ICT Analysis and Applications
+Old Publisher: Springer Nature Singapore
+Title: Automatic Credit Fraud Detection Using Ensemble Model
+Old: ICT Analysis and Applications
+New: Lecture Notes in Networks and Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2367-3370 2367-3389
+Title: Swear Words Replacement Suggestion System
+Old Publication: ICT Analysis and Applications
+Old Publisher: Springer Nature Singapore
+Title: Swear Words Replacement Suggestion System
+Old: ICT Analysis and Applications
+New: Lecture Notes in Networks and Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2367-3370 2367-3389
+Title: Applications of Open Source Intelligence in Crisis Analysis--A COVID-19 Case Study
+Old Publication: ICT Systems and Sustainability
+Old Publisher: Springer Nature Singapore
+Title: Applications of Open Source Intelligence in Crisis Analysis--A COVID-19 Case Study
+Old: ICT Systems and Sustainability
+New: Lecture Notes in Networks and Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 978-981-16-8484-5
+Title: Program Synthesis - A Survey
+Old Publication: Computational Intelligence in Machine Learning. Lecture Notes in Electrical Engineering
+Old Publisher: Springer Singapore
+Not found!
+==================================================
+ISSN: 2367-4512 2367-4520
+Title: DetecSec: A Framework to Detect and Mitigate ARP Cache Poisoning Attacks
+Old Publication: Evolutionary Computing and Mobile Sustainable Networks
+Old Publisher: Springer Singapore
+Title: DetecSec: A Framework to Detect and Mitigate ARP Cache Poisoning Attacks
+Old: Evolutionary Computing and Mobile Sustainable Networks
+New: Lecture Notes on Data Engineering and Communications Technologies
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2524-7565 2524-7573
+Title: COVID-19 Detection Using Chest X-rays: CNN as a Classifier Versus CNN as a Feature Extractor
+Old Publication: Algorithms for Intelligent Systems
+Old Publisher: Springer Nature Singapore
+Not found!
+==================================================
+ISSN: 978-981-19-0019-8
+Title: Analysis of Cryptocurrency Mining in Gaming Consoles
+Old Publication: Lecture Notes in Electrical Engineering
+Old Publisher: Springer Singapore
+Not found!
+==================================================
+ISSN: 2367-3370 2367-3389
+Title: Generative Adversarial Networks and Their Application in Fake Tweet Detection
+Old Publication: Lecture Notes in Networks and Systems
+Old Publisher: Springer Nature Singapore
+Title: Generative Adversarial Networks and Their Application in Fake Tweet Detection
+Old: Lecture Notes in Networks and Systems
+New: Lecture Notes in Networks and Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1876-1100 1876-1119
+Title: Region Classification for Air Quality Estimation Using Deep Learning and Machine Learning Approach
+Old Publication: Lecture Notes in Electrical Engineering
+Old Publisher: Springer Nature Singapore
+Title: Region Classification for Air Quality Estimation Using Deep Learning and Machine Learning Approach
+Old: Lecture Notes in Electrical Engineering
+New: Lecture Notes in Electrical Engineering
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2524-7565 2524-7573
+Title: An Ensemble Approach to Recognize Activities in Smart Environment Using Motion Sensors and Air Quality Sensors
+Old Publication: Data Intelligence and Cognitive Informatics
+Old Publisher: Springer Nature Singapore
+Not found!
+==================================================
+ISSN: 1876-1100 1876-1119
+Title: Snooping for Fake News: A Cascaded Approach Using Stance Detection and Entailment Classification
+Old Publication: Lecture Notes in Electrical Engineering
+Old Publisher: Springer Nature Singapore
+Title: Snooping for Fake News: A Cascaded Approach Using Stance Detection and Entailment Classification
+Old: Lecture Notes in Electrical Engineering
+New: Lecture Notes in Electrical Engineering
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1432-7643 1433-7479
+Title: Classification of inter-patient's cardiac arrhythmias in ECG signals with enhanced Jaya optimized TQWT parameters and stacked ensemble algorithm
+Old Publication: Soft Computing
+Old Publisher: Springer Science and Business Media LLC
+Title: Classification of inter-patient's cardiac arrhythmias in ECG signals with enhanced Jaya optimized TQWT parameters and stacked ensemble algorithm
+Old: Soft Computing
+New: Soft Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1380-7501 1573-7721
+Title: Epileptic seizure detection using convolutional neural networks and recurrence plots of EEG signals
+Old Publication: Multimedia Tools and Applications
+Old Publisher: Springer Science and Business Media LLC
+Title: Epileptic seizure detection using convolutional neural networks and recurrence plots of EEG signals
+Old: Multimedia Tools and Applications
+New: Multimedia Tools and Applications
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1380-7501 1573-7721
+Title: Optimum anamorphic image generation using image rotation and relative entropy
+Old Publication: Multimedia Tools and Applications
+Old Publisher: Springer Science and Business Media LLC
+Title: Optimum anamorphic image generation using image rotation and relative entropy
+Old: Multimedia Tools and Applications
+New: Multimedia Tools and Applications
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1380-7501 1573-7721
+Title: Classification of skin cancer from dermoscopic images using deep neural network architectures
+Old Publication: Multimedia Tools and Applications
+Old Publisher: Springer Science and Business Media LLC
+Title: Classification of skin cancer from dermoscopic images using deep neural network architectures
+Old: Multimedia Tools and Applications
+New: Multimedia Tools and Applications
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1022-0038 1572-8196
+Title: An adaboost-modified classifier using particle swarm optimization and stochastic diffusion search in wireless IoT networks
+Old Publication: Wireless Networks
+Old Publisher: Springer Science and Business Media LLC
+Title: An adaboost-modified classifier using particle swarm optimization and stochastic diffusion search in wireless IoT networks
+Old: Wireless Networks
+New: Wireless Networks
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1868-5137 1868-5145
+Title: Optimizing high-utility item mining using hybrid dolphin echolocation and Boolean grey wolf optimization
+Old Publication: Journal of Ambient Intelligence and Humanized Computing
+Old Publisher: Springer Science and Business Media LLC
+Title: Optimizing high-utility item mining using hybrid dolphin echolocation and Boolean grey wolf optimization
+Old: Journal of Ambient Intelligence and Humanized Computing
+New: Journal of Ambient Intelligence and Humanized Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2214-7853
+Title: A new multi-stream approach using acoustic and visual features for robust speech recognition system
+Old Publication: Materials Today: Proceedings
+Old Publisher: Elsevier BV
+Title: A new multi-stream approach using acoustic and visual features for robust speech recognition system
+Old: Materials Today: Proceedings
+New: Materials Today: Proceedings
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 2214-7853
+Title: A multimodal Lombard speech recognition system for the confusable Hindi syllabic units
+Old Publication: Materials Today: Proceedings
+Old Publisher: Elsevier BV
+Title: A multimodal Lombard speech recognition system for the confusable Hindi syllabic units
+Old: Materials Today: Proceedings
+New: Materials Today: Proceedings
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 0005-1144 1848-3380
+Title: Assessment and classification of grid stability with cost-sensitive stacked ensemble classifier
+Old Publication: Automatika
+Old Publisher: Informa UK Limited
+Title: Assessment and classification of grid stability with cost-sensitive stacked ensemble classifier
+Old: Automatika
+New: Automatika
+18143    Journal of Visual Literacy
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0377-2063 0974-780X
+Title: Clinical Decision Support System for Ophthalmologists for Eye Disease Classification
+Old Publication: IETE Journal of Research
+Old Publisher: Informa UK Limited
+Title: Clinical Decision Support System for Ophthalmologists for Eye Disease Classification
+Old: IETE Journal of Research
+New: IETE Journal of Research
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1751-3472 1751-3480
+Title: Scalable Hridaya kolam and Aishwarya kolam
+Old Publication: Journal of Mathematics and the Arts
+Old Publisher: Informa UK Limited
+Title: Scalable Hridaya kolam and Aishwarya kolam
+Old: Journal of Mathematics and the Arts
+New: Journal of Mathematics and the Arts
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0031-8949 1402-4896
+Title: Impact of process-induced ellipticity on the RESET process of cylindrical phase change memory devices
+Old Publication: Physica Scripta
+Old Publisher: IOP Publishing
+Title: Impact of process-induced ellipticity on the RESET process of cylindrical phase change memory devices
+Old: Physica Scripta
+New: Physica Scripta
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0010-4620 1460-2067
+Title: 'Will I Regret for This Tweet?'--Twitter User's Behavior Analysis System for Private Data Disclosure
+Old Publication: The Computer Journal
+Old Publisher: Oxford University Press (OUP)
+Title: 'Will I Regret for This Tweet?'--Twitter User's Behavior Analysis System for Private Data Disclosure
+Old: The Computer Journal
+New: Computer Journal
+19819             Methods
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0218-1266 1793-6454
+Title: Reconfigurable FET-Based Tunable Ring Oscillator and Its Single Event Effect Performance
+Old Publication: Journal of Circuits, Systems and Computers
+Old Publisher: World Scientific Pub Co Pte Ltd
+Title: Reconfigurable FET-Based Tunable Ring Oscillator and Its Single Event Effect Performance
+Old: Journal of Circuits, Systems and Computers
+New: Journal of Circuits, Systems and Computers
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0219-4554 1793-6764
+Title: An Effective Crack Identification in Civil Infrastructure with IoT and Improved Convolutional Neural Network
+Old Publication: International Journal of Structural Stability and Dynamics
+Old Publisher: World Scientific Pub Co Pte Ltd
+Title: An Effective Crack Identification in Civil Infrastructure with IoT and Improved Convolutional Neural Network
+Old: International Journal of Structural Stability and Dynamics
+New: International Journal of Structural Stability and Dynamics
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: nan
+Title: Multimodality dementia detection system using machine and deep learning
+Old Publication: Computational Intelligence Aided Systems for Healthcare Domain
+Old Publisher: CRC Press
+Not found!
+==================================================
+ISSN: 0976-464X 0011-748X
+Title: A Distance Vector Hop and Differential Evolution based Interception Strategy for detecting Cross Border Infiltration in Underground Tunnel
+Old Publication: Defence Science Journal
+Old Publisher: Defence Scientific Information and Documentation Centre
+Title: A Distance Vector Hop and Differential Evolution based Interception Strategy for detecting Cross Border Infiltration in Underground Tunnel
+Old: Defence Science Journal
+New: Defence Science Journal
+Result found in ISSN1 E ISSN
+==================================================
+ISSN:  1303-5150
+Title: Measuring the accuracy of Satellite Image Dataset using Fusion based Classification with Neural Networks
+Old Publication: NeuroQuantology
+Old Publisher: NeuroQuantology
+Title: Measuring the accuracy of Satellite Image Dataset using Fusion based Classification with Neural Networks
+Old: NeuroQuantology
+New: NeuroQuantology
+Result found in ISSN2 E ISSN
+==================================================
+ISSN: 13035150
+Title: Neutrosophic Approach of Segmentation on Thermal Images - Case Study: Drowsy Driving Application
+Old Publication: NeuroQuantology
+Old Publisher: NeuroQuantology
+Title: Neutrosophic Approach of Segmentation on Thermal Images - Case Study: Drowsy Driving Application
+Old: NeuroQuantology
+New: NeuroQuantology
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: 1752-6418 1752-6426
+Title: A hybrid approach for analysis of brain lateralisation in autistic children using graph theory techniques and deep belief networks
+Old Publication: International Journal of Biomedical Engineering and Technology
+Old Publisher: Inderscience Publishers
+Title: A hybrid approach for analysis of brain lateralisation in autistic children using graph theory techniques and deep belief networks
+Old: International Journal of Biomedical Engineering and Technology
+New: International Journal of Biomedical Engineering and Technology
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0137-5075 2300-262X
+Title: An Efficient Edge Preserving Interpolation Method for Underwater Acoustic Image Resolution Enhancement
+Old Publication: Archives of Acoustics
+Old Publisher: Polish Academy of Sciences Chancellery
+Title: An Efficient Edge Preserving Interpolation Method for Underwater Acoustic Image Resolution Enhancement
+Old: Archives of Acoustics
+New: Archives of Acoustics
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0267-6192
+Title: Design of Hierarchical Classifier to Improve Speech Emotion Recognition
+Old Publication: Computer Systems Science and Engineering
+Old Publisher: Computers, Materials and Continua (Tech Science Press)
+Not found!
+==================================================
+ISSN: 0267-6192
+Title: Histogram Matched Chest X-Rays Based Tuberculosis Detection Using CNN
+Old Publication: Computer Systems Science and Engineering
+Old Publisher: Computers, Materials and Continua (Tech Science Press)
+Not found!
+==================================================
+ISSN: 0267-6192
+Title: Diabetic Retinopathy Diagnosis Using Interval Neutrosophic Segmentation with Deep Learning Model
+Old Publication: Computer Systems Science and Engineering
+Old Publisher: Computers, Materials and Continua (Tech Science Press)
+Not found!
+==================================================
+ISSN: 0267-6192
+Title: Efficient Authentication System Using Wavelet Embeddings of Otoacoustic Emission Signals
+Old Publication: Computer Systems Science and Engineering
+Old Publisher: Computers, Materials and Continua (Tech Science Press)
+Not found!
+==================================================
+ISSN: 1079-8587
+Title: Enhanced Distributed Storage System Using Lower Triangular Matrix-Luby Transform Codes
+Old Publication: Intelligent Automation &amp;amp; Soft Computing
+Old Publisher: Computers, Materials and Continua (Tech Science Press)
+Title: Enhanced Distributed Storage System Using Lower Triangular Matrix-Luby Transform Codes
+Old: Intelligent Automation &amp;amp; Soft Computing
+New: Intelligent Automation and Soft Computing
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1220-1758 1841-4303
+Title: Blockchain based system for transfer of funds through an e-Governance application
+Old Publication: Revista Romana de Informatica si Automatica
+Old Publisher: ICI Bucharest
+Not found!
+==================================================
+ISSN: 1976-7277
+Title: RDNN: Rumor Detection Neural Network for Veracity Analysis in Social Media Text
+Old Publication: KSII Transactions on Internet and Information Systems
+Old Publisher: Korean Society for Internet Information (KSII)
+Title: RDNN: Rumor Detection Neural Network for Veracity Analysis in Social Media Text
+Old: KSII Transactions on Internet and Information Systems
+New: KSII Transactions on Internet and Information Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 15483681
+Title: A Hybrid PSO-ACO Algorithm to Facilitate Software Project Scheduling
+Old Publication: International Journal of e-Collaboration (IJeC)
+Old Publisher: IGI Global
+Title: A Hybrid PSO-ACO Algorithm to Facilitate Software Project Scheduling
+Old: International Journal of e-Collaboration (IJeC)
+New: International Journal of e-Collaboration
+Result found in ISSN1 E ISSN
+==================================================
+ISSN: nan
+Title: Alzheimer's Dementia: Diagnosis and Prognosis using Neuro-Imaging Analysis
+Old Publication: Journal of Pharmaceutical Negative Results
+Old Publisher: Siree Journals
+Not found!
+==================================================
+ISSN: nan
+Title: Identification and Diagnosis of Breast Cancer using a Composite Machine Learning Techniques
+Old Publication: Journal of Pharmaceutical Negative Results
+Old Publisher: Siree Journals
+Not found!
+==================================================
+ISSN: 1308-5581
+Title: Cow Disease (LSD) Classification System for predicting different Severity levels.
+Old Publication: INT-JECSE
+Old Publisher: International Journal of Early Childhood Special Education
+Title: Cow Disease (LSD) Classification System for predicting different Severity levels.
+Old: INT-JECSE
+New: International Journal of Early Childhood Special Education
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2335-884X 1392-124X
+Title: Data Analytics and Reporting API - A Reliable Tool for Data Visualization and Predictive Analysis
+Old Publication: Information Technology and Control
+Old Publisher: Kaunas University of Technology (KTU)
+Title: Data Analytics and Reporting API - A Reliable Tool for Data Visualization and Predictive Analysis
+Old: Information Technology and Control
+New: Information Technology and Control
+Result found in ISSN2 Print ISSN
+==================================================
+ISSN: 2335-884X 1392-124X
+Title: A Neutrosophic Set  Approach on Chest  X-rays for Automatic Lung  Infection Detection
+Old Publication: Information Technology and Control
+Old Publisher: Kaunas University of Technology (KTU)
+Title: A Neutrosophic Set  Approach on Chest  X-rays for Automatic Lung  Infection Detection
+Old: Information Technology and Control
+New: Information Technology and Control
+Result found in ISSN2 Print ISSN
+==================================================
+ISSN: nan
+Title: Hierarchical Text Summarization Using Semantic Similarity
+Old Publication: Research Highlights in Language, Literature and Education Vol. 6
+Old Publisher: B P International (a part of SCIENCEDOMAIN International)
+Not found!
+==================================================
+ISSN: 1532-0626 1532-0634
+Title: Hybrid intelligent intrusion detection system for multiple Wi-Fi attacks in wireless networks using stacked restricted Boltzmann machine and deep belief networks
+Old Publication: Concurrency and Computation: Practice and Experience
+Old Publisher: Wiley
+Title: Hybrid intelligent intrusion detection system for multiple Wi-Fi attacks in wireless networks using stacked restricted Boltzmann machine and deep belief networks
+Old: Concurrency and Computation: Practice and Experience
+New: Concurrency Computation Practice and Experience
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1370-4621 1573-773X
+Title: Cascaded UNets with Modified Skip Connection for Breast Tumor Segmentation
+Old Publication: Neural Processing Letters
+Old Publisher: Springer Science and Business Media LLC
+Title: Cascaded UNets with Modified Skip Connection for Breast Tumor Segmentation
+Old: Neural Processing Letters
+New: Neural Processing Letters
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 2352-4847
+Title: AI-enabled metaheuristic optimization for predictive management of renewable energy production in smart grids
+Old Publication: Energy Reports
+Old Publisher: Elsevier
+Title: AI-enabled metaheuristic optimization for predictive management of renewable energy production in smart grids
+Old: Energy Reports
+New: Energy Reports
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 0360-5442
+Title: Categorization of Indian residential consumers electrical energy consumption pattern using clustering and classification techniques
+Old Publication: Energy
+Old Publisher: Elsevier BV
+Not found!
+==================================================
+ISSN: 0026-2714
+Title: Single event performance of FED based SRAMs using numerical simulation
+Old Publication: Microelectronics Reliability
+Old Publisher: Elsevier BV
+Not found!
+==================================================
+ISSN: 0377-2063 0974-780X
+Title: Event-Based Epileptic Seizure Detection with Stacked Convolutional Restricted Boltzmann Machine
+Old Publication: IETE Journal of Research
+Old Publisher: Informa UK Limited
+Title: Event-Based Epileptic Seizure Detection with Stacked Convolutional Restricted Boltzmann Machine
+Old: IETE Journal of Research
+New: IETE Journal of Research
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1368-2822 1460-6984
+Title: Cognitive decline assessment using semantic linguistic content and transformer deep learning architecture
+Old Publication: International Journal of Language &amp;amp; Communication Disorders
+Old Publisher: Wiley
+Title: Cognitive decline assessment using semantic linguistic content and transformer deep learning architecture
+Old: International Journal of Language &amp;amp; Communication Disorders
+New: International Journal of Language and Communication Disorders
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1790-7632 2241-777X
+Title: Urban Environmental Flood Susceptibility Using a Multi-Layered Neural Network Model From Satellite Imagery Sources
+Old Publication: Global NEST: the international Journal
+Old Publisher: University of the Aegean
+Title: Urban Environmental Flood Susceptibility Using a Multi-Layered Neural Network Model From Satellite Imagery Sources
+Old: Global NEST: the international Journal
+New: Global Nest Journal
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1064-1246 1875-8967
+Title: Automated carcinoma classification using efficient nuclei-based patch selection and deep learning techniques
+Old Publication: Journal of Intelligent & Fuzzy Systems
+Old Publisher: IOS Press
+Title: Automated carcinoma classification using efficient nuclei-based patch selection and deep learning techniques
+Old: Journal of Intelligent & Fuzzy Systems
+New: Journal of Intelligent and Fuzzy Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1064-1246 1875-8967
+Title: Fake news detection using a deep learning transformer based encoder-decoder architecture
+Old Publication: Journal of Intelligent & Fuzzy Systems
+Old Publisher: IOS Press
+Title: Fake news detection using a deep learning transformer based encoder-decoder architecture
+Old: Journal of Intelligent & Fuzzy Systems
+New: Journal of Intelligent and Fuzzy Systems
+Result found in ISSN1 Print ISSN
+==================================================
+ISSN: 1079-8587
+Title: Hybrid Convolutional Neural Network for Plant Diseases Prediction
+Old Publication: Journal of Intelligent & Fuzzy Systems
+Old Publisher: Computers, Materials and Continua (Tech Science Press)
+Title: Hybrid Convolutional Neural Network for Plant Diseases Prediction
+Old: Journal of Intelligent & Fuzzy Systems
+New: Intelligent Automation and Soft Computing
+Result found in ISSN1 Print ISSN
+163

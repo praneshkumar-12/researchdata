@@ -1,0 +1,2399 @@
+==================================================
+New Title: An efficient seed points selection approach in dominant color descriptors (DCD)
+Old Title: An efficient seed points selection approach in dominant color descriptors (DCD)
+Old Journal Name: CLUSTER COMPUTING-THE JOURNAL OF NETWORKS SOFTWARE TOOLS AND APPLICATIONS
+New Journal Name: Cluster Computing
+Old Month: 1.0
+New Month: Jan
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2018 - JUN 2019
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q2
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: An augmented approach for pseudo-free groups in smart cyber-physical system
+Old Title: An augmented approach for pseudo-free groups in smart cyber-physical system
+Old Journal Name: CLUSTER COMPUTING-THE JOURNAL OF NETWORKS SOFTWARE TOOLS AND APPLICATIONS
+New Journal Name: Cluster Computing
+Old Month: 3.0
+New Month: Jan
+Old Year: 2018
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2018 - JUN 2019
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q2
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Acoustic image denoising using various spatial filtering techniques
+Old Title: Acoustic image denoising using various spatial filtering techniques
+Old Journal Name: International Journal of Information Technology (Singapore)
+New Journal Name: International Journal of Information Technology
+Old Month: 1.0
+New Month: Jan
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2018 - JUN 2019
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: TOPSIS-Nelder Mead Vertical Handover scheme in Next Generation Wireless Network”
+Not found
+==================================================
+New Title: A Novel Microarray Gene Selection and Classification using Intelligent Dynamic Grey Wolf Optimization
+Old Title: A novel microarray gene selection and classification using intelligent dynamic grey wolf optimization
+Old Journal Name: Genetika
+New Journal Name: Genetika-Belgrade
+Old Month: 
+New Month: Jan
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2018 - JUN 2019
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: No
+Old Quartile: Q3
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Optimal Spectrum Sharing and Dynamic Resource Allocation for LTE Small Cells
+Not found
+==================================================
+New Title: An Artificial Intelligence Based Tool for Ophthalmologist for Eye Disease Classification
+Not found
+==================================================
+New Title: A Weighted Speaker-Specific Confusion Transducer-Based Augmentative and Alternative Speech Communication Aid for Dysarthric Speakers
+Old Title: A Weighted Speaker-Specific Confusion Transducer-Based Augmentative and Alternative Speech Communication Aid for Dysarthric Speakers
+Old Journal Name: IEEE TRANSACTIONS ON NEURAL SYSTEMS AND REHABILITATION ENGINEERING
+New Journal Name: IEEE Transactions on Neural Systems and Rehabilitation Engineering
+Old Month: 2.0
+New Month: Feb
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2018 - JUN 2019
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: BCI Cinematics-A pre-release analyser for movies using H2O deep learning platform
+Not found
+==================================================
+New Title: Enhancing Noisy Speech using WEMD
+Not found
+==================================================
+New Title: Brain storm-based Whale Optimization Algorithm for privacy-protected data publishing in cloud computing
+Old Title: Brain storm-based Whale Optimization Algorithm for privacy-protected data publishing in cloud computing
+Old Journal Name: CLUSTER COMPUTING-THE JOURNAL OF NETWORKS SOFTWARE TOOLS AND APPLICATIONS
+New Journal Name: Cluster Computing
+Old Month: 2.0
+New Month: Mar
+Old Year: 2018
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2018 - JUN 2019
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q2
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Perfecting Counterfeit Banknote Detection-A Classification Strategy
+Not found
+==================================================
+New Title: A two-level secure data hiding algorithm for video steganography
+Old Title: A two-level secure data hiding algorithm for video steganography
+Old Journal Name: MULTIDIMENSIONAL SYSTEMS AND SIGNAL PROCESSING
+New Journal Name: Multidim Syst Sign Process
+Old Month: 3.0
+New Month: Apr
+Old Year: 2018
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2018 - JUN 2019
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q2
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Enhanced analysis of border surveillance using intruders' crossing strategies
+Old Title: Enhanced analysis of border surveillance using intruders' crossing strategies
+Old Journal Name: SOFT COMPUTING
+New Journal Name: Soft Computing
+Old Month: 4.0
+New Month: Apr
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2018 - JUN 2019
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q2
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Impact of Tweet Features and Machine-Learning Classifiers for Twitter Spam Detection
+Not found
+==================================================
+New Title: A Novel Design Framework for Rumour Analysis in Twitter
+Not found
+==================================================
+New Title: Optimized bi-level classifier for brain tumor type and grade discrimination using evolutionary fuzzy computing
+Not found
+==================================================
+New Title: Performance analysis of classifiers in social media text for Credibility Assessment
+Not found
+==================================================
+New Title: #Dec18- Twitter Based Trend Analysis Using BoW Models
+Not found
+==================================================
+New Title: A safety system for school children using GRAG
+Old Title: A safety system for school children using GRAG
+Old Journal Name: International Journal of Computer Aided Engineering and Technology
+New Journal Name: International Journal of Computer Aided Engineering and Technology
+Old Month: 6.0
+New Month: Jun
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2018 - JUN 2019
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: PERFORMANCE EVALUATION OF FLYING WIRELESS NETWORK WITH VANET ROUTING PROTOCOL
+Old Title: Performance Evaluation of Flying Wireless Network With Vanet Routing Protocol
+Old Journal Name: Journal of ISMAC
+New Journal Name: Journal of IoT in Social, Mobile, Analytics, and Cloud
+Old Month: 6.0
+New Month: Jun
+Old Year: 2016
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2018 - JUN 2019
+Old Wos: No
+New Wos: No
+Old Scopus: No
+New Scopus: No
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Nelder-Mead Optimized MADM Decision Support for Vertical Handover
+Old Title: Nelder-Mead Optimized MADM Decision Support for Vertical Handover
+Old Journal Name: International Journal of Recent Technology and Engineering
+New Journal Name: International Journal of Recent Technology and Engineering
+Old Month: 8.0
+New Month: Jul
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Predicting Forest Fires using Supervised and Ensemble Machine Learning Algorithms
+Not found
+==================================================
+New Title: Impact of Thermal Boundary Resistance on the Performance and Scaling of Phase-Change Memory Device
+Old Title: Impact of Thermal Boundary Resistance on the Performance and Scaling of Phase-Change Memory Device
+Old Journal Name: IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems
+New Journal Name: IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems
+Old Month: 9.0
+New Month: Jul
+Old Year: 2020
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q1
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: A New Optimized Distributed Scheduling Service using Genetic Computing
+Old Title: A New Optimized Distributed Scheduling Service using Genetic Computing
+Old Journal Name: Applied Mathematics and Information Sciences
+New Journal Name: Applied Mathematics and Information Sciences
+Old Month: 8.0
+New Month: Aug
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Artificial Neural Network and Gray Level Co-Occurrence Matrix Based Automated Corrosion Detection
+Old Title: Artificial Neural Network and Gray Level Co-Occurrence Matrix Based Automated Corrosion Detection
+Old Journal Name: International Journal of Engineering and Advanced Technology
+New Journal Name: International Journal of Engineering and Advanced Technology
+Old Month: 8.0
+New Month: Aug
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: RFID and PIR Motion Sensor based Automated Attendance System for Educational Institutions
+Old Title: RFID and PIR Motion Sensor based Automated Attendance System for Educational Institutions
+Old Journal Name: International Journal of Recent Technology and Engineering
+New Journal Name: International Journal of Recent Technology and Engineering
+Old Month: 9.0
+New Month: Aug
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Load Balancing in Cloud computing using WWA Algorithm
+Not found
+==================================================
+New Title: Direction-invariant binary pattern-encoded descriptor for texture classification and retrieval
+Old Title: Direction-invariant binary pattern-encoded descriptor for texture classification and retrieval
+Old Journal Name: JOURNAL OF ELECTRONIC IMAGING
+New Journal Name: Journal of Electronic Imaging
+Old Month: 9.0
+New Month: Sep
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 3rd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: QOS AND DEFENSE ENHANCEMENT USING BLOCK CHAIN FOR FLY WIRELESS NETWORKS
+Old Title: QOS and Defense Enhancement Using Block Chain for Fly Wireless Networks
+Old Journal Name: Journal of Trends in Computer Science and Smart Technology
+New Journal Name: Journal of trends in Computer Science and Smart technology
+Old Month: 9.0
+New Month: Sep
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: No
+Old Scopus: No
+New Scopus: No
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: DELAY DIMINISHED EFFICIENT TASK SCHEDULING AND ALLOCATION FOR HETEROGENEOUS CLOUD ENVIRONMENT
+Old Title: Delay Diminished Efficient Task Scheduling and Allocation for Heterogeneous Cloud Environment
+Old Journal Name: Journal of Trends in Computer Science and Smart Technology
+New Journal Name: Journal of trends in Computer Science and Smart technology
+Old Month: 9.0
+New Month: Sep
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: No
+Old Scopus: No
+New Scopus: No
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Image fusion for MODIS and Landsat images using top hat based moving technique with FIS
+Old Title: Image fusion for MODIS and Landsat images using top hat based moving technique with FIS
+Old Journal Name: CLUSTER COMPUTING-THE JOURNAL OF NETWORKS SOFTWARE TOOLS AND APPLICATIONS
+New Journal Name: Cluster Computing
+Old Month: 1.0
+New Month: Sep
+Old Year: 2018
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q2
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Epileptic Seizure Prediction Through Machine Learning and Spatio-Temporal Features Based Time Series Analysis of Intracranial Electroencephalogram Data
+Old Title: Epileptic Seizure Prediction Through Machine Learning and Spatio-Temporal Features Based Time Series Analysis of Intracranial Electroencephalogram Data
+Old Journal Name: International Journal of Engineering and Advanced Technology
+New Journal Name: International Journal of Engineering and Advanced Technology
+Old Month: 10.0
+New Month: Oct
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Identification of Duplication in Questions Posed on Knowledge Sharing Platform Quora using Machine Learning Techniques
+Old Title: Identification of Duplication in Questions Posed on Knowledge Sharing Platform Quora using Machine Learning Techniques
+Old Journal Name: International Journal of Innovative Technology and Exploring Engineering
+New Journal Name: International Journal of Innovative Technology and Exploring Engineering
+Old Month: 10.0
+New Month: Oct
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Prediction of West Nile Virus using Ensemble Classifiers
+Not found
+==================================================
+New Title: Speech Emotion Recognition Based on Gender Influence in Emotional Expression
+Old Title: Speech Emotion Recognition Based on Gender Influence in Emotional Expression
+Old Journal Name: International Journal of Intelligent Information Technologies
+New Journal Name: International Journal of Intelligent Information Technologies
+Old Month: 10.0
+New Month: Oct
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: An extremely fast, energy-efficient RESET process in Ge2Sb2Te5 phase change memory device revealed by the choice of electrode materials and interface effects
+Old Title: An extremely fast, energy-efficient RESET process in Ge2Sb2Te5 phase change memory device revealed by the choice of electrode materials and interface effects
+Old Journal Name: SEMICONDUCTOR SCIENCE AND TECHNOLOGY
+New Journal Name: Semiconductor Science and Technology
+Old Month: 12.0
+New Month: Dec
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Single-event radiation performance analysis of junction and junctionless FET-based low-noise amplifiers
+Old Title: Single-event radiation performance analysis of junction and junctionless FET-based low-noise amplifiers
+Old Journal Name: JOURNAL OF COMPUTATIONAL ELECTRONICS
+New Journal Name: Journal of Computational Electronics
+Old Month: 7.0
+New Month: Dec
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q3
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: An Improved Seed Point Selection-Based Unsupervised Color Clustering for Content-Based Image Retrieval Application
+Old Title: An Improved Seed Point Selection-Based Unsupervised Color Clustering for Content-Based Image Retrieval Application
+Old Journal Name: COMPUTER JOURNAL
+New Journal Name: The Computer Journal
+Old Month: 3.0
+New Month: Jan
+Old Year: 2019
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Hybrid Fusion based Learning Model for Biometric Authentication
+Not found
+==================================================
+New Title: Deep learning approach to detect seizure using reconstructed phase space images
+Old Title: Deep learning approach to detect seizure using reconstructed phase space images
+Old Journal Name: Journal of Biomedical Research
+New Journal Name: Journal of Biomedical Research
+Old Month: 
+New Month: Jan
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Data Augmentation Using Virtual Microphone Array Synthesis and Multi-Resolution Feature Extraction for Isolated Word Dysarthric Speech Recognition
+Old Title: Data Augmentation using virtual microphone array synthesis and multi-resolution feature extraction for isolated word dysarthric speech recognition
+Old Journal Name: IEEE JOURNAL OF SELECTED TOPICS IN SIGNAL PROCESSING
+New Journal Name: IEEE Journal of Selected Topics in Signal Processing
+Old Month: 
+New Month: Feb
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Multi-model fusion based satellite image classification using Versatile Unsupervised Vector Zone (VUVZ) fusion and Intensive Pragmatic Blossoms (IPB) technique
+Old Title: Multi-model fusion based satellite image classification using versatile unsupervised vector zone (VUVZ) fusion and intensive pragmatic blossoms (IPB) technique
+Old Journal Name: MULTIMEDIA TOOLS AND APPLICATIONS
+New Journal Name: Multimedia Tools and Applications
+Old Month: 8.0
+New Month: Feb
+Old Year: 2019
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q1
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Fog Computing - A Rasperry Pi Decentralized Network
+Old Title: Fog Computing - A Rasperry Pi Decentralized Network
+Old Journal Name: Journal of Information Technology and Digital World
+New Journal Name: Journal of Information Technology and Digital World
+Old Month: 3.0
+New Month: Apr
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: No
+Old Scopus: No
+New Scopus: No
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Remaining Useful Life (RUL) Estimation of Lead Acid Battery using Bayesian Approach
+Old Title: Remaining Useful Life (RUL) Estimation of Lead Acid Battery using Bayesian Approach
+Old Journal Name: Journal of Electrical Engineering and Automation
+New Journal Name: Journal of Electrical Engineering and Automation
+Old Month: 3.0
+New Month: Apr
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: No
+Old Scopus: No
+New Scopus: No
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: EL DAPP - An Electricity Meter Tracking Decentralized Application
+Old Title: EL DAPP - An Electricity Meter Tracking Decentralized Application
+Old Journal Name: Mar-20
+New Journal Name: Journal of Electrical Engineering and Automation
+Old Month: 3.0
+New Month: Apr
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: No
+Old Scopus: No
+New Scopus: No
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Multi-Level Single-Channel Speech Enhancement Using a Unified Framework for Estimating Magnitude and Phase Spectra
+Old Title: Multi-Level Single-Channel Speech Enhancement Using a Unified Framework for Estimating Magnitude and Phase Spectra
+Old Journal Name: IEEE-ACM TRANSACTIONS ON AUDIO SPEECH AND LANGUAGE PROCESSING
+New Journal Name: IEEE/ACM Transactions on Audio, Speech, and Language Processing
+Old Month: 
+New Month: Apr
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: A Study on the Impact of Lombard Effect on Recognition of Hindi Syllabic Units Using CNN Based Multimodal ASR Systems
+Old Title: A Study on the Impact of Lombard Effect on Recognition of Hindi Syllabic Units Using CNN Based Multimodal ASR Systems
+Old Journal Name: ARCHIVES OF ACOUSTICS
+New Journal Name: Archives of Acoustics
+Old Month: 7.0
+New Month: Apr
+Old Year: 2023
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Social Media Veracity Detection System Using Calibrate Classifier
+Old Title: Social Media Veracity Detection System Using Calibrate Classifier
+Old Journal Name: IFIP Advances in Information and Communication Technology
+New Journal Name: International Journal of Advanced Trends in Computer Science and Engineering
+Old Month: 11.0
+New Month: May
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: inbook
+New Publication Type: Journal
+==================================================
+New Title: Influence of Primary Auditory Cortex in the Characterization of Autism Spectrum in Young Adults using Brain Connectivity Parameters and Deep Belief Networks: An fMRI Study
+Old Title: Influence of Primary Auditory Cortex in the Characterization of Autism Spectrum in Young Adults using Brain Connectivity Parameters and Deep Belief Networks: An fMRI Study
+Old Journal Name: CURRENT MEDICAL IMAGING
+New Journal Name: Current Medical Imaging
+Old Month: 12.0
+New Month: May
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 3rd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Hierarchical classifier design for speech emotion recognition in the mixed-cultural environment
+Old Title: Hierarchical classifier design for speech emotion recognition in the mixed-cultural environment
+Old Journal Name: JOURNAL OF EXPERIMENTAL & THEORETICAL ARTIFICIAL INTELLIGENCE
+New Journal Name: Journal of Experimental & Theoretical Artificial Intelligence
+Old Month: 6.0
+New Month: Jun
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Phoneme classification in reconstructed phase space with convolutional neural networks
+Old Title: Phoneme classification in reconstructed phase space with convolutional neural networks
+Old Journal Name: PATTERN RECOGNITION LETTERS
+New Journal Name: Pattern Recognition Letters
+Old Month: 7.0
+New Month: Jul
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q1
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Reconfigurable FET-Based SRAM and Its Single Event Upset Performance Analysis Using TCAD
+Old Title: Reconfigurable FET-Based SRAM and Its Single Event Upset Performance Analysis Using TCAD Simulations
+Old Journal Name: MICROELECTRONICS JOURNAL
+New Journal Name: Microelectronics Journal
+Old Month: 7.0
+New Month: Jul
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: No
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Adaptive multi-band filter structure-based far-end speech enhancement
+Old Title: Adaptive multi-band filter structure-based far-end speech enhancement
+Old Journal Name: IET SIGNAL PROCESSING
+New Journal Name: IET Signal Processing
+Old Month: 7.0
+New Month: Jul
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Analysis of algorithms to estimate glottal closure instants from speech signals
+Old Title: Analysis of algorithms to estimate glottal closure instants from speech signals
+Old Journal Name: International Journal of Speech Technology
+New Journal Name: International Journal of Speech Technology
+Old Month: 9.0
+New Month: Sep
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q1
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Reconfigurable silicon nanotube using numerical simulations
+Old Title: Reconfigurable silicon nanotube using numerical simulations
+Old Journal Name: JOURNAL OF COMPUTATIONAL ELECTRONICS
+New Journal Name: JOURNAL OF COMPUTATIONAL ELECTRONICS
+Old Month: 5.0
+New Month: Sep
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q3
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: An enhanced OCT image captioning system to assist ophthalmologists in detecting and classifying eye diseases
+Old Title: An enhanced OCT image captioning system to assist ophthalmologists in detecting and classifying eye diseases
+Old Journal Name: JOURNAL OF X-RAY SCIENCE AND TECHNOLOGY
+New Journal Name: Journal of X-ray Science and Technology
+Old Month: 9.0
+New Month: Sep
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: MOOCVERSITY - Deep Learning Based Dropout Prediction in MOOCs over Weeks
+Old Title: MOOCVERSITY - Deep Learning Based Dropout Prediction in MOOCs over Weeks
+Old Journal Name: Journal of Soft Computing Paradigm
+New Journal Name: Journal of Soft Computing Paradigm
+Old Month: 6.0
+New Month: Sep
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Wos: No
+New Wos: No
+Old Scopus: No
+New Scopus: No
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: A new multi-level radial difference encoded pattern for image classification and retrieval
+Old Title: A new multi-level radial difference encoded pattern for image classification and retrieval
+Old Journal Name: MULTIDIMENSIONAL SYSTEMS AND SIGNAL PROCESSING
+New Journal Name: Multidim Syst Sign Process
+Old Month: 3.0
+New Month: Oct
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q2
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Construction and Evaluation of Tamil Speech Emotion Corpus
+Old Title: Construction and Evaluation of Tamil Speech Emotion Corpus
+Old Journal Name: NATIONAL ACADEMY SCIENCE LETTERS-INDIA
+New Journal Name: Natl Acad Sci Lett
+Old Month: 2.0
+New Month: Nov
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q3
+New Quartile: 3rd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: A survey on technologies and security protocols: Reference for Future Generation IoT
+Old Title: A survey on technologies and security protocols: Reference for future generation IoT
+Old Journal Name: JOURNAL OF NETWORK AND COMPUTER APPLICATIONS
+New Journal Name: Journal of Network and Computer Applications
+Old Month: 11.0
+New Month: Nov
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2015 - JUN 2016
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Investigation of heavy-ion strikes on a fin field-effect transistor-based low-noise amplifier
+Old Title: Investigation of heavy-ion strikes on a fin field-effect transistor-based low-noise amplifier
+Old Journal Name: SEMICONDUCTOR SCIENCE AND TECHNOLOGY
+New Journal Name: Semiconductor Science and Technology
+Old Month: 11.0
+New Month: Nov
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Epilepsy Prediction using a Combined LSTM - XGBoost System on EEG Signals
+Old Title: Epilepsy Prediction using a Combined LSTM - XGBoost System on EEG Signals
+Old Journal Name: International Journal of Innovative Technology and Exploring Engineering
+New Journal Name: International Journal of Innovative Technology and Exploring Engineering (IJITEE)
+Old Month: 11.0
+New Month: Nov
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Prediction of indian GDP using grey forecast model
+Not found
+==================================================
+New Title: Medical Data Management Using Blockchain
+Old Title: Medical Data Management Using Blockchain
+Old Journal Name: Dec-20
+New Journal Name: Journal of ISMAC (2020)
+Old Month: 12.0
+New Month: Dec
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Wos: No
+New Wos: No
+Old Scopus: No
+New Scopus: No
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Parkinson's Diseases Detection using Machine Learning Techniques
+Not found
+==================================================
+New Title: Acoustic-visual based Accent Identification system using deep neural networks
+Old Title: Acoustic-visual based Accent Identification system using deep neural networks
+Old Journal Name: Revista Argentina de Clinica Psicologica
+New Journal Name: REVISTA ARGENTINA DE CLINICA PSICOLOGICA
+Old Month: 
+New Month: Jan
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2020 - JUN 2021
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Biometric identification using transient evoked otoacoustic emission signals based on recurrence plots and convolutional neural networks
+Not found
+==================================================
+New Title: Auto-Off ID: Automatic Detection of Offensive Language in Social Media
+Old Title: Auto-Off ID: Automatic Detection of Offensive Language in Social Media
+Old Journal Name: Journal of Physics: Conference Series
+New Journal Name: Journal of Physics: Conference Series, Volume 1911, International Conference on Innovative Technology for Sustainable Development 2021 (ICITSD 2021) 27-29 January 2021, Chennai, India
+Old Month: 5.0
+New Month: Jan
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2020 - JUN 2021
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 4th
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Blockchain-Based Chameleon Hashing Technique for Privacy Preservation in E-Governance System
+Not found
+==================================================
+New Title: Performance Analysis of Nature Inspired Load balancing Algorithm in Cloud Environment
+Old Title: Performance analysis of nature inspired load balancing algorithm in cloud environment
+Old Journal Name: Journal of Ambient Intelligence and Humanized Computing
+New Journal Name: Journal of Ambient Intelligence and Humanized computing
+Old Month: 1.0
+New Month: Mar
+Old Year: 2020
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2020 - JUN 2021
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q1
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Hand sign recognition by visible and thermal images using modified quality local thresholding technique
+Not found
+==================================================
+New Title: Miniaturized Dual-Band Metamaterial-Loaded Antenna for Heterogeneous Vehicular Communication Networks
+Old Title: Miniaturized Dual-Band Metamaterial-Loaded Antenna for Heterogeneous Vehicular Communication Networks
+Old Journal Name: IETE JOURNAL OF RESEARCH
+New Journal Name: IETE Journal of Research
+Old Month: 3.0
+New Month: Mar
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Secure data hiding by fruit fly optimization improved hybridized seeker algorithm
+Old Title: Secure data hiding by fruit fly optimization improved hybridized seeker algorithm
+Old Journal Name: MULTIDIMENSIONAL SYSTEMS AND SIGNAL PROCESSING
+New Journal Name: Multidim Syst Sign Process
+Old Month: 1.0
+New Month: Apr
+Old Year: 2020
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q2
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Understanding Lombard Speech: A Review of compensation techniques towards improving Speech Based Recognition Systems
+Old Title: Understanding Lombard speech: a review of compensation techniques towards improving speech based recognition systems
+Old Journal Name: ARTIFICIAL INTELLIGENCE REVIEW
+New Journal Name: Artificial Intelligence Review
+Old Month: 9.0
+New Month: Apr
+Old Year: 2020
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q1
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Degenerative disc disease diagnosis from lumbar MR images using hybrid features
+Old Title: Degenerative disc disease diagnosis from lumbar MR images using hybrid features
+Old Journal Name: VISUAL COMPUTER
+New Journal Name: The Visual Computer
+Old Month: 5.0
+New Month: May
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Proactive maintenance of small wind turbines using IoT and machine learning models
+Old Title: Proactive maintenance of small wind turbines using IoT and machine learning models
+Old Journal Name: INTERNATIONAL JOURNAL OF GREEN ENERGY
+New Journal Name: International Journal of Green Energy
+Old Month: 6.0
+New Month: Jun
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2020 - JUN 2021
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Assurance on data integrity in cloud data centre using PKI built RDIC method
+Old Title: Assurance on data integrity in cloud data centre using PKI built RDIC method
+Old Journal Name: Recent Trends in Communication and Electronics
+New Journal Name: Recent Trends in Communication and Electronics
+Old Month: 6.0
+New Month: Jun
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2020 - JUN 2021
+Old Wos: No
+New Wos: No
+Old Scopus: No
+New Scopus: No
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: inbook
+New Publication Type: Journal
+==================================================
+New Title: Fruit-Fly optimization-based feature integration in image retrieval
+Old Title: Fruit-Fly optimization-based feature integration in image retrieval
+Old Journal Name: MATHEMATICAL BIOSCIENCES AND ENGINEERING
+New Journal Name: Mathematical Biosciences and Engineering
+Old Month: 
+New Month: Jul
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Tweet-scan-post: a system for analysis of sensitive private data disclosure in online social media
+Old Title: Tweet-scan-post: a system for analysis of sensitive private data disclosure in online social media
+Old Journal Name: KNOWLEDGE AND INFORMATION SYSTEMS
+New Journal Name: Knowledge and Information Systems
+Old Month: 7.0
+New Month: Jul
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Enhancing Speech Quality Using Artificial Bandwidth Expansion with Deep Shallow Convolution Neural Network Framework
+Old Title: Enhancing Speech Quality Using Artificial Bandwidth Expansion with Deep Shallow Convolution Neural Network Framework
+Old Journal Name: FLUCTUATION AND NOISE LETTERS
+New Journal Name: Fluctuation and Noise Letters
+Old Month: 7.0
+New Month: Jul
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: "Hybrid Bird Swarm Optimized Quasi Affine Algorithm Based Node Location in Wireless Sensor Networks
+Not found
+==================================================
+New Title: A deep learning approach for robust speaker identification using chroma energy normalized statistics and mel frequency cepstral coefficients
+Old Title: A deep learning approach for robust speaker identification using chroma energy normalized statistics and mel frequency cepstral coefficients
+Old Journal Name: International Journal of Speech Technology
+New Journal Name: International Journal of Speech Technology
+Old Month: 8.0
+New Month: Aug
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q1
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Performance evaluation of encryption algorithm using fruit fly optimization improved hybridized seeker and PVD algorithm
+Old Title: Performance evaluation of encryption algorithm using fruit fly optimization improved hybridized seeker and PVD algorithm
+Old Journal Name: International Journal of Information Technology (Singapore)
+New Journal Name: International Journal of Information Technology
+Old Month: 8.0
+New Month: Aug
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Impact of Singing Bowl Playing on the Brain Using EEG
+Old Title: Impact of Singing Bowl Playing on the Brain Using EEG
+Old Journal Name: International Journal of Electrical Engineering and Technology
+New Journal Name: International Journal of Electrical Engineering and Technology
+Old Month: 9.0
+New Month: Sep
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Rumor Identification and Verification for Text in Social Media Content
+Old Title: Rumor Identification and Verification for Text in Social Media Content
+Old Journal Name: COMPUTER JOURNAL
+New Journal Name: The Computer Journal
+Old Month: 9.0
+New Month: Sep
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Optimized feature selection for early cancer detection
+Not found
+==================================================
+New Title: Metamaterial-loaded multiband antenna for embedded automotive Internet-of-Things communications
+Old Title: Metamaterial-loaded multiband antenna for embedded automotive Internet-of-Things communications
+Old Journal Name: INTERNATIONAL JOURNAL OF COMMUNICATION SYSTEMS
+New Journal Name: International Journal of Communication Systems
+Old Month: 8.0
+New Month: Oct
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q2
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: IoT-Cloud Empowered Aerial Scene Classification for Unmanned Aerial Vehicles in Computers
+Old Title: IoT-Cloud Empowered Aerial Scene Classification for Unmanned Aerial Vehicles
+Old Journal Name: CMC-COMPUTERS MATERIALS & CONTINUA
+New Journal Name: Computers, Materials & Continua
+Old Month: 
+New Month: Oct
+Old Year: 2022
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: A novel data hiding by image interpolation using edge quad-tree block complexity
+Old Title: A novel data hiding by image interpolation using edge quad-tree block complexity
+Old Journal Name: VISUAL COMPUTER
+New Journal Name: The Visual Computer
+Old Month: 10.0
+New Month: Oct
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Reconstructed phase space portraits for detecting brain diseases using deep learning
+Old Title: Reconstructed phase space portraits for detecting brain diseases using deep learning
+Old Journal Name: BIOMEDICAL SIGNAL PROCESSING AND CONTROL
+New Journal Name: Biomedical Signal Processing and Control
+Old Month: 1.0
+New Month: Oct
+Old Year: 2022
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Intelligent Deep Learning Based Disease Diagnosis Using Biomedical Tongue Images
+Old Title: Intelligent Deep Learning Based Disease Diagnosis Using Biomedical Tongue Images
+Old Journal Name: CMC-COMPUTERS MATERIALS & CONTINUA
+New Journal Name: Computers, Materials & Continua
+Old Month: 
+New Month: Oct
+Old Year: 2022
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: EarNet: Biometric Embeddings for End-to-End Person Authentication System Using Transient Evoked Otoacoustic Emission Signals
+Not found
+==================================================
+New Title: End to end speech recognition of Tamil language
+Old Title: End-to-End Speech Recognition of Tamil Language
+Old Journal Name: Intelligent Automation and Soft Computing
+New Journal Name: Intelligent Automation and Soft Computing
+Old Month: 
+New Month: Nov
+Old Year: 2022
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Underwater Acoustic Image Denoising using Stationary Wavelet Transform and Various Shrinkage Functions
+Old Title: Underwater Acoustic Image Denoising Using Stationary Wavelet Transform and Various Shrinkage Functions
+Old Journal Name: Electronic Letters on Computer Vision and Image Analysis
+New Journal Name: Electronic Letters on Computer Vision and Image Analysis
+Old Month: 9.0
+New Month: Dec
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 4th
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Recognition of hand signs based on geometrical features using machine learning and deep learning approaches
+Old Title: Recognition of hand signs based on geometrical features using machine learning and deep learning approaches
+Old Journal Name: Revista Argentina de Clinica Psicologica
+New Journal Name: Revista Argentina De Clinica Psicologica
+Old Month: 
+New Month: Dec
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: TS-IoT: Trustworthy and Secure Smart Wearable Device for Child Tracking and Monitoring System
+Not found
+==================================================
+New Title: Epileptic seizure detection using convolutional neural networks and recurrence plots of EEG signals
+Old Title: Epileptic seizure detection using convolutional neural networks and recurrence plots of EEG signals
+Old Journal Name: MULTIMEDIA TOOLS AND APPLICATIONS
+New Journal Name: Multimedia Tools and Applications
+Old Month: 1.0
+New Month: Jan
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q1
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Texture Image Classification and Retrieval Using Multi-resolution Radial Gradient Binary Pattern
+Old Title: Texture Image Classification and Retrieval Using Multi-resolution Radial Gradient Binary Pattern
+Old Journal Name: APPLIED ARTIFICIAL INTELLIGENCE
+New Journal Name: Applied Artificial Intelligence
+Old Month: 12.0
+New Month: Jan
+Old Year: 2021
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 3rd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Veracity assessment by single and multi-source identification algorithms during the crisis
+Old Title: Veracity assessment by single and multi-source identification algorithms during the crisis
+Old Journal Name: JOURNAL OF INTELLIGENT & FUZZY SYSTEMS
+New Journal Name: Journal of Intelligent & Fuzzy Systems
+Old Month: 2.0
+New Month: Feb
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Will I Regret for This Tweet?'—Twitter User's Behavior Analysis System for Private Data Disclosure
+Not found
+==================================================
+New Title: Data Analytics and Reporting API - A Reliable Tool for Data Visualization and Predictive Analysis
+Old Title: Data Analytics and Reporting API - A Reliable Tool for Data Visualization and Predictive Analysis
+Old Journal Name: INFORMATION TECHNOLOGY AND CONTROL
+New Journal Name: Information Technology and Control
+Old Month: 3.0
+New Month: Mar
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 3rd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: “Enhanced Distributed Storage System Using Lower Triangular Matrix-Luby Transform Codes
+Not found
+==================================================
+New Title: A Hybrid PSO-ACO Algorithm to Facilitate Software Project Scheduling
+Old Title: A Hybrid PSO-ACO Algorithm to Facilitate Software Project Scheduling
+Old Journal Name: International Journal of e-Collaboration
+New Journal Name: International Journal of e-Collaboration
+Old Month: 
+New Month: Mar
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 3rd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: A new multi-stream approach using acoustic and visual features for robust speech recognition system
+Old Title: A new multi-stream approach using acoustic and visual features for robust speech recognition system
+Old Journal Name: Materials Today: Proceedings
+New Journal Name: Materials Today: Proceedings
+Old Month: 
+New Month: Apr
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 3rd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: An Effective Crack Identification in Civil Infrastructure with IoT and Improved Convolutional Neural Network
+Old Title: An Effective Crack Identification in Civil Infrastructure with IoT and Improved Convolutional Neural Network
+Old Journal Name: INTERNATIONAL JOURNAL OF STRUCTURAL STABILITY AND DYNAMICS
+New Journal Name: International Journal of Structural Stability and Dynamics
+Old Month: 4.0
+New Month: Apr
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: A Layer-Wise Relevance Propagation Based Feature Selection and Hybid Classification Model for Automatic Detection of Parkinson's Disease Using Gait Signals
+Old Title: A Layer-Wise Relevance Propagation Based Feature Selection and Hybid Classification Model for Automatic Detection of Parkinson's Disease Using Gait Signals
+Old Journal Name: Revista Argentina de Clinica Psicologica
+New Journal Name: Revista Argentina de Clínica Psicológica
+Old Month: 
+New Month: Apr
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2015 - JUN 2016
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: No
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Neutrosophic Approach of Segmentation On Thermal Images - Case Study: Drowsy Driving Application
+Old Title: Neutrosophic Approach of Segmentation on Thermal Images - Case Study: Drowsy Driving Application
+Old Journal Name: NeuroQuantology 
+New Journal Name: Neuro Quantology
+Old Month: 
+New Month: May
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: A hybrid approach for analysis of brain lateralization in autistic children using graph theory techniques and deep belief networks
+Not found
+==================================================
+New Title: A multimodal Lombard speech recognition system for the confusable Hindi syllabic units
+Old Title: A multimodal Lombard speech recognition system for the confusable Hindi syllabic units
+Old Journal Name: Materials Today: Proceedings
+New Journal Name: Materials Today:proceedings
+Old Month: 
+New Month: Jun
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 3rd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Design of Hierarchical Classifier to Improve Speech Emotion Recognition
+Old Title: Design of Hierarchical Classifier to Improve Speech Emotion Recognition
+Old Journal Name: Computer Systems Science and Engineering
+New Journal Name: Computer Systems Science and Engineering
+Old Month: 
+New Month: Jun
+Old Year: 2023
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q3
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Histogram Matched Chest X-rays Based Tuberculosis Detection Using CNN
+Old Title: Histogram Matched Chest X-Rays Based Tuberculosis Detection Using CNN
+Old Journal Name: Computer Systems Science and Engineering
+New Journal Name: Computer Systems Science and Engineering
+Old Month: 
+New Month: Jun
+Old Year: 2023
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q3
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: An efficient hand gesture recognition based on optimal deep embedded hybrid convolutional neural network-long short term memory network model
+Old Title: An efficient hand gesture recognition based on optimal deep embedded hybrid convolutional neural network-long short term memory network model
+Old Journal Name: CONCURRENCY AND COMPUTATION-PRACTICE & EXPERIENCE
+New Journal Name: Concurrency and computation: Practice and experience
+Old Month: 6.0
+New Month: Jun
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: An Efficient Edge Preserving Interpolation Method for Underwater Acoustic Image Resolution Enhancement
+Old Title: An Efficient Edge Preserving Interpolation Method for Underwater Acoustic Image Resolution Enhancement
+Old Journal Name: ARCHIVES OF ACOUSTICS
+New Journal Name: Archives of Acoustics
+Old Month: 7.0
+New Month: Jun
+Old Year: 2023
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Gradient Boost-Modified Classifier with Particle Swarm Optimization and Stochastic Diffusion Search Method for Data Optimization in Wireless Sensor Networks
+Not found
+==================================================
+New Title: Distance Vector-Hop (DV-Hop) and Differential Evolution (DE)-Based Interception Strategy for detecting Cross Border Infiltration in Underground Tunnel
+Not found
+==================================================
+New Title: An Enhanced and Efficient Permission manager for Android Automotives
+Not found
+==================================================
+New Title: Alzheimer's Dementia: Diagnosis and Prognosis using Neuro-Imaging Analysis
+Old Title: Alzheimer's Dementia: Diagnosis and Prognosis using Neuro-Imaging Analysis
+Old Journal Name: Journal of Pharmaceutical Negative Results
+New Journal Name: Journal of Pharmaceutical Negative Results
+Old Month: 1.0
+New Month: Oct
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: No
+New Wos: No
+Old Scopus: No
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Identification and Diagnosis of Breast Cancer using a Composite Machine Learning Techniques
+Old Title: Identification and Diagnosis of Breast Cancer using a Composite Machine Learning Techniques
+Old Journal Name: Journal of Pharmaceutical Negative Results
+New Journal Name: J Pharm Negative Results
+Old Month: 1.0
+New Month: Oct
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: No
+New Wos: No
+Old Scopus: No
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Cow Disease (LSD) Classification System for predicting different Severity levels
+Old Title: Cow Disease (LSD) Classification System for predicting different Severity levels.
+Old Journal Name: International Journal of Early Childhood Special Education
+New Journal Name: International Journal of Early Childhood Special Education (INT-JECSE)
+Old Month: 
+New Month: Oct
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Blockchain based system for transfer of funds through an e-Governance application
+Old Title: Blockchain based system for transfer of funds through an e-Governance application
+Old Journal Name: Revista Romana de Informatica si Automatica
+New Journal Name: Romanian Journal of Information Technlogy & Automatic Control/Revista Română de Informatică și Automatică
+Old Month: 12.0
+New Month: Oct
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: No
+New Wos: Yes
+Old Scopus: No
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Optimum anamorphic image generation using image rotation and relative entropy
+Old Title: Optimum anamorphic image generation using image rotation and relative entropy
+Old Journal Name: MULTIMEDIA TOOLS AND APPLICATIONS
+New Journal Name: Multimedia Tools and Applications
+Old Month: 4.0
+New Month: Nov
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q1
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Efficient Authentication System Using Wavelet Embeddings of Otoacoustic Emission Signals
+Old Title: Efficient Authentication System Using Wavelet Embeddings of Otoacoustic Emission Signals
+Old Journal Name: Computer Systems Science and Engineering
+New Journal Name: Computer Systems Science and Engineering
+Old Month: 
+New Month: Nov
+Old Year: 2023
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q3
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Impact of Process Induced Ellipticity on the Reset Process of Cylindrical Phase Change Memory Devices
+Old Title: Impact of process-induced ellipticity on the RESET process of cylindrical phase change memory devices
+Old Journal Name: PHYSICA SCRIPTA
+New Journal Name: Physica Scripta
+Old Month: 11.0
+New Month: Nov
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Reconfigurable FET based Tunable Ring Oscillator and its single event effect performance
+Old Title: Reconfigurable FET-Based Tunable Ring Oscillator and Its Single Event Effect Performance
+Old Journal Name: JOURNAL OF CIRCUITS SYSTEMS AND COMPUTERS
+New Journal Name: Journal of circuits, systems and computers
+Old Month: 11.0
+New Month: Dec
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q3
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: RDNN: Rumor Detection Neural Network for Veracity Analysis in Social Media Text
+Old Title: RDNN: Rumor Detection Neural Network for Veracity Analysis in Social Media Text
+Old Journal Name: KSII TRANSACTIONS ON INTERNET AND INFORMATION SYSTEMS
+New Journal Name: KSII Transactions on Internet and Information Systems
+Old Month: 12.0
+New Month: Dec
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 3rd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Optimizing high-utility item mining using hybrid dolphin echolocation and Boolean grey wolf optimization
+Old Title: Optimizing high-utility item mining using hybrid dolphin echolocation and Boolean grey wolf optimization
+Old Journal Name: Journal of Ambient Intelligence and Humanized Computing
+New Journal Name: Journal of Ambient Intelligence and Humanized Computing
+Old Month: 12.0
+New Month: Dec
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q1
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: A neutrosophic approach for glaucoma detection in retinal Images
+Not found
+==================================================
+New Title: Privacy Protected IoT-Blockchain using ZKP for Healthcare application
+Not found
+==================================================
+New Title: Measuring the accuracy of Satellite Image Dataset using Fusion based Classification with Neural Networks
+Old Title: Measuring the accuracy of Satellite Image Dataset using Fusion based Classification with Neural Networks
+Old Journal Name: 2D MATERIALS
+New Journal Name: NeuroQuantology
+Old Month: 9.0
+New Month: Dec
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: Yes
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Hybrid convolutional neural network for plant diseases prediction
+Old Title: Hybrid Convolutional Neural Network for Plant Diseases Prediction
+Old Journal Name: Intelligent Automation and Soft Computing
+New Journal Name: Intelligent Automation & Soft Computing
+Old Month: 
+New Month: Jan
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2023 - JUN 2024
+New Ay: JUL 2022 - JUN 2023
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Federated blockchain model for cyber intrusion analysis in smart grid networks
+Not found
+==================================================
+New Title: A Neutrosophic Set Approach on Chest X-rays for Automatic Lung Infection Detection
+Old Title: A Neutrosophic Set  Approach on Chest  X-rays for Automatic Lung  Infection Detection
+Old Journal Name: INFORMATION TECHNOLOGY AND CONTROL
+New Journal Name: Information Technology and Control
+Old Month: 3.0
+New Month: Mar
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 3rd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Single event performance of FED based SRAMs using numerical simulation
+Old Title: Single event performance of FED based SRAMs using numerical simulation
+Old Journal Name: MICROELECTRONICS RELIABILITY
+New Journal Name: Microelectronics Reliability
+Old Month: 3.0
+New Month: Mar
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2023 - JUN 2024
+New Ay: JUL 2022 - JUN 2023
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Scalable Hridaya kolam and Aishwarya kolam
+Old Title: Scalable Hridaya kolam and Aishwarya kolam
+Old Journal Name: Journal of Mathematics and the Arts
+New Journal Name: Journal of Mathematics and Arts
+Old Month: 3.0
+New Month: Mar
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Classification of skin cancer from dermoscopic images using deep neural network architectures
+Old Title: Classification of skin cancer from dermoscopic images using deep neural network architectures
+Old Journal Name: MULTIMEDIA TOOLS AND APPLICATIONS
+New Journal Name: Multimedia Tools and Applications
+Old Month: 10.0
+New Month: Apr
+Old Year: 2022
+New Year: 2023
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q1
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Miniaturized multi-spectral perfect metamaterial absorber for THz sensing, imaging and spectroscopic applications
+Not found
+==================================================
+New Title: Hybrid intelligent intrusion detection system for multiple Wi-Fi attacks in wireless networks using stacked restricted Boltzmann machine and deep belief networks
+Old Title: Hybrid intelligent intrusion detection system for multiple Wi-Fi attacks in wireless networks using stacked restricted Boltzmann machine and deep belief networks
+Old Journal Name: CONCURRENCY AND COMPUTATION-PRACTICE & EXPERIENCE
+New Journal Name: Concurrency and Computation: Practice and Experience
+Old Month: 5.0
+New Month: May
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2023 - JUN 2024
+New Ay: JUL 2022 - JUN 2023
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Assessment and classification of grid stability with cost-sensitive stacked ensemble classifier
+Old Title: Assessment and classification of grid stability with cost-sensitive stacked ensemble classifier
+Old Journal Name: AUTOMATIKA
+New Journal Name: Automatika
+Old Month: 6.0
+New Month: Jun
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: A Transformer Approach for Multi-Document Summarization using TR-BERT
+Not found
+==================================================
+New Title: Automated Detection and Segmentation of Mammogram Images using Deep Learning Techniques
+Not found
+==================================================
+New Title: Classification of inter-patient's cardiac arrhythmias in ECG signals with enhanced Jaya optimized TQWT parameters and stacked ensemble algorithm
+Old Title: Classification of inter-patient's cardiac arrhythmias in ECG signals with enhanced Jaya optimized TQWT parameters and stacked ensemble algorithm
+Old Journal Name: SOFT COMPUTING
+New Journal Name: Soft Computing
+Old Month: 6.0
+New Month: Jun
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q2
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Automated carcinoma classification using efficient nuclei-based patch selection and deep learning techniques
+Old Title: Automated carcinoma classification using efficient nuclei-based patch selection and deep learning techniques
+Old Journal Name: JOURNAL OF INTELLIGENT & FUZZY SYSTEMS
+New Journal Name: Journal of Intelligent & Fuzzy Systems: Applications in Engineering and Technology
+Old Month: 7.0
+New Month: Jul
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2023 - JUN 2024
+New Ay: JUL 2023 - JUN 2024
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Event-Based Epileptic Seizure Detection with Stacked Convolutional Restricted Boltzmann Machine
+Old Title: Event-Based Epileptic Seizure Detection with Stacked Convolutional Restricted Boltzmann Machine
+Old Journal Name: IETE JOURNAL OF RESEARCH
+New Journal Name: IETE Journal of Research
+Old Month: 7.0
+New Month: Jul
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2023 - JUN 2024
+New Ay: JUL 2023 - JUN 2024
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Analysis on the Impact of Lombard Effect on Speech Emotions using Machine Learning
+Not found
+==================================================
+New Title: U 2 Nets Cascaded UNets with Modified Skip Connection for Breast Tumor Segmentation
+Old Title: Cascaded UNets with Modified Skip Connection for Breast Tumor Segmentation
+Old Journal Name: NEURAL PROCESSING LETTERS
+New Journal Name: Neural Processing Letters
+Old Month: 9.0
+New Month: Sep
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2023 - JUN 2024
+New Ay: JUL 2023 - JUN 2024
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q2
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Challenges and Opportunities for Green Energy Harvesting in Sustainable IoT systems
+Old Title: Challenges and Opportunities for Green Energy Harvesting in Sustainable IoT Systems
+Old Journal Name: EAI/Springer Innovations in Communication and Computing
+New Journal Name: EAI/Springer Innovations in Communication and Computing
+Old Month: 9.0
+New Month: Sep
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2023 - JUN 2024
+Old Wos: No
+New Wos: No
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 3rd
+Old Publication Type: inbook
+New Publication Type: Journal
+==================================================
+New Title: FLOOD SUSCEPTIBILITY IN URBAN ENVIRONMENT USING MULTI-LAYERED NEURAL NETWORK MODEL FROM SATELLITE IMAGERY SOURCES
+Old Title: Urban Environmental Flood Susceptibility Using a Multi-Layered Neural Network Model From Satellite Imagery Sources
+Old Journal Name: GLOBAL NEST JOURNAL
+New Journal Name: Global Nest Journal
+Old Month: 8.0
+New Month: Oct
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2023 - JUN 2024
+New Ay: JUL 2023 - JUN 2024
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 3rd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: A Miniaturized Penta-band Metamaterial THz Absorber for Sensing and Imaging Application
+Not found
+==================================================
+New Title: AI-enabled metaheuristic optimization for predictive management of renewable energy production in smart grids
+Old Title: AI-enabled metaheuristic optimization for predictive management of renewable energy production in smart grids
+Old Journal Name: ENERGY REPORTS
+New Journal Name: Energy Reports
+Old Month: 
+New Month: Nov
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2023 - JUN 2024
+New Ay: JUL 2023 - JUN 2024
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Fake news detection using a deep learning transformer based encoder-decoder architecture
+Old Title: Fake news detection using a deep learning transformer based encoder-decoder architecture
+Old Journal Name: JOURNAL OF INTELLIGENT & FUZZY SYSTEMS
+New Journal Name: Journal of Intelligent & Fuzzy Systems
+Old Month: 11.0
+New Month: Nov
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2023 - JUN 2024
+New Ay: JUL 2023 - JUN 2024
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Deep Learning based Pulmonary Embolism Detection using Convolutional Feature Maps of CT Pulmonary Angiography Images
+Not found
+==================================================
+New Title: Cognitive decline assessment using semantic linguistic content and transformer deep learning architecture
+Old Title: Cognitive decline assessment using semantic linguistic content and transformer deep learning architecture
+Old Journal Name: INTERNATIONAL JOURNAL OF LANGUAGE & COMMUNICATION DISORDERS
+New Journal Name: The International Journal of Language & Communication Disorders (IJLCD)
+Old Month: 11.0
+New Month: Nov
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2023 - JUN 2024
+New Ay: JUL 2023 - JUN 2024
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Categorization of Indian residential consumers electrical energy consumption pattern using clustering and classification techniques
+Old Title: Categorization of Indian residential consumers electrical energy consumption pattern using clustering and classification techniques
+Old Journal Name: ENERGY
+New Journal Name: Energy
+Old Month: 2.0
+New Month: Dec
+Old Year: 2024
+New Year: 2023
+Old Ay: JUL 2023 - JUN 2024
+New Ay: JUL 2023 - JUN 2024
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: 
+New Quartile: 1st
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: Energetic and highly reliable photovoltaic power source assisted water pump control system design using IoT
+Not found
+==================================================
+New Title: Diabetic retinopathy diagnosis using interval neutrosophic segmentation with deep learning model
+Old Title: Diabetic Retinopathy Diagnosis Using Interval Neutrosophic Segmentation with Deep Learning Model
+Old Journal Name: Computer Systems Science and Engineering
+New Journal Name: Computer Systems Science and Engineering
+Old Month: 3.0
+New Month: Dec
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2023 - JUN 2024
+Old Wos: No
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: Yes
+Old Quartile: Q3
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: ENHANCED RETINAL IMAGE CAPTIONING SYSTEM FOR IDENTIFYING AND DIFFERENTIATING SEVERITY LEVELS OF DIABETIC RETINOPATHY
+Not found
+==================================================
+New Title: Clinical Decision Support System for Ophthalmologists for Eye Disease Classification
+Old Title: Clinical Decision Support System for Ophthalmologists for Eye Disease Classification
+Old Journal Name: IETE JOURNAL OF RESEARCH
+New Journal Name: IETE Journal of Research
+Old Month: 8.0
+New Month: Dec
+Old Year: 2022
+New Year: 2023
+Old Ay: JUL 2015 - JUN 2016
+New Ay: JUL 2023 - JUN 2024
+Old Wos: Yes
+New Wos: Yes
+Old Scopus: Yes
+New Scopus: No
+Old Quartile: 
+New Quartile: 2nd
+Old Publication Type: article
+New Publication Type: Journal
+==================================================
+New Title: An Automated Graph-Based Neural Network Model for Predicting Urban Environmental Air Quality Using Spatio-Temporal Data Optimization
+Not found
+==================================================
+New Title: An efficient Moving object, Encryption, Compression and Interpolation technique for video steganography
+Not found
+==================================================
+New Title: An Extensive Study of Different Types of Leukemia using Image Processing Techniques
+Not found
+==================================================
+New Title: DMK-SSN at ImageCLEF 2023 Medical: Controlling the Quality of Synthetic Medical Images Created via GANs using Machine Learning and Image Hashing Techniques
+Not found
+==================================================
+New Title: Transformer based model for offensive content recognition in dravidian languages
+Not found
+==================================================
+New Title: Privacy Enhancement for Wireless Sensor Networks and the Internet of Things Based on Cryptological Techniques
+Old Title: Privacy Enhancement for Wireless Sensor Networks and the Internet of Things Based on Cryptological Techniques
+Old Journal Name: Wireless Communication for Cybersecurity
+New Journal Name: Wireless Communication in Cyber Security
+Old Month: 10.0
+New Month: Jan
+Old Year: 2023
+New Year: 2024
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2023 - JUN 2024
+Old Wos: No
+New Wos: No
+Old Scopus: No
+New Scopus: No
+Old Quartile: 
+New Quartile: nan
+Old Publication Type: misc
+New Publication Type: Journal
+==================================================
+New Title: Multi-objective cluster head-based energy aware routing using optimized auto-metric graph neural network for secured data aggregation in Wireless Sensor Network
+Not found
+==================================================
+New Title: A novel deep learning model for diabetic retinopathy detection in retinal fundus images using pre-trained CNN and HWBLSTM
+Not found
+==================================================
+New Title: Service application model design for users using fuzzy semantic ontology model in cloud computing
+Not found
+==================================================
+New Title: ProTect: a hybrid deep learning model for proactive detection of cyberbullying on social media
+Not found
+==================================================
+New Title: Cycle-Consistent Generative Adversarial Network and Crypto Hash Signature Token-based Block chain Technology for Data Aggregation with Secured Routing in Wireless Sensor Networks
+Not found
+==================================================
+New Title: IoT Sensor Data Retrieval and Analysis in Cloud Environments for Enhanced Power Management
+Not found
+118

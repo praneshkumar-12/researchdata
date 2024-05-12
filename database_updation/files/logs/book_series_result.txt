@@ -1,0 +1,539 @@
+==================================================
+New Title: An ECC-Based Algorithm to Handle Secure Communication Between Heterogeneous IoT Devices
+Old Title: An ECC-Based Algorithm to Handle Secure Communication Between Heterogeneous IoT Devices
+Old Journal Name: Lecture Notes in Electrical Engineering
+New Journal Name: nan
+Old Month: 10.0
+New Month: Jan
+Old Year: 2017
+New Year: 2018
+Old Ay: JUL 2018 - JUN 2019
+New Ay: JUL 2017 - JUN 2018
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Communalyzer--Understanding Life Cycle of Community in Social Networks.
+Old Title: Communalyzer--Understanding Life Cycle of Community in Social Networks
+Old Journal Name: Lecture Notes in Networks and Systems
+New Journal Name: nan
+Old Month: 5.0
+New Month: May
+Old Year: 2018
+New Year: 2018
+Old Ay: JUL 2018 - JUN 2019
+New Ay: JUL 2017 - JUN 2018
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: #BiggBoss--Long-Run Event Detection and Sentiment Mining in Twitter.
+Old Title: #BiggBoss--Long-Run Event Detection and Sentiment Mining in Twitter
+Old Journal Name: Advances in Intelligent Systems and Computing
+New Journal Name: nan
+Old Month: 6.0
+New Month: Jun
+Old Year: 2019
+New Year: 2018
+Old Ay: JUL 2018 - JUN 2019
+New Ay: JUL 2017 - JUN 2018
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: A Dual Protocol Stack for Intelligent Traffic Monitoring System
+Old Title: A Dual Protocol Stack for Intelligent Traffic Monitoring System
+Old Journal Name: Communications in Computer and Information Science
+New Journal Name: nan
+Old Month: 8.0
+New Month: Aug
+Old Year: 2018
+New Year: 2018
+Old Ay: JUL 2018 - JUN 2019
+New Ay: JUL 2018 - JUN 2019
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Video Redundancy Investigation and Cooperative Cache Model in Wireless Network
+Old Title: Video Redundancy Investigation and Cooperative Cache Model in Wireless Network
+Old Journal Name: Lecture Notes in Networks and Systems
+New Journal Name: nan
+Old Month: 8.0
+New Month: Aug
+Old Year: 2018
+New Year: 2018
+Old Ay: JUL 2018 - JUN 2019
+New Ay: JUL 2018 - JUN 2019
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: A Comparative Evaluation of QoS-Based Network Selection Between TOPSIS and VIKOR
+Old Title: A Comparative Evaluation of QoS-Based Network Selection Between TOPSIS and VIKOR
+Old Journal Name: Lecture Notes in Networks and Systems
+New Journal Name: nan
+Old Month: 11.0
+New Month: Nov
+Old Year: 2018
+New Year: 2018
+Old Ay: JUL 2018 - JUN 2019
+New Ay: JUL 2018 - JUN 2019
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Improving Recognition of Speech System Using Multimodal Approach
+Old Title: Improving Recognition of Speech System Using Multimodal Approach
+Old Journal Name: International Conference on Innovative Computing and Communications
+New Journal Name: nan
+Old Month: 11.0
+New Month: Nov
+Old Year: 2018
+New Year: 2018
+Old Ay: JUL 2018 - JUN 2019
+New Ay: JUL 2018 - JUN 2019
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: A Generic Context-Aware Service Discovery Architecture for IoT Services
+Old Title: A Generic Context-Aware Service Discovery Architecture for IoT Services
+Old Journal Name: Communications in Computer and Information Science
+New Journal Name: nan
+Old Month: 12.0
+New Month: Dec
+Old Year: 2017
+New Year: 2018
+Old Ay: JUL 2018 - JUN 2019
+New Ay: JUL 2018 - JUN 2019
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Veracity Analysis and Prediction in Social Big Data
+Old Title: Veracity Analysis and Prediction in Social Big Data
+Old Journal Name: Information and Communication Technology for Sustainable Development
+New Journal Name: nan
+Old Month: 6.0
+New Month: Jun
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2018 - JUN 2019
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Predicting Learning Behaviour of Online Course Learners' using Hybrid Deep Learning Model,
+Not found
+==================================================
+New Title: Trendingtags--Classification & Prediction of Hashtag Popularity Using Twitter Features in Machine Learning Approach Proceedings
+Not found
+==================================================
+New Title: Med-Recommender System for Predictive Analysis of Hospitals and Doctors
+Old Title: Med-Recommender System for Predictive Analysis of Hospitals and Doctors
+Old Journal Name: 2019 International Conference on Computational Intelligence in Data Science (ICCIDS)
+New Journal Name: nan
+Old Month: 2.0
+New Month: Oct
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Publication Type: inproceedings
+New Publication Type: Book Chapter
+==================================================
+New Title: Spinal Cord Segmentation in Lumbar MR Images
+Old Title: Spinal Cord Segmentation in Lumbar MR Images
+Old Journal Name: Emerging Trends in Computing and Expert Technology
+New Journal Name: nan
+Old Month: 11.0
+New Month: Nov
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Optimization of Sensing Time in Cognitive Radio Networks Based on Localization Algorithm
+Old Title: Optimization of Sensing Time in Cognitive Radio Networks Based on Localization Algorithm
+Old Journal Name: Lecture Notes on Data Engineering and Communications Technologies
+New Journal Name: nan
+Old Month: 11.0
+New Month: Nov
+Old Year: 2019
+New Year: 2019
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2019 - JUN 2020
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Eye Blink Detection Using Back Ground Subtraction and Gradient-Based Corner Detection for Preventing CVS
+Old Title: Eye Blink Detection Using Back Ground Subtraction and Gradient-Based Corner Detection for Preventing CVS
+Old Journal Name: Procedia Computer Science
+New Journal Name: Procedia Computer Science
+Old Month: 
+New Month: Feb
+Old Year: 2019
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Publication Type: article
+New Publication Type: Book Chapter
+==================================================
+New Title: Entropy Analysis on Planar Anamorphic Images
+Old Title: Entropy Analysis on Planar Anamorphic Images
+Old Journal Name: Procedia Computer Science
+New Journal Name: Procedia Computer Science
+Old Month: 
+New Month: Feb
+Old Year: 2019
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Publication Type: article
+New Publication Type: Book Chapter
+==================================================
+New Title: Optimized Feature Integration and Minimized Search Space in Content Based Image Retrieval
+Old Title: Optimized Feature Integration and Minimized Search Space in Content Based Image Retrieval
+Old Journal Name: Procedia Computer Science
+New Journal Name: nan
+Old Month: 
+New Month: Feb
+Old Year: 2019
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Publication Type: article
+New Publication Type: Book Chapter
+==================================================
+New Title: Object Detection In Underwater Acoustic Images Using Edge Based Segmentation Method
+Old Title: Object Detection In Underwater Acoustic Images Using Edge Based Segmentation Method
+Old Journal Name: Procedia Computer Science
+New Journal Name: nan
+Old Month: 
+New Month: Feb
+Old Year: 2019
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Publication Type: article
+New Publication Type: Book Chapter
+==================================================
+New Title: Resource Scheduling Algorithms for Cloud Computing Environment: A Literature Survey.
+Old Title: Resource Scheduling Algorithms for Cloud Computing Environment: A Literature Survey
+Old Journal Name: Lecture Notes in Networks and Systems
+New Journal Name: nan
+Old Month: 1.0
+New Month: Jan
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Modern Parking Business Using Blockchain and Internet of Things (IoT).
+Old Title: Modern Parking Business Using Blockchain and Internet of Things (IoT)
+Old Journal Name: Advances in Intelligent Systems and Computing
+New Journal Name: nan
+Old Month: 2.0
+New Month: Feb
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Inter-Hemispherical Investigations on the Functional Connectivity in Controls and Autism Spectrum Using Resting State fMRI
+Old Title: Inter-Hemispherical Investigations on the Functional Connectivity in Controls and Autism Spectrum Using Resting State fMRI
+Old Journal Name: Advances in Computational Intelligence and Robotics
+New Journal Name: Innovations, Algorithms, and Applications in Cognitive Informatics and Natural Intelligence
+Old Month: 
+New Month: Feb
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Start to Finish Automation Achieve on Cloud with Build Channel: By DevOps Method
+Old Title: Start to Finish Automation Achieve on Cloud with Build Channel: By DevOps Method
+Old Journal Name: Procedia Computer Science
+New Journal Name: Procedia Computer Science
+Old Month: 
+New Month: Feb
+Old Year: 2019
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Publication Type: article
+New Publication Type: Book Chapter
+==================================================
+New Title: Visual Speech Recognition using fusion of Motion and Geometric Features
+Old Title: Visual Speech Recognition using Fusion of Motion and Geometric Features
+Old Journal Name: Procedia Computer Science
+New Journal Name: nan
+Old Month: 
+New Month: Jun
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2019 - JUN 2020
+Old Publication Type: article
+New Publication Type: Book Chapter
+==================================================
+New Title: Tweet Classification Using Deep Learning Approach to Predict Sensitive Personal Data
+Old Title: Tweet Classification Using Deep Learning Approach to Predict Sensitive Personal Data
+Old Journal Name: Lecture Notes in Electrical Engineering
+New Journal Name: Advances in Electrical and Computer Technologies,
+Old Month: 9.0
+New Month: Sep
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Sensitive Keyword Extraction Based on Cyber Keywords and LDA in Twitter to Avoid Regrets
+Old Title: Sensitive Keyword Extraction Based on Cyber Keywords and LDA in Twitter to Avoid Regrets
+Old Journal Name: IFIP Advances in Information and Communication Technology
+New Journal Name: Computational Intelligence in Data Science
+Old Month: 11.0
+New Month: Nov
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2020 - JUN 2021
+New Ay: JUL 2020 - JUN 2021
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Social Media Veracity Detection System Using Calibrate Classifier
+Old Title: Social Media Veracity Detection System Using Calibrate Classifier
+Old Journal Name: IFIP Advances in Information and Communication Technology
+New Journal Name: Computational Intelligence in Data Science
+Old Month: 5.0
+New Month: Nov
+Old Year: 2020
+New Year: 2020
+Old Ay: JUL 2019 - JUN 2020
+New Ay: JUL 2020 - JUN 2021
+Old Publication Type: article
+New Publication Type: Book Chapter
+==================================================
+New Title: NoRegINT--A Tool for Performing OSINT and Analysis from Social Media
+Old Title: NoRegINT--A Tool for Performing OSINT and Analysis from Social Media
+Old Journal Name: Lecture Notes in Networks and Systems
+New Journal Name: Lecture Notes in Networks and Systems
+Old Month: 3.0
+New Month: Mar
+Old Year: 2021
+New Year: 2021
+Old Ay: JUL 2021 - JUN 2022
+New Ay: JUL 2020 - JUN 2021
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Automatic Credit Fraud Detection Using Ensemble Model.
+Old Title: Automatic Credit Fraud Detection Using Ensemble Model
+Old Journal Name: Lecture Notes in Networks and Systems
+New Journal Name: ICT Analysis and Applications
+Old Month: 1.0
+New Month: Jan
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Swear Words Replacement Suggestion System
+Old Title: Swear Words Replacement Suggestion System
+Old Journal Name: Lecture Notes in Networks and Systems
+New Journal Name: ICT Analysis and Applications
+Old Month: 1.0
+New Month: Jan
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Applications of Open Source Intelligence in Crisis Analysis--A COVID-19 Case Study
+Old Title: Applications of Open Source Intelligence in Crisis Analysis--A COVID-19 Case Study
+Old Journal Name: Lecture Notes in Networks and Systems
+New Journal Name: ICT Systems and Sustainability
+Old Month: 1.0
+New Month: Jan
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Program Synthesis--A Survey
+Not found
+==================================================
+New Title: DetecSec: A Framework to Detect and Mitigate ARP Cache Poisoning Attacks
+Old Title: DetecSec: A Framework to Detect and Mitigate ARP Cache Poisoning Attacks
+Old Journal Name: Lecture Notes on Data Engineering and Communications Technologies
+New Journal Name: Lecture Notes on Data Engineering and Communications Technologies
+Old Month: 3.0
+New Month: Mar
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Analysis of Cryptocurrency Mining in Gaming Consoles
+Old Title: Analysis of Cryptocurrency Mining in Gaming Consoles
+Old Journal Name: Lecture Notes in Electrical Engineering
+New Journal Name: Lecture Notes in Electrical Engineering
+Old Month: 4.0
+New Month: Apr
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: COVID-19 Detection Using Chest X-rays: CNN as a Classifier Versus CNN as a Feature Extractor
+Old Title: COVID-19 Detection Using Chest X-rays: CNN as a Classifier Versus CNN as a Feature Extractor
+Old Journal Name: Algorithms for Intelligent Systems
+New Journal Name: Machine Intelligence and Smart Systems, Algorithms for Intelligent Systems
+Old Month: 5.0
+New Month: May
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2021 - JUN 2022
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Generative Adversarial Networks and Their Application in Fake Tweet Detection
+Old Title: Generative Adversarial Networks and Their Application in Fake Tweet Detection
+Old Journal Name: Lecture Notes in Networks and Systems
+New Journal Name: Inventive Communication and Computational Technologies. Lecture Notes in Networks and Systems
+Old Month: 11.0
+New Month: Nov
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: M-SHIELD--An Application for Tracking Lost Phones
+Not found
+==================================================
+New Title: An Ensemble Approach to Recognize Activities in Smart Environment Using Motion Sensors and Air Quality Sensors
+Old Title: An Ensemble Approach to Recognize Activities in Smart Environment Using Motion Sensors and Air Quality Sensors
+Old Journal Name: Data Intelligence and Cognitive Informatics
+New Journal Name: Data Intelligence and Cognitive Informatics. Algorithms for Intelligent Systems
+Old Month: 12.0
+New Month: Dec
+Old Year: 2022
+New Year: 2022
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Region Classification for Air Quality Estimation Using Deep Learning and Machine Learning Approach
+Old Title: Region Classification for Air Quality Estimation Using Deep Learning and Machine Learning Approach
+Old Journal Name: Lecture Notes in Electrical Engineering
+New Journal Name: Machine Learning, Image Processing, Network Security and Data Sciences. Lecture Notes in Electrical Engineering,
+Old Month: 1.0
+New Month: Jan
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Early Alzheimer Detection Through Speech Analysis and Vision Transformer Approach
+Old Title: Early Alzheimer Detection Through Speech Analysis and Vision Transformer Approach
+Old Journal Name: Communications in Computer and Information Science
+New Journal Name: nan
+Old Month: 5.0
+New Month: May
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Multimodality dementia detection system using machine and deep learning
+Old Title: Multimodality dementia detection system using machine and deep learning
+Old Journal Name: Computational Intelligence Aided Systems for Healthcare Domain
+New Journal Name: Computational Intelligence Aided Systems for Healthcare Domain
+Old Month: 5.0
+New Month: Jun
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Snooping for Fake News: A Cascaded Approach Using Stance Detection and Entailment Classification
+Old Title: Snooping for Fake News: A Cascaded Approach Using Stance Detection and Entailment Classification
+Old Journal Name: Lecture Notes in Electrical Engineering
+New Journal Name: nan
+Old Month: 6.0
+New Month: Jun
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: Hierarchical Text Summarization Using Semantic Similarity.
+Old Title: Hierarchical Text Summarization Using Semantic Similarity
+Old Journal Name: Research Highlights in Language, Literature and Education Vol. 6
+New Journal Name: Research Highlights in Language, Literature and Education
+Old Month: 6.0
+New Month: Jun
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2022 - JUN 2023
+New Ay: JUL 2022 - JUN 2023
+Old Publication Type: inbook
+New Publication Type: Book Chapter
+==================================================
+New Title: nan
+Old Title: A Lightweight Trust Scheme for Iot
+Old Journal Name: International Journal of Engineering and Technology(UAE)
+New Journal Name: Energy Harvesting Trends for Low Power Compact Electronic Devices
+Old Month: 9.0
+New Month: Oct
+Old Year: 2018
+New Year: 2023
+Old Ay: JUL 2018 - JUN 2019
+New Ay: JUL 2023 - JUN 2024
+Old Publication Type: article
+New Publication Type: Book Chapter
+==================================================
+New Title: Challenges and Opportunities for Green Energy Harvesting in Sustainable IoT Systems
+Old Title: Challenges and Opportunities for Green Energy Harvesting in Sustainable IoT Systems
+Old Journal Name: EAI/Springer Innovations in Communication and Computing
+New Journal Name: Wireless Communication in Cyber Security
+Old Month: 9.0
+New Month: Oct
+Old Year: 2023
+New Year: 2023
+Old Ay: JUL 2023 - JUN 2024
+New Ay: JUL 2023 - JUN 2024
+Old Publication Type: article
+New Publication Type: Book Chapter
+==================================================
+New Title: Security and Confidentiality Concerns in Blockchain Technology: A Review
+Not found
+==================================================
+New Title: Contribution of Python to Improving Efficiency in Artificial Intelligence and Advancing Automation Capabilities
+Not found
+40

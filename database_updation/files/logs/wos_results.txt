@@ -1,0 +1,1551 @@
+==================================================
+Title: State of Art: Vertical Handover Decision Schemes in Next-Generation Wireless Network
+ISSN: 2096-1081 2509-3312
+Old Publication Name: Journal of Communications and Information Networks
+Old Publisher Name: Posts and Telecom Press Co Ltd
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: M-SHIELD - An Application for Tracking Lost Phones
+ISSN: 978-981-19-4960-9
+Old Publication Name: Inventive Communication and Computational Technologies. Lecture Notes in Networks and Systems
+Old Publisher Name: Springer Singapore
+Old Indexing: nan
+Not Found!
+==================================================
+Title: A survey on technologies and security protocols: Reference for future generation IoT
+ISSN: 1084-8045
+Old Publication Name: Journal of Network and Computer Applications
+Old Publisher Name: Academic Press
+Old Indexing: Scopus
+New Publication Name: JOURNAL OF NETWORK AND COMPUTER APPLICATIONS
+New Publisher Name: ACADEMIC PRESS LTD- ELSEVIER SCIENCE LTD
+==================================================
+Title: Texture Image Classification and Retrieval Using Multi-resolution Radial Gradient Binary Pattern
+ISSN: 0883-9514 1087-6545
+Old Publication Name: Applied Artificial Intelligence
+Old Publisher Name: Taylor and Francis Ltd.
+Old Indexing: Scopus
+New Publication Name: APPLIED ARTIFICIAL INTELLIGENCE
+New Publisher Name: TAYLOR & FRANCIS INC
+==================================================
+Title: A Layer-Wise Relevance Propagation Based Feature Selection and Hybid Classification Model for Automatic Detection of Parkinson's Disease Using Gait Signals
+ISSN: 3276716
+Old Publication Name: Revista Argentina de Clinica Psicologica
+Old Publisher Name: Raffles Connect PTE LTD
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Veracity assessment by single and multi-source identification algorithms during the crisis
+ISSN: 1064-1246 1875-8967
+Old Publication Name: Journal of Intelligent and Fuzzy Systems
+Old Publisher Name: IOS Press BV
+Old Indexing: Scopus
+New Publication Name: JOURNAL OF INTELLIGENT & FUZZY SYSTEMS
+New Publisher Name: IOS PRESS
+==================================================
+Title: Feature Engineering and Characterization of Classifiers for Consumer Health Information Search
+ISSN: 0302-9743 1611-3349
+Old Publication Name: Lecture Notes in Computer Science
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: An ECC-Based Algorithm to Handle Secure Communication Between Heterogeneous IoT Devices
+ISSN: 1876-1100 1876-1119
+Old Publication Name: Lecture Notes in Electrical Engineering
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: A Generic Context-Aware Service Discovery Architecture for IoT Services
+ISSN: 1865-0929 1865-0937
+Old Publication Name: Communications in Computer and Information Science
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Communalyzer--Understanding Life Cycle of Community in Social Networks
+ISSN: 2367-3370 2367-3389
+Old Publication Name: Lecture Notes in Networks and Systems
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: RCE-OIE: Open Information Extraction Using a Rule-Based Clause Extraction Engine for Semantic Applications
+ISSN: 2194-5357 2194-5365
+Old Publication Name: Advances in Intelligent Systems and Computing
+Old Publisher Name: Springer Science and Business Media B.V.
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Video Redundancy Investigation and Cooperative Cache Model in Wireless Network
+ISSN: 2367-3370 2367-3389
+Old Publication Name: Lecture Notes in Networks and Systems
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: A Dual Protocol Stack for Intelligent Traffic Monitoring System
+ISSN: 1865-0929 1865-0937
+Old Publication Name: Communications in Computer and Information Science
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: A Comparative Evaluation of QoS-Based Network Selection Between TOPSIS and VIKOR
+ISSN: 2367-3370 2367-3389
+Old Publication Name: Lecture Notes in Networks and Systems
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Improving Recognition of Speech System Using Multimodal Approach
+ISSN: 978-981-13-2354-6
+Old Publication Name: International Conference on Innovative Computing and Communications
+Old Publisher Name: Springer Singapore
+Old Indexing: nan
+Not Found!
+==================================================
+Title: #BiggBoss--Long-Run Event Detection and Sentiment Mining in Twitter
+ISSN: 2194-5357 2194-5365
+Old Publication Name: Advances in Intelligent Systems and Computing
+Old Publisher Name: Springer Science and Business Media B.V.
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Speech-Input Speech-Output Communication for Dysarthric Speakers Using HMM-Based Speech Recognition and Adaptive Synthesis System
+ISSN: 0278-081X 1531-5878
+Old Publication Name: Circuits, Systems, and Signal Processing
+Old Publisher Name: Birkhauser Boston
+Old Indexing: Scopus
+New Publication Name: CIRCUITS SYSTEMS AND SIGNAL PROCESSING
+New Publisher Name: SPRINGER BIRKHAUSER
+==================================================
+Title: Significance of Differenced EGG Signal as a Spectrum in Phase Difference Computation for the Estimation of Glottal Closure Instants
+ISSN: 0278-081X 1531-5878
+Old Publication Name: Circuits, Systems, and Signal Processing
+Old Publisher Name: Birkhauser Boston
+Old Indexing: Scopus
+New Publication Name: CIRCUITS SYSTEMS AND SIGNAL PROCESSING
+New Publisher Name: SPRINGER BIRKHAUSER
+==================================================
+Title: A Multilingual to Polyglot Speech Synthesizer for Indian Languages Using a Voice-Converted Polyglot Speech Corpus
+ISSN: 0278-081X 1531-5878
+Old Publication Name: Circuits, Systems, and Signal Processing
+Old Publisher Name: Birkhauser Boston
+Old Indexing: Scopus
+New Publication Name: CIRCUITS SYSTEMS AND SIGNAL PROCESSING
+New Publisher Name: SPRINGER BIRKHAUSER
+==================================================
+Title: Reliability score inference and recommendation using fuzzy-based technique for social media applications
+ISSN: 1432-7643 1433-7479
+Old Publication Name: Soft Computing
+Old Publisher Name: Springer Science and Business Media Deutschland GmbH
+Old Indexing: Scopus
+New Publication Name: SOFT COMPUTING
+New Publisher Name: SPRINGER
+==================================================
+Title: Behavioral Modeling for Mental Health using Machine Learning Algorithms
+ISSN: 0148-5598 1573-689X
+Old Publication Name: Journal of Medical Systems
+Old Publisher Name: Springer New York
+Old Indexing: Scopus
+New Publication Name: JOURNAL OF MEDICAL SYSTEMS
+New Publisher Name: SPRINGER
+==================================================
+Title: Disc bulge diagnostic model in axial lumbar MR images using Intervertebral disc Descriptor (IdD)
+ISSN: 1380-7501 1573-7721
+Old Publication Name: Multimedia Tools and Applications
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: MULTIMEDIA TOOLS AND APPLICATIONS
+New Publisher Name: SPRINGER
+==================================================
+Title: Real time blink recognition from various head pose using single eye
+ISSN: 1380-7501 1573-7721
+Old Publication Name: Multimedia Tools and Applications
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: MULTIMEDIA TOOLS AND APPLICATIONS
+New Publisher Name: SPRINGER
+==================================================
+Title: A wavelet transform based contrast enhancement method for underwater acoustic images
+ISSN: 0923-6082 1573-0824
+Old Publication Name: Multidimensional Systems and Signal Processing
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: MULTIDIMENSIONAL SYSTEMS AND SIGNAL PROCESSING
+New Publisher Name: SPRINGER
+==================================================
+Title: Ontology-based Tamil-English cross-lingual information retrieval system
+ISSN: 0256-2499 0973-7677
+Old Publication Name: Sadhana - Academy Proceedings in Engineering Sciences
+Old Publisher Name: Springer India
+Old Indexing: Scopus
+New Publication Name: SADHANA-ACADEMY PROCEEDINGS IN ENGINEERING SCIENCES
+New Publisher Name: SPRINGER INDIA
+==================================================
+Title: An efficient framework for image retrieval using color, texture and edge features
+ISSN: 0045-7906
+Old Publication Name: Computers and Electrical Engineering
+Old Publisher Name: Elsevier Ltd
+Old Indexing: Scopus
+New Publication Name: COMPUTERS & ELECTRICAL ENGINEERING
+New Publisher Name: PERGAMON-ELSEVIER SCIENCE LTD
+==================================================
+Title: Heavy ion impact on narrow band cascoded low noise amplifier
+ISSN: 0026-2714
+Old Publication Name: Microelectronics Reliability
+Old Publisher Name: Elsevier Ltd
+Old Indexing: Scopus
+New Publication Name: MICROELECTRONICS RELIABILITY
+New Publisher Name: PERGAMON-ELSEVIER SCIENCE LTD
+==================================================
+Title: An analysis of the effect of combining standard and alternate sensor signals on recognition of syllabic units for multimodal speech recognition
+ISSN: 0167-8655
+Old Publication Name: Pattern Recognition Letters
+Old Publisher Name: Elsevier B.V.
+Old Indexing: Scopus
+New Publication Name: PATTERN RECOGNITION LETTERS
+New Publisher Name: ELSEVIER
+==================================================
+Title: Automated skin lesion segmentation of dermoscopic images using GrabCut and k-means algorithms
+ISSN: 1751-9632 1751-9640
+Old Publication Name: IET Computer Vision
+Old Publisher Name: John Wiley & Sons Inc.
+Old Indexing: Scopus
+New Publication Name: IET COMPUTER VISION
+New Publisher Name: WILEY
+==================================================
+Title: A Naive Bayes approach for URL classification with supervised feature selection and rejection framework
+ISSN: 0824-7935 1467-8640
+Old Publication Name: Computational Intelligence
+Old Publisher Name: Wiley-Blackwell Publishing Ltd
+Old Indexing: Scopus
+New Publication Name: COMPUTATIONAL INTELLIGENCE
+New Publisher Name: WILEY
+==================================================
+Title: Pause-Based Phrase Extraction and Effective OOV Handling for Low-Resource Machine Translation Systems
+ISSN: 2375-4699 2375-4702
+Old Publication Name: ACM Transactions on Asian and Low-Resource Language Information Processing
+Old Publisher Name: Association for Computing Machinery (ACM)
+Old Indexing: Scopus
+New Publication Name: ACM TRANSACTIONS ON ASIAN AND LOW-RESOURCE LANGUAGE INFORMATION PROCESSING
+New Publisher Name: ASSOC COMPUTING MACHINERY
+==================================================
+Title: Identification of Trending Topics Using Periodically  Collected Twitter Data
+ISSN: 2227-524X
+Old Publication Name: International Journal of Engineering and Technology(UAE)
+Old Publisher Name: Science Publishing Corporation
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: A Working Model for Mobile Charging using Wireless  Power Transmission
+ISSN: 2227-524X
+Old Publication Name: International Journal of Engineering and Technology(UAE)
+Old Publisher Name: Science Publishing Corporation
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Categorisation of Tweets Using Ensemble Classification Methods
+ISSN: 2227-524X
+Old Publication Name: International Journal of Engineering and Technology(UAE)
+Old Publisher Name: Science Publishing Corporation
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Outlier Detection using Clustering Techniques
+ISSN: 2227-524X
+Old Publication Name: International Journal of Engineering and Technology(UAE)
+Old Publisher Name: Science Publishing Corporation
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: A Smart Watchdog - Intruder Detection System
+ISSN: 2227-524X
+Old Publication Name: International Journal of Engineering and Technology(UAE)
+Old Publisher Name: Science Publishing Corporation
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: A Lightweight Trust Scheme for Iot
+ISSN: 2227-524X
+Old Publication Name: International Journal of Engineering and Technology(UAE)
+Old Publisher Name: Science Publishing Corporation
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Enhanced portable text to speech converter for visually impaired
+ISSN: 1740-8865 1740-8873
+Old Publication Name: International Journal of Intelligent Systems Technologies and Applications
+Old Publisher Name: Inderscience
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Empirical study of feature selection methods over classification algorithms
+ISSN: 1740-8865 1740-8873
+Old Publication Name: International Journal of Intelligent Systems Technologies and Applications
+Old Publisher Name: Inderscience
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Empirical study of feature selection methods over classification algorithms
+ISSN: 1740-8865 1740-8873
+Old Publication Name: International Journal of Intelligent Systems Technologies and Applications
+Old Publisher Name: Inderscience
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Optic Disc and Cup Segmentation in Fundus Retinal Images Using Feature Detection and Morphological Techniques
+ISSN: 0011-3891
+Old Publication Name: Current Science
+Old Publisher Name: Indian Academy of Sciences
+Old Indexing: Scopus
+New Publication Name: CURRENT SCIENCE
+New Publisher Name: INDIAN ACAD SCIENCES
+==================================================
+Title: MutatedSocioAgentSim (MSAS): semisupervised modelling of multiagent simulation to predict and detect the mutation in a camouflaged social network
+ISSN: 1303-6203 1300-0632
+Old Publication Name: Turkish Journal of Electrical Engineering and Computer Sciences
+Old Publisher Name: Turkiye Klinikleri Journal of Medical Sciences
+Old Indexing: Scopus
+New Publication Name: TURKISH JOURNAL OF ELECTRICAL ENGINEERING AND COMPUTER SCIENCES
+New Publisher Name: TUBITAK SCIENTIFIC & TECHNOLOGICAL RESEARCH COUNCIL TURKEY
+==================================================
+Title: Text to Speech Conversion of Documents using Concatenative Speech Synthesis
+ISSN: 2454-4248
+Old Publication Name: International Journal on Future Revolution in computer science and communication engineering
+Old Publisher Name: Auricle Global Society of Education and Research
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Mobile Application For Out-Pass Generation
+ISSN: 2394-0697
+Old Publication Name: International Journal Of Current Engineering And Scientific Research
+Old Publisher Name: nan
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Embodied Conversational Agent-based Control Interfaces for Home Automation System
+ISSN: 2454-4248
+Old Publication Name: International Journal on Future Revolution in computer science and communication engineering
+Old Publisher Name: Auricle Global Society of Education and Research
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Automatic Gender recognition using ANFIS
+ISSN: 2454-4248
+Old Publication Name: International Journal on Future Revolution in computer science and communication engineering
+Old Publisher Name:  Auricle Global Society of Education and Research
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Load balancing in cloud computing using water wave algorithm
+ISSN: 1532-0626 1532-0634
+Old Publication Name: Concurrency Computation Practice and Experience
+Old Publisher Name: John Wiley and Sons Ltd
+Old Indexing: Scopus
+New Publication Name: CONCURRENCY AND COMPUTATION-PRACTICE & EXPERIENCE
+New Publisher Name: WILEY
+==================================================
+Title: Spinal Cord Segmentation in Lumbar MR Images
+ISSN: 978-3-030-32150-5
+Old Publication Name: Emerging Trends in Computing and Expert Technology
+Old Publisher Name: Springer Cham
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Optimization of Sensing Time in Cognitive Radio Networks Based on Localization Algorithm
+ISSN: 2367-4512 2367-4520
+Old Publication Name: Lecture Notes on Data Engineering and Communications Technologies
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Veracity Analysis and Prediction in Social Big Data
+ISSN: 978-981-13-7166-0
+Old Publication Name: Information and Communication Technology for Sustainable Development
+Old Publisher Name: Springer Singapore
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Trendingtags - Classification and Prediction of Hashtag Popularity Using Twitter Features in Machine Learning Approach Proceedings
+ISSN: 978-981-13-8676-3
+Old Publication Name: Advances in Intelligent Systems and Computing
+Old Publisher Name: Springer Singapore
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Enhanced analysis of border surveillance using intruders' crossing strategies
+ISSN: 1432-7643 1433-7479
+Old Publication Name: Soft Computing
+Old Publisher Name: Springer Science and Business Media Deutschland GmbH
+Old Indexing: Scopus
+New Publication Name: SOFT COMPUTING
+New Publisher Name: SPRINGER
+==================================================
+Title: Automatic stenosis detection using SVM from CTA projection images
+ISSN: 0942-4962 1432-1882
+Old Publication Name: Multimedia Systems
+Old Publisher Name: Springer Verlag
+Old Indexing: Scopus
+New Publication Name: MULTIMEDIA SYSTEMS
+New Publisher Name: SPRINGER
+==================================================
+Title: Image fusion for MODIS and Landsat images using top hat based moving technique with FIS
+ISSN: 1386-7857 1573-7543
+Old Publication Name: Cluster Computing
+Old Publisher Name: Kluwer Academic Publishers
+Old Indexing: Scopus
+New Publication Name: CLUSTER COMPUTING-THE JOURNAL OF NETWORKS SOFTWARE TOOLS AND APPLICATIONS
+New Publisher Name: SPRINGER
+==================================================
+Title: Brain storm-based Whale Optimization Algorithm for privacy-protected data publishing in cloud computing
+ISSN: 1386-7857 1573-7543
+Old Publication Name: Cluster Computing
+Old Publisher Name: Kluwer Academic Publishers
+Old Indexing: Scopus
+New Publication Name: CLUSTER COMPUTING-THE JOURNAL OF NETWORKS SOFTWARE TOOLS AND APPLICATIONS
+New Publisher Name: SPRINGER
+==================================================
+Title: An augmented approach for pseudo-free groups in smart cyber-physical system
+ISSN: 1386-7857 1573-7543
+Old Publication Name: Cluster Computing
+Old Publisher Name: Kluwer Academic Publishers
+Old Indexing: Scopus
+New Publication Name: CLUSTER COMPUTING-THE JOURNAL OF NETWORKS SOFTWARE TOOLS AND APPLICATIONS
+New Publisher Name: SPRINGER
+==================================================
+Title: An efficient seed points selection approach in dominant color descriptors (DCD)
+ISSN: 1386-7857 1573-7543
+Old Publication Name: Cluster Computing
+Old Publisher Name: Kluwer Academic Publishers
+Old Indexing: Scopus
+New Publication Name: CLUSTER COMPUTING-THE JOURNAL OF NETWORKS SOFTWARE TOOLS AND APPLICATIONS
+New Publisher Name: SPRINGER
+==================================================
+Title: Single-event radiation performance analysis of junction and junctionless FET-based low-noise amplifiers
+ISSN: 1569-8025 1572-8137
+Old Publication Name: Journal of Computational Electronics
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: JOURNAL OF COMPUTATIONAL ELECTRONICS
+New Publisher Name: SPRINGER
+==================================================
+Title: A two-level secure data hiding algorithm for video steganography
+ISSN: 0923-6082 1573-0824
+Old Publication Name: Multidimensional Systems and Signal Processing
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: MULTIDIMENSIONAL SYSTEMS AND SIGNAL PROCESSING
+New Publisher Name: SPRINGER
+==================================================
+Title: Acoustic image denoising using various spatial filtering techniques
+ISSN: 2511-2104 2511-2112
+Old Publication Name: International Journal of Information Technology (Singapore)
+Old Publisher Name: Springer Science + Business Media
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: BCI cinematics - A pre-release analyser for movies using H2O deep learning platform
+ISSN: 0045-7906
+Old Publication Name: Computers and Electrical Engineering
+Old Publisher Name: Elsevier Ltd
+Old Indexing: Scopus
+New Publication Name: COMPUTERS & ELECTRICAL ENGINEERING
+New Publisher Name: PERGAMON-ELSEVIER SCIENCE LTD
+==================================================
+Title: An extremely fast, energy-efficient RESET process in Ge2Sb2Te5 phase change memory device revealed by the choice of electrode materials and interface effects
+ISSN: 0268-1242 1361-6641
+Old Publication Name: Semiconductor Science and Technology
+Old Publisher Name: IOP Publishing Ltd.
+Old Indexing: Scopus
+New Publication Name: SEMICONDUCTOR SCIENCE AND TECHNOLOGY
+New Publisher Name: IOP PUBLISHING LTD
+==================================================
+Title: Med-Recommender System for Predictive Analysis of Hospitals and Doctors
+ISSN: nan
+Old Publication Name: 2019 International Conference on Computational Intelligence in Data Science (ICCIDS)
+Old Publisher Name: IEEE
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Predicting Learning Behaviour of Online Course Learners' using Hybrid Deep Learning Model
+ISSN: nan
+Old Publication Name: 2018 IEEE 6th International Conference on MOOCs, Innovation and Technology in Education (MITE)
+Old Publisher Name: IEEE
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Impact of Thermal Boundary Resistance on the Performance and Scaling of Phase-Change Memory Device
+ISSN: 2780070
+Old Publication Name: IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems
+Old Publisher Name: Institute of Electrical and Electronics Engineers Inc.
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: A Weighted Speaker-Specific Confusion Transducer-Based Augmentative and Alternative Speech Communication Aid for Dysarthric Speakers
+ISSN: 1534-4320 1558-0210
+Old Publication Name: IEEE Transactions on Neural Systems and Rehabilitation Engineering
+Old Publisher Name: Institute of Electrical and Electronics Engineers Inc.
+Old Indexing: Scopus
+New Publication Name: IEEE TRANSACTIONS ON NEURAL SYSTEMS AND REHABILITATION ENGINEERING
+New Publisher Name: IEEE-INST ELECTRICAL ELECTRONICS ENGINEERS INC
+==================================================
+Title: Direction-invariant binary pattern-encoded descriptor for texture classification and retrieval
+ISSN: 1017-9909
+Old Publication Name: Journal of Electronic Imaging
+Old Publisher Name: SPIE
+Old Indexing: Scopus
+New Publication Name: JOURNAL OF ELECTRONIC IMAGING
+New Publisher Name: SPIE-SOC PHOTO-OPTICAL INSTRUMENTATION ENGINEERS
+==================================================
+Title: A safety system for school children using GRAG
+ISSN: 1757-2657 1757-2665
+Old Publication Name: International Journal of Computer Aided Engineering and Technology
+Old Publisher Name: Inderscience
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: A New Optimized Distributed Scheduling Service using Genetic Computing
+ISSN: 1935-0090 2325-0399
+Old Publication Name: Applied Mathematics and Information Sciences
+Old Publisher Name: Natural Sciences Publishing
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: A novel microarray gene selection and classification using intelligent dynamic grey wolf optimization
+ISSN: 0534-0012 1820-6069
+Old Publication Name: Genetika
+Old Publisher Name: Drustvo Geneticara Srbije
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Epileptic Seizure Prediction Through Machine Learning and Spatio-Temporal Features Based Time Series Analysis of Intracranial Electroencephalogram Data
+ISSN: 2249-8958
+Old Publication Name: International Journal of Engineering and Advanced Technology
+Old Publisher Name: Blue Eyes Intelligence Engineering and Sciences Publication
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Prediction of West Nile Virus u sing Ensemble Classifiers
+ISSN: 2249-8958
+Old Publication Name: International Journal of Engineering and Advanced Technology
+Old Publisher Name: Blue Eyes Intelligence Engineering and Sciences Publication
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Artificial Neural Network and Gray Level Co-Occurrence Matrix Based Automated Corrosion Detection
+ISSN: 2249-8958
+Old Publication Name: International Journal of Engineering and Advanced Technology
+Old Publisher Name: Blue Eyes Intelligence Engineering and Sciences Publication
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Identification of Duplication in Questions Posed on Knowledge Sharing Platform Quora using Machine Learning Techniques
+ISSN: 2278-3075
+Old Publication Name: International Journal of Innovative Technology and Exploring Engineering
+Old Publisher Name: Blue Eyes Intelligence Engineering and Sciences Publication
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: RFID and PIR Motion Sensor based Automated Attendance System for Educational Institutions
+ISSN: 2277-3878
+Old Publication Name: International Journal of Recent Technology and Engineering
+Old Publisher Name: Blue Eyes Intelligence Engineering and Sciences Publication
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Nelder-Mead Optimized MADM Decision Support for Vertical Handover
+ISSN: 2277-3878
+Old Publication Name: International Journal of Recent Technology and Engineering
+Old Publisher Name: Blue Eyes Intelligence Engineering and Sciences Publication
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Performance Evaluation of Flying Wireless Network With Vanet Routing Protocol
+ISSN: 2582-1369
+Old Publication Name: Journal of ISMAC
+Old Publisher Name: Inventive Research Organization
+Old Indexing: nan
+Not Found!
+==================================================
+Title: QOS and Defense Enhancement Using Block Chain for Fly Wireless Networks
+ISSN: 2582-4104
+Old Publication Name: Journal of Trends in Computer Science and Smart Technology
+Old Publisher Name: Inventive Research Organization
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Delay Diminished Efficient Task Scheduling and Allocation for Heterogeneous Cloud Environment
+ISSN: 2582-4104
+Old Publication Name: Journal of Trends in Computer Science and Smart Technology
+Old Publisher Name: Inventive Research Organization
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Optimized bilevel classifier for brain tumor type and grade discrimination usingevolutionary fuzzy computing
+ISSN: 1303-6203
+Old Publication Name: Turkish Journal of Electrical Engineering and Computer Sciences
+Old Publisher Name: Turkiye Klinikleri Journal of Medical Sciences
+Old Indexing: Scopus
+New Publication Name: TURKISH JOURNAL OF ELECTRICAL ENGINEERING AND COMPUTER SCIENCES
+New Publisher Name: TUBITAK SCIENTIFIC & TECHNOLOGICAL RESEARCH COUNCIL TURKEY
+==================================================
+Title: Speech Emotion Recognition Based on Gender Influence in Emotional Expression
+ISSN: 1548-3657 1548-3665
+Old Publication Name: International Journal of Intelligent Information Technologies
+Old Publisher Name: IGI Publishing
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Sensitive Keyword Extraction Based on Cyber Keywords and LDA in Twitter to Avoid Regrets
+ISSN: 1868-4238 1868-422X
+Old Publication Name: IFIP Advances in Information and Communication Technology
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Social Media Veracity Detection System Using Calibrate Classifier
+ISSN: 1868-4238 1868-422X
+Old Publication Name: IFIP Advances in Information and Communication Technology
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Resource Scheduling Algorithms for Cloud Computing Environment: A Literature Survey
+ISSN: 2367-3370 2367-3389
+Old Publication Name: Lecture Notes in Networks and Systems
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Modern Parking Business Using Blockchain and Internet of Things (IoT)
+ISSN: 2194-5357 2194-5365
+Old Publication Name: Advances in Intelligent Systems and Computing
+Old Publisher Name: Springer Science and Business Media B.V.
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Tweet Classification Using Deep Learning Approach to Predict Sensitive Personal Data
+ISSN: 1876-1100 1876-1119
+Old Publication Name: Lecture Notes in Electrical Engineering
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Analysis of algorithms to estimate glottal closure instants from speech signals
+ISSN: 1381-2416 1572-8110
+Old Publication Name: International Journal of Speech Technology
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Reconfigurable silicon nanotube using numerical simulations
+ISSN: 1569-8025 1572-8137
+Old Publication Name: Journal of Computational Electronics
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: JOURNAL OF COMPUTATIONAL ELECTRONICS
+New Publisher Name: SPRINGER
+==================================================
+Title: Multi-model fusion based satellite image classification using versatile unsupervised vector zone (VUVZ) fusion and intensive pragmatic blossoms (IPB) technique
+ISSN: 1380-7501 1573-7721
+Old Publication Name: Multimedia Tools and Applications
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: MULTIMEDIA TOOLS AND APPLICATIONS
+New Publisher Name: SPRINGER
+==================================================
+Title: A new multi-level radial difference encoded pattern for image classification and retrieval
+ISSN: 0923-6082 1573-0824
+Old Publication Name: Multidimensional Systems and Signal Processing
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: MULTIDIMENSIONAL SYSTEMS AND SIGNAL PROCESSING
+New Publisher Name: SPRINGER
+==================================================
+Title: Construction and Evaluation of Tamil Speech Emotion Corpus
+ISSN: 0250-541X 2250-1754
+Old Publication Name: National Academy Science Letters
+Old Publisher Name: Springer India
+Old Indexing: Scopus
+New Publication Name: NATIONAL ACADEMY SCIENCE LETTERS-INDIA
+New Publisher Name: SPRINGER INDIA
+==================================================
+Title: Reconfigurable FET-Based SRAM and Its Single Event Upset Performance Analysis Using TCAD Simulations
+ISSN: 0026-2692
+Old Publication Name: Microelectronics Journal
+Old Publisher Name: Elsevier BV
+Old Indexing: nan
+New Publication Name: MICROELECTRONICS JOURNAL
+New Publisher Name: ELSEVIER SCI LTD
+==================================================
+Title: Phoneme classification in reconstructed phase space with convolutional neural networks
+ISSN: 0167-8655
+Old Publication Name: Pattern Recognition Letters
+Old Publisher Name: Elsevier B.V.
+Old Indexing: Scopus
+New Publication Name: PATTERN RECOGNITION LETTERS
+New Publisher Name: ELSEVIER
+==================================================
+Title: Eye Blink Detection Using Back Ground Subtraction and Gradient-Based Corner Detection for Preventing CVS
+ISSN: 1877-0509
+Old Publication Name: Procedia Computer Science
+Old Publisher Name: Elsevier BV
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Entropy Analysis on Planar Anamorphic Images
+ISSN: 1877-0509
+Old Publication Name: Procedia Computer Science
+Old Publisher Name: Elsevier BV
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Object Detection In Underwater Acoustic Images Using Edge Based Segmentation Method
+ISSN: 1877-0509
+Old Publication Name: Procedia Computer Science
+Old Publisher Name: Elsevier BV
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Start to Finish Automation Achieve on Cloud with Build Channel: By DevOps Method
+ISSN: 1877-0509
+Old Publication Name: Procedia Computer Science
+Old Publisher Name: Elsevier BV
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Optimized Feature Integration and Minimized Search Space in Content Based Image Retrieval
+ISSN: 1877-0509
+Old Publication Name: Procedia Computer Science
+Old Publisher Name: Elsevier BV
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Visual Speech Recognition using Fusion of Motion and Geometric Features
+ISSN: 1877-0509
+Old Publication Name: Procedia Computer Science
+Old Publisher Name: Elsevier BV
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Adaptive multi-band filter structure-based far-end speech enhancement
+ISSN: 1751-9675 1751-9683
+Old Publication Name: IET Signal Processing
+Old Publisher Name: John Wiley & Sons Inc.
+Old Indexing: Scopus
+New Publication Name: IET SIGNAL PROCESSING
+New Publisher Name: WILEY-HINDAWI
+==================================================
+Title: Hierarchical classifier design for speech emotion recognition in the mixed-cultural environment
+ISSN: 0952-813X 1362-3079
+Old Publication Name: Journal of Experimental and Theoretical Artificial Intelligence
+Old Publisher Name: Taylor and Francis Ltd.
+Old Indexing: Scopus
+New Publication Name: JOURNAL OF EXPERIMENTAL & THEORETICAL ARTIFICIAL INTELLIGENCE
+New Publisher Name: TAYLOR & FRANCIS LTD
+==================================================
+Title: Investigation of heavy-ion strikes on a fin field-effect transistor-based low-noise amplifier
+ISSN: 0268-1242 1361-6641
+Old Publication Name: Semiconductor Science and Technology
+Old Publisher Name: IOP Publishing Ltd.
+Old Indexing: Scopus
+New Publication Name: SEMICONDUCTOR SCIENCE AND TECHNOLOGY
+New Publisher Name: IOP PUBLISHING LTD
+==================================================
+Title: An Improved Seed Point Selection-Based Unsupervised Color Clustering for Content-Based Image Retrieval Application
+ISSN: 0010-4620 1460-2067
+Old Publication Name: Computer Journal
+Old Publisher Name: Oxford University Press
+Old Indexing: Scopus
+New Publication Name: COMPUTER JOURNAL
+New Publisher Name: OXFORD UNIV PRESS
+==================================================
+Title: Data Augmentation using virtual microphone array synthesis and multi-resolution feature extraction for isolated word dysarthric speech recognition
+ISSN: 1932-4553 1941-0484
+Old Publication Name: IEEE Journal on Selected Topics in Signal Processing
+Old Publisher Name: Institute of Electrical and Electronics Engineers Inc.
+Old Indexing: Scopus
+New Publication Name: IEEE JOURNAL OF SELECTED TOPICS IN SIGNAL PROCESSING
+New Publisher Name: IEEE-INST ELECTRICAL ELECTRONICS ENGINEERS INC
+==================================================
+Title: Multi-Level Single-Channel Speech Enhancement Using a Unified Framework for Estimating Magnitude and Phase Spectra
+ISSN: 2329-9290 2329-9304
+Old Publication Name: IEEE/ACM Transactions on Audio Speech and Language Processing
+Old Publisher Name: IEEE Advancing Technology for Humanity
+Old Indexing: Scopus
+New Publication Name: IEEE-ACM TRANSACTIONS ON AUDIO SPEECH AND LANGUAGE PROCESSING
+New Publisher Name: IEEE-INST ELECTRICAL ELECTRONICS ENGINEERS INC
+==================================================
+Title: Influence of Primary Auditory Cortex in the Characterization of Autism Spectrum in Young Adults using Brain Connectivity Parameters and Deep Belief Networks: An fMRI Study
+ISSN: 1573-4056
+Old Publication Name: Current Medical Imaging
+Old Publisher Name: Bentham Science Publishers B.V.
+Old Indexing: Scopus
+New Publication Name: CURRENT MEDICAL IMAGING
+New Publisher Name: BENTHAM SCIENCE PUBL LTD
+==================================================
+Title: A Study on the Impact of Lombard Effect on Recognition of Hindi Syllabic Units Using CNN Based Multimodal ASR Systems
+ISSN: 0137-5075 2300-262X
+Old Publication Name: Archives of Acoustics
+Old Publisher Name: Polish Academy of Sciences, Committee on Acoustics
+Old Indexing: Scopus
+New Publication Name: ARCHIVES OF ACOUSTICS
+New Publisher Name: POLSKA AKAD NAUK, POLISH ACAD SCIENCES, INST FUNDAMENTAL TECH RES PAS
+==================================================
+Title: An enhanced OCT image captioning system to assist ophthalmologists in detecting and classifying eye diseases
+ISSN: 0895-3996 1095-9114
+Old Publication Name: Journal of X-Ray Science and Technology
+Old Publisher Name: IOS Press BV
+Old Indexing: Scopus
+New Publication Name: JOURNAL OF X-RAY SCIENCE AND TECHNOLOGY
+New Publisher Name: IOS PRESS
+==================================================
+Title: Epilepsy Prediction using a Combined LSTM - XGBoost System on EEG Signals
+ISSN: 2278-3075
+Old Publication Name: International Journal of Innovative Technology and Exploring Engineering
+Old Publisher Name: Blue Eyes Intelligence Engineering and Sciences Publication
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Remaining Useful Life (RUL) Estimation of Lead Acid Battery using Bayesian Approach
+ISSN: 2582-3051
+Old Publication Name: Journal of Electrical Engineering and Automation
+Old Publisher Name: Inventive Research Organization
+Old Indexing: nan
+Not Found!
+==================================================
+Title: EL DAPP - An Electricity Meter Tracking Decentralized Application
+ISSN: 2582-3825
+Old Publication Name: Mar-20
+Old Publisher Name: Inventive Research Organization
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Medical Data Management Using Blockchain
+ISSN: 2582-1369
+Old Publication Name: Dec-20
+Old Publisher Name: Inventive Research Organization
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Fog Computing - A Rasperry Pi Decentralized Network
+ISSN: 2582-418X
+Old Publication Name: Journal of Information Technology and Digital World
+Old Publisher Name: Inventive Research Organization
+Old Indexing: nan
+Not Found!
+==================================================
+Title: MOOCVERSITY - Deep Learning Based Dropout Prediction in MOOCs over Weeks
+ISSN: 2582-2640
+Old Publication Name: Journal of Soft Computing Paradigm
+Old Publisher Name: Inventive Research Organization
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Inter-Hemispherical Investigations on the Functional Connectivity in Controls and Autism Spectrum Using Resting State fMRI
+ISSN: 2327-0411 2327-042X
+Old Publication Name: Advances in Computational Intelligence and Robotics
+Old Publisher Name: IGI Global
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Deep learning approach to detect seizure using reconstructed phase space images
+ISSN: 1674-8301
+Old Publication Name: Journal of Biomedical Research
+Old Publisher Name: Nanjing Medical University
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Metamaterial-loaded multiband antenna for embedded automotive Internet-of-Things communications
+ISSN: 1074-5351 1099-1131
+Old Publication Name: International Journal of Communication Systems
+Old Publisher Name: John Wiley and Sons Ltd
+Old Indexing: Scopus
+New Publication Name: INTERNATIONAL JOURNAL OF COMMUNICATION SYSTEMS
+New Publisher Name: WILEY
+==================================================
+Title: NoRegINT--A Tool for Performing OSINT and Analysis from Social Media
+ISSN: 2367-3370 2367-3389
+Old Publication Name: Lecture Notes in Networks and Systems
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Degenerative disc disease diagnosis from lumbar MR images using hybrid features
+ISSN: 0178-2789 1432-2315
+Old Publication Name: Visual Computer
+Old Publisher Name: Springer Verlag
+Old Indexing: Scopus
+New Publication Name: VISUAL COMPUTER
+New Publisher Name: SPRINGER
+==================================================
+Title: A novel data hiding by image interpolation using edge quad-tree block complexity
+ISSN: 0178-2789 1432-2315
+Old Publication Name: Visual Computer
+Old Publisher Name: Springer Verlag
+Old Indexing: Scopus
+New Publication Name: VISUAL COMPUTER
+New Publisher Name: SPRINGER
+==================================================
+Title: Tweet-scan-post: a system for analysis of sensitive private data disclosure in online social media
+ISSN: 0219-1377 0219-3116
+Old Publication Name: Knowledge and Information Systems
+Old Publisher Name: Springer London
+Old Indexing: Scopus
+New Publication Name: KNOWLEDGE AND INFORMATION SYSTEMS
+New Publisher Name: SPRINGER LONDON LTD
+==================================================
+Title: Understanding Lombard speech: a review of compensation techniques towards improving speech based recognition systems
+ISSN: 0269-2821 1573-7462
+Old Publication Name: Artificial Intelligence Review
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: ARTIFICIAL INTELLIGENCE REVIEW
+New Publisher Name: SPRINGER
+==================================================
+Title: A deep learning approach for robust speaker identification using chroma energy normalized statistics and mel frequency cepstral coefficients
+ISSN: 1381-2416 1572-8110
+Old Publication Name: International Journal of Speech Technology
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Secure data hiding by fruit fly optimization improved hybridized seeker algorithm
+ISSN: 0923-6082 1573-0824
+Old Publication Name: Multidimensional Systems and Signal Processing
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: MULTIDIMENSIONAL SYSTEMS AND SIGNAL PROCESSING
+New Publisher Name: SPRINGER
+==================================================
+Title: EarNet: Biometric Embeddings for End to End Person Authentication System Using Transient Evoked Otoacoustic Emission Signals
+ISSN: 1370-4621 1573-773X
+Old Publication Name: Neural Processing Letters
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: NEURAL PROCESSING LETTERS
+New Publisher Name: SPRINGER
+==================================================
+Title: Blockchain Based Chameleon Hashing Technique for Privacy Preservation in E-Governance System
+ISSN: 0929-6212 1572-834X
+Old Publication Name: Wireless Personal Communications
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: WIRELESS PERSONAL COMMUNICATIONS
+New Publisher Name: SPRINGER
+==================================================
+Title: Hybrid Bird Swarm Optimized Quasi Affine Algorithm Based Node Location in Wireless Sensor Networks
+ISSN: 0929-6212 1572-834X
+Old Publication Name: Wireless Personal Communications
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: WIRELESS PERSONAL COMMUNICATIONS
+New Publisher Name: SPRINGER
+==================================================
+Title: Performance analysis of nature inspired load balancing algorithm in cloud environment
+ISSN: 1868-5137 1868-5145
+Old Publication Name: Journal of Ambient Intelligence and Humanized Computing
+Old Publisher Name: Springer Verlag
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Performance evaluation of encryption algorithm using fruit fly optimization improved hybridized seeker and PVD algorithm
+ISSN: 2511-2104 2511-2112
+Old Publication Name: International Journal of Information Technology (Singapore)
+Old Publisher Name: Springer Science + Business Media
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Reconstructed phase space portraits for detecting brain diseases using deep learning
+ISSN: 1746-8094
+Old Publication Name: Biomedical Signal Processing and Control
+Old Publisher Name: Elsevier B.V.
+Old Indexing: Scopus
+New Publication Name: BIOMEDICAL SIGNAL PROCESSING AND CONTROL
+New Publisher Name: ELSEVIER SCI LTD
+==================================================
+Title: Miniaturized Dual-Band Metamaterial-Loaded Antenna for Heterogeneous Vehicular Communication Networks
+ISSN: 0377-2063 0974-780X
+Old Publication Name: IETE Journal of Research
+Old Publisher Name: Taylor and Francis Ltd.
+Old Indexing: Scopus
+New Publication Name: IETE JOURNAL OF RESEARCH
+New Publisher Name: TAYLOR & FRANCIS LTD
+==================================================
+Title: Proactive maintenance of small wind turbines using IoT and machine learning models
+ISSN: 1543-5075 1543-5083
+Old Publication Name: International Journal of Green Energy
+Old Publisher Name: Taylor and Francis Ltd.
+Old Indexing: Scopus
+New Publication Name: INTERNATIONAL JOURNAL OF GREEN ENERGY
+New Publisher Name: TAYLOR & FRANCIS INC
+==================================================
+Title: Auto-Off ID: Automatic Detection of Offensive Language in Social Media
+ISSN: 1742-6588 1742-6596
+Old Publication Name: Journal of Physics: Conference Series
+Old Publisher Name: IOP Publishing
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Rumor Identification and Verification for Text in Social Media Content
+ISSN: 0010-4620 1460-2067
+Old Publication Name: Computer Journal
+Old Publisher Name: Oxford University Press
+Old Indexing: Scopus
+New Publication Name: COMPUTER JOURNAL
+New Publisher Name: OXFORD UNIV PRESS
+==================================================
+Title: Enhancing Speech Quality Using Artificial Bandwidth Expansion with Deep Shallow Convolution Neural Network Framework
+ISSN: 0219-4775 1793-6780
+Old Publication Name: Fluctuation and Noise Letters
+Old Publisher Name: World Scientific
+Old Indexing: Scopus
+New Publication Name: FLUCTUATION AND NOISE LETTERS
+New Publisher Name: WORLD SCIENTIFIC PUBL CO PTE LTD
+==================================================
+Title: Assurance on data integrity in cloud data centre using PKI built RDIC method
+ISSN: nan
+Old Publication Name: Recent Trends in Communication and Electronics
+Old Publisher Name: CRC Press
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Optimised feature selection for early cancer detection
+ISSN: 0534-0012 1820-6069
+Old Publication Name: Genetika
+Old Publisher Name: Drustvo Geneticara Srbije
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Acoustic-visual based Accent Identification system using deep neural networks
+ISSN: 3276716
+Old Publication Name: Revista Argentina de Clinica Psicologica
+Old Publisher Name: Raffles Connect PTE LTD
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Recognition of hand signs based on geometrical features using machine learning and deep learning approaches
+ISSN: 3276716
+Old Publication Name: Revista Argentina de Clinica Psicologica
+Old Publisher Name: Raffles Connect PTE LTD
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Intelligent Deep Learning Based Disease Diagnosis Using Biomedical Tongue Images
+ISSN: 1546-2226
+Old Publication Name: Computers, Materials and Continua
+Old Publisher Name: Tech Science Press
+Old Indexing: Scopus
+New Publication Name: CMC-COMPUTERS MATERIALS & CONTINUA
+New Publisher Name: TECH SCIENCE PRESS
+==================================================
+Title: IoT-Cloud Empowered Aerial Scene Classification for Unmanned Aerial Vehicles
+ISSN: 1546-2226
+Old Publication Name: Computers, Materials and Continua
+Old Publisher Name: Tech Science Press
+Old Indexing: Scopus
+New Publication Name: CMC-COMPUTERS MATERIALS & CONTINUA
+New Publisher Name: TECH SCIENCE PRESS
+==================================================
+Title: End-to-End Speech Recognition of Tamil Language
+ISSN: 1079-8587
+Old Publication Name: Intelligent Automation and Soft Computing
+Old Publisher Name: Tech Science Press
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Impact of Singing Bowl Playing on the Brain Using EEG
+ISSN: 0976-6553 0976-6545
+Old Publication Name: International Journal of Electrical Engineering and Technology
+Old Publisher Name: IAEME Publication
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Parkinson's Disease Detection using Machine Learning Techniques
+ISSN: 3276716
+Old Publication Name: Revista Argentina de Clinica Psicologica
+Old Publisher Name: Raffles Connect PTE LTD
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Fruit-Fly optimization-based feature integration in image retrieval
+ISSN: 1551-0018
+Old Publication Name: Mathematical Biosciences and Engineering
+Old Publisher Name: Arizona State University
+Old Indexing: Scopus
+New Publication Name: MATHEMATICAL BIOSCIENCES AND ENGINEERING
+New Publisher Name: AMER INST MATHEMATICAL SCIENCES-AIMS
+==================================================
+Title: Underwater Acoustic Image Denoising Using Stationary Wavelet Transform and Various Shrinkage Functions
+ISSN: 1577-5097
+Old Publication Name: Electronic Letters on Computer Vision and Image Analysis
+Old Publisher Name: Centre de Visio per Computador
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Privacy Enhancement for Wireless Sensor Networks and the Internet of Things Based on Cryptological Techniques
+ISSN: nan
+Old Publication Name: Wireless Communication for Cybersecurity
+Old Publisher Name: Wiley
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Security and Confidentiality Concerns in Blockchain Technology
+ISSN: nan
+Old Publication Name: Wireless Communication for Cybersecurity
+Old Publisher Name: Wiley
+Old Indexing: nan
+Not Found!
+==================================================
+Title: An efficient hand gesture recognition based on optimal deep embedded hybrid convolutional neural network-long short term memory network model
+ISSN: 1532-0626 1532-0634
+Old Publication Name: Concurrency Computation Practice and Experience
+Old Publisher Name: John Wiley and Sons Ltd
+Old Indexing: Scopus
+New Publication Name: CONCURRENCY AND COMPUTATION-PRACTICE & EXPERIENCE
+New Publisher Name: WILEY
+==================================================
+Title: Early Alzheimer Detection Through Speech Analysis and Vision Transformer Approach
+ISSN: 1865-0929 1865-0937
+Old Publication Name: Communications in Computer and Information Science
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Challenges and Opportunities for Green Energy Harvesting in Sustainable IoT Systems
+ISSN: 2522-8595 2522-8609
+Old Publication Name: EAI/Springer Innovations in Communication and Computing
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Automatic Credit Fraud Detection Using Ensemble Model
+ISSN: 2367-3370 2367-3389
+Old Publication Name: Lecture Notes in Networks and Systems
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Swear Words Replacement Suggestion System
+ISSN: 2367-3370 2367-3389
+Old Publication Name: Lecture Notes in Networks and Systems
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Applications of Open Source Intelligence in Crisis Analysis--A COVID-19 Case Study
+ISSN: 2367-3370 2367-3389
+Old Publication Name: Lecture Notes in Networks and Systems
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Program Synthesis - A Survey
+ISSN: 978-981-16-8484-5
+Old Publication Name: Computational Intelligence in Machine Learning. Lecture Notes in Electrical Engineering
+Old Publisher Name: Springer Singapore
+Old Indexing: nan
+Not Found!
+==================================================
+Title: DetecSec: A Framework to Detect and Mitigate ARP Cache Poisoning Attacks
+ISSN: 2367-4512 2367-4520
+Old Publication Name: Lecture Notes on Data Engineering and Communications Technologies
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: COVID-19 Detection Using Chest X-rays: CNN as a Classifier Versus CNN as a Feature Extractor
+ISSN: 2524-7565 2524-7573
+Old Publication Name: Algorithms for Intelligent Systems
+Old Publisher Name: Springer Nature Singapore
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Analysis of Cryptocurrency Mining in Gaming Consoles
+ISSN: 978-981-19-0019-8
+Old Publication Name: Lecture Notes in Electrical Engineering
+Old Publisher Name: Springer Singapore
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Generative Adversarial Networks and Their Application in Fake Tweet Detection
+ISSN: 2367-3370 2367-3389
+Old Publication Name: Lecture Notes in Networks and Systems
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Region Classification for Air Quality Estimation Using Deep Learning and Machine Learning Approach
+ISSN: 1876-1100 1876-1119
+Old Publication Name: Lecture Notes in Electrical Engineering
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: An Ensemble Approach to Recognize Activities in Smart Environment Using Motion Sensors and Air Quality Sensors
+ISSN: 2524-7565 2524-7573
+Old Publication Name: Data Intelligence and Cognitive Informatics
+Old Publisher Name: Springer Nature Singapore
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Snooping for Fake News: A Cascaded Approach Using Stance Detection and Entailment Classification
+ISSN: 1876-1100 1876-1119
+Old Publication Name: Lecture Notes in Electrical Engineering
+Old Publisher Name: Springer Nature
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Classification of inter-patient's cardiac arrhythmias in ECG signals with enhanced Jaya optimized TQWT parameters and stacked ensemble algorithm
+ISSN: 1432-7643 1433-7479
+Old Publication Name: Soft Computing
+Old Publisher Name: Springer Science and Business Media Deutschland GmbH
+Old Indexing: Scopus
+New Publication Name: SOFT COMPUTING
+New Publisher Name: SPRINGER
+==================================================
+Title: Epileptic seizure detection using convolutional neural networks and recurrence plots of EEG signals
+ISSN: 1380-7501 1573-7721
+Old Publication Name: Multimedia Tools and Applications
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: MULTIMEDIA TOOLS AND APPLICATIONS
+New Publisher Name: SPRINGER
+==================================================
+Title: Optimum anamorphic image generation using image rotation and relative entropy
+ISSN: 1380-7501 1573-7721
+Old Publication Name: Multimedia Tools and Applications
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: MULTIMEDIA TOOLS AND APPLICATIONS
+New Publisher Name: SPRINGER
+==================================================
+Title: Classification of skin cancer from dermoscopic images using deep neural network architectures
+ISSN: 1380-7501 1573-7721
+Old Publication Name: Multimedia Tools and Applications
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: MULTIMEDIA TOOLS AND APPLICATIONS
+New Publisher Name: SPRINGER
+==================================================
+Title: An adaboost-modified classifier using particle swarm optimization and stochastic diffusion search in wireless IoT networks
+ISSN: 1022-0038 1572-8196
+Old Publication Name: Wireless Networks
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: WIRELESS NETWORKS
+New Publisher Name: SPRINGER
+==================================================
+Title: Optimizing high-utility item mining using hybrid dolphin echolocation and Boolean grey wolf optimization
+ISSN: 1868-5137 1868-5145
+Old Publication Name: Journal of Ambient Intelligence and Humanized Computing
+Old Publisher Name: Springer Verlag
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: A new multi-stream approach using acoustic and visual features for robust speech recognition system
+ISSN: 2214-7853
+Old Publication Name: Materials Today: Proceedings
+Old Publisher Name: Elsevier BV
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: A multimodal Lombard speech recognition system for the confusable Hindi syllabic units
+ISSN: 2214-7853
+Old Publication Name: Materials Today: Proceedings
+Old Publisher Name: Elsevier BV
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Assessment and classification of grid stability with cost-sensitive stacked ensemble classifier
+ISSN: 0005-1144 1848-3380
+Old Publication Name: Automatika
+Old Publisher Name: Taylor and Francis Ltd.
+Old Indexing: Scopus
+New Publication Name: AUTOMATIKA
+New Publisher Name: TAYLOR & FRANCIS LTD
+==================================================
+Title: Clinical Decision Support System for Ophthalmologists for Eye Disease Classification
+ISSN: 0377-2063 0974-780X
+Old Publication Name: IETE Journal of Research
+Old Publisher Name: Taylor and Francis Ltd.
+Old Indexing: Scopus
+New Publication Name: IETE JOURNAL OF RESEARCH
+New Publisher Name: TAYLOR & FRANCIS LTD
+==================================================
+Title: Scalable Hridaya kolam and Aishwarya kolam
+ISSN: 1751-3472 1751-3480
+Old Publication Name: Journal of Mathematics and the Arts
+Old Publisher Name: Taylor and Francis Ltd.
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Impact of process-induced ellipticity on the RESET process of cylindrical phase change memory devices
+ISSN: 0031-8949 1402-4896
+Old Publication Name: Physica Scripta
+Old Publisher Name: IOP Publishing Ltd.
+Old Indexing: Scopus
+New Publication Name: PHYSICA SCRIPTA
+New Publisher Name: IOP PUBLISHING LTD
+==================================================
+Title: 'Will I Regret for This Tweet?'--Twitter User's Behavior Analysis System for Private Data Disclosure
+ISSN: 0010-4620 1460-2067
+Old Publication Name: Computer Journal
+Old Publisher Name: Oxford University Press
+Old Indexing: Scopus
+New Publication Name: COMPUTER JOURNAL
+New Publisher Name: OXFORD UNIV PRESS
+==================================================
+Title: Reconfigurable FET-Based Tunable Ring Oscillator and Its Single Event Effect Performance
+ISSN: 0218-1266 1793-6454
+Old Publication Name: Journal of Circuits, Systems and Computers
+Old Publisher Name: World Scientific
+Old Indexing: Scopus
+New Publication Name: JOURNAL OF CIRCUITS SYSTEMS AND COMPUTERS
+New Publisher Name: WORLD SCIENTIFIC PUBL CO PTE LTD
+==================================================
+Title: An Effective Crack Identification in Civil Infrastructure with IoT and Improved Convolutional Neural Network
+ISSN: 0219-4554 1793-6764
+Old Publication Name: International Journal of Structural Stability and Dynamics
+Old Publisher Name: World Scientific
+Old Indexing: Scopus
+New Publication Name: INTERNATIONAL JOURNAL OF STRUCTURAL STABILITY AND DYNAMICS
+New Publisher Name: WORLD SCIENTIFIC PUBL CO PTE LTD
+==================================================
+Title: Multimodality dementia detection system using machine and deep learning
+ISSN: nan
+Old Publication Name: Computational Intelligence Aided Systems for Healthcare Domain
+Old Publisher Name: CRC Press
+Old Indexing: nan
+Not Found!
+==================================================
+Title: A Distance Vector Hop and Differential Evolution based Interception Strategy for detecting Cross Border Infiltration in Underground Tunnel
+ISSN: 0976-464X 0011-748X
+Old Publication Name: Defence Science Journal
+Old Publisher Name: Defense Scientific Information and Documentation Centre
+Old Indexing: Scopus
+New Publication Name: DEFENCE SCIENCE JOURNAL
+New Publisher Name: DEFENCE SCIENTIFIC INFORMATION DOCUMENTATION CENTRE
+==================================================
+Title: Measuring the accuracy of Satellite Image Dataset using Fusion based Classification with Neural Networks
+ISSN:  1303-5150
+Old Publication Name: Cels
+Old Publisher Name: University of Latvia Press
+Old Indexing: Scopus
+New Publication Name: 2D MATERIALS
+New Publisher Name: IOP PUBLISHING LTD
+==================================================
+Title: Neutrosophic Approach of Segmentation on Thermal Images - Case Study: Drowsy Driving Application
+ISSN: 13035150
+Old Publication Name: NeuroQuantology 
+Old Publisher Name: Anka Publishers
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: A hybrid approach for analysis of brain lateralisation in autistic children using graph theory techniques and deep belief networks
+ISSN: 1752-6418 1752-6426
+Old Publication Name: International Journal of Biomedical Engineering and Technology
+Old Publisher Name: Inderscience Enterprises Ltd
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: An Efficient Edge Preserving Interpolation Method for Underwater Acoustic Image Resolution Enhancement
+ISSN: 0137-5075 2300-262X
+Old Publication Name: Archives of Acoustics
+Old Publisher Name: Polish Academy of Sciences, Committee on Acoustics
+Old Indexing: Scopus
+New Publication Name: ARCHIVES OF ACOUSTICS
+New Publisher Name: POLSKA AKAD NAUK, POLISH ACAD SCIENCES, INST FUNDAMENTAL TECH RES PAS
+==================================================
+Title: Design of Hierarchical Classifier to Improve Speech Emotion Recognition
+ISSN: 0267-6192
+Old Publication Name: Computer Systems Science and Engineering
+Old Publisher Name: Tech Science Press
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Histogram Matched Chest X-Rays Based Tuberculosis Detection Using CNN
+ISSN: 0267-6192
+Old Publication Name: Computer Systems Science and Engineering
+Old Publisher Name: Tech Science Press
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Diabetic Retinopathy Diagnosis Using Interval Neutrosophic Segmentation with Deep Learning Model
+ISSN: 0267-6192
+Old Publication Name: Computer Systems Science and Engineering
+Old Publisher Name: Tech Science Press
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Efficient Authentication System Using Wavelet Embeddings of Otoacoustic Emission Signals
+ISSN: 0267-6192
+Old Publication Name: Computer Systems Science and Engineering
+Old Publisher Name: Tech Science Press
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Enhanced Distributed Storage System Using Lower Triangular Matrix-Luby Transform Codes
+ISSN: 1079-8587
+Old Publication Name: Intelligent Automation and Soft Computing
+Old Publisher Name: Tech Science Press
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Blockchain based system for transfer of funds through an e-Governance application
+ISSN: 1220-1758 1841-4303
+Old Publication Name: Revista Romana de Informatica si Automatica
+Old Publisher Name: ICI Bucharest
+Old Indexing: nan
+Not Found!
+==================================================
+Title: RDNN: Rumor Detection Neural Network for Veracity Analysis in Social Media Text
+ISSN: 1976-7277
+Old Publication Name: KSII Transactions on Internet and Information Systems
+Old Publisher Name: Korea Society of Internet Information
+Old Indexing: Scopus
+New Publication Name: KSII TRANSACTIONS ON INTERNET AND INFORMATION SYSTEMS
+New Publisher Name: KSII-KOR SOC INTERNET INFORMATION
+==================================================
+Title: A Hybrid PSO-ACO Algorithm to Facilitate Software Project Scheduling
+ISSN: 15483681
+Old Publication Name: International Journal of e-Collaboration
+Old Publisher Name: IGI Publishing
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Alzheimer's Dementia: Diagnosis and Prognosis using Neuro-Imaging Analysis
+ISSN: nan
+Old Publication Name: Journal of Pharmaceutical Negative Results
+Old Publisher Name: Siree Journals
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Identification and Diagnosis of Breast Cancer using a Composite Machine Learning Techniques
+ISSN: nan
+Old Publication Name: Journal of Pharmaceutical Negative Results
+Old Publisher Name: Siree Journals
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Cow Disease (LSD) Classification System for predicting different Severity levels.
+ISSN: 1308-5581
+Old Publication Name: International Journal of Early Childhood Special Education
+Old Publisher Name: Anadolu University, Faculty of Education
+Old Indexing: Scopus
+Not Found!
+==================================================
+Title: Data Analytics and Reporting API - A Reliable Tool for Data Visualization and Predictive Analysis
+ISSN: 2335-884X 1392-124X
+Old Publication Name: Information Technology and Control
+Old Publisher Name: Kauno Technologijos Universitetas
+Old Indexing: Scopus
+New Publication Name: INFORMATION TECHNOLOGY AND CONTROL
+New Publisher Name: KAUNAS UNIV TECHNOLOGY
+==================================================
+Title: A Neutrosophic Set  Approach on Chest  X-rays for Automatic Lung  Infection Detection
+ISSN: 2335-884X 1392-124X
+Old Publication Name: Information Technology and Control
+Old Publisher Name: Kauno Technologijos Universitetas
+Old Indexing: Scopus
+New Publication Name: INFORMATION TECHNOLOGY AND CONTROL
+New Publisher Name: KAUNAS UNIV TECHNOLOGY
+==================================================
+Title: Hierarchical Text Summarization Using Semantic Similarity
+ISSN: nan
+Old Publication Name: Research Highlights in Language, Literature and Education Vol. 6
+Old Publisher Name: B P International (a part of SCIENCEDOMAIN International)
+Old Indexing: nan
+Not Found!
+==================================================
+Title: Hybrid intelligent intrusion detection system for multiple Wi-Fi attacks in wireless networks using stacked restricted Boltzmann machine and deep belief networks
+ISSN: 1532-0626 1532-0634
+Old Publication Name: Concurrency Computation Practice and Experience
+Old Publisher Name: John Wiley and Sons Ltd
+Old Indexing: Scopus
+New Publication Name: CONCURRENCY AND COMPUTATION-PRACTICE & EXPERIENCE
+New Publisher Name: WILEY
+==================================================
+Title: Cascaded UNets with Modified Skip Connection for Breast Tumor Segmentation
+ISSN: 1370-4621 1573-773X
+Old Publication Name: Neural Processing Letters
+Old Publisher Name: Springer Netherlands
+Old Indexing: Scopus
+New Publication Name: NEURAL PROCESSING LETTERS
+New Publisher Name: SPRINGER
+==================================================
+Title: AI-enabled metaheuristic optimization for predictive management of renewable energy production in smart grids
+ISSN: 2352-4847
+Old Publication Name: Energy Reports
+Old Publisher Name: Elsevier Ltd
+Old Indexing: Scopus
+New Publication Name: ENERGY REPORTS
+New Publisher Name: ELSEVIER
+==================================================
+Title: Categorization of Indian residential consumers electrical energy consumption pattern using clustering and classification techniques
+ISSN: 0360-5442
+Old Publication Name: Energy
+Old Publisher Name: Elsevier Ltd
+Old Indexing: Scopus
+New Publication Name: ENERGY
+New Publisher Name: PERGAMON-ELSEVIER SCIENCE LTD
+==================================================
+Title: Single event performance of FED based SRAMs using numerical simulation
+ISSN: 0026-2714
+Old Publication Name: Microelectronics Reliability
+Old Publisher Name: Elsevier Ltd
+Old Indexing: Scopus
+New Publication Name: MICROELECTRONICS RELIABILITY
+New Publisher Name: PERGAMON-ELSEVIER SCIENCE LTD
+==================================================
+Title: Event-Based Epileptic Seizure Detection with Stacked Convolutional Restricted Boltzmann Machine
+ISSN: 0377-2063 0974-780X
+Old Publication Name: IETE Journal of Research
+Old Publisher Name: Taylor and Francis Ltd.
+Old Indexing: Scopus
+New Publication Name: IETE JOURNAL OF RESEARCH
+New Publisher Name: TAYLOR & FRANCIS LTD
+==================================================
+Title: Cognitive decline assessment using semantic linguistic content and transformer deep learning architecture
+ISSN: 1368-2822 1460-6984
+Old Publication Name: International Journal of Language and Communication Disorders
+Old Publisher Name: Wiley-Blackwell
+Old Indexing: Scopus
+New Publication Name: INTERNATIONAL JOURNAL OF LANGUAGE & COMMUNICATION DISORDERS
+New Publisher Name: WILEY
+==================================================
+Title: Urban Environmental Flood Susceptibility Using a Multi-Layered Neural Network Model From Satellite Imagery Sources
+ISSN: 1790-7632 2241-777X
+Old Publication Name: Global Nest Journal
+Old Publisher Name: Global NEST
+Old Indexing: Scopus
+New Publication Name: GLOBAL NEST JOURNAL
+New Publisher Name: GLOBAL NETWORK ENVIRONMENTAL SCIENCE & TECHNOLOGY
+==================================================
+Title: Automated carcinoma classification using efficient nuclei-based patch selection and deep learning techniques
+ISSN: 1064-1246 1875-8967
+Old Publication Name: Journal of Intelligent and Fuzzy Systems
+Old Publisher Name: IOS Press BV
+Old Indexing: Scopus
+New Publication Name: JOURNAL OF INTELLIGENT & FUZZY SYSTEMS
+New Publisher Name: IOS PRESS
+==================================================
+Title: Fake news detection using a deep learning transformer based encoder-decoder architecture
+ISSN: 1064-1246 1875-8967
+Old Publication Name: Journal of Intelligent and Fuzzy Systems
+Old Publisher Name: IOS Press BV
+Old Indexing: Scopus
+New Publication Name: JOURNAL OF INTELLIGENT & FUZZY SYSTEMS
+New Publisher Name: IOS PRESS
+==================================================
+Title: Hybrid Convolutional Neural Network for Plant Diseases Prediction
+ISSN: 1079-8587
+Old Publication Name: Intelligent Automation and Soft Computing
+Old Publisher Name: Tech Science Press
+Old Indexing: Scopus
+Not Found!
+94
