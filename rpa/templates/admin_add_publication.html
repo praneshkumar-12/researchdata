@@ -194,7 +194,7 @@
             var cell = row.cells[1]; // Change the index to match your column number
             
             // Check if the cell contains 'None' or 'NULL'
-            if (cell.textContent.trim() === 'None' || cell.textContent.trim() === 'NULL' || cell.textContent.trim() === '0') {
+            if (cell.textContent.trim() === 'None' || cell.textContent.trim() === 'NULL' || cell.textContent.trim() === '0' || !(cell.textContent.trim())) {
 
                 if (i == getIndexByKey('Student Author')){
                     var selectElement = document.createElement('select');

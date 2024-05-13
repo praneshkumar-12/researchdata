@@ -410,7 +410,7 @@ def return_list():
     for key, value in database_fields.items():
         if (not value) or (value is not None and "NULL" == value):
             logging.warning(f"Value for {key} not found")
-            content_to_write[key] = "NULL"
+            # content_to_write[key] = "NULL"
         else:
             logging.warning(f"Value for {key} found")
             content_to_write[key] = asciify(str(value))

@@ -669,6 +669,10 @@ def user_get_doi(request):
                 },
             )
         else:
+            if result.get("volume") is None:
+                result["volume"] = 0
+            if result.get("citation") is None:
+                result["citation"] = 0
             return render(request, "add_publication.html", {"result": result})
 
     name = request.session.get("FACULTY_NAME", "")
@@ -709,6 +713,11 @@ def user_get_title(request):
                 },
             )
         else:
+            if result.get("volume") is None:
+                result["volume"] = 0
+            if result.get("citation") is None:
+                result["citation"] = 0
+
             return render(request, "add_publication.html", {"result": result})
 
     name = request.session.get("FACULTY_NAME", "")

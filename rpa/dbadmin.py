@@ -360,6 +360,12 @@ def admin_get_doi(request):
                 },
             )
         else:
+            if result.get("volume") is None:
+                result["volume"] = 0
+            if result.get("citation") is None:
+                result["citation"] = 0
+            
+            print(result)
             return render(request, "admin_add_publication.html", {"result": result})
 
     name = request.session.get("FACULTY_NAME", "")
@@ -400,6 +406,11 @@ def admin_get_title(request):
                 },
             )
         else:
+            if result.get("volume") is None:
+                result["volume"] = 0
+            if result.get("citation") is None:
+                result["citation"] = 0
+            
             return render(request, "admin_add_publication.html", {"result": result})
 
     name = request.session.get("FACULTY_NAME", "")
@@ -587,7 +598,6 @@ def admin_get_charts(request):
     chart_records = {}
     all_records = Publications.objects.all()
     for record in all_records:
-        indices = record.indexing.split(", ")
         if (
             not record.indexing
             or record.indexing == "NULL"
@@ -595,6 +605,7 @@ def admin_get_charts(request):
         ):
             key = "Others"
         else:
+            indices = record.indexing.split(", ")
             for index in indices:
                 if index not in ['Scopus', 'Web of Sciences']:
                     key = "Others"
