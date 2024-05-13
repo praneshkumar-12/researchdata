@@ -95,73 +95,66 @@
             </div>
 
             
+
+
             <div class="flex-1">
-                <label for="from_publication_year" class="form-label">From Publication Year:</label>
-                <select id="from_publication_year" name="from_publication_year" class="form-select">
+                <label for="from_publication_year_month" class="form-label">From:</label>
+                <select id="from_publication_year" name="from_publication_year" class="form-select" onchange="populateMonths('from')">
                     <option value="all">All</option>
-                    <option value="2010">2010</option>
-                    <option value="2011">2011</option>
-                    <option value="2012">2012</option>
-                    <option value="2013">2013</option>
-                    <option value="2014">2014</option>
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
                     <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                </select>
+                <select id="from_publication_month" name="from_publication_month" class="form-select" style="display: none;">
+                    <option value="all">All</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
                 </select>
             </div>
             
             <div class="flex-1">
-                <label for="from_publication_month" class="form-label">From Publication Month:</label>
-                <select id="from_publication_month" name="from_publication_month" class="form-select">
+                <label for="to_publication_year_month" class="form-label">To:</label>
+                <select id="to_publication_year" name="to_publication_year" class="form-select" onchange="populateMonths('to')">
                     <option value="all">All</option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                </select>
-            </div>
-
-            <div class="flex-1">
-                <label for="to_publication_year" class="form-label">To Publication Year:</label>
-                <select id="to_publication_year" name="to_publication_year" class="form-select">
-                    <option value="all">All</option>
-                    <option value="2010">2010</option>
-                    <option value="2011">2011</option>
-                    <option value="2012">2012</option>
-                    <option value="2013">2013</option>
-                    <option value="2014">2014</option>
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
                     <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
                 </select>
-            </div>
-
-
-            <div class="flex-1">
-                <label for="to_publication_month" class="form-label">To Publication Month:</label>
-                <select id="to_publication_month" name="to_publication_month" class="form-select">
+                <select id="to_publication_month" name="to_publication_month" class="form-select" style="display: none;">
                     <option value="all">All</option>
                     <option value="1">January</option>
                     <option value="2">February</option>
@@ -175,7 +168,6 @@
                     <option value="10">October</option>
                     <option value="11">November</option>
                     <option value="12">December</option>
-
                 </select>
             </div>
 
@@ -344,6 +336,42 @@
             });
         }
 
+        function populateMonths(fromOrTo) {
+        var yearSelect = document.getElementById(fromOrTo + "_publication_year");
+        var monthSelect = document.getElementById(fromOrTo + "_publication_month");
+
+        var selectedYear = yearSelect.value;
+
+        // Clear previous options
+        monthSelect.innerHTML = "";
+
+        // Add default "All" option
+        var defaultOption = document.createElement("option");
+        defaultOption.text = "All";
+        defaultOption.value = "all";
+        monthSelect.appendChild(defaultOption);
+
+        // Add options for months if a year is selected
+        if (selectedYear !== "all") {
+            for (var i = 1; i <= 12; i++) {
+                var option = document.createElement("option");
+                option.text = getMonthName(i);
+                option.value = i.toString();
+                monthSelect.appendChild(option);
+            }
+            monthSelect.style.display = "block"; // Show the month select
+        } else {
+            monthSelect.style.display = "none"; // Hide the month select if "All" is selected for year
+        }
+    }
+
+    function getMonthName(monthNumber) {
+        var months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        return months[monthNumber - 1];
+    }
 
     </script> 
 
