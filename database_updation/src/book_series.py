@@ -210,6 +210,13 @@ def main():
         print(count, file=f)
     
     new_df = new_df.astype({"month_of_publishing": int}, errors='ignore')
+
+    for index, row in new_df.iterrows():
+        if isinstance(row["month_of_publishing"], float) or isinstance(row["month_of_publishing"], int):
+            new_df.at[row.name, "month_of_publishing"] = int(row["month_of_publishing"])
+        else:
+             new_df.at[row.name, "month_of_publishing"] = ""
+            
     
     new_df.to_csv("files/temp_results/book_series_publications.csv", index=False, encoding="utf-8")
     new_df.to_csv("files/final/final_publications.csv", index=False, encoding="utf-8")
