@@ -365,7 +365,6 @@ def admin_get_doi(request):
             if result.get("citation") is None:
                 result["citation"] = 0
             
-            print(result)
             return render(request, "admin_add_publication.html", {"result": result})
 
     name = request.session.get("FACULTY_NAME", "")
@@ -576,7 +575,6 @@ def admin_manually_insert_paper(request):
 def admin_delete_paper(request):
     uniqueid = request.POST.get("uniqueid")
 
-    print(uniqueid, Publications.objects.filter(uniqueid=uniqueid))
 
     if not Publications.objects.filter(uniqueid=uniqueid):
         return HttpResponse("Paper not found!")
@@ -588,95 +586,202 @@ def admin_delete_paper(request):
     return HttpResponse("OK")
 
 
+
 def admin_get_charts(request):
-    name = str(request.session.get("FACULTY_NAME"))
+    if request.method == "GET":
+        name = str(request.session.get("FACULTY_NAME"))
 
-    if name is None or name != "admin" or name == str(None):
-        return redirect("/rpa/login")
-        
-    # Fetch data for donut chart
-    chart_records = {}
-    all_records = Publications.objects.all()
-    for record in all_records:
-        if (
-            not record.indexing
-            or record.indexing == "NULL"
-            or record.indexing == "None"
-        ):
-            key = "Others"
-        else:
-            indices = record.indexing.split(", ")
-            for index in indices:
-                if index not in ['Scopus', 'Web of Sciences']:
-                    key = "Others"
+        if name is None or name != "admin" or name == str(None):
+            return redirect("/rpa/login")
+            
+        # Fetch data for donut chart
+        chart_records = {}
+        all_records = Publications.objects.all()
+        for record in all_records:
+            if (
+                not record.indexing
+                or record.indexing == "NULL"
+                or record.indexing == "None"
+            ):
+                key = "Others"
+            else:
+                indices = record.indexing.split(", ")
+                for index in indices:
+                    if index not in ['Scopus', 'Web of Sciences']:
+                        key = "Others"
+                        chart_records[key] = chart_records.get(key, 0) + 1
+                        continue
+                    key = index
                     chart_records[key] = chart_records.get(key, 0) + 1
-                    continue
-                key = index
-                chart_records[key] = chart_records.get(key, 0) + 1
 
-    donut_labels = list(chart_records.keys())
-    donut_values = list(chart_records.values())
+        donut_labels = list(chart_records.keys())
+        donut_values = list(chart_records.values())
 
-    # Fetch data for bar chart based on academic year/month
-    bar_data = Publications.objects.values(
-        "start_academic_year",
-        "start_academic_month",
-        "end_academic_year",
-        "end_academic_month",
-    ).annotate(total=Count("uniqueid"))
-    bar_labels = []
-    bar_values = []
-    for data in bar_data:
-        start_academic_year = data["start_academic_year"]
-        start_academic_month = data["start_academic_month"]
-        end_academic_year = data["end_academic_year"]
-        end_academic_month = data["end_academic_month"]
-        label = f"{start_academic_month} {start_academic_year} - {end_academic_month} {end_academic_year}"
-        bar_labels.append(label)
-        bar_values.append(data["total"])
+        # Fetch data for bar chart based on academic year/month
+        bar_data = Publications.objects.values(
+            "start_academic_year",
+            "start_academic_month",
+            "end_academic_year",
+            "end_academic_month",
+        ).annotate(total=Count("uniqueid"))
+        bar_labels = []
+        bar_values = []
+        for data in bar_data:
+            start_academic_year = data["start_academic_year"]
+            start_academic_month = data["start_academic_month"]
+            end_academic_year = data["end_academic_year"]
+            end_academic_month = data["end_academic_month"]
+            label = f"{start_academic_month} {start_academic_year} - {end_academic_month} {end_academic_year}"
+            bar_labels.append(label)
+            bar_values.append(data["total"])
 
-    # Fetch data for another bar chart based on publication types
-    publication_types_data = Publications.objects.values("publication_type").annotate(
-        total=Count("uniqueid")
-    )
-    publication_type_labels = []
-    publication_type_values = []
-    for pub_type_data in publication_types_data:
-        publication_type_labels.append(pub_type_data["publication_type"])
-        publication_type_values.append(pub_type_data["total"])
+        # Fetch data for another bar chart based on publication types
+        publication_types_data = Publications.objects.values("publication_type").annotate(
+            total=Count("uniqueid")
+        )
+        publication_type_labels = []
+        publication_type_values = []
+        for pub_type_data in publication_types_data:
+            publication_type_labels.append(pub_type_data["publication_type"])
+            publication_type_values.append(pub_type_data["total"])
 
-    # Fetch data for quartile bar chart
-    quartile_records = {}
-    quartile_labels = []
-    quartile_values = []
-    qr_records = Publications.objects.all()
-    for record in qr_records:
-        if (
-            not record.quartile
-            or record.quartile == "NULL"
-            or record.quartile == "None"
-        ):
-            key = "Others"
-        else:
-            key = record.quartile
-        quartile_records[key] = quartile_records.get(key, 0) + 1
+        # Fetch data for quartile bar chart
+        quartile_records = {}
+        quartile_labels = []
+        quartile_values = []
+        qr_records = Publications.objects.all()
+        for record in qr_records:
+            if (
+                not record.quartile
+                or record.quartile == "NULL"
+                or record.quartile == "None"
+            ):
+                key = "Others"
+            else:
+                key = record.quartile
+            quartile_records[key] = quartile_records.get(key, 0) + 1
 
-    quartile_labels = list(quartile_records.keys())
-    quartile_values = list(quartile_records.values())
+        quartile_labels = list(quartile_records.keys())
+        quartile_values = list(quartile_records.values())
 
-    
 
-    # Prepare data for rendering
-    data = {
-        "donut_labels": donut_labels,
-        "donut_values": donut_values,
-        "bar_labels": bar_labels,
-        "bar_values": bar_values,
-        "publication_type_labels": publication_type_labels,
-        "publication_type_values": publication_type_values,
-        "quartile_labels": quartile_labels,
-        "quartile_values": quartile_values,
-        "name": name
-    }
+        # Prepare data for rendering
+        data = {
+            "donut_labels": donut_labels,
+            "donut_values": donut_values,
+            "bar_labels": bar_labels,
+            "bar_values": bar_values,
+            "publication_type_labels": publication_type_labels,
+            "publication_type_values": publication_type_values,
+            "quartile_labels": quartile_labels,
+            "quartile_values": quartile_values,
+            "name": name
+        }
 
-    return render(request, "charts.html", data)
+        return render(request, "charts.html", data)
+    elif request.method == "POST":
+        name = str(request.session.get("FACULTY_NAME"))
+
+        if name is None or name != "admin" or name == str(None):
+            return redirect("/rpa/login")
+                
+        AY = request.POST.get("AY")
+
+        if AY == "all":
+            return redirect('/rpa/dbadmin/charts')
+        
+        start, end = AY.split(" - ")
+        start_academic_month, start_academic_year = start.split(" ")
+        end_academic_month, end_academic_year = end.split(" ")
+
+        # Fetch data for donut chart
+        chart_records = {}
+        all_records = Publications.objects.filter(start_academic_year=start_academic_year, end_academic_year=end_academic_year, start_academic_month=start_academic_month, end_academic_month=end_academic_month)
+        for record in all_records:
+            if (
+                not record.indexing
+                or record.indexing == "NULL"
+                or record.indexing == "None"
+            ):
+                key = "Others"
+            else:
+                indices = record.indexing.split(", ")
+                for index in indices:
+                    if index not in ['Scopus', 'Web of Sciences']:
+                        key = "Others"
+                        chart_records[key] = chart_records.get(key, 0) + 1
+                        continue
+                    key = index
+                    chart_records[key] = chart_records.get(key, 0) + 1
+
+        donut_labels = list(chart_records.keys())
+        donut_values = list(chart_records.values())
+
+        # Fetch data for bar chart based on academic year/month
+        bar_data = Publications.objects.values(
+            "start_academic_year",
+            "start_academic_month",
+            "end_academic_year",
+            "end_academic_month",
+        ).annotate(total=Count("uniqueid"))
+        bar_labels = []
+        bar_values = []
+        for data in bar_data:
+            start_academic_year = data["start_academic_year"]
+            start_academic_month = data["start_academic_month"]
+            end_academic_year = data["end_academic_year"]
+            end_academic_month = data["end_academic_month"]
+            label = f"{start_academic_month} {start_academic_year} - {end_academic_month} {end_academic_year}"
+            bar_labels.append(label)
+            bar_values.append(data["total"])
+
+        # Fetch data for another bar chart based on publication types
+        publication_types_data = all_records
+        publication_type_labels = []
+        publication_type_values = []
+        count_data = {}
+        for pub_type_data in publication_types_data:
+            if pub_type_data.publication_type in count_data:
+                count_data[pub_type_data.publication_type] += 1
+            else:
+                count_data[pub_type_data.publication_type] = 1
+
+        publication_type_labels = list(count_data.keys())
+        publication_type_values = list(count_data.values())
+
+        # Fetch data for quartile bar chart
+        quartile_records = {}
+        quartile_labels = []
+        quartile_values = []
+        qr_records = all_records
+
+        for record in qr_records:
+            if (
+                not record.quartile
+                or record.quartile == "NULL"
+                or record.quartile == "None"
+            ):
+                key = "Others"
+            else:
+                key = record.quartile
+            quartile_records[key] = quartile_records.get(key, 0) + 1
+
+        quartile_labels = list(quartile_records.keys())
+        quartile_values = list(quartile_records.values())
+
+        # Prepare data for rendering
+        data = {
+            "donut_labels": donut_labels,
+            "donut_values": donut_values,
+            "bar_labels": bar_labels,
+            "bar_values": bar_values,
+            "publication_type_labels": publication_type_labels,
+            "publication_type_values": publication_type_values,
+            "quartile_labels": quartile_labels,
+            "quartile_values": quartile_values,
+            "name": name,
+            "AY": AY,
+        }
+
+        return render(request, "charts.html", data)
+

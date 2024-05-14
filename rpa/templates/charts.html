@@ -54,6 +54,26 @@
                 </div>
             </div>
     
+            <div class="flex-1 mb-4 ">
+                <form method="post" action="{% url 'admin_get_charts' %}">
+                    {% csrf_token %}
+                <label for="AY" class="form-label">AY:</label>
+                <select id="AY" name="AY" class="form-select">
+                    <option value="all">All Years</option>
+                    <option value="JUL 2015 - JUN 2016">JUL 2015 - JUN 2016</option>
+                    <option value="JUL 2016 - JUN 2017">JUL 2016 - JUN 2017</option>
+                    <option value="JUL 2017 - JUN 2018">JUL 2017 - JUN 2018</option>
+                    <option value="JUL 2018 - JUN 2019">JUL 2018 - JUN 2019</option>
+                    <option value="JUL 2019 - JUN 2020">JUL 2019 - JUN 2020</option>
+                    <option value="JUL 2020 - JUN 2021">JUL 2020 - JUN 2021</option>
+                    <option value="JUL 2021 - JUN 2022">JUL 2021 - JUN 2022</option>
+                    <option value="JUL 2022 - JUN 2023">JUL 2022 - JUN 2023</option>
+                    <option value="JUL 2023 - JUN 2024">JUL 2023 - JUN 2024</option>
+                </select>
+                <button class="mt-3 btn btn-primary" type="submit">Apply</button>
+            </form>
+            </div>
+    
     <div class="grid-container">
         <div class="chart-container">
             <h1><strong class="chart-title">Indexed Publications</strong></h1>
@@ -275,6 +295,9 @@ function downloadChart(chartId) {
             });
         }
     
+        {% if AY %}
+            document.getElementById("AY").value="{{AY}}";
+        {% endif %}
     
     </script>
 </body>
