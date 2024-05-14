@@ -623,7 +623,7 @@ def admin_get_charts(request):
             "start_academic_month",
             "end_academic_year",
             "end_academic_month",
-        ).annotate(total=Count("uniqueid"))
+        ).annotate(total=Count("uniqueid")).order_by("start_academic_year")
         bar_labels = []
         bar_values = []
         for data in bar_data:
@@ -723,7 +723,7 @@ def admin_get_charts(request):
             "start_academic_month",
             "end_academic_year",
             "end_academic_month",
-        ).annotate(total=Count("uniqueid"))
+        ).annotate(total=Count("uniqueid")).order_by("start_academic_year")
         bar_labels = []
         bar_values = []
         for data in bar_data:
