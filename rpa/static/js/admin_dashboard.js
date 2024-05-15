@@ -286,6 +286,11 @@ function validateFilters() {
     var fromMonth = document.getElementById("from_publication_month").value;
     var toMonth = document.getElementById("to_publication_month").value;
 
+    if ((fromYear === 'all' && toYear !== "all") || (fromYear !== 'all' && toYear === "all")){
+        alert("Please select both From and To filters for year or month.");
+        return false;
+    }
+
     // Check if from filter is selected without the corresponding to filter
     if ((fromYear !== "all" && toYear === "all") || (fromMonth !== "all" && toMonth === "all")) {
         alert("Please select both From and To filters for year or month.");
@@ -314,14 +319,60 @@ function validateFilters() {
     return true; // All conditions satisfied
 }
 
+function isWithinRange(fromMonth, fromYear, toMonth, toYear, checkMonth, checkYear) {
+    console.log(fromMonth, fromYear, toMonth, toYear, checkMonth, checkYear);
+    // Convert year inputs to numbers
+    fromYear = parseInt(fromYear);
+    toYear = parseInt(toYear);
+    checkYear = parseInt(checkYear);
+
+    // If fromMonth is 'all', set it to 1 (January)
+    if (fromMonth === 'all') {
+        fromMonth = 1;
+    } else {
+        fromMonth = parseInt(fromMonth);
+    }
+
+    // If toMonth is 'all', set it to 12 (December)
+    if (toMonth === 'all') {
+        toMonth = 12;
+    } else {
+        toMonth = parseInt(toMonth);
+    }
+
+    // If checkMonth is 'NULL', set it to null
+    if (checkMonth === 'NULL') {
+        checkMonth = null;
+    } else {
+        checkMonth = parseInt(checkMonth);
+    }
+
+    // Convert month-year combinations to total months for easier comparison
+    const fromTotalMonths = fromYear * 12 + fromMonth;
+    const toTotalMonths = toYear * 12 + toMonth;
+    const checkTotalMonths = checkYear * 12 + (checkMonth !== null ? checkMonth : 1); // if checkMonth is null, set it to 1 (January)
+
+    // Check if the check month-year combination falls within the range
+    console.log(checkTotalMonths >= fromTotalMonths && checkTotalMonths <= toTotalMonths);
+    return (checkTotalMonths >= fromTotalMonths && checkTotalMonths <= toTotalMonths);
+}
+
 function applyFilter() {
     var scopusCheckbox = document.querySelector('input[name="scopus"]');
     var webOfSciencesCheckbox = document.querySelector('input[name="webOfSciences"]');
     var quartileSelect = document.getElementById("quartile");
     var AYSelect = document.getElementById("AY");
     var authorCheckboxes = document.getElementsByName("author"); // Add this line to get author checkboxes
+    var periodFromYear = document.getElementById("from_publication_year");
+    var periodFromMonth = document.getElementById("from_publication_month");
+    var periodToYear = document.getElementById("to_publication_year");
+    var periodToMonth = document.getElementById("to_publication_month");
     var table = document.getElementById("mytable");
     var rows = table.getElementsByTagName("tr");
+
+    if (!validateFilters()){
+        return false;
+    }
 
     var flag = false;
 
@@ -352,11 +403,19 @@ function applyFilter() {
         var quartileSelected = quartileSelect.value;
         var selectedAY = AYSelect.value;
 
+        var selectedPeriodFromYear = periodFromYear.value;
+        var selectedPeriodFromMonth = periodFromMonth.value;
+        var selectedPeriodToYear = periodToYear.value;
+        var selectedPeriodToMonth = periodToMonth.value;
+
         // Get the authors of the paper
         var firstAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("First Author")].textContent;
         var secondAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("Second Author")].textContent;
         var thirdAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("Third Author")].textContent;
         var otherAuthors = rows[i].getElementsByTagName("td")[findHeaderIndex("Other Authors")].textContent;
+
+        var rowYear = rows[i].getElementsByTagName("td")[findHeaderIndex("Publication Year")].textContent;
+        var rowMonth = rows[i].getElementsByTagName("td")[findHeaderIndex("Publication Month")].textContent;
 
         var authorMatch = true;
 
@@ -376,6 +435,12 @@ function applyFilter() {
         var matchesQuartile = quartileCell ? quartileCell.innerHTML.toLowerCase().includes(quartileSelected) : false;
         var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
 
+        if (selectedPeriodFromYear === "all" && selectedPeriodToYear === "all"){
+            var withinRange = true;
+        } else {
+            var withinRange = isWithinRange(selectedPeriodFromMonth, selectedPeriodFromYear, selectedPeriodToMonth, selectedPeriodToYear, rowMonth, rowYear);
+        }
+
         var shouldBeHidden = false;
 
         if (quartileSelected !== "all") { // Check if "All Quartiles" is not selected
@@ -384,7 +449,8 @@ function applyFilter() {
                 (scopusChecked && !containsScopus) ||
                 !authorMatch || // Check for author match
                 (quartileSelected !== "" && !matchesQuartile) ||
-                !matchesAY
+                !matchesAY ||
+                !withinRange
             ) {
                 shouldBeHidden = true;
             }
@@ -398,7 +464,7 @@ function applyFilter() {
                 // console.log("Contains scopus");
                 shouldBeHidden = true;
             }
-            if (!authorMatch || !matchesAY) { // Check for author match
+            if (!authorMatch || !matchesAY || !withinRange) { // Check for author match
                 // console.log("Contains author match");
 
                 shouldBeHidden = true;
