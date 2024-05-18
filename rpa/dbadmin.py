@@ -665,6 +665,25 @@ def admin_get_charts(request):
         quartile_values = list(quartile_records.values())
 
 
+        #print(bar_data)
+        yearly_quartiles = {}
+        for data in bar_data:
+            year = f"{data['start_academic_year']} - {data['end_academic_year']}"
+            if year not in yearly_quartiles:
+                yearly_quartiles[year] = {'Q1': 0, 'Q2': 0, 'Q3': 0}
+            year_records = all_records.filter(
+                start_academic_year=data["start_academic_year"],
+                end_academic_year=data["end_academic_year"],
+                start_academic_month=data["start_academic_month"],
+                end_academic_month=data["end_academic_month"],
+            )
+            for record in year_records:
+                if record.quartile != 'NULL':
+                    yearly_quartiles[year][record.quartile] += 1
+        print(yearly_quartiles)
+        yearwise_label = list(yearly_quartiles.keys())
+        yearwise_values = list(yearly_quartiles.values())
+        
         # Prepare data for rendering
         data = {
             "donut_labels": donut_labels,
@@ -675,7 +694,9 @@ def admin_get_charts(request):
             "publication_type_values": publication_type_values,
             "quartile_labels": quartile_labels,
             "quartile_values": quartile_values,
-            "name": name
+            "name": name,
+            "yearwise_label": yearwise_label,
+            "yearwise_values": yearwise_values
         }
 
         return render(request, "charts.html", data)
@@ -769,6 +790,24 @@ def admin_get_charts(request):
         quartile_labels = list(quartile_records.keys())
         quartile_values = list(quartile_records.values())
 
+        yearly_quartiles = {}
+        for data in bar_data:
+            year = f"{data['start_academic_year']} - {data['end_academic_year']}"
+            if year not in yearly_quartiles:
+                yearly_quartiles[year] = {'Q1': 0, 'Q2': 0, 'Q3': 0}
+            year_records = all_records.filter(
+                start_academic_year=data["start_academic_year"],
+                end_academic_year=data["end_academic_year"],
+                start_academic_month=data["start_academic_month"],
+                end_academic_month=data["end_academic_month"],
+            )
+            for record in year_records:
+                if record.quartile != 'NULL':
+                    yearly_quartiles[year][record.quartile] += 1
+        print(bar_data)
+        yearwise_label = list(yearly_quartiles.keys())
+        yearwise_values = list(yearly_quartiles.values())
+        
         # Prepare data for rendering
         data = {
             "donut_labels": donut_labels,
@@ -781,6 +820,8 @@ def admin_get_charts(request):
             "quartile_values": quartile_values,
             "name": name,
             "AY": AY,
+            "yearwise_label": yearwise_label,
+            "yearwise_values": yearwise_values,
         }
 
         return render(request, "charts.html", data)

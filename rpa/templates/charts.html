@@ -94,7 +94,14 @@
             <button class="text-primary underline" onclick="downloadChart('quartileBarChart')">Download</button>
         </div>
     </div>
-
+    <div>
+        <div class="chart-container mt-3">
+            <h1><strong class="chart-title">Yearly Publications Quartiles</strong></h1>
+            <canvas id="yearlyQuartilesBarChart" width="400" height="400"></canvas>
+            <button class="text-primary underline" onclick="downloadChart('yearlyQuartilesBarChart')">Download</button>
+        </div>
+        
+    </div>
     <script type="application/x-javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.2/js/uikit.min.js"></script>
     <script type="application/x-javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.2/js/uikit-icons.min.js"></script>
     <script type="application/x-javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -117,6 +124,8 @@
         var publicationTypeValues = {{ publication_type_values | safe }};
         var quartileLabels = {{ quartile_labels | safe }};
         var quartileValues = {{ quartile_values | safe }};
+        var yearwiseLabels = {{ yearwise_label | safe}};
+        var yearwiseValues = {{ yearwise_values | safe}};
 
 function downloadChart(chartId) {
     var chartCanvas = document.getElementById(chartId);
@@ -286,6 +295,48 @@ function downloadChart(chartId) {
             }
         });
 
+        var yearlyQuartilesBarCtx = document.getElementById('yearlyQuartilesBarChart').getContext('2d');
+        var yearlyQuartilesBarChart = new Chart(yearlyQuartilesBarCtx, {
+            type: 'bar',
+            data: {
+                labels: yearwiseLabels,
+                datasets: [
+                    {
+                        label: 'Q1',
+                        data: yearwiseValues.map(data => data['Q1']),
+                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Q2',
+                        data: yearwiseValues.map(data => data['Q2']),
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Q3',
+                        data: yearwiseValues.map(data => data['Q3']),
+                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                aspectRatio: 2,
+                plugins: {
+                    labels: {
+                        render: 'value',
+                        fontSize: 14,
+                        fontStyle: 'bold',
+                        fontColor: '#000',
+                        fontFamily: '"Lucida Console", Monaco, monospace'
+                    }
+                }
+            }
+        });
         
         function logOut(){
             $.ajax({
