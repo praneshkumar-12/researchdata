@@ -585,6 +585,14 @@ def admin_delete_paper(request):
 
     return HttpResponse("OK")
 
+def sort_quartile_records(input_dict):
+    # Define the desired order of keys
+    desired_order = ['Q1', 'Q2', 'Q3', '< Q3']
+    
+    # Create a new dictionary with keys sorted according to the desired order
+    sorted_dict = {key: input_dict[key] for key in desired_order if key in input_dict}
+    
+    return sorted_dict
 
 
 def admin_get_charts(request):
@@ -655,22 +663,25 @@ def admin_get_charts(request):
                 not record.quartile
                 or record.quartile == "NULL"
                 or record.quartile == "None"
+                or record.quartile == "Q4"
             ):
-                key = "Others"
+                key = "< Q3"
             else:
                 key = record.quartile
             quartile_records[key] = quartile_records.get(key, 0) + 1
+
+        quartile_records = sort_quartile_records(quartile_records)
+
 
         quartile_labels = list(quartile_records.keys())
         quartile_values = list(quartile_records.values())
 
 
-        #print(bar_data)
         yearly_quartiles = {}
         for data in bar_data:
             year = f"{data['start_academic_year']} - {data['end_academic_year']}"
             if year not in yearly_quartiles:
-                yearly_quartiles[year] = {'Q1': 0, 'Q2': 0, 'Q3': 0}
+                yearly_quartiles[year] = {'Q1': 0, 'Q2': 0, 'Q3': 0, "< Q3": 0}
             year_records = all_records.filter(
                 start_academic_year=data["start_academic_year"],
                 end_academic_year=data["end_academic_year"],
@@ -678,9 +689,10 @@ def admin_get_charts(request):
                 end_academic_month=data["end_academic_month"],
             )
             for record in year_records:
-                if record.quartile != 'NULL':
+                if record.quartile and  record.quartile != 'NULL' and record.quartile in ("Q1", "Q2", "Q3"):
                     yearly_quartiles[year][record.quartile] += 1
-        print(yearly_quartiles)
+                else:
+                    yearly_quartiles[year]["< Q3"] += 1
         yearwise_label = list(yearly_quartiles.keys())
         yearwise_values = list(yearly_quartiles.values())
         
@@ -781,20 +793,22 @@ def admin_get_charts(request):
                 not record.quartile
                 or record.quartile == "NULL"
                 or record.quartile == "None"
+                or record.quartile == "Q4"
             ):
-                key = "Others"
+                key = "< Q3"
             else:
                 key = record.quartile
             quartile_records[key] = quartile_records.get(key, 0) + 1
+        
+        quartile_records = sort_quartile_records(quartile_records)
 
         quartile_labels = list(quartile_records.keys())
         quartile_values = list(quartile_records.values())
 
         yearly_quartiles = {}
+        yearly_quartiles[AY] = {'Q1': 0, 'Q2': 0, 'Q3': 0, "< Q3": 0}
         for data in bar_data:
-            year = f"{data['start_academic_year']} - {data['end_academic_year']}"
-            if year not in yearly_quartiles:
-                yearly_quartiles[year] = {'Q1': 0, 'Q2': 0, 'Q3': 0}
+            # year = f"{data['start_academic_year']} - {data['end_academic_year']}"
             year_records = all_records.filter(
                 start_academic_year=data["start_academic_year"],
                 end_academic_year=data["end_academic_year"],
@@ -802,9 +816,10 @@ def admin_get_charts(request):
                 end_academic_month=data["end_academic_month"],
             )
             for record in year_records:
-                if record.quartile != 'NULL':
-                    yearly_quartiles[year][record.quartile] += 1
-        print(bar_data)
+                if record.quartile and  record.quartile != 'NULL' and record.quartile in ("Q1", "Q2", "Q3"):
+                    yearly_quartiles[AY][record.quartile] += 1
+                else:
+                    yearly_quartiles[AY]["< Q3"] += 1
         yearwise_label = list(yearly_quartiles.keys())
         yearwise_values = list(yearly_quartiles.values())
         

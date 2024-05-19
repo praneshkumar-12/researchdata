@@ -321,6 +321,13 @@ function downloadChart(chartId) {
                         backgroundColor: 'rgba(75, 192, 192, 0.5)',
                         borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 2
+                    },
+                    {
+                        label: '< Q3',
+                        data: yearwiseValues.map(data => data['< Q3']),
+                        backgroundColor: 'rgba(251, 192, 147, 0.5)',
+                        borderColor: 'rgba(251, 192, 147, 1)',
+                        borderWidth: 2
                     }
                 ]
             },
