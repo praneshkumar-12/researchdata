@@ -644,3 +644,20 @@ function clearAllAuthors() {
 function applyAuthorFilter(){
     closeAuthorFilterModal();
 }
+
+document.addEventListener('keydown', function(event) {
+    // Check if the pressed key is '/'
+    if (event.key === '/') {
+        // Prevent the default action (if any)
+        event.preventDefault();
+        
+        // Check if the active element is not the search box
+        if (document.activeElement !== document.getElementById('searchBox')) {
+            // Get the search box element
+            var searchBox = document.getElementById('searchBox');
+            
+            // Focus the search box
+            searchBox.focus();
+        }
+    }
+});
