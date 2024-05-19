@@ -133,11 +133,16 @@ function downloadChart(chartId) {
 
     // Get the chart title
     var chartTitle = chartCanvas.closest('.chart-container').querySelector('.chart-title').innerText;
+    var AYValue = document.querySelector('#AY').value;
+
+    if (AYValue === "all") {
+        AYValue = "Overall";
+    }
 
     // Create a temporary canvas
     var tempCanvas = document.createElement('canvas');
     tempCanvas.width = chartCanvas.width;
-    tempCanvas.height = chartCanvas.height + 80; // Add extra height for title
+    tempCanvas.height = chartCanvas.height + 110; // Add extra height for title
     var tempContext = tempCanvas.getContext('2d');
 
     // Set the background color to white
@@ -145,7 +150,7 @@ function downloadChart(chartId) {
     tempContext.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
 
     // Draw the chart onto the temporary canvas
-    tempContext.drawImage(chartCanvas, 15, 50); // Start drawing from y-coordinate 30 for title
+    tempContext.drawImage(chartCanvas, 15, 75); // Start drawing from y-coordinate 30 for title
 
     // Add the chart title
     tempContext.font = 'bold 25px Arial';
@@ -154,6 +159,14 @@ function downloadChart(chartId) {
     //tempContext.fillText(chartTitle, tempCanvas.width / 2, 20);
     var titleY = 30; // Adjust the space between top and title here
     tempContext.fillText(chartTitle, tempCanvas.width / 1.9, titleY);
+
+    // fill the AY 
+    tempContext.font = 'bold 20px Arial';
+    tempContext.fillStyle = '#000000';
+    tempContext.textAlign = 'center';
+    var titleY = 60;
+    tempContext.fillText(AYValue, tempCanvas.width / 1.95, titleY);
+    
     // Get the data URL of the temporary canvas
     var url = tempCanvas.toDataURL("image/png");
 
