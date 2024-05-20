@@ -19,7 +19,6 @@ function filterTable() {
         }
         rowstring = rowstring.toUpperCase();
 
-        // console.log(rowstring);
 
         found = true;
 
@@ -65,7 +64,6 @@ function downloadCSV() {
             var csvrow = [];
 
             for (var j = 0; j < cols.length - 1; j++) {
-                // console.log(cols[j].innerHTML)
                 // Add automatic serial numbers for the first row
 
                 if (window.getComputedStyle(cols[j]).display !== 'none') {
@@ -78,7 +76,7 @@ function downloadCSV() {
                         if (i !== 0 && (j === findHeaderIndex("Title"))){
                             cellContent = cols[j].getElementsByTagName("a");
                             if (cellContent.length != 0) {
-                                console.log(cellContent);
+                                (cellContent);
                                 cellContent = cellContent[0].textContent;
                             } else {
                                 cellContent = 'NULL';
@@ -92,7 +90,6 @@ function downloadCSV() {
                             cellContent = cols[j].getElementsByTagName("a");
 
                             if (cellContent.length != 0) {
-                                console.log(cellContent);
                                 cellContent = cellContent[0].getAttribute("href");
                             } else {
                                 cellContent = 'NULL';
@@ -296,9 +293,7 @@ function applyFilter() {
     for (var i = 1; i < rows.length; i++) {
         var authorMatch = Array.from(authorCheckboxes).some(function(checkbox) {
             var authorName = checkbox.value;
-            console.log(authorName);
             authorName = authorName.split(" ")[0];
-            console.log(authorName);
             return checkbox.checked;
         });
 
@@ -358,15 +353,12 @@ function applyFilter() {
         } else {
             // Show all rows when "All Quartiles" is selected
             if (webOfSciencesChecked && !containsWebOfScience) {
-                // console.log("Contains web of science");
                 shouldBeHidden = true;
             }
             if (scopusChecked && !containsScopus) {
-                // console.log("Contains scopus");
                 shouldBeHidden = true;
             }
             if (!authorMatch || !matchesAY) { // Check for author match
-                // console.log("Contains author match");
 
                 shouldBeHidden = true;
             }

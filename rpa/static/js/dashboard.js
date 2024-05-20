@@ -19,7 +19,6 @@ function filterTable() {
         }
         rowstring = rowstring.toUpperCase();
 
-        // console.log(rowstring);
 
         found = true;
 
@@ -65,7 +64,6 @@ function downloadCSV() {
             var csvrow = [];
 
             for (var j = 0; j < cols.length; j++) {
-                // console.log(cols[j].innerHTML)
                 // Add automatic serial numbers for the first row
 
                 if (window.getComputedStyle(cols[j]).display !== 'none') {
@@ -78,7 +76,6 @@ function downloadCSV() {
                         if (i !== 0 && (j === findHeaderIndex("Title"))){
                             cellContent = cols[j].getElementsByTagName("a");
                             if (cellContent.length != 0) {
-                                console.log(cellContent);
                                 cellContent = cellContent[0].textContent;
                             } else {
                                 cellContent = 'NULL';
@@ -92,7 +89,6 @@ function downloadCSV() {
                             cellContent = cols[j].getElementsByTagName("a");
 
                             if (cellContent.length != 0) {
-                                console.log(cellContent);
                                 cellContent = cellContent[0].getAttribute("href");
                             } else {
                                 cellContent = 'NULL';

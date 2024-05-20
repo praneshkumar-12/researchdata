@@ -91,7 +91,6 @@ function filterPublications() {
     publications = document.getElementsByClassName('publication');
     var searchTerms = filter.split(" ").filter(term => term.trim() !== "");
 
-    console.log(searchTerms);
 
     var visible = [];
     var invisible = [];

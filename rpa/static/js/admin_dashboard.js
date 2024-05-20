@@ -19,7 +19,6 @@ function filterTable() {
         }
         rowstring = rowstring.toUpperCase();
 
-        // console.log(rowstring);
 
         found = true;
 
@@ -65,7 +64,6 @@ function downloadCSV() {
             var csvrow = [];
 
             for (var j = 0; j < cols.length; j++) {
-                // console.log(cols[j].innerHTML)
                 // Add automatic serial numbers for the first row
 
                 if (window.getComputedStyle(cols[j]).display !== 'none') {
@@ -78,7 +76,7 @@ function downloadCSV() {
                         if (i !== 0 && (j === findHeaderIndex("Title"))){
                             cellContent = cols[j].getElementsByTagName("a");
                             if (cellContent.length != 0) {
-                                console.log(cellContent);
+                                (cellContent);
                                 cellContent = cellContent[0].textContent;
                             } else {
                                 cellContent = 'NULL';
@@ -92,7 +90,6 @@ function downloadCSV() {
                             cellContent = cols[j].getElementsByTagName("a");
 
                             if (cellContent.length != 0) {
-                                console.log(cellContent);
                                 cellContent = cellContent[0].getAttribute("href");
                             } else {
                                 cellContent = 'NULL';
@@ -320,7 +317,6 @@ function validateFilters() {
 }
 
 function isWithinRange(fromMonth, fromYear, toMonth, toYear, checkMonth, checkYear) {
-    console.log(fromMonth, fromYear, toMonth, toYear, checkMonth, checkYear);
     // Convert year inputs to numbers
     fromYear = parseInt(fromYear);
     toYear = parseInt(toYear);
@@ -353,7 +349,6 @@ function isWithinRange(fromMonth, fromYear, toMonth, toYear, checkMonth, checkYe
     const checkTotalMonths = checkYear * 12 + (checkMonth !== null ? checkMonth : 1); // if checkMonth is null, set it to 1 (January)
 
     // Check if the check month-year combination falls within the range
-    console.log(checkTotalMonths >= fromTotalMonths && checkTotalMonths <= toTotalMonths);
     return (checkTotalMonths >= fromTotalMonths && checkTotalMonths <= toTotalMonths);
 }
 
@@ -384,9 +379,7 @@ function applyFilter() {
     for (var i = 1; i < rows.length; i++) {
         var authorMatch = Array.from(authorCheckboxes).some(function(checkbox) {
             var authorName = checkbox.value;
-            console.log(authorName);
             authorName = authorName.split(" ")[0];
-            console.log(authorName);
             return checkbox.checked;
         });
 
@@ -463,7 +456,6 @@ function applyFilter() {
                                       (conferenceChecked && containsConference) ||
                                       (othersChecked && containsOthers);
 
-        console.log(rows[i].getElementsByTagName("td")[findHeaderIndex("Title")].textContent, publicationTypesChecked);
 
         if (quartileSelected !== "all") { // Check if "All Quartiles" is not selected
             if (
@@ -475,7 +467,6 @@ function applyFilter() {
                 !withinRange ||
                 !publicationTypesChecked
             ) {
-                console.log("setting hidden as true");
                 shouldBeHidden = true;
             }
         } else {
