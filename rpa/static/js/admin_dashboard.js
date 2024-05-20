@@ -360,6 +360,10 @@ function isWithinRange(fromMonth, fromYear, toMonth, toYear, checkMonth, checkYe
 function applyFilter() {
     var scopusCheckbox = document.querySelector('input[name="scopus"]');
     var webOfSciencesCheckbox = document.querySelector('input[name="webOfSciences"]');
+    var journalsCheckbox = document.querySelector('input[name="journals"]');
+    var bookChapterCheckbox = document.querySelector('input[name="bookChapter"]');
+    var conferenceCheckbox = document.querySelector('input[name="conference"]');
+    var othersCheckbox = document.querySelector('input[name="others"]');
     var quartileSelect = document.getElementById("quartile");
     var AYSelect = document.getElementById("AY");
     var authorCheckboxes = document.getElementsByName("author"); // Add this line to get author checkboxes
@@ -397,9 +401,15 @@ function applyFilter() {
         var indexingCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Indexing")];
         var quartileCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Quartile")]; // Assuming quartile is at index 20, adjust if needed
         var AYCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Academic Year")]; // Assuming Academic Year is at index 3, adjust if needed
+        var publicationCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Publication Type")];
 
         var scopusChecked = scopusCheckbox.checked;
         var webOfSciencesChecked = webOfSciencesCheckbox.checked;
+
+        var journalsChecked = journalsCheckbox.checked;
+        var bookChapterChecked = bookChapterCheckbox.checked;
+        var conferenceChecked = conferenceCheckbox.checked;
+        var othersChecked = othersCheckbox.checked;
         var quartileSelected = quartileSelect.value;
         var selectedAY = AYSelect.value;
 
@@ -435,6 +445,11 @@ function applyFilter() {
         var matchesQuartile = quartileCell ? quartileCell.innerHTML.toLowerCase().includes(quartileSelected) : false;
         var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
 
+        var containsJournal = publicationCell ? publicationCell.innerHTML.toLowerCase().includes("journal") : false;
+        var containsBookChapter = publicationCell ? publicationCell.innerHTML.toLowerCase().includes("book chapter") : false;
+        var containsConference = publicationCell ? publicationCell.innerHTML.toLowerCase().includes("conference") : false;
+        var containsOthers = publicationCell ? (publicationCell.innerHTML.toLowerCase().includes("null") || publicationCell.innerHTML.toLowerCase().includes("none"))  : false;
+
         if (selectedPeriodFromYear === "all" && selectedPeriodToYear === "all"){
             var withinRange = true;
         } else {
@@ -443,6 +458,13 @@ function applyFilter() {
 
         var shouldBeHidden = false;
 
+        var publicationTypesChecked = (journalsChecked && containsJournal) ||
+                                      (bookChapterChecked && containsBookChapter) ||
+                                      (conferenceChecked && containsConference) ||
+                                      (othersChecked && containsOthers);
+
+        console.log(rows[i].getElementsByTagName("td")[findHeaderIndex("Title")].textContent, publicationTypesChecked);
+
         if (quartileSelected !== "all") { // Check if "All Quartiles" is not selected
             if (
                 (webOfSciencesChecked && !containsWebOfScience) ||
@@ -450,23 +472,22 @@ function applyFilter() {
                 !authorMatch || // Check for author match
                 (quartileSelected !== "" && !matchesQuartile) ||
                 !matchesAY ||
-                !withinRange
+                !withinRange ||
+                !publicationTypesChecked
             ) {
+                console.log("setting hidden as true");
                 shouldBeHidden = true;
             }
         } else {
-            // Show all rows when "All Quartiles" is selected
-            if (webOfSciencesChecked && !containsWebOfScience) {
-                // console.log("Contains web of science");
-                shouldBeHidden = true;
-            }
-            if (scopusChecked && !containsScopus) {
-                // console.log("Contains scopus");
-                shouldBeHidden = true;
-            }
-            if (!authorMatch || !matchesAY || !withinRange) { // Check for author match
-                // console.log("Contains author match");
-
+             // Show all rows when "All Quartiles" is selected
+            if (
+                (webOfSciencesChecked && !containsWebOfScience) ||
+                (scopusChecked && !containsScopus) ||
+                !authorMatch || // Check for author match
+                !matchesAY ||
+                !withinRange ||
+                !publicationTypesChecked // Check for publication types match
+            ) {
                 shouldBeHidden = true;
             }
         }
@@ -478,7 +499,6 @@ function applyFilter() {
         }
     }
 }
-
 
 
 

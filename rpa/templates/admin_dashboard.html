@@ -70,125 +70,182 @@
         <form class="flex flex-wrap gap-4 justify-center items-center">
         
             <div class="flex-1">
-                <label for="quartile" class="form-label">Quartile:</label>
-                <select id="quartile" name="quartile" class="form-select">
-                    <option value="all">All</option>
-                    <option value="q1">Q1</option>
-                    <option value="q2">Q2</option>
-                    <option value="q3">Q3</option>
-                    <option value="q4">Q4</option>
-                </select>
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-sm">
+                            <label for="quartile" class="form-label">Quartile:</label>
+                            <select id="quartile" name="quartile" class="form-select">
+                                <option value="all">All</option>
+                                <option value="q1">Q1</option>
+                                <option value="q2">Q2</option>
+                                <option value="q3">Q3</option>
+                                <option value="q4">Q4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label for="from_publication_year_month" class="form-label">Period From:</label>
+                            <select id="from_publication_year" name="from_publication_year" class="form-select" onchange="populateMonths('from')">
+                                <option value="all">All</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                                <option value="2012">2012</option>
+                                <option value="2011">2011</option>
+                                <option value="2010">2010</option>
+                            </select>
+                            <select id="from_publication_month" name="from_publication_month" class="form-select" style="display: none;">
+                                <option value="all">All</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-1">
-                <label for="AY" class="form-label">AY:</label>
-                <select id="AY" name="AY" class="form-select">
-                    <option value="all">All Years</option>
-                    <option value="JUL 2015 - JUN 2016">JUL 2015 - JUN 2016</option>
-                    <option value="JUL 2016 - JUN 2017">JUL 2016 - JUN 2017</option>
-                    <option value="JUL 2017 - JUN 2018">JUL 2017 - JUN 2018</option>
-                    <option value="JUL 2018 - JUN 2019">JUL 2018 - JUN 2019</option>
-                    <option value="JUL 2019 - JUN 2020">JUL 2019 - JUN 2020</option>
-                    <option value="JUL 2020 - JUN 2021">JUL 2020 - JUN 2021</option>
-                    <option value="JUL 2021 - JUN 2022">JUL 2021 - JUN 2022</option>
-                    <option value="JUL 2022 - JUN 2023">JUL 2022 - JUN 2023</option>
-                    <option value="JUL 2023 - JUN 2024">JUL 2023 - JUN 2024</option>
-                </select>
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-sm">
+                            <label for="AY" class="form-label">AY:</label>
+                            <select id="AY" name="AY" class="form-select">
+                                <option value="all">All Years</option>
+                                <option value="JUL 2015 - JUN 2016">JUL 2015 - JUN 2016</option>
+                                <option value="JUL 2016 - JUN 2017">JUL 2016 - JUN 2017</option>
+                                <option value="JUL 2017 - JUN 2018">JUL 2017 - JUN 2018</option>
+                                <option value="JUL 2018 - JUN 2019">JUL 2018 - JUN 2019</option>
+                                <option value="JUL 2019 - JUN 2020">JUL 2019 - JUN 2020</option>
+                                <option value="JUL 2020 - JUN 2021">JUL 2020 - JUN 2021</option>
+                                <option value="JUL 2021 - JUN 2022">JUL 2021 - JUN 2022</option>
+                                <option value="JUL 2022 - JUN 2023">JUL 2022 - JUN 2023</option>
+                                <option value="JUL 2023 - JUN 2024">JUL 2023 - JUN 2024</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label for="to_publication_year_month" class="form-label">Period To:</label>
+                            <select id="to_publication_year" name="to_publication_year" class="form-select" onchange="populateMonths('to')">
+                                <option value="all">All</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                                <option value="2012">2012</option>
+                                <option value="2011">2011</option>
+                                <option value="2010">2010</option>
+                            </select>
+                            <select id="to_publication_month" name="to_publication_month" class="form-select" style="display: none;">
+                                <option value="all">All</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-1">
-                <label for="from_publication_year_month" class="form-label">Period From:</label>
-                <select id="from_publication_year" name="from_publication_year" class="form-select" onchange="populateMonths('from')">
-                    <option value="all">All</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
-                    <option value="2017">2017</option>
-                    <option value="2016">2016</option>
-                    <option value="2015">2015</option>
-                    <option value="2014">2014</option>
-                    <option value="2013">2013</option>
-                    <option value="2012">2012</option>
-                    <option value="2011">2011</option>
-                    <option value="2010">2010</option>
-                </select>
-                <select id="from_publication_month" name="from_publication_month" class="form-select" style="display: none;">
-                    <option value="all">All</option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                </select>
-            </div>
-            
-            <div class="flex-1">
-                <label for="to_publication_year_month" class="form-label">Period To:</label>
-                <select id="to_publication_year" name="to_publication_year" class="form-select" onchange="populateMonths('to')">
-                    <option value="all">All</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
-                    <option value="2017">2017</option>
-                    <option value="2016">2016</option>
-                    <option value="2015">2015</option>
-                    <option value="2014">2014</option>
-                    <option value="2013">2013</option>
-                    <option value="2012">2012</option>
-                    <option value="2011">2011</option>
-                    <option value="2010">2010</option>
-                </select>
-                <select id="to_publication_month" name="to_publication_month" class="form-select" style="display: none;">
-                    <option value="all">All</option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                </select>
-            </div>
+                <div class="row mb-2">
+                    <div class="col-sm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="scopus" name="scopus">
+                            <label class="form-check-label" for="scopus">
+                            Scopus
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="webOfSciences" name="webOfSciences">
+                            <label class="form-check-label" for="webOfSciences">
+                                Web of Sciences
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="flex-1">
-                <br>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="scopus" name="scopus">
-                    <label class="form-check-label" for="scopus">
-                       Scopus
-                    </label>
+                <div class="row mb-2">
+                    <hr>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-sm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="journals" name="journals">
+                            <label class="form-check-label" for="journals">
+                                Journal
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="bookChapter" name="bookChapter">
+                            <label class="form-check-label" for="bookChapter">
+                                Book Chapter
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="conference" name="conference">
+                            <label class="form-check-label" for="conference">
+                                Conference
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="others" name="others">
+                            <label class="form-check-label" for="others">
+                                Others
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="flex-1">
-                <br>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="webOfSciences" name="webOfSciences">
-                    <label class="form-check-label" for="webOfSciences">
-                        Web of Sciences
-                    </label>
-                </div>
-            </div>
 
             <button id="authorFilterBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded flex items-center focus:outline-none focus:shadow-outline" type="button" onclick="openAuthorFilterModal()">
                 Filter Authors
