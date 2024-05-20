@@ -32,7 +32,7 @@ class Command(BaseCommand):
                     "publication_name" : row['publication_name'],
                     "publisher" : row['publisher'],
                     "year_of_publishing" : row['year_of_publishing'],
-                    "month_of_publishing" : int(row['month_of_publishing']) if row['month_of_publishing'] else None,
+                    "month_of_publishing" : row['month_of_publishing'],
                     "volume" : row['volume'],
                     "page_number" : row['page_number'],
                     "indexing" : row['indexing'],
