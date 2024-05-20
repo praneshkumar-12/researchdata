@@ -455,7 +455,10 @@ function applyFilter() {
                                       (bookChapterChecked && containsBookChapter) ||
                                       (conferenceChecked && containsConference) ||
                                       (othersChecked && containsOthers);
-
+        
+        if ((!journalsChecked && !bookChapterChecked && !conferenceChecked && !othersChecked)){
+            publicationTypesChecked = true;
+        }
 
         if (quartileSelected !== "all") { // Check if "All Quartiles" is not selected
             if (
