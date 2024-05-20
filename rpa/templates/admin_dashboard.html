@@ -38,6 +38,23 @@
         .uk-table-hover tbody tr:hover {
             background-color: #e3f1fc; /* Change to your desired hover color*/
         }
+
+        .scrollit {
+            overflow:scroll;
+            height:600px;
+        }
+        
+        table {
+            text-align: left;
+            position: relative;
+        }
+          
+        th {
+            background: white;
+            position: sticky;
+            top: 0;
+        }
+
     </style>
     
 </head>
@@ -301,8 +318,7 @@
             <span class="scroll-arrow" onclick="scrollToLeft()">⬅️</span>
             <span class="scroll-arrow" onclick="scrollToRight()">➡️</span>
         </div>
-        <div class="overflow-x-auto relative">
-            
+        <div id="scrolltable" class="overflow-x-auto relative scrollit">
             <table id="mytable" class="uk-table uk-table-bordered uk-table-divider uk-table-large uk-table-middle uk-table-hover">
                     <thead>
                         <th>S.No</th>
@@ -332,45 +348,45 @@
                         <th>URL</th>
                         <th>ISSN</th>
                     </thead>
-                    {% for paper in papers %}
-                    <tr data-uniqueid="{{ paper.uniqueid }}">
-                        <td>{{ forloop.counter }}</td>
-                        <td>{{ paper.uniqueid }}</td>
-                        <td><a href="/rpa/dbadmin/paper/{{ paper.uniqueid }}" target="_blank">{{ paper.title }}</a></td>
-                        <td>{{ paper.start_academic_month }} {{ paper.start_academic_year }} - {{ paper.end_academic_month }} {{ paper.end_academic_year }}</td>
-                        <td>{{ paper.first_author }}</td>
-                        <td>{{ paper.second_author }}</td>
-                        <td>{{ paper.third_author }}</td>
-                        <td>{{ paper.other_authors }}</td>
-                        <td>{{ paper.is_student_author }}</td>
-                        <td>{{ paper.student_name }}</td>
-                        <td>{{ paper.student_batch }}</td>
-                        <td>{{ paper.specification }}</td>
-                        <td>{{ paper.publication_type }}</td>
-                        <td>{{ paper.publication_name }}</td>
-                        <td>{{ paper.publisher }}</td>
-                        <td>{{ paper.year_of_publishing }}</td>
-                        <td>{{ paper.month_of_publishing }}</td>
-                        <td>{{ paper.volume }}</td>
-                        <td>{{ paper.page_number }}</td>
-                        <td>{{ paper.indexing }}</td>
-                        <td>{{ paper.quartile }}</td>
-                        <td>{{ paper.citation }}</td>
-                        <td>{{ paper.doi }}</td>
-                        {% if paper.front_page_path == 'NULL' or paper.front_page_path == 'None' %}
-                            <td>{{ paper.front_page_path }}</td>
-                        {% else %}
-                            <td><a href="/{{ paper.front_page_path }}" target="_blank">View File</a></td>
-                        {% endif %}
-                        <td><a href="{{ paper.url }}" target="_blank">{{ paper.url }}</a></td>
-                        <td>{{ paper.issn }}</td>    
-                    </tr>
-                    {% endfor %}
+                            {% for paper in papers %}
+                            <tr data-uniqueid="{{ paper.uniqueid }}">
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ paper.uniqueid }}</td>
+                                <td><a href="/rpa/dbadmin/paper/{{ paper.uniqueid }}" target="_blank">{{ paper.title }}</a></td>
+                                <td>{{ paper.start_academic_month }} {{ paper.start_academic_year }} - {{ paper.end_academic_month }} {{ paper.end_academic_year }}</td>
+                                <td>{{ paper.first_author }}</td>
+                                <td>{{ paper.second_author }}</td>
+                                <td>{{ paper.third_author }}</td>
+                                <td>{{ paper.other_authors }}</td>
+                                <td>{{ paper.is_student_author }}</td>
+                                <td>{{ paper.student_name }}</td>
+                                <td>{{ paper.student_batch }}</td>
+                                <td>{{ paper.specification }}</td>
+                                <td>{{ paper.publication_type }}</td>
+                                <td>{{ paper.publication_name }}</td>
+                                <td>{{ paper.publisher }}</td>
+                                <td>{{ paper.year_of_publishing }}</td>
+                                <td>{{ paper.month_of_publishing }}</td>
+                                <td>{{ paper.volume }}</td>
+                                <td>{{ paper.page_number }}</td>
+                                <td>{{ paper.indexing }}</td>
+                                <td>{{ paper.quartile }}</td>
+                                <td>{{ paper.citation }}</td>
+                                <td>{{ paper.doi }}</td>
+                                {% if paper.front_page_path == 'NULL' or paper.front_page_path == 'None' %}
+                                    <td>{{ paper.front_page_path }}</td>
+                                {% else %}
+                                    <td><a href="/{{ paper.front_page_path }}" target="_blank">View File</a></td>
+                                {% endif %}
+                                <td><a href="{{ paper.url }}" target="_blank">{{ paper.url }}</a></td>
+                                <td>{{ paper.issn }}</td>    
+                            </tr>
+                            {% endfor %}
             </table>
-            <div class="text-center mt-3">
-                <span class="scroll-arrow" onclick="scrollToTop()">⬆️</span>
-            </div>            
         </div>
+        <div class="text-center mt-3">
+            <span class="scroll-arrow" onclick="scrollToTop()">⬆️</span>
+        </div>            
         
     </div>
     
