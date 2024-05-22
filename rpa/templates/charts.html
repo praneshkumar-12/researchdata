@@ -76,29 +76,34 @@
         <div class="chart-container">
             <h1><strong class="chart-title">Indexed Publications</strong></h1>
             <canvas id="donutChart" width="400" height="400"></canvas>
-            <button class="text-primary underline" onclick="downloadChart('donutChart')">Download</button>
+            <canvas id="donutChartDownload" width="400" height="400" hidden></canvas>
+            <button class="text-primary underline" onclick="downloadChart('donutChartDownload')">Download</button>
         </div>
         <div class="chart-container">
             <h1><strong class="chart-title">Academic Yearwise Publications</strong></h1>
             <canvas id="barChart" width="400" height="400"></canvas>
-            <button class="text-primary underline" onclick="downloadChart('barChart')">Download</button>
+            <canvas id="barChartDownload" width="400" height="400" hidden></canvas>
+            <button class="text-primary underline" onclick="downloadChart('barChartDownload')">Download</button>
         </div>
         <div class="chart-container">
             <h1><strong class="chart-title">Publication Type</strong></h1>
             <canvas id="publicationTypeBarChart" width="400" height="400"></canvas>
-            <button class="text-primary underline" onclick="downloadChart('publicationTypeBarChart')">Download</button>
+            <canvas id="publicationTypeBarChartDownload" width="400" height="400" hidden></canvas>
+            <button class="text-primary underline" onclick="downloadChart('publicationTypeBarChartDownload')">Download</button>
         </div>
         <div class="chart-container">
             <h1><strong class="chart-title">Publication Quartiles</strong></h1>
             <canvas id="quartileBarChart" width="400" height="400"></canvas>
-            <button class="text-primary underline" onclick="downloadChart('quartileBarChart')">Download</button>
+            <canvas id="quartileBarChartDownload" width="400" height="400" hidden></canvas>
+            <button class="text-primary underline" onclick="downloadChart('quartileBarChartDownload')">Download</button>
         </div>
     </div>
     <div>
         <div class="chart-container mt-3">
             <h1><strong class="chart-title">Yearly Publications Quartiles</strong></h1>
             <canvas id="yearlyQuartilesBarChart" width="400" height="400"></canvas>
-            <button class="text-primary underline" onclick="downloadChart('yearlyQuartilesBarChart')">Download</button>
+            <canvas id="yearlyQuartilesBarChartDownload" width="400" height="400" hidden></canvas>
+            <button class="text-primary underline" onclick="downloadChart('yearlyQuartilesBarChartDownload')">Download</button>
         </div>
         
     </div>
@@ -180,6 +185,8 @@ function downloadChart(chartId) {
 }
 
         Chart.register(ChartDataLabels);
+        Chart.defaults.color = '#00000';
+        Chart.defaults.font.size = 14;
 
 
         // Initialize Donut Chart
@@ -209,12 +216,40 @@ function downloadChart(chartId) {
                 aspectRatio: 2,
                 plugins: {
                     labels: {
-                    render: 'value',
-                    fontSize: 14,
-                    fontStyle: 'bold',
-                    fontColor: '#000',
-                    fontFamily: '"Lucida Console", Monaco, monospace'
-                    
+                    render: 'value'
+                }
+            }
+                // Add options here if needed
+            }
+        });
+
+        var donutCtxDownload = document.getElementById('donutChartDownload').getContext('2d');
+        var donutChartDownload = new Chart(donutCtxDownload, {
+            type: 'doughnut',
+            data: {
+                labels: donutLabels,
+                datasets: [{
+                    data: donutValues,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 1)', // Sample color
+                        'rgba(54, 162, 235, 1)', // Sample color
+                        'rgba(255, 206, 86, 1)' // Sample color
+                        // Add more colors if needed
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)', // Sample border color
+                        'rgba(54, 162, 235, 1)', // Sample border color
+                        'rgba(255, 206, 86, 1)' // Sample border color
+                        // Add more colors if needed
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                aspectRatio: 2,
+                plugins: {
+                    labels: {
+                    render: 'value',               
                 }
             }
                 // Add options here if needed
@@ -239,11 +274,31 @@ function downloadChart(chartId) {
                 aspectRatio: 2,
                 plugins: {
                     labels: {
-                    render: 'value',
-                    fontSize: 14,
-                    fontStyle: 'bold',
-                    fontColor: '#000',
-                    fontFamily: '"Lucida Console", Monaco, monospace'
+                    render: 'value'
+                }
+            }
+                // Add options here if needed
+            }
+        });
+
+        var barCtxDownload = document.getElementById('barChartDownload').getContext('2d');
+        var barChartDownload = new Chart(barCtxDownload, {
+            type: 'bar',
+            data: {
+                labels: barLabels,
+                datasets: [{
+                    label: 'Number of Publications',
+                    data: barValues,
+                    backgroundColor: 'rgba(54, 162, 235, 0.75)', // Sample color
+                    borderColor: 'rgba(54, 162, 235, 1)', // Sample border color
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                aspectRatio: 2,
+                plugins: {
+                    labels: {
+                    render: 'value'
                 }
             }
                 // Add options here if needed
@@ -268,11 +323,31 @@ function downloadChart(chartId) {
                 aspectRatio: 2,
                 plugins: {
                     labels: {
-                    render: 'value',
-                    fontSize: 14,
-                    fontStyle: 'bold',
-                    fontColor: '#000',
-                    fontFamily: '"Lucida Console", Monaco, monospace'
+                    render: 'value'
+                }
+            }
+                // Add options here if needed
+            }
+        });
+
+        var publicationTypeBarCtxDownload = document.getElementById('publicationTypeBarChartDownload').getContext('2d');
+        var publicationTypeBarChartDownload = new Chart(publicationTypeBarCtxDownload, {
+            type: 'bar',
+            data: {
+                labels: publicationTypeLabels,
+                datasets: [{
+                    label: 'Number of Publications by Type',
+                    data: publicationTypeValues,
+                    backgroundColor: 'rgba(255, 99, 132, 0.75)', // Sample color
+                    borderColor: 'rgba(255, 99, 132, 1)', // Sample border color
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                aspectRatio: 2,
+                plugins: {
+                    labels: {
+                    render: 'value'
                 }
             }
                 // Add options here if needed
@@ -297,11 +372,31 @@ function downloadChart(chartId) {
                 aspectRatio: 2,
                 plugins: {
                     labels: {
-                    render: 'value',
-                    fontSize: 14,
-                    fontStyle: 'bold',
-                    fontColor: '#000',
-                    fontFamily: '"Lucida Console", Monaco, monospace'
+                    render: 'value'
+                }
+            }
+                // Add options here if needed
+            }
+        });
+
+        var quartileBarCtxDownload = document.getElementById('quartileBarChartDownload').getContext('2d');
+        var quartileBarChartDownload = new Chart(quartileBarCtxDownload, {
+            type: 'bar',
+            data: {
+                labels: quartileLabels,
+                datasets: [{
+                    label: 'Number of Publications by Quartile',
+                    data: quartileValues,
+                    backgroundColor: 'rgba(75, 192, 192, 0.75)', // Sample color
+                    borderColor: 'rgba(75, 192, 192, 1)', // Sample border color
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                aspectRatio: 2,
+                plugins: {
+                    labels: {
+                    render: 'value'
                 }
             }
                 // Add options here if needed
@@ -349,10 +444,52 @@ function downloadChart(chartId) {
                 plugins: {
                     labels: {
                         render: 'value',
-                        fontSize: 14,
-                        fontStyle: 'bold',
-                        fontColor: '#000',
-                        fontFamily: '"Lucida Console", Monaco, monospace'
+                    }
+                }
+            }
+        });
+
+        var yearlyQuartilesBarCtxDownload = document.getElementById('yearlyQuartilesBarChartDownload').getContext('2d');
+        var yearlyQuartilesBarChartDownload = new Chart(yearlyQuartilesBarCtxDownload, {
+            type: 'bar',
+            data: {
+                labels: yearwiseLabels,
+                datasets: [
+                    {
+                        label: 'Q1',
+                        data: yearwiseValues.map(data => data['Q1']),
+                        backgroundColor: 'rgba(255, 99, 132, 0.75)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Q2',
+                        data: yearwiseValues.map(data => data['Q2']),
+                        backgroundColor: 'rgba(54, 162, 235, 0.75)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Q3',
+                        data: yearwiseValues.map(data => data['Q3']),
+                        backgroundColor: 'rgba(75, 192, 192, 0.75)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: '< Q3',
+                        data: yearwiseValues.map(data => data['< Q3']),
+                        backgroundColor: 'rgba(251, 192, 147, 0.75)',
+                        borderColor: 'rgba(251, 192, 147, 1)',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                aspectRatio: 2,
+                plugins: {
+                    labels: {
+                        render: 'value',
                     }
                 }
             }
