@@ -312,12 +312,28 @@ function downloadChart(chartId) {
             data: {
                 labels: publicationTypeLabels,
                 datasets: [{
-                    label: 'Number of Publications by Type',
-                    data: publicationTypeValues,
-                    backgroundColor: 'rgba(255, 99, 132, 0.5)', // Sample color
-                    borderColor: 'rgba(255, 99, 132, 1)', // Sample border color
-                    borderWidth: 2
-                }]
+                        label: 'Journal',
+                        data: publicationTypeValues.map(data => data['Journal']),
+                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Conference',
+                        data: publicationTypeValues.map(data => data['Conference']),
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Book Chapter',
+                        data: publicationTypeValues.map(data => data['Book Chapter']),
+                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2
+                    },
+        
+                ]
             },
             options: {
                 aspectRatio: 2,
@@ -336,12 +352,28 @@ function downloadChart(chartId) {
             data: {
                 labels: publicationTypeLabels,
                 datasets: [{
-                    label: 'Number of Publications by Type',
-                    data: publicationTypeValues,
-                    backgroundColor: 'rgba(255, 99, 132, 0.75)', // Sample color
-                    borderColor: 'rgba(255, 99, 132, 1)', // Sample border color
-                    borderWidth: 2
-                }]
+                        label: 'Journal',
+                        data: publicationTypeValues.map(data => data['Journal']),
+                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Conference',
+                        data: publicationTypeValues.map(data => data['Conference']),
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Book Chapter',
+                        data: publicationTypeValues.map(data => data['Book Chapter']),
+                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2
+                    },
+        
+                ]
             },
             options: {
                 aspectRatio: 2,

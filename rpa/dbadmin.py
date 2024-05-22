@@ -917,6 +917,14 @@ def admin_get_charts(request):
             publication_type_labels.append(pub_type_data["publication_type"])
             publication_type_values.append(pub_type_data["total"])
 
+        temp = {}
+
+        for i in range(len(publication_type_labels)):
+            temp[publication_type_labels[i]] = publication_type_values[i]
+        
+        publication_type_values = [temp]
+        publication_type_labels = ["Overall"]
+
         # Fetch data for quartile bar chart
         quartile_records = {}
         quartile_labels = []
@@ -1045,6 +1053,14 @@ def admin_get_charts(request):
 
         publication_type_labels = list(count_data.keys())
         publication_type_values = list(count_data.values())
+
+        temp = {}
+
+        for i in range(len(publication_type_labels)):
+            temp[publication_type_labels[i]] = publication_type_values[i]
+        
+        publication_type_values = [temp]
+        publication_type_labels = [AY]
 
         # Fetch data for quartile bar chart
         quartile_records = {}
