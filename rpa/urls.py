@@ -49,6 +49,11 @@ urlpatterns = [
         views.AdminFileDownloadView.as_view(),
         name="file_download",
     ),
+    path(
+        "static/word/admin",
+        views.AdminWordDownloadView.as_view(),
+        name="word_download",
+    ),
     path("dbadmin/home", views.admin_home, name="admin_home"),
     path("dbadmin/dashboard", views.admin_dashboard, name="admin_dashboard"),
     path("dbadmin/paper/remove", views.admin_remove_upload, name="admin_remove_upload"),
@@ -78,6 +83,7 @@ urlpatterns = [
         name="admin_manually_insert_paper",
     ),
     path("dbadmin/delete_paper", views.admin_delete_paper, name="admin_delete_paper"),
+    path("dbadmin/get_word", views.admin_get_word, name="admin_download_word"),
     path("dbadmin/charts", views.admin_get_charts, name="admin_get_charts"),
     path("dbadmin/error", views.error, name="error"),
 ]

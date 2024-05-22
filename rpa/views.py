@@ -157,6 +157,9 @@ def admin_manually_insert_paper(request):
 def admin_delete_paper(request):
     return dbadmin.admin_delete_paper(request)
 
+def admin_get_word(request):
+    return dbadmin.admin_get_word(request)
+
 
 def admin_verify_paper(request):
     return dbadmin.admin_verify_paper(request)
@@ -204,6 +207,33 @@ class AdminFileDownloadView(View):
                 )
 
             response["Content-Disposition"] = f'attachment; filename="{publ.title}.pdf"'
+            return response
+        else:
+            # Return a 404 response if the file does not exist
+            return HttpResponseNotFound("File not found!")
+
+class AdminWordDownloadView(View):
+    def get(self, request):
+        file_path = "research_publications.docx"
+
+        # Check if the file exists
+        if os.path.exists(file_path):
+            # Open the file and create a FileResponse
+            file = open(file_path, "rb")
+            response = FileResponse(file, as_attachment=True)
+            name = str(request.session.get("FACULTY_NAME"))
+
+            if name.lower() != "admin":
+                return render(
+                    request,
+                    "custom_error.html",
+                    {
+                        "error_title": "Unauthorized!",
+                        "error_message": "You are unauthorized to view the details of this publication.",
+                    },
+                )
+
+            response["Content-Disposition"] = f'attachment; filename="{file_path}"'
             return response
         else:
             # Return a 404 response if the file does not exist

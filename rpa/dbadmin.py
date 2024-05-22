@@ -8,6 +8,10 @@ import random
 import string
 import django.db.utils
 import os
+import json
+import docx
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.shared import Pt
 import rpa.extractor.extractor as Extractor
 
 
@@ -584,6 +588,266 @@ def admin_delete_paper(request):
     publication.delete()
 
     return HttpResponse("OK")
+
+def convert_to_dict(row):
+    row_data = {
+                    "uniqueid" : row[1] if row[1] and row[1].lower() != 'null' and row[1].lower() != 'none' else "",
+                    "title": row[2] if row[2] and row[2].lower() != 'null' and row[2].lower() != 'none' else "",
+                    "AY": row[3] if row[3] and row[3].lower() != 'null' and row[3].lower() != 'none' else "",
+                    "first_author" : row[4] if row[4] and row[4].lower() != 'null' and row[4].lower() != 'none' else "",
+                    "second_author" : row[5] if row[5] and row[5].lower() != 'null' and row[5].lower() != 'none' else "",
+                    "third_author" : row[6] if row[6] and row[6].lower() != 'null' and row[6].lower() != 'none' else "",
+                    "other_authors" : row[7] if row[7] and row[7].lower() != 'null' and row[7].lower() != 'none' else "",
+                    # "is_student_author" : row['is_student_author'],
+                    # "student_name" : row['student_name'],
+                    # "student_batch" : row['student_batch'],
+                    "specification" : row[11] if row[11] and row[11].lower() != 'null' and row[11].lower() != 'none' else "",
+                    "publication_type" : row[12] if row[12] and row[12].lower() != 'null' and row[12].lower() != 'none' else "",
+                    "publication_name" : row[13] if row[13] and row[13].lower() != 'null' and row[13].lower() != 'none' else "",
+                    "publisher" : row[14] if row[14] and row[14].lower() != 'null' and row[14].lower() != 'none' else "",
+                    "year_of_publishing" : row[15] if row[15] and row[15].lower() != 'null' and row[15].lower() != 'none' else "",
+                    "month_of_publishing" : row[16] if row[16] and row[16].lower() != 'null' and row[16].lower() != 'none' else "",
+                    "volume" : row[17] if row[17] and row[17].lower() != '0' else "",
+                    "page_number" : row[18] if row[18] and row[18].lower() != 'null' and row[18].lower() != 'none' else "",
+                    "indexing" : row[19] if row[19] and row[19].lower() != 'null' and row[19].lower() != 'none' else "",
+                    "quartile" : row[20] if row[20] and row[20].lower() != 'null' and row[20].lower() != 'none' else "",
+                    # "citation" : row['citation'],
+                    "doi" : row[22] if row[22] and row[22].lower() != 'null' and row[22].lower() != 'none' else "",
+                    # "front_page_path" : row['front_page_path'],
+                    "url" : row[24] if row[24] and row[24].lower() != 'null' and row[24].lower() != 'none' else "",
+                    "issn" : row[25] if row[25] and row[25].lower() != 'null' and row[25].lower() != 'none' else "",
+                    # "verified" : row['verified'],
+                    # "admin_verified" : row['admin_verified'],
+                }
+    return row_data
+
+def IEEEFormat(paper):
+    '''
+        Author initials. Last name, “Article title,” Journal Name, vol. Volume, no. Number, pp. Page range, Month Year, DOI.
+    '''
+
+    months = {
+        1: "Jan",
+        2: "Feb",
+        3: "Mar",
+        4: "Apr",
+        5: "May",
+        6: "Jun",
+        7: "Jul",
+        8: "Aug",
+        9: "Sep",
+        10: "Oct",
+        11: "Nov",
+        12: "Dec",
+    }
+
+
+    format_string = ''
+
+    if paper.get("first_author"):
+        format_string += str(paper.get("first_author")) + str(", ")
+    
+    if paper.get("second_author"):
+        format_string += str(paper.get("second_author")) + str(", ")
+    
+    if paper.get("third_author"):
+        format_string += str(paper.get("third_author")) + str(", ")
+
+    if paper.get("other_authors"):
+        format_string += str(paper.get("other_authors")) + str(", ")
+
+    if paper.get("title"):
+        format_string += str("\"") + str(paper.get("title")) + str("\", ")
+    
+    if paper.get("publication_name"):
+        format_string += str(paper.get("publication_name")) + str(", ")
+    
+    if paper.get("publisher"):
+        format_string += str(paper.get("publisher")) + str(", ")
+    
+    if paper.get("volume") and paper.get("volume") != "0":
+        format_string += str("vol. ") + str(paper.get("volume")) + str(", ")
+    
+    if paper.get("page_number"):
+        format_string += str("pp. ") + str(paper.get("page_number")) + str(", ")
+    
+    if paper.get("year_of_publishing"):
+        if paper.get("month_of_publishing"):
+            format_string += str(months.get(int(paper.get("month_of_publishing")))) + str(" ") + str(paper.get("year_of_publishing")) + str(", ")
+        else:
+            format_string += str(paper.get("year_of_publishing")) + str(", ")
+    
+    if paper.get("doi"):
+        format_string += str("DOI: ") + str(paper.get("doi")) + str(", ")
+    
+    if paper.get("issn"):
+        format_string += str("ISSN: ") + str(paper.get("issn")) + str(", ")
+    
+    if paper.get("indexing") or paper.get("quartile"):
+        if paper.get("indexing") and paper.get("quartile"):
+            quartile = paper.get("quartile")
+            if paper.get("quartile").lower() == "q4":
+                quartile = "< Q3"
+            format_string += str("(Indexed in: ") + str(paper.get("indexing")) + str(" Quartile: ") + str(quartile) + str("), ")
+        elif paper.get("indexing"):
+            format_string += str("(Indexed in: ") + str(paper.get("indexing")) + str("), ") 
+        elif paper.get("quartile"):
+            quartile = paper.get("quartile")
+            if paper.get("quartile").lower() == "q4":
+                quartile = "< Q3"
+            format_string += str("(Quartile: ") + str(quartile) + str("), ")
+    
+    if paper.get("url"):
+        format_string += str("URL: ") + str(paper.get("url"))
+
+    format_string = format_string.rstrip(", ")
+    
+    return ' '.join(format_string.split())
+
+    
+
+def generate_word_document(data):
+    sorted_data = sorted(data, key=lambda x: x['AY'])
+
+    journals = {}
+    conference = {}
+    book_series = {}
+
+
+    for data in sorted_data:
+        if data["publication_type"].lower().strip() == "journal":
+            if data["AY"] not in journals:
+                journals[data["AY"]] = {}
+
+                print(f'{data["quartile"]=}, {bool(data["quartile"])}')
+
+                if data["quartile"] and data["quartile"].lower() != "null" and data["quartile"].lower() != "none":
+                    if data["quartile"].lower() == "q4":
+                        quartile = "< Q3"
+                    else:
+                        quartile = data["quartile"]
+                else:
+                    quartile = "< Q3"
+
+                if quartile not in journals[data["AY"]]:
+                    journals[data["AY"]][quartile] = [data]
+                else:
+                    journals[data["AY"]][quartile].append(data)
+            else:
+                print(f'{data["quartile"]=}, {bool(data["quartile"])}')
+
+                if data["quartile"] and data["quartile"].lower() != "null" and data["quartile"].lower() != "none":
+                    if data["quartile"].lower() == "q4":
+                        quartile = "< Q3"
+                    else:
+                        quartile = data["quartile"]
+                else:
+                    quartile = "< Q3"
+                
+                if quartile not in journals[data["AY"]]:
+                    journals[data["AY"]][quartile] = [data]
+                else:
+                    journals[data["AY"]][quartile].append(data)
+
+        elif data["publication_type"].lower().strip() == "conference":
+            if data["AY"] not in conference:
+                conference[data["AY"]] = [data]
+            else:
+                conference[data["AY"]].append(data)
+        elif data["publication_type"].lower().strip() == "book chapter":
+            if data["AY"] not in book_series:
+                book_series[data["AY"]] = [data]
+            else:
+                book_series[data["AY"]].append(data)
+            
+    # Create a new Word document
+    doc = docx.Document()
+
+    heading1 = doc.add_heading('Department of Information Technology', level=1)
+    heading1.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    run = heading1.runs[0]
+    run.font.size = Pt(24)
+    run.bold = True
+    run.underline = True
+
+    heading1 = doc.add_heading('Research Publications', level=1)
+    heading1.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    run = heading1.runs[0]
+    run.font.size = Pt(20)
+    run.bold = True
+    run.underline = True
+
+    if journals:
+        journal_heading = doc.add_heading('Journals', level=1)
+        run = journal_heading.runs[0]
+        run.underline = True
+
+        for AY, details in journals.items():
+            if details:
+                AY_heading = doc.add_heading(AY, level=2) 
+                run = AY_heading.runs[0]
+                run.underline = True
+
+                details = sort_quartile_records(details)
+
+                for quartile, papers in details.items():
+                    if papers:
+                        quartile_heading = doc.add_heading(f"Publications under {quartile}", level=3)
+                        run = quartile_heading.runs[0]
+                        run.underline = True
+
+                        for idx, paper in enumerate(papers):
+                            paragraph = doc.add_paragraph(str(idx+1) + ". " + IEEEFormat(paper))
+                            paragraph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    
+    if book_series:
+        book_series_heading = doc.add_heading('Book Series', level=1)
+        run = book_series_heading.runs[0]
+        run.underline = True
+
+        for AY, details in book_series.items():
+            if details:
+                AY_heading = doc.add_heading(AY, level=2)
+                run = AY_heading.runs[0]
+                run.underline = True
+            
+                for idx, paper in enumerate(details):
+                    paragraph = doc.add_paragraph(str(idx+1) + ". " + IEEEFormat(paper))
+                    paragraph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    
+    if conference:
+        conference_heading = doc.add_heading('Conference', level=1)
+        run = conference_heading.runs[0]
+        run.underline = True
+
+        for AY, details in conference.items():
+            if details:
+                AY_heading = doc.add_heading(AY, level=2)
+                run = AY_heading.runs[0]
+                run.underline = True
+            
+                for idx, paper in enumerate(details):
+                    paragraph = doc.add_paragraph(str(idx+1) + ". " + IEEEFormat(paper))
+                    paragraph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    
+    doc.save("research_publications.docx")
+
+def admin_get_word(request):
+    if request.method == "POST":
+        table_data = request.POST.get("data")
+        table_dict = json.loads(f'{{"rows": {table_data}}}')
+
+        table_rows = table_dict.get("rows")
+
+        all_row_data = []
+
+        for row in table_rows:
+            row_data = convert_to_dict(row)
+            all_row_data.append(row_data)
+
+        generate_word_document(all_row_data)
+
+    return JsonResponse({})
 
 def sort_quartile_records(input_dict):
     # Define the desired order of keys

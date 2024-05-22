@@ -313,7 +313,8 @@
 
     <div class="container mx-auto py-4">
         <input type="text" class="form-control mb-3" id="searchBox" placeholder="Search..." oninput="filterTable()">
-        <button id="downloadCSV" class="btn btn-primary mt-3" onclick="downloadCSV()">Download CSV</button>
+        <button id="downloadCSV" class="btn btn-success mt-3" onclick="downloadCSV()">Download CSV</button>
+        <button id="downloadWord" class="btn btn-primary mt-3" onclick="downloadWord()">Download Word</button>
         <div class="flex justify-end">
             <span class="scroll-arrow" onclick="scrollToLeft()">⬅️</span>
             <span class="scroll-arrow" onclick="scrollToRight()">➡️</span>
@@ -491,6 +492,28 @@
             "July", "August", "September", "October", "November", "December"
         ];
         return months[monthNumber - 1];
+    }
+
+    function downloadWord(){
+        var tableRows = getTableRows();
+
+        payload = {
+            data: JSON.stringify(tableRows),
+            csrfmiddlewaretoken: '{{ csrf_token }}'
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "{% url 'admin_download_word' %}",
+            data: payload,
+            success: function(response) {
+                window.open("/rpa/static/word/admin", "_blank");
+            },
+            error: function(error) {
+                // Handle the error response
+                alert('Error in downloading file');
+            }
+        });
     }
     </script>
 

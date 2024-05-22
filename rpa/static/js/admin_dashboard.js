@@ -656,6 +656,7 @@ function clearAllAuthors() {
 
 // Function to apply filters
 function applyAuthorFilter(){
+    applyFilter();
     closeAuthorFilterModal();
 }
 
@@ -675,3 +676,27 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
+function getTableRows(){
+    // Get all the rows from the table
+    var table = document.getElementById('mytable');
+    var rows = table.getElementsByTagName('tr');
+    var data = [];
+
+    // Iterate over the rows and collect data from the visible rows
+    for (var i = 1; i < rows.length; i++) {
+        if (rows[i].style.display !== 'none' && (!(Array.from(rows[i].classList).includes("hidden")))) {
+
+            var rowData = [];
+            var cells = rows[i].getElementsByTagName('td');
+            for (var j = 0; j < cells.length; j++) {
+                rowData.push(cells[j].innerText);
+            }
+            if (rowData.length > 1){
+                data.push(rowData);
+            }
+        }
+    }
+
+    return data;
+}
