@@ -14,37 +14,44 @@ class Command(BaseCommand):
             reader = csv.DictReader(file)
             for row in reader:
                 title = row['title']
-                updates = {
-                    "title" : row['title'],
-                    "start_academic_month" : row['start_academic_month'],
-                    "start_academic_year" : row['start_academic_year'],
-                    "end_academic_month" : row['end_academic_month'],
-                    "end_academic_year" : row['end_academic_year'],
-                    "first_author" : row['first_author'],
-                    "second_author" : row['second_author'],
-                    "third_author" : row['third_author'],
-                    "other_authors" : row['other_authors'],
-                    "is_student_author" : row['is_student_author'],
-                    "student_name" : row['student_name'],
-                    "student_batch" : row['student_batch'],
-                    "specification" : row['specification'],
-                    "publication_type" : row['publication_type'],
-                    "publication_name" : row['publication_name'],
-                    "publisher" : row['publisher'],
-                    "year_of_publishing" : row['year_of_publishing'],
-                    "month_of_publishing" : row['month_of_publishing'],
-                    "volume" : row['volume'],
-                    "page_number" : row['page_number'],
-                    "indexing" : row['indexing'],
-                    "quartile" : row['quartile'],
-                    "citation" : row['citation'],
-                    "doi" : row['doi'],
-                    "front_page_path" : row['front_page_path'],
-                    "url" : row['url'],
-                    "issn" : row['ISSN'],
-                    "verified" : row['verified'],
-                    "admin_verified" : row['admin_verified'],
+                temp = {
+                    "title" : row.get('title') if row.get('title') else None,
+                    "start_academic_month" : row.get('start_academic_month') if row.get('start_academic_month') else None,
+                    "start_academic_year" : row.get('start_academic_year') if row.get('start_academic_year') else None,
+                    "end_academic_month" : row.get('end_academic_month') if row.get('end_academic_month') else None,
+                    "end_academic_year" : row.get('end_academic_year') if row.get('end_academic_year') else None,
+                    "first_author" : row.get('first_author') if row.get('first_author') else None,
+                    "second_author" : row.get('second_author') if row.get('second_author') else None,
+                    "third_author" : row.get('third_author') if row.get('third_author') else None,
+                    "other_authors" : row.get('other_authors') if row.get('other_authors') else None,
+                    "is_student_author" : row.get('is_student_author') if row.get('is_student_author') else None,
+                    "student_name" : row.get('student_name') if row.get('student_name') else None,
+                    "student_batch" : row.get('student_batch') if row.get('student_batch') else None,
+                    "specification" : row.get('specification') if row.get('specification') else None,
+                    "publication_type" : row.get('publication_type') if row.get('publication_type') else None,
+                    "publication_name" : row.get('publication_name') if row.get('publication_name') else None,
+                    "publisher" : row.get('publisher') if row.get('publisher') else None,
+                    "year_of_publishing" : row.get('year_of_publishing') if row.get('year_of_publishing') else None,
+                    "month_of_publishing" : row.get('month_of_publishing') if row.get('month_of_publishing') else None,
+                    "volume" : row.get('volume') if row.get('volume') else None,
+                    "page_number" : row.get('page_number') if row.get('page_number') else None,
+                    "indexing" : row.get('indexing') if row.get('indexing') else None,
+                    "quartile" : row.get('quartile') if row.get('quartile') else None,
+                    "citation" : row.get('citation') if row.get('citation') else None,
+                    "doi" : row.get('doi') if row.get('doi') else None,
+                    "front_page_path" : row.get('front_page_path') if row.get('front_page_path') else None,
+                    "url" : row.get('url') if row.get('url') else None,
+                    "issn" : row.get('ISSN') if row.get('ISSN') else None,
+                    "verified" : row.get('verified') if row.get('verified') else None,
+                    "admin_verified" : row.get('admin_verified') if row.get('admin_verified') else None,
+                    "impact_factor": row.get("impact_factor") if row.get("impact_factor") else None,
                 }
+
+                updates = temp.copy()
+
+                for key, value in temp.items():
+                    if not value:
+                        del updates[key]
 
                 # Creating or updating the publication
                 publication, created = Publications.objects.update_or_create(

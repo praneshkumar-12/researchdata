@@ -42,6 +42,7 @@ class Publications(models.Model):
     admin_verified = models.CharField(
         max_length=10, blank=True, null=True, default="False"
     )
+    impact_factor = models.FloatField(blank=True, null=True)
 
     class Meta:
         managed = False
