@@ -719,7 +719,7 @@ def generate_word_document(data):
             if data["AY"] not in journals:
                 journals[data["AY"]] = {}
 
-                print(f'{data["quartile"]=}, {bool(data["quartile"])}')
+                # print(f'{data["quartile"]=}, {bool(data["quartile"])}')
 
                 if data["quartile"] and data["quartile"].lower() != "null" and data["quartile"].lower() != "none":
                     if data["quartile"].lower() == "q4":
@@ -734,7 +734,7 @@ def generate_word_document(data):
                 else:
                     journals[data["AY"]][quartile].append(data)
             else:
-                print(f'{data["quartile"]=}, {bool(data["quartile"])}')
+                # print(f'{data["quartile"]=}, {bool(data["quartile"])}')
 
                 if data["quartile"] and data["quartile"].lower() != "null" and data["quartile"].lower() != "none":
                     if data["quartile"].lower() == "q4":
