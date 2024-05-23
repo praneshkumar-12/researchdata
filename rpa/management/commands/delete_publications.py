@@ -32,9 +32,4 @@ class Command(BaseCommand):
                 if row:
                     unique_ids.append(row[0])
         return unique_ids
-                    
-
-            
-
-
-
+    
