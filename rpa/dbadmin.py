@@ -96,6 +96,8 @@ def admin_dashboard(request):
             paper.issn = "NULL"
         if not paper.front_page_path:
             paper.front_page_path = "NULL"
+        if not paper.impact_factor:
+            paper.impact_factor = "NULL"
 
         publication_list.append(paper)
 
@@ -590,32 +592,64 @@ def admin_delete_paper(request):
     return HttpResponse("OK")
 
 def convert_to_dict(row):
+    order_of_headers = [
+        "skip_sno",
+        "uniqueid" ,
+        "title",
+        "url" ,
+        "AY",
+        "first_author" ,
+        "second_author" ,
+        "third_author" ,
+        "other_authors" ,
+        "is_student_author" ,
+        "student_name" ,
+        "student_batch" ,
+        "specification" ,
+        "publication_type" ,
+        "publication_name" ,
+        "publisher" ,
+        "year_of_publishing" ,
+        "month_of_publishing" ,
+        "volume" ,
+        "page_number" ,
+        "indexing" ,
+        "quartile" ,
+        "impact_factor",
+        "citation" ,
+        "doi" ,
+        "front_page_path" ,
+        "issn" ,
+        "verified" ,
+        "admin_verified" ,
+    ]
     row_data = {
-                    "uniqueid" : row[1] if row[1] and row[1].lower() != 'null' and row[1].lower() != 'none' else "",
-                    "title": row[2] if row[2] and row[2].lower() != 'null' and row[2].lower() != 'none' else "",
-                    "AY": row[3] if row[3] and row[3].lower() != 'null' and row[3].lower() != 'none' else "",
-                    "first_author" : row[4] if row[4] and row[4].lower() != 'null' and row[4].lower() != 'none' else "",
-                    "second_author" : row[5] if row[5] and row[5].lower() != 'null' and row[5].lower() != 'none' else "",
-                    "third_author" : row[6] if row[6] and row[6].lower() != 'null' and row[6].lower() != 'none' else "",
-                    "other_authors" : row[7] if row[7] and row[7].lower() != 'null' and row[7].lower() != 'none' else "",
+                    "uniqueid" : row[order_of_headers.index("uniqueid")] if row[order_of_headers.index("uniqueid")] and row[order_of_headers.index("uniqueid")].lower() != 'null' and row[order_of_headers.index("uniqueid")].lower() != 'none' else "",
+                    "title": row[order_of_headers.index("title")] if row[order_of_headers.index("title")] and row[order_of_headers.index("title")].lower() != 'null' and row[order_of_headers.index("title")].lower() != 'none' else "",
+                    "AY": row[order_of_headers.index("AY")] if row[order_of_headers.index("AY")] and row[order_of_headers.index("AY")].lower() != 'null' and row[order_of_headers.index("AY")].lower() != 'none' else "",
+                    "first_author" : row[order_of_headers.index("first_author")] if row[order_of_headers.index("first_author")] and row[order_of_headers.index("first_author")].lower() != 'null' and row[order_of_headers.index("first_author")].lower() != 'none' else "",
+                    "second_author" : row[order_of_headers.index("second_author")] if row[order_of_headers.index("second_author")] and row[order_of_headers.index("second_author")].lower() != 'null' and row[order_of_headers.index("second_author")].lower() != 'none' else "",
+                    "third_author" : row[order_of_headers.index("third_author")] if row[order_of_headers.index("third_author")] and row[order_of_headers.index("third_author")].lower() != 'null' and row[order_of_headers.index("third_author")].lower() != 'none' else "",
+                    "other_authors" : row[order_of_headers.index("other_authors")] if row[order_of_headers.index("other_authors")] and row[order_of_headers.index("other_authors")].lower() != 'null' and row[order_of_headers.index("other_authors")].lower() != 'none' else "",
+                    "specification" : row[order_of_headers.index("specification")] if row[order_of_headers.index("specification")] and row[order_of_headers.index("specification")].lower() != 'null' and row[order_of_headers.index("specification")].lower() != 'none' else "",
+                    "publication_type" : row[order_of_headers.index("publication_type")] if row[order_of_headers.index("publication_type")] and row[order_of_headers.index("publication_type")].lower() != 'null' and row[order_of_headers.index("publication_type")].lower() != 'none' else "",
+                    "publication_name" : row[order_of_headers.index("publication_name")] if row[order_of_headers.index("publication_name")] and row[order_of_headers.index("publication_name")].lower() != 'null' and row[order_of_headers.index("publication_name")].lower() != 'none' else "",
+                    "publisher" : row[order_of_headers.index("publisher")] if row[order_of_headers.index("publisher")] and row[order_of_headers.index("publisher")].lower() != 'null' and row[order_of_headers.index("publisher")].lower() != 'none' else "",
+                    "year_of_publishing" : row[order_of_headers.index("year_of_publishing")] if row[order_of_headers.index("year_of_publishing")] and row[order_of_headers.index("year_of_publishing")].lower() != 'null' and row[order_of_headers.index("year_of_publishing")].lower() != 'none' else "",
+                    "month_of_publishing" : row[order_of_headers.index("month_of_publishing")] if row[order_of_headers.index("month_of_publishing")] and row[order_of_headers.index("month_of_publishing")].lower() != 'null' and row[order_of_headers.index("month_of_publishing")].lower() != 'none' else "",
+                    "volume" : row[order_of_headers.index("volume")] if row[order_of_headers.index("volume")] and row[order_of_headers.index("volume")].lower() != '0' else "",
+                    "page_number": row[order_of_headers.index("page_number")] if row[order_of_headers.index("page_number")] and row[order_of_headers.index("page_number")].lower() != 'null' and row[order_of_headers.index("page_number")].lower() != 'none' else "",
+                    "indexing" : row[order_of_headers.index("indexing")] if row[order_of_headers.index("indexing")] and row[order_of_headers.index("indexing")].lower() != 'null' and row[order_of_headers.index("indexing")].lower() != 'none' else "",
+                    "quartile" : row[order_of_headers.index("quartile")] if row[order_of_headers.index("quartile")] and row[order_of_headers.index("quartile")].lower() != 'null' and row[order_of_headers.index("quartile")].lower() != 'none' else "",
+                    "doi" : row[order_of_headers.index("doi")] if row[order_of_headers.index("doi")] and row[order_of_headers.index("doi")].lower() != 'null' and row[order_of_headers.index("doi")].lower() != 'none' else "",
+                    "url" : row[order_of_headers.index("url")] if row[order_of_headers.index("url")] and row[order_of_headers.index("url")].lower() != 'null' and row[order_of_headers.index("url")].lower() != 'none' else "",
+                    "issn" : row[order_of_headers.index("issn")] if row[order_of_headers.index("issn")] and row[order_of_headers.index("issn")].lower() != 'null' and row[order_of_headers.index("issn")].lower() != 'none' else "",
+                    "impact_factor": row[order_of_headers.index("impact_factor")] if row[order_of_headers.index("impact_factor")] and row[order_of_headers.index("impact_factor")].lower() != 'null' and row[order_of_headers.index("impact_factor")].lower() != 'none' else "",
+                    # "citation" : row['citation'],
+                    # "front_page_path" : row['front_page_path'],
                     # "is_student_author" : row['is_student_author'],
                     # "student_name" : row['student_name'],
                     # "student_batch" : row['student_batch'],
-                    "specification" : row[11] if row[11] and row[11].lower() != 'null' and row[11].lower() != 'none' else "",
-                    "publication_type" : row[12] if row[12] and row[12].lower() != 'null' and row[12].lower() != 'none' else "",
-                    "publication_name" : row[13] if row[13] and row[13].lower() != 'null' and row[13].lower() != 'none' else "",
-                    "publisher" : row[14] if row[14] and row[14].lower() != 'null' and row[14].lower() != 'none' else "",
-                    "year_of_publishing" : row[15] if row[15] and row[15].lower() != 'null' and row[15].lower() != 'none' else "",
-                    "month_of_publishing" : row[16] if row[16] and row[16].lower() != 'null' and row[16].lower() != 'none' else "",
-                    "volume" : row[17] if row[17] and row[17].lower() != '0' else "",
-                    "page_number" : row[18] if row[18] and row[18].lower() != 'null' and row[18].lower() != 'none' else "",
-                    "indexing" : row[19] if row[19] and row[19].lower() != 'null' and row[19].lower() != 'none' else "",
-                    "quartile" : row[20] if row[20] and row[20].lower() != 'null' and row[20].lower() != 'none' else "",
-                    # "citation" : row['citation'],
-                    "doi" : row[22] if row[22] and row[22].lower() != 'null' and row[22].lower() != 'none' else "",
-                    # "front_page_path" : row['front_page_path'],
-                    "url" : row[24] if row[24] and row[24].lower() != 'null' and row[24].lower() != 'none' else "",
-                    "issn" : row[25] if row[25] and row[25].lower() != 'null' and row[25].lower() != 'none' else "",
                     # "verified" : row['verified'],
                     # "admin_verified" : row['admin_verified'],
                 }
@@ -696,6 +730,9 @@ def IEEEFormat(paper):
             if paper.get("quartile").lower() == "q4":
                 quartile = "< Q3"
             format_string += str("(Quartile: ") + str(quartile) + str("), ")
+    
+    if paper.get("impact_factor"):
+        format_string += str("IF: ") + str(paper.get("impact_factor")) + str(", ")
     
     if paper.get("url"):
         format_string += str("URL: ") + str(paper.get("url"))
@@ -844,7 +881,7 @@ def admin_get_word(request):
         for row in table_rows:
             row_data = convert_to_dict(row)
             all_row_data.append(row_data)
-
+        
         generate_word_document(all_row_data)
 
     return JsonResponse({})

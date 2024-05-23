@@ -55,6 +55,7 @@
             top: 0;
         }
 
+
     </style>
     
 </head>
@@ -325,6 +326,7 @@
                         <th>S.No</th>
                         <th>UniqueID</th>
                         <th style="width: 30%;" onclick="sortTable(2)">Title</th>
+                        <th>URL</th>
                         <th>Academic Year</th>
                         <th>First Author</th>
                         <th>Second Author</th>
@@ -337,50 +339,55 @@
                         <th>Publication Type</th>
                         <th>Publication Name</th>
                         <th>Publisher</th>
-                        <th onclick="sortTablenum(15)">Publication Year</th>
+                        <th onclick="sortTablenum(16)">Publication Year</th>
                         <th>Publication Month</th>
                         <th>Volume</th>
                         <th>Page Numbers</th>
                         <th>Indexing</th>
                         <th>Quartile</th>
-                        <th onclick="sortTablenum(21)">Citations</th>
+                        <th>Impact Factor</th>
+                        <th onclick="sortTablenum(23)">Citations</th>
                         <th>DOI</th>
                         <th>FPP</th>
-                        <th>URL</th>
                         <th>ISSN</th>
                     </thead>
                             {% for paper in papers %}
                             <tr data-uniqueid="{{ paper.uniqueid }}">
-                                <td>{{ forloop.counter }}</td>
-                                <td>{{ paper.uniqueid }}</td>
-                                <td><a href="/rpa/dbadmin/paper/{{ paper.uniqueid }}" target="_blank">{{ paper.title }}</a></td>
-                                <td>{{ paper.start_academic_month }} {{ paper.start_academic_year }} - {{ paper.end_academic_month }} {{ paper.end_academic_year }}</td>
-                                <td>{{ paper.first_author }}</td>
-                                <td>{{ paper.second_author }}</td>
-                                <td>{{ paper.third_author }}</td>
-                                <td>{{ paper.other_authors }}</td>
-                                <td>{{ paper.is_student_author }}</td>
-                                <td>{{ paper.student_name }}</td>
-                                <td>{{ paper.student_batch }}</td>
-                                <td>{{ paper.specification }}</td>
-                                <td>{{ paper.publication_type }}</td>
-                                <td>{{ paper.publication_name }}</td>
-                                <td>{{ paper.publisher }}</td>
-                                <td>{{ paper.year_of_publishing }}</td>
-                                <td>{{ paper.month_of_publishing }}</td>
-                                <td>{{ paper.volume }}</td>
-                                <td>{{ paper.page_number }}</td>
-                                <td>{{ paper.indexing }}</td>
-                                <td>{{ paper.quartile }}</td>
-                                <td>{{ paper.citation }}</td>
-                                <td>{{ paper.doi }}</td>
-                                {% if paper.front_page_path == 'NULL' or paper.front_page_path == 'None' %}
-                                    <td>{{ paper.front_page_path }}</td>
+                                <td align="center">{{ forloop.counter }}</td>
+                                <td align="center">{{ paper.uniqueid }}</td>
+                                <td ><a href="/rpa/dbadmin/paper/{{ paper.uniqueid }}" target="_blank">{{ paper.title }}</a></td>
+                                {% if paper.url == 'NULL' or paper.url == 'None' %}
+                                    <td align="center">None</td>
                                 {% else %}
-                                    <td><a href="/{{ paper.front_page_path }}" target="_blank">View File</a></td>
+                                    <td align="center"><a href="{{ paper.url }}" target="_blank">{{ paper.url }}</a></td>
                                 {% endif %}
-                                <td><a href="{{ paper.url }}" target="_blank">{{ paper.url }}</a></td>
-                                <td>{{ paper.issn }}</td>    
+                                <td align="center">{{ paper.start_academic_month }} {{ paper.start_academic_year }} - {{ paper.end_academic_month }} {{ paper.end_academic_year }}</td>
+                                <td align="center">{{ paper.first_author }}</td>
+                                <td align="center">{{ paper.second_author }}</td>
+                                <td align="center">{{ paper.third_author }}</td>
+                                <td align="center">{{ paper.other_authors }}</td>
+                                <td align="center">{{ paper.is_student_author }}</td>
+                                <td align="center">{{ paper.student_name }}</td>
+                                <td align="center">{{ paper.student_batch }}</td>
+                                <td align="center">{{ paper.specification }}</td>
+                                <td align="center">{{ paper.publication_type }}</td>
+                                <td align="center">{{ paper.publication_name }}</td>
+                                <td align="center">{{ paper.publisher }}</td>
+                                <td align="center">{{ paper.year_of_publishing }}</td>
+                                <td align="center">{{ paper.month_of_publishing }}</td>
+                                <td align="center">{{ paper.volume }}</td>
+                                <td align="center">{{ paper.page_number }}</td>
+                                <td align="center">{{ paper.indexing }}</td>
+                                <td align="center">{{ paper.quartile }}</td>
+                                <td align="center">{{ paper.impact_factor }}</td>
+                                <td align="center">{{ paper.citation }}</td>
+                                <td align="center">{{ paper.doi }}</td>
+                                {% if paper.front_page_path == 'NULL' or paper.front_page_path == 'None' %}
+                                    <td align="center">{{ paper.front_page_path }}</td>
+                                {% else %}
+                                    <td align="center"><a href="/{{ paper.front_page_path }}" target="_blank">View File</a></td>
+                                {% endif %}
+                                <td align="center">{{ paper.issn }}</td>    
                             </tr>
                             {% endfor %}
             </table>
