@@ -914,14 +914,28 @@ def admin_get_charts(request):
             ):
                 key = "Others"
             else:
-                indices = record.indexing.split(", ")
-                for index in indices:
-                    if index not in ['Scopus', 'Web of Sciences']:
+                #indices = record.indexing.split(", ")
+                indices = record.indexing
+                print(indices)
+                if indices:
+                    if indices not in ['Scopus', 'Web of Sciences', 'Scopus, Web of Sciences', 'Web of Sciences, Scopus'] :
                         key = "Others"
                         chart_records[key] = chart_records.get(key, 0) + 1
                         continue
-                    key = index
+                    if indices == "Scopus, Web of Sciences" or indices == "Web of Sciences, Scopus":
+                        key = "Web of Sciences"
+                    else:
+                        key = indices
                     chart_records[key] = chart_records.get(key, 0) + 1
+
+                # for index in indices:
+                #     #print(index)
+                #     if index not in ['Scopus', 'Web of Sciences']:
+                #         key = "Others"
+                #         chart_records[key] = chart_records.get(key, 0) + 1
+                #         continue
+                #     key = index
+                #     chart_records[key] = chart_records.get(key, 0) + 1
 
         donut_labels = list(chart_records.keys())
         donut_values = list(chart_records.values())
@@ -1047,14 +1061,26 @@ def admin_get_charts(request):
             ):
                 key = "Others"
             else:
-                indices = record.indexing.split(", ")
-                for index in indices:
-                    if index not in ['Scopus', 'Web of Sciences']:
+                indices = record.indexing
+                print(indices)
+                if indices:
+                    if indices not in ['Scopus', 'Web of Sciences', 'Scopus, Web of Sciences', 'Web of Sciences, Scopus'] :
                         key = "Others"
                         chart_records[key] = chart_records.get(key, 0) + 1
                         continue
-                    key = index
+                    if indices == "Scopus, Web of Sciences" or indices == "Web of Sciences, Scopus":
+                        key = "Web of Sciences"
+                    else:
+                        key = indices
                     chart_records[key] = chart_records.get(key, 0) + 1
+                # indices = record.indexing.split(", ")
+                # for index in indices:
+                #     if index not in ['Scopus', 'Web of Sciences']:
+                #         key = "Others"
+                #         chart_records[key] = chart_records.get(key, 0) + 1
+                #         continue
+                #     key = index
+                #     chart_records[key] = chart_records.get(key, 0) + 1
 
         donut_labels = list(chart_records.keys())
         donut_values = list(chart_records.values())
