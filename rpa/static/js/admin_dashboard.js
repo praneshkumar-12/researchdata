@@ -375,6 +375,13 @@ function applyFilter() {
 
     var flag = false;
 
+    authorCheckboxes_list = Array.from(authorCheckboxes);
+
+    isAllAuthorsChecked = true;
+
+    for (var i = 0; i < authorCheckboxes_list.length; i++) {
+        isAllAuthorsChecked = isAllAuthorsChecked && authorCheckboxes_list[i].checked;
+    }
 
     for (var i = 1; i < rows.length; i++) {
         var authorMatch = Array.from(authorCheckboxes).some(function(checkbox) {
@@ -388,6 +395,10 @@ function applyFilter() {
             break;
         }
 
+    }
+
+    if (isAllAuthorsChecked){
+        flag = false;
     }
 
     for (var i = 1; i < rows.length; i++) {
@@ -699,3 +710,10 @@ function getTableRows() {
 
     return data;
 }
+
+document.addEventListener('keydown', function(e) {
+    if(e.keyCode == 27){
+      closeAuthorFilterModal();
+      closeFilterModal();
+    }
+});
