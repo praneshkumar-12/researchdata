@@ -73,7 +73,7 @@ function downloadCSV() {
                         csvrow.push("Serial Number");
                     } else {
 
-                        if (i !== 0 && (j === findHeaderIndex("Title"))){
+                        if (i !== 0 && (j === findHeaderIndex("Title"))) {
                             cellContent = cols[j].getElementsByTagName("a");
                             if (cellContent.length != 0) {
                                 (cellContent);
@@ -283,7 +283,7 @@ function validateFilters() {
     var fromMonth = document.getElementById("from_publication_month").value;
     var toMonth = document.getElementById("to_publication_month").value;
 
-    if ((fromYear === 'all' && toYear !== "all") || (fromYear !== 'all' && toYear === "all")){
+    if ((fromYear === 'all' && toYear !== "all") || (fromYear !== 'all' && toYear === "all")) {
         alert("Please select both From and To filters for year or month.");
         return false;
     }
@@ -494,8 +494,6 @@ function applyFilter() {
     }
 }
 
-
-
 function sortTableByQuartile() {
     var table = document.getElementById("mytable");
     var rows = Array.from(table.getElementsByTagName("tr"));
@@ -598,7 +596,7 @@ window.onload = function() {
 };
 
 // Function to apply filters
-function applyFilters() {
+function applyColumnFilter() {
     var checkboxes = document.querySelectorAll('#columnCheckboxes input[type="checkbox"]');
     checkboxes.forEach(function(checkbox) {
         var columnName = checkbox.id;
@@ -628,6 +626,7 @@ function clearAllColumns() {
         checkbox.checked = false;
     });
 }
+
 function openAuthorFilterModal() {
     document.getElementById('authorFilterModal').style.display = 'block';
 }
@@ -655,7 +654,7 @@ function clearAllAuthors() {
 }
 
 // Function to apply filters
-function applyAuthorFilter(){
+function applyAuthorFilter() {
     applyFilter();
     closeAuthorFilterModal();
 }
@@ -665,19 +664,19 @@ document.addEventListener('keydown', function(event) {
     if (event.key === '/') {
         // Prevent the default action (if any)
         event.preventDefault();
-        
+
         // Check if the active element is not the search box
         if (document.activeElement !== document.getElementById('searchBox')) {
             // Get the search box element
             var searchBox = document.getElementById('searchBox');
-            
+
             // Focus the search box
             searchBox.focus();
         }
     }
 });
 
-function getTableRows(){
+function getTableRows() {
     // Get all the rows from the table
     var table = document.getElementById('mytable');
     var rows = table.getElementsByTagName('tr');
@@ -692,7 +691,7 @@ function getTableRows(){
             for (var j = 0; j < cells.length; j++) {
                 rowData.push(cells[j].innerText);
             }
-            if (rowData.length > 1){
+            if (rowData.length > 1) {
                 data.push(rowData);
             }
         }
