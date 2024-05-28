@@ -20,7 +20,7 @@ INSERT INTO users VALUES ('8RBOaKgAAAAJ', 'Arulkumar A', 'arulkumarv@ssn.edu.in'
 INSERT INTO users VALUES ('oALELhwAAAAJ', 'Sofia Jennifer J', 'sofiajenniferj@ssn.edu.in', 'Welcome123');
 INSERT INTO users VALUES ('ghiPDesAAAAJ', 'Uma Maheswari S', 'umamaheswaris@ssn.edu.in', 'Welcome123');
 INSERT INTO users VALUES ('tmr1MvAAAAAJ', 'Senthil Kumar B', 'senthil@ssn.edu.in', 'Welcome123');
-INSERT INTO users VALUES ('YSWR6gYAAAAJ', 'Kulandai Josephine Julina J', 'josephinejulinajk@ssn.edu.in', 'Welcome123');
+INSERT INTO users VALUES ('YSWR6gYAAAAJ', 'Josephine Julina K J', 'josephinejulinajk@ssn.edu.in', 'Welcome123');
 INSERT INTO users VALUES ('xY8YikEAAAAJ', 'Ashwinth Janarthanan', 'ashwinthj@ssn.edu.in', 'Welcome123');
 INSERT INTO users VALUES ('tkfHeeAAAAAJ', 'Durgadevi Velusamy', 'durgadeviv@ssn.edu.in', 'Welcome123');
 INSERT INTO users VALUES ('jXtbk7oAAAAJ', 'Saravanan A', 'saravanana@ssn.edu.in', 'Welcome123');
