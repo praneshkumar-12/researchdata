@@ -26,6 +26,8 @@ INSERT INTO users VALUES ('tkfHeeAAAAAJ', 'Durgadevi Velusamy', 'durgadeviv@ssn.
 INSERT INTO users VALUES ('jXtbk7oAAAAJ', 'Saravanan A', 'saravanana@ssn.edu.in', 'Welcome123');
 INSERT INTO users VALUES ('Y8DwpSIAAAAJ', 'Suganya Elavarasan', 'suganyae@ssn.edu.in', 'Welcome123');
 INSERT INTO users VALUES ('v7YMzngAAAAJ', 'Sornavalli G', 'sornavallig@ssn.edu.in', 'Welcome123');
+INSERT INTO users VALUEs ('WRNeYvEAAAAJ', 'Sharmila Sree T', 'sreesharmila@dummy.edu.in', 'Welcome123');
+INSERT INTO users VALUEs ('ROSELINKIRUBA', 'Roselin Kiruba R', 'roselinkiruba@dummy.edu.in', 'Welcome123');
 
 INSERT INTO adminusers VALUES('Admin', 'admin@ssn.edu.in', 'Admin@123');
 COMMIT;
