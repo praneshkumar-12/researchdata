@@ -13,6 +13,7 @@ import docx
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Pt
 import rpa.extractor.extractor as Extractor
+from rpa.edit_history import record_update
 
 
 def admin_home(request):
@@ -306,6 +307,8 @@ def admin_update_paper(request):
 
     updates["verified"] = "False"
     updates["admin_verified"] = "False"
+
+    record_update(uniqueid, name, updates, Publications)
 
     Publications.objects.filter(uniqueid=uniqueid).update(**updates)
 

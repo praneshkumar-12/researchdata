@@ -40,6 +40,17 @@ CREATE TABLE publications
      ISSN                VARCHAR(500)
   );
 
+CREATE TABLE EditHistory (
+    history_id INT AUTO_INCREMENT PRIMARY KEY,
+    uniqueid VARCHAR(100) NOT NULL,
+    edit_timestamp DATETIME NOT NULL,
+    edited_by VARCHAR(255) NOT NULL,
+    field_name VARCHAR(255) NOT NULL,
+    old_value TEXT,
+    new_value TEXT,
+    FOREIGN KEY (uniqueid) REFERENCES publications(uniqueid)
+);
+
 -- ALTER TABLE publications ADD( CONSTRAINT pk_uniqueid PRIMARY KEY(uniqueid),
 -- CONSTRAINT chk_quartile CHECK (quartile IN ('Q1', 'Q2', 'Q3', 'Q4')));
 
