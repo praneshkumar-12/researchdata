@@ -68,3 +68,16 @@ class AdminUsers(models.Model):
     class Meta:
         managed = False
         db_table = "adminusers"
+
+class Edithistory(models.Model):
+    history_id = models.AutoField(primary_key=True)
+    uniqueid = models.ForeignKey('Publications', models.DO_NOTHING, db_column='uniqueid')
+    edit_timestamp = models.DateTimeField()
+    edited_by = models.CharField(max_length=255)
+    field_name = models.CharField(max_length=255)
+    old_value = models.TextField(blank=True, null=True)
+    new_value = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'edithistory'

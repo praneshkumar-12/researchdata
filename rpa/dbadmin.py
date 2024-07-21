@@ -373,7 +373,7 @@ def admin_get_doi(request):
                 result["volume"] = 0
             if result.get("citation") is None:
                 result["citation"] = 0
-            
+
             return render(request, "admin_add_publication.html", {"result": result})
 
     name = request.session.get("FACULTY_NAME", "")
@@ -418,7 +418,7 @@ def admin_get_title(request):
                 result["volume"] = 0
             if result.get("citation") is None:
                 result["citation"] = 0
-            
+
             return render(request, "admin_add_publication.html", {"result": result})
 
     name = request.session.get("FACULTY_NAME", "")
@@ -584,7 +584,6 @@ def admin_manually_insert_paper(request):
 def admin_delete_paper(request):
     uniqueid = request.POST.get("uniqueid")
 
-
     if not Publications.objects.filter(uniqueid=uniqueid):
         return HttpResponse("Paper not found!")
 
@@ -594,74 +593,159 @@ def admin_delete_paper(request):
 
     return HttpResponse("OK")
 
+
 def convert_to_dict(row):
     order_of_headers = [
         "skip_sno",
-        "uniqueid" ,
+        "uniqueid",
         "title",
-        "url" ,
+        "url",
         "AY",
-        "first_author" ,
-        "second_author" ,
-        "third_author" ,
-        "other_authors" ,
-        "is_student_author" ,
-        "student_name" ,
-        "student_batch" ,
-        "specification" ,
-        "publication_type" ,
-        "publication_name" ,
-        "publisher" ,
-        "year_of_publishing" ,
-        "month_of_publishing" ,
-        "volume" ,
-        "page_number" ,
-        "indexing" ,
-        "quartile" ,
+        "first_author",
+        "second_author",
+        "third_author",
+        "other_authors",
+        "is_student_author",
+        "student_name",
+        "student_batch",
+        "specification",
+        "publication_type",
+        "publication_name",
+        "publisher",
+        "year_of_publishing",
+        "month_of_publishing",
+        "volume",
+        "page_number",
+        "indexing",
+        "quartile",
         "impact_factor",
-        "citation" ,
-        "doi" ,
-        "front_page_path" ,
-        "issn" ,
-        "verified" ,
-        "admin_verified" ,
+        "citation",
+        "doi",
+        "front_page_path",
+        "issn",
+        "verified",
+        "admin_verified",
     ]
     row_data = {
-                    "uniqueid" : row[order_of_headers.index("uniqueid")] if row[order_of_headers.index("uniqueid")] and row[order_of_headers.index("uniqueid")].lower() != 'null' and row[order_of_headers.index("uniqueid")].lower() != 'none' else "",
-                    "title": row[order_of_headers.index("title")] if row[order_of_headers.index("title")] and row[order_of_headers.index("title")].lower() != 'null' and row[order_of_headers.index("title")].lower() != 'none' else "",
-                    "AY": row[order_of_headers.index("AY")] if row[order_of_headers.index("AY")] and row[order_of_headers.index("AY")].lower() != 'null' and row[order_of_headers.index("AY")].lower() != 'none' else "",
-                    "first_author" : row[order_of_headers.index("first_author")] if row[order_of_headers.index("first_author")] and row[order_of_headers.index("first_author")].lower() != 'null' and row[order_of_headers.index("first_author")].lower() != 'none' else "",
-                    "second_author" : row[order_of_headers.index("second_author")] if row[order_of_headers.index("second_author")] and row[order_of_headers.index("second_author")].lower() != 'null' and row[order_of_headers.index("second_author")].lower() != 'none' else "",
-                    "third_author" : row[order_of_headers.index("third_author")] if row[order_of_headers.index("third_author")] and row[order_of_headers.index("third_author")].lower() != 'null' and row[order_of_headers.index("third_author")].lower() != 'none' else "",
-                    "other_authors" : row[order_of_headers.index("other_authors")] if row[order_of_headers.index("other_authors")] and row[order_of_headers.index("other_authors")].lower() != 'null' and row[order_of_headers.index("other_authors")].lower() != 'none' else "",
-                    "specification" : row[order_of_headers.index("specification")] if row[order_of_headers.index("specification")] and row[order_of_headers.index("specification")].lower() != 'null' and row[order_of_headers.index("specification")].lower() != 'none' else "",
-                    "publication_type" : row[order_of_headers.index("publication_type")] if row[order_of_headers.index("publication_type")] and row[order_of_headers.index("publication_type")].lower() != 'null' and row[order_of_headers.index("publication_type")].lower() != 'none' else "",
-                    "publication_name" : row[order_of_headers.index("publication_name")] if row[order_of_headers.index("publication_name")] and row[order_of_headers.index("publication_name")].lower() != 'null' and row[order_of_headers.index("publication_name")].lower() != 'none' else "",
-                    "publisher" : row[order_of_headers.index("publisher")] if row[order_of_headers.index("publisher")] and row[order_of_headers.index("publisher")].lower() != 'null' and row[order_of_headers.index("publisher")].lower() != 'none' else "",
-                    "year_of_publishing" : row[order_of_headers.index("year_of_publishing")] if row[order_of_headers.index("year_of_publishing")] and row[order_of_headers.index("year_of_publishing")].lower() != 'null' and row[order_of_headers.index("year_of_publishing")].lower() != 'none' else "",
-                    "month_of_publishing" : row[order_of_headers.index("month_of_publishing")] if row[order_of_headers.index("month_of_publishing")] and row[order_of_headers.index("month_of_publishing")].lower() != 'null' and row[order_of_headers.index("month_of_publishing")].lower() != 'none' else "",
-                    "volume" : row[order_of_headers.index("volume")] if row[order_of_headers.index("volume")] and row[order_of_headers.index("volume")].lower() != '0' else "",
-                    "page_number": row[order_of_headers.index("page_number")] if row[order_of_headers.index("page_number")] and row[order_of_headers.index("page_number")].lower() != 'null' and row[order_of_headers.index("page_number")].lower() != 'none' else "",
-                    "indexing" : row[order_of_headers.index("indexing")] if row[order_of_headers.index("indexing")] and row[order_of_headers.index("indexing")].lower() != 'null' and row[order_of_headers.index("indexing")].lower() != 'none' else "",
-                    "quartile" : row[order_of_headers.index("quartile")] if row[order_of_headers.index("quartile")] and row[order_of_headers.index("quartile")].lower() != 'null' and row[order_of_headers.index("quartile")].lower() != 'none' else "",
-                    "doi" : row[order_of_headers.index("doi")] if row[order_of_headers.index("doi")] and row[order_of_headers.index("doi")].lower() != 'null' and row[order_of_headers.index("doi")].lower() != 'none' else "",
-                    "url" : row[order_of_headers.index("url")] if row[order_of_headers.index("url")] and row[order_of_headers.index("url")].lower() != 'null' and row[order_of_headers.index("url")].lower() != 'none' else "",
-                    "issn" : row[order_of_headers.index("issn")] if row[order_of_headers.index("issn")] and row[order_of_headers.index("issn")].lower() != 'null' and row[order_of_headers.index("issn")].lower() != 'none' else "",
-                    "impact_factor": row[order_of_headers.index("impact_factor")] if row[order_of_headers.index("impact_factor")] and row[order_of_headers.index("impact_factor")].lower() != 'null' and row[order_of_headers.index("impact_factor")].lower() != 'none' else "",
-                    # "citation" : row['citation'],
-                    # "front_page_path" : row['front_page_path'],
-                    # "is_student_author" : row['is_student_author'],
-                    # "student_name" : row['student_name'],
-                    # "student_batch" : row['student_batch'],
-                    # "verified" : row['verified'],
-                    # "admin_verified" : row['admin_verified'],
-                }
+        "uniqueid": row[order_of_headers.index("uniqueid")]
+        if row[order_of_headers.index("uniqueid")]
+        and row[order_of_headers.index("uniqueid")].lower() != "null"
+        and row[order_of_headers.index("uniqueid")].lower() != "none"
+        else "",
+        "title": row[order_of_headers.index("title")]
+        if row[order_of_headers.index("title")]
+        and row[order_of_headers.index("title")].lower() != "null"
+        and row[order_of_headers.index("title")].lower() != "none"
+        else "",
+        "AY": row[order_of_headers.index("AY")]
+        if row[order_of_headers.index("AY")]
+        and row[order_of_headers.index("AY")].lower() != "null"
+        and row[order_of_headers.index("AY")].lower() != "none"
+        else "",
+        "first_author": row[order_of_headers.index("first_author")]
+        if row[order_of_headers.index("first_author")]
+        and row[order_of_headers.index("first_author")].lower() != "null"
+        and row[order_of_headers.index("first_author")].lower() != "none"
+        else "",
+        "second_author": row[order_of_headers.index("second_author")]
+        if row[order_of_headers.index("second_author")]
+        and row[order_of_headers.index("second_author")].lower() != "null"
+        and row[order_of_headers.index("second_author")].lower() != "none"
+        else "",
+        "third_author": row[order_of_headers.index("third_author")]
+        if row[order_of_headers.index("third_author")]
+        and row[order_of_headers.index("third_author")].lower() != "null"
+        and row[order_of_headers.index("third_author")].lower() != "none"
+        else "",
+        "other_authors": row[order_of_headers.index("other_authors")]
+        if row[order_of_headers.index("other_authors")]
+        and row[order_of_headers.index("other_authors")].lower() != "null"
+        and row[order_of_headers.index("other_authors")].lower() != "none"
+        else "",
+        "specification": row[order_of_headers.index("specification")]
+        if row[order_of_headers.index("specification")]
+        and row[order_of_headers.index("specification")].lower() != "null"
+        and row[order_of_headers.index("specification")].lower() != "none"
+        else "",
+        "publication_type": row[order_of_headers.index("publication_type")]
+        if row[order_of_headers.index("publication_type")]
+        and row[order_of_headers.index("publication_type")].lower() != "null"
+        and row[order_of_headers.index("publication_type")].lower() != "none"
+        else "",
+        "publication_name": row[order_of_headers.index("publication_name")]
+        if row[order_of_headers.index("publication_name")]
+        and row[order_of_headers.index("publication_name")].lower() != "null"
+        and row[order_of_headers.index("publication_name")].lower() != "none"
+        else "",
+        "publisher": row[order_of_headers.index("publisher")]
+        if row[order_of_headers.index("publisher")]
+        and row[order_of_headers.index("publisher")].lower() != "null"
+        and row[order_of_headers.index("publisher")].lower() != "none"
+        else "",
+        "year_of_publishing": row[order_of_headers.index("year_of_publishing")]
+        if row[order_of_headers.index("year_of_publishing")]
+        and row[order_of_headers.index("year_of_publishing")].lower() != "null"
+        and row[order_of_headers.index("year_of_publishing")].lower() != "none"
+        else "",
+        "month_of_publishing": row[order_of_headers.index("month_of_publishing")]
+        if row[order_of_headers.index("month_of_publishing")]
+        and row[order_of_headers.index("month_of_publishing")].lower() != "null"
+        and row[order_of_headers.index("month_of_publishing")].lower() != "none"
+        else "",
+        "volume": row[order_of_headers.index("volume")]
+        if row[order_of_headers.index("volume")]
+        and row[order_of_headers.index("volume")].lower() != "0"
+        else "",
+        "page_number": row[order_of_headers.index("page_number")]
+        if row[order_of_headers.index("page_number")]
+        and row[order_of_headers.index("page_number")].lower() != "null"
+        and row[order_of_headers.index("page_number")].lower() != "none"
+        else "",
+        "indexing": row[order_of_headers.index("indexing")]
+        if row[order_of_headers.index("indexing")]
+        and row[order_of_headers.index("indexing")].lower() != "null"
+        and row[order_of_headers.index("indexing")].lower() != "none"
+        else "",
+        "quartile": row[order_of_headers.index("quartile")]
+        if row[order_of_headers.index("quartile")]
+        and row[order_of_headers.index("quartile")].lower() != "null"
+        and row[order_of_headers.index("quartile")].lower() != "none"
+        else "",
+        "doi": row[order_of_headers.index("doi")]
+        if row[order_of_headers.index("doi")]
+        and row[order_of_headers.index("doi")].lower() != "null"
+        and row[order_of_headers.index("doi")].lower() != "none"
+        else "",
+        "url": row[order_of_headers.index("url")]
+        if row[order_of_headers.index("url")]
+        and row[order_of_headers.index("url")].lower() != "null"
+        and row[order_of_headers.index("url")].lower() != "none"
+        else "",
+        "issn": row[order_of_headers.index("issn")]
+        if row[order_of_headers.index("issn")]
+        and row[order_of_headers.index("issn")].lower() != "null"
+        and row[order_of_headers.index("issn")].lower() != "none"
+        else "",
+        "impact_factor": row[order_of_headers.index("impact_factor")]
+        if row[order_of_headers.index("impact_factor")]
+        and row[order_of_headers.index("impact_factor")].lower() != "null"
+        and row[order_of_headers.index("impact_factor")].lower() != "none"
+        else "",
+        # "citation" : row['citation'],
+        # "front_page_path" : row['front_page_path'],
+        # "is_student_author" : row['is_student_author'],
+        # "student_name" : row['student_name'],
+        # "student_batch" : row['student_batch'],
+        # "verified" : row['verified'],
+        # "admin_verified" : row['admin_verified'],
+    }
     return row_data
 
+
 def IEEEFormat(paper):
-    '''
-        Author initials. Last name, “Article title,” Journal Name, vol. Volume, no. Number, pp. Page range, Month Year, DOI.
-    '''
+    """
+    Author initials. Last name, “Article title,” Journal Name, vol. Volume, no. Number, pp. Page range, Month Year, DOI.
+    """
 
     months = {
         1: "Jan",
@@ -678,15 +762,14 @@ def IEEEFormat(paper):
         12: "Dec",
     }
 
-
-    format_string = ''
+    format_string = ""
 
     if paper.get("first_author"):
         format_string += str(paper.get("first_author")) + str(", ")
-    
+
     if paper.get("second_author"):
         format_string += str(paper.get("second_author")) + str(", ")
-    
+
     if paper.get("third_author"):
         format_string += str(paper.get("third_author")) + str(", ")
 
@@ -694,65 +777,76 @@ def IEEEFormat(paper):
         format_string += str(paper.get("other_authors")) + str(", ")
 
     if paper.get("title"):
-        format_string += str("\"") + str(paper.get("title")) + str("\", ")
-    
+        format_string += str('"') + str(paper.get("title")) + str('", ')
+
     if paper.get("publication_name"):
         format_string += str(paper.get("publication_name")) + str(", ")
-    
+
     if paper.get("publisher"):
         format_string += str(paper.get("publisher")) + str(", ")
-    
+
     if paper.get("volume") and paper.get("volume") != "0":
         format_string += str("vol. ") + str(paper.get("volume")) + str(", ")
-    
+
     if paper.get("page_number"):
         format_string += str("pp. ") + str(paper.get("page_number")) + str(", ")
-    
+
     if paper.get("year_of_publishing"):
         if paper.get("month_of_publishing"):
-            format_string += str(months.get(int(paper.get("month_of_publishing")))) + str(" ") + str(paper.get("year_of_publishing")) + str(", ")
+            format_string += (
+                str(months.get(int(paper.get("month_of_publishing"))))
+                + str(" ")
+                + str(paper.get("year_of_publishing"))
+                + str(", ")
+            )
         else:
             format_string += str(paper.get("year_of_publishing")) + str(", ")
-    
+
     if paper.get("doi"):
         format_string += str("DOI: ") + str(paper.get("doi")) + str(", ")
-    
+
     if paper.get("issn"):
         format_string += str("ISSN: ") + str(paper.get("issn")) + str(", ")
-    
+
     if paper.get("indexing") or paper.get("quartile"):
         if paper.get("indexing") and paper.get("quartile"):
             quartile = paper.get("quartile")
             if paper.get("quartile").lower() == "q4":
                 quartile = "< Q3"
-            format_string += str("(Indexed in: ") + str(paper.get("indexing")) + str(" Quartile: ") + str(quartile) + str("), ")
+            format_string += (
+                str("(Indexed in: ")
+                + str(paper.get("indexing"))
+                + str(" Quartile: ")
+                + str(quartile)
+                + str("), ")
+            )
         elif paper.get("indexing"):
-            format_string += str("(Indexed in: ") + str(paper.get("indexing")) + str("), ") 
+            format_string += (
+                str("(Indexed in: ") + str(paper.get("indexing")) + str("), ")
+            )
         elif paper.get("quartile"):
             quartile = paper.get("quartile")
             if paper.get("quartile").lower() == "q4":
                 quartile = "< Q3"
             format_string += str("(Quartile: ") + str(quartile) + str("), ")
-    
+
     if paper.get("impact_factor"):
         format_string += str("IF: ") + str(paper.get("impact_factor")) + str(", ")
-    
+
     if paper.get("url"):
         format_string += str("URL: ") + str(paper.get("url"))
 
     format_string = format_string.rstrip(", ")
-    
-    return ' '.join(format_string.split())
 
-    
+    return " ".join(format_string.split())
+
 
 def generate_word_document(data):
-    sorted_data = sorted(data, key=lambda x: x['AY'])
+    sorted_data = sorted(data, key=lambda x: x["AY"])
 
     journals = {}
     conference = {}
     book_series = {}
-
 
     for data in sorted_data:
         if data["publication_type"].lower().strip() == "journal":
@@ -761,7 +855,11 @@ def generate_word_document(data):
 
                 # print(f'{data["quartile"]=}, {bool(data["quartile"])}')
 
-                if data["quartile"] and data["quartile"].lower() != "null" and data["quartile"].lower() != "none":
+                if (
+                    data["quartile"]
+                    and data["quartile"].lower() != "null"
+                    and data["quartile"].lower() != "none"
+                ):
                     if data["quartile"].lower() == "q4":
                         quartile = "< Q3"
                     else:
@@ -776,14 +874,18 @@ def generate_word_document(data):
             else:
                 # print(f'{data["quartile"]=}, {bool(data["quartile"])}')
 
-                if data["quartile"] and data["quartile"].lower() != "null" and data["quartile"].lower() != "none":
+                if (
+                    data["quartile"]
+                    and data["quartile"].lower() != "null"
+                    and data["quartile"].lower() != "none"
+                ):
                     if data["quartile"].lower() == "q4":
                         quartile = "< Q3"
                     else:
                         quartile = data["quartile"]
                 else:
                     quartile = "< Q3"
-                
+
                 if quartile not in journals[data["AY"]]:
                     journals[data["AY"]][quartile] = [data]
                 else:
@@ -799,18 +901,18 @@ def generate_word_document(data):
                 book_series[data["AY"]] = [data]
             else:
                 book_series[data["AY"]].append(data)
-            
+
     # Create a new Word document
     doc = docx.Document()
 
-    heading1 = doc.add_heading('Department of Information Technology', level=1)
+    heading1 = doc.add_heading("Department of Information Technology", level=1)
     heading1.alignment = WD_ALIGN_PARAGRAPH.CENTER
     run = heading1.runs[0]
     run.font.size = Pt(24)
     run.bold = True
     run.underline = True
 
-    heading1 = doc.add_heading('Research Publications', level=1)
+    heading1 = doc.add_heading("Research Publications", level=1)
     heading1.alignment = WD_ALIGN_PARAGRAPH.CENTER
     run = heading1.runs[0]
     run.font.size = Pt(20)
@@ -818,13 +920,13 @@ def generate_word_document(data):
     run.underline = True
 
     if journals:
-        journal_heading = doc.add_heading('Journals', level=1)
+        journal_heading = doc.add_heading("Journals", level=1)
         run = journal_heading.runs[0]
         run.underline = True
 
         for AY, details in journals.items():
             if details:
-                AY_heading = doc.add_heading(AY, level=2) 
+                AY_heading = doc.add_heading(AY, level=2)
                 run = AY_heading.runs[0]
                 run.underline = True
 
@@ -832,16 +934,20 @@ def generate_word_document(data):
 
                 for quartile, papers in details.items():
                     if papers:
-                        quartile_heading = doc.add_heading(f"Publications under {quartile}", level=3)
+                        quartile_heading = doc.add_heading(
+                            f"Publications under {quartile}", level=3
+                        )
                         run = quartile_heading.runs[0]
                         run.underline = True
 
                         for idx, paper in enumerate(papers):
-                            paragraph = doc.add_paragraph(str(idx+1) + ". " + IEEEFormat(paper))
+                            paragraph = doc.add_paragraph(
+                                str(idx + 1) + ". " + IEEEFormat(paper)
+                            )
                             paragraph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    
+
     if book_series:
-        book_series_heading = doc.add_heading('Book Series', level=1)
+        book_series_heading = doc.add_heading("Book Series", level=1)
         run = book_series_heading.runs[0]
         run.underline = True
 
@@ -850,13 +956,15 @@ def generate_word_document(data):
                 AY_heading = doc.add_heading(AY, level=2)
                 run = AY_heading.runs[0]
                 run.underline = True
-            
+
                 for idx, paper in enumerate(details):
-                    paragraph = doc.add_paragraph(str(idx+1) + ". " + IEEEFormat(paper))
+                    paragraph = doc.add_paragraph(
+                        str(idx + 1) + ". " + IEEEFormat(paper)
+                    )
                     paragraph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    
+
     if conference:
-        conference_heading = doc.add_heading('Conference', level=1)
+        conference_heading = doc.add_heading("Conference", level=1)
         run = conference_heading.runs[0]
         run.underline = True
 
@@ -865,12 +973,15 @@ def generate_word_document(data):
                 AY_heading = doc.add_heading(AY, level=2)
                 run = AY_heading.runs[0]
                 run.underline = True
-            
+
                 for idx, paper in enumerate(details):
-                    paragraph = doc.add_paragraph(str(idx+1) + ". " + IEEEFormat(paper))
+                    paragraph = doc.add_paragraph(
+                        str(idx + 1) + ". " + IEEEFormat(paper)
+                    )
                     paragraph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    
+
     doc.save("research_publications.docx")
+
 
 def admin_get_word(request):
     if request.method == "POST":
@@ -884,18 +995,19 @@ def admin_get_word(request):
         for row in table_rows:
             row_data = convert_to_dict(row)
             all_row_data.append(row_data)
-        
+
         generate_word_document(all_row_data)
 
     return JsonResponse({})
 
+
 def sort_quartile_records(input_dict):
     # Define the desired order of keys
-    desired_order = ['Q1', 'Q2', 'Q3', '< Q3']
-    
+    desired_order = ["Q1", "Q2", "Q3", "< Q3"]
+
     # Create a new dictionary with keys sorted according to the desired order
     sorted_dict = {key: input_dict[key] for key in desired_order if key in input_dict}
-    
+
     return sorted_dict
 
 
@@ -905,7 +1017,7 @@ def admin_get_charts(request):
 
         if name is None or name != "admin" or name == str(None):
             return redirect("/rpa/login")
-            
+
         # Fetch data for donut chart
         chart_records = {}
         all_records = Publications.objects.all()
@@ -917,15 +1029,23 @@ def admin_get_charts(request):
             ):
                 key = "Others"
             else:
-                #indices = record.indexing.split(", ")
+                # indices = record.indexing.split(", ")
                 indices = record.indexing
                 print(indices)
                 if indices:
-                    if indices not in ['Scopus', 'Web of Sciences', 'Scopus, Web of Sciences', 'Web of Sciences, Scopus'] :
+                    if indices not in [
+                        "Scopus",
+                        "Web of Sciences",
+                        "Scopus, Web of Sciences",
+                        "Web of Sciences, Scopus",
+                    ]:
                         key = "Others"
                         chart_records[key] = chart_records.get(key, 0) + 1
                         continue
-                    if indices == "Scopus, Web of Sciences" or indices == "Web of Sciences, Scopus":
+                    if (
+                        indices == "Scopus, Web of Sciences"
+                        or indices == "Web of Sciences, Scopus"
+                    ):
                         key = "Web of Sciences"
                     else:
                         key = indices
@@ -944,12 +1064,16 @@ def admin_get_charts(request):
         donut_values = list(chart_records.values())
 
         # Fetch data for bar chart based on academic year/month
-        bar_data = Publications.objects.values(
-            "start_academic_year",
-            "start_academic_month",
-            "end_academic_year",
-            "end_academic_month",
-        ).annotate(total=Count("uniqueid")).order_by("start_academic_year")
+        bar_data = (
+            Publications.objects.values(
+                "start_academic_year",
+                "start_academic_month",
+                "end_academic_year",
+                "end_academic_month",
+            )
+            .annotate(total=Count("uniqueid"))
+            .order_by("start_academic_year")
+        )
         bar_labels = []
         bar_values = []
         for data in bar_data:
@@ -962,9 +1086,9 @@ def admin_get_charts(request):
             bar_values.append(data["total"])
 
         # Fetch data for another bar chart based on publication types
-        publication_types_data = Publications.objects.values("publication_type").annotate(
-            total=Count("uniqueid")
-        )
+        publication_types_data = Publications.objects.values(
+            "publication_type"
+        ).annotate(total=Count("uniqueid"))
         publication_type_labels = []
         publication_type_values = []
         for pub_type_data in publication_types_data:
@@ -975,7 +1099,7 @@ def admin_get_charts(request):
 
         for i in range(len(publication_type_labels)):
             temp[publication_type_labels[i]] = publication_type_values[i]
-        
+
         publication_type_values = [temp]
         publication_type_labels = ["Overall"]
 
@@ -998,16 +1122,14 @@ def admin_get_charts(request):
 
         quartile_records = sort_quartile_records(quartile_records)
 
-
         quartile_labels = list(quartile_records.keys())
         quartile_values = list(quartile_records.values())
-
 
         yearly_quartiles = {}
         for data in bar_data:
             year = f"{data['start_academic_year']} - {data['end_academic_year']}"
             if year not in yearly_quartiles:
-                yearly_quartiles[year] = {'Q1': 0, 'Q2': 0, 'Q3': 0, "< Q3": 0}
+                yearly_quartiles[year] = {"Q1": 0, "Q2": 0, "Q3": 0, "< Q3": 0}
             year_records = all_records.filter(
                 start_academic_year=data["start_academic_year"],
                 end_academic_year=data["end_academic_year"],
@@ -1015,13 +1137,17 @@ def admin_get_charts(request):
                 end_academic_month=data["end_academic_month"],
             )
             for record in year_records:
-                if record.quartile and  record.quartile != 'NULL' and record.quartile in ("Q1", "Q2", "Q3"):
+                if (
+                    record.quartile
+                    and record.quartile != "NULL"
+                    and record.quartile in ("Q1", "Q2", "Q3")
+                ):
                     yearly_quartiles[year][record.quartile] += 1
                 else:
                     yearly_quartiles[year]["< Q3"] += 1
         yearwise_label = list(yearly_quartiles.keys())
         yearwise_values = list(yearly_quartiles.values())
-        
+
         # Prepare data for rendering
         data = {
             "donut_labels": donut_labels,
@@ -1034,7 +1160,7 @@ def admin_get_charts(request):
             "quartile_values": quartile_values,
             "name": name,
             "yearwise_label": yearwise_label,
-            "yearwise_values": yearwise_values
+            "yearwise_values": yearwise_values,
         }
 
         return render(request, "charts.html", data)
@@ -1043,19 +1169,24 @@ def admin_get_charts(request):
 
         if name is None or name != "admin" or name == str(None):
             return redirect("/rpa/login")
-                
+
         AY = request.POST.get("AY")
 
         if AY == "all":
-            return redirect('/rpa/dbadmin/charts')
-        
+            return redirect("/rpa/dbadmin/charts")
+
         start, end = AY.split(" - ")
         start_academic_month, start_academic_year = start.split(" ")
         end_academic_month, end_academic_year = end.split(" ")
 
         # Fetch data for donut chart
         chart_records = {}
-        all_records = Publications.objects.filter(start_academic_year=start_academic_year, end_academic_year=end_academic_year, start_academic_month=start_academic_month, end_academic_month=end_academic_month)
+        all_records = Publications.objects.filter(
+            start_academic_year=start_academic_year,
+            end_academic_year=end_academic_year,
+            start_academic_month=start_academic_month,
+            end_academic_month=end_academic_month,
+        )
         for record in all_records:
             if (
                 not record.indexing
@@ -1067,11 +1198,19 @@ def admin_get_charts(request):
                 indices = record.indexing
                 print(indices)
                 if indices:
-                    if indices not in ['Scopus', 'Web of Sciences', 'Scopus, Web of Sciences', 'Web of Sciences, Scopus'] :
+                    if indices not in [
+                        "Scopus",
+                        "Web of Sciences",
+                        "Scopus, Web of Sciences",
+                        "Web of Sciences, Scopus",
+                    ]:
                         key = "Others"
                         chart_records[key] = chart_records.get(key, 0) + 1
                         continue
-                    if indices == "Scopus, Web of Sciences" or indices == "Web of Sciences, Scopus":
+                    if (
+                        indices == "Scopus, Web of Sciences"
+                        or indices == "Web of Sciences, Scopus"
+                    ):
                         key = "Web of Sciences"
                     else:
                         key = indices
@@ -1089,12 +1228,16 @@ def admin_get_charts(request):
         donut_values = list(chart_records.values())
 
         # Fetch data for bar chart based on academic year/month
-        bar_data = Publications.objects.values(
-            "start_academic_year",
-            "start_academic_month",
-            "end_academic_year",
-            "end_academic_month",
-        ).annotate(total=Count("uniqueid")).order_by("start_academic_year")
+        bar_data = (
+            Publications.objects.values(
+                "start_academic_year",
+                "start_academic_month",
+                "end_academic_year",
+                "end_academic_month",
+            )
+            .annotate(total=Count("uniqueid"))
+            .order_by("start_academic_year")
+        )
         bar_labels = []
         bar_values = []
         for data in bar_data:
@@ -1124,7 +1267,7 @@ def admin_get_charts(request):
 
         for i in range(len(publication_type_labels)):
             temp[publication_type_labels[i]] = publication_type_values[i]
-        
+
         publication_type_values = [temp]
         publication_type_labels = [AY]
 
@@ -1145,14 +1288,14 @@ def admin_get_charts(request):
             else:
                 key = record.quartile
             quartile_records[key] = quartile_records.get(key, 0) + 1
-        
+
         quartile_records = sort_quartile_records(quartile_records)
 
         quartile_labels = list(quartile_records.keys())
         quartile_values = list(quartile_records.values())
 
         yearly_quartiles = {}
-        yearly_quartiles[AY] = {'Q1': 0, 'Q2': 0, 'Q3': 0, "< Q3": 0}
+        yearly_quartiles[AY] = {"Q1": 0, "Q2": 0, "Q3": 0, "< Q3": 0}
         for data in bar_data:
             # year = f"{data['start_academic_year']} - {data['end_academic_year']}"
             year_records = all_records.filter(
@@ -1162,13 +1305,17 @@ def admin_get_charts(request):
                 end_academic_month=data["end_academic_month"],
             )
             for record in year_records:
-                if record.quartile and  record.quartile != 'NULL' and record.quartile in ("Q1", "Q2", "Q3"):
+                if (
+                    record.quartile
+                    and record.quartile != "NULL"
+                    and record.quartile in ("Q1", "Q2", "Q3")
+                ):
                     yearly_quartiles[AY][record.quartile] += 1
                 else:
                     yearly_quartiles[AY]["< Q3"] += 1
         yearwise_label = list(yearly_quartiles.keys())
         yearwise_values = list(yearly_quartiles.values())
-        
+
         # Prepare data for rendering
         data = {
             "donut_labels": donut_labels,
@@ -1186,4 +1333,3 @@ def admin_get_charts(request):
         }
 
         return render(request, "charts.html", data)
-
