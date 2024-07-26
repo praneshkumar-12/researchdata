@@ -20,6 +20,7 @@ def record_update(uniqueid, name, updates, db_object):
             old_value=old_value,
             new_value=new_value,
         )
+        print(old_value,type(old_value),new_value,type(new_value))
         new_record.save()
 
 
@@ -28,6 +29,6 @@ def compare_dicts(old_dict, new_dict):
     d2_keys = set(new_dict.keys())
     shared_keys = d1_keys.intersection(d2_keys)
     modified_dict = {
-        o: (old_dict[o], new_dict[o]) for o in shared_keys if old_dict[o] != new_dict[o]
+        o: (old_dict[o], new_dict[o]) for o in shared_keys if str(old_dict[o]) != str(new_dict[o])
     }
     return modified_dict
