@@ -1,4 +1,5 @@
 from rpa.models import Publications
+from rpa.models import Edithistory
 from rpa.forms import PublicationsForm
 from rpa.models import Users
 from django.shortcuts import render, redirect
@@ -234,6 +235,10 @@ def admin_remove_upload(request):
     publ.save()
 
     return HttpResponse("OK")
+
+def admin_edit_history(request, uniqueid):
+    version_history = Edithistory.objects.filter(uniqueid=uniqueid)
+    return render(request, "edit_version.html", {"version_history":version_history})
 
 
 def admin_verify_paper(request):

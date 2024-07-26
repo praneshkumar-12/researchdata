@@ -204,7 +204,8 @@
             {% endif %}
 
             <button id="edit-btn" class="btn btn-info" onclick = "edit_paper()">Edit</button>
-            <button id="deleteBtn" class="btn btn-danger" onclick = "delete_paper()">Delete</button>            
+            <button id="deleteBtn" class="btn btn-danger" onclick = "delete_paper()">Delete</button>          
+            <a href="/rpa/dbadmin/paper/edit_history/{{paper.uniqueid}}" id="edithistoryBtn" class="btn btn-dark" target="_blank">Edit History</a>  
         </div>
     </div>
 

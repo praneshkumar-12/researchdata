@@ -180,6 +180,9 @@ def admin_get_title(request):
 def admin_get_charts(request):
     return dbadmin.admin_get_charts(request)
 
+def admin_edit_history(request, uniqueid):
+    return dbadmin.admin_edit_history(request, uniqueid)
+
 
 class AdminFileDownloadView(View):
     def get(self, request, filename):
