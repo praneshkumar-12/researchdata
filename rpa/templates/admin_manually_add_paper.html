@@ -152,7 +152,10 @@
             </tr>
             <tr>
                 <td>Indexing</td>
-                <td></td>
+                <td>
+                    <input type="checkbox" id="scopus" name="indexing" value="Scopus"> Scopus
+                    <input type="checkbox" id="web_of_sciences" name="indexing" value="Web of Sciences"> Web of Sciences
+                </td>
             </tr>
             <tr>
                 <td>Quartile</td>
@@ -189,11 +192,9 @@
                 alert("You are unauthorized to edit this paper!");
                 window.location.replace("/rpa/dbadmin/error");
             }
-        
-            var table = document.getElementById("publicationTable")
+            
+            var table = document.getElementById("publicationTable");
             for(var i = 1, row; row = table.rows[i]; i++){
-        
-        
                 var cell = row.cells[1];
         
                 if (i == getIndexByKey('Student Author')){
@@ -210,13 +211,53 @@
                     selectElement.appendChild(optionElement);
                     selectElement.classList.add("form-control");
         
-                    selectElement.value = (cell.textContent.trim() ==="Yes" || cell.textContent.trim() === "No") ? cell.textContent.trim() : "No"
+                    selectElement.value = (cell.textContent.trim() === "Yes" || cell.textContent.trim() === "No") ? cell.textContent.trim() : "No";
         
                     cell.innerHTML = '';
                     cell.appendChild(selectElement);
-                }
+                } else if (i == getIndexByKey('Specification')){
+                    var selectElement = document.createElement('select');
+                    selectElement.id = 'specification';
+                    selectElement.name = 'specification';
+                    selectElement.required = true;
+                    selectElement.classList.add('form-control');
+                    var specifications = ["article", "inbook", "inproceedings"];
         
-                else if (i == getIndexByKey('Publication Month')){
+                    for (var j = 0; j < specifications.length; j++){
+                        var optionElement = document.createElement('option');
+                        optionElement.value = specifications[j];
+                        optionElement.textContent = specifications[j];
+                        selectElement.appendChild(optionElement);
+                    } 
+        
+                    cell.innerHTML = '';
+                    cell.appendChild(selectElement);
+        
+                    if (specifications.includes(cell.textContent.trim())){
+                        selectElement.value = cell.textContent.trim();
+                    }
+                } else if (i == getIndexByKey('Publication Type')){
+                    var selectElement = document.createElement('select');
+                    selectElement.id = 'publication_type';
+                    selectElement.name = 'publication_type';
+                    selectElement.required = true;
+                    selectElement.classList.add('form-control');
+                    var publication_type = ["Journal", "Book Chapter", "Conference", "Proceedings"];
+        
+                    for (var j = 0; j < publication_type.length; j++){
+                        var optionElement = document.createElement('option');
+                        optionElement.value = publication_type[j];
+                        optionElement.textContent = publication_type[j];
+                        selectElement.appendChild(optionElement);
+                    } 
+        
+                    cell.innerHTML = '';
+                    cell.appendChild(selectElement);
+        
+                    if (publication_type.includes(cell.textContent.trim())){
+                        selectElement.value = cell.textContent.trim();
+                    }
+                } else if (i == getIndexByKey('Publication Month')){
                     var inputElement = document.createElement("input");
                     inputElement.setAttribute("min", "0");
                     inputElement.setAttribute("max", "12");
@@ -224,30 +265,25 @@
                     inputElement.classList.add("form-control");
                     cell.innerHTML = "";
                     cell.appendChild(inputElement);
-                }
-        
-                else if (i == getIndexByKey('Volume')){
+                } else if (i == getIndexByKey('Volume')){
                     var inputElement = document.createElement("input");
                     inputElement.setAttribute("min", "0");
-                    inputElement.value = cell.textContent.trim();
+                    inputElement.value = "0";
                     inputElement.classList.add("form-control");
                     cell.innerHTML = "";
                     cell.appendChild(inputElement);
-                }
-        
-                else if (i == getIndexByKey('Citations')){
+                } else if (i == getIndexByKey('Citations')){
                     var inputElement = document.createElement("input");
                     inputElement.setAttribute("min", "0");
-                    inputElement.value = cell.textContent.trim();
+                    inputElement.value = "0";
                     inputElement.classList.add("form-control");
                     cell.innerHTML = "";
                     cell.appendChild(inputElement);
-                }
-        
-                else if(i == getIndexByKey('Academic Year')){
+                } else if (i == getIndexByKey('Academic Year')){
                     var selectElement = document.createElement('select');
                     selectElement.id = 'AY';
                     selectElement.name = 'AY';
+                    selectElement.required = true;
                     selectElement.classList.add('form-control');
                     var academic_years = ["JUL 2015 - JUN 2016",
                                         "JUL 2016 - JUN 2017",
@@ -257,7 +293,7 @@
                                         "JUL 2020 - JUN 2021",
                                         "JUL 2021 - JUN 2022",
                                         "JUL 2022 - JUN 2023",
-                                        "JUL 2023 - JUN 2024"]
+                                        "JUL 2023 - JUN 2024"];
                     for (var j = 0; j < academic_years.length; j++){
                         var optionElement = document.createElement('option');
                         optionElement.value = academic_years[j];
@@ -271,51 +307,85 @@
                     if (academic_years.includes(cell.textContent.trim())){
                         selectElement.value = cell.textContent.trim();
                     }
-        
-        
-                }        
-                else{
+                } else if (i == getIndexByKey('Publication Year')){
+                    var inputElement = document.createElement("input");
+                    inputElement.value = new Date().getFullYear();
+                    inputElement.required = true;
+                    inputElement.classList.add("form-control");
+                    cell.innerHTML = "";
+                    cell.appendChild(inputElement);
+                } else if (i == getIndexByKey('Indexing')){
+                    cell.innerHTML = `
+                        <input type="checkbox" id="scopus" name="indexing" value="Scopus"> Scopus
+                        <input type="checkbox" id="web_of_sciences" name="indexing" value="Web of Sciences"> Web of Sciences
+                    `;
+                } else {
                     // Replace the cell content with a textbox
                     var textBox = document.createElement("input");
                     textBox.type = "text";
                     textBox.value = cell.textContent.trim();
                     textBox.classList.add("form-control");
+                    if (i == getIndexByKey("Title") || i == getIndexByKey("First Author")){
+                        textBox.required = true;
+                    }
                     cell.innerHTML = "";
                     cell.appendChild(textBox);
                 }
             }
         }
 
-        function insertPaper(){
-    
-            if ("{{ name }}" != "admin"){
+        function insertPaper() {
+            if ("{{ name }}" != "admin") {
                 alert("You are unauthorized to edit this paper!");
-                window.location.reload("/rpa/dbadmin/error");
+                window.location.replace("/rpa/dbadmin/error");
             }
         
             var table = document.getElementById("publicationTable");
             var updates = {};
+            var requiredFields = ['Title', 'Academic Year', 'First Author', 'Specification', 'Publication Type', 'Publication Year', 'Citations', 'Volume'];
+            var missingFields = [];
+        
             for (var i = 1, row; row = table.rows[i]; i++) {
                 var cell = row.cells[1];
+                var key = getKeyByIndex(i);
+                var cellContent = '';
         
-                input_in_cell = cell.getElementsByTagName("input")[0];
-                select_in_cell = cell.getElementsByTagName("select")[0];
+                var input_in_cell = cell.getElementsByTagName("input")[0];
+                var select_in_cell = cell.getElementsByTagName("select")[0];
         
-                if (input_in_cell){
+                if (input_in_cell && key !== 'Indexing') {
                     var inputElement = cell.querySelector('input');
-                    if (inputElement) {
-                        cellContent = inputElement ? inputElement.value : '';
-                    } else {
-                        cellContent = cell.textContent.trim();
-                    }
-                    updates[convertToSnakeCase(getKeyByIndex(i))] = cellContent;
-                }
-                else if (select_in_cell){
+                    cellContent = inputElement ? inputElement.value.trim() : '';
+                } else if (select_in_cell) {
                     var selectElement = cell.querySelector('select');
-                    cellContent = selectElement ? selectElement.value : '';
-                    updates[convertToSnakeCase(getKeyByIndex(i))] = cellContent;
+                    cellContent = selectElement ? selectElement.value.trim() : '';
+                } else if (key === 'Indexing') {
+                    var scopusCheckbox = document.getElementById('scopus');
+                    var webOfSciencesCheckbox = document.getElementById('web_of_sciences');
+                    var indexingValues = [];
+                    if (scopusCheckbox.checked) {
+                        indexingValues.push('Scopus');
+                    }
+                    if (webOfSciencesCheckbox.checked) {
+                        indexingValues.push('Web of Sciences');
+                    }
+                    cellContent = indexingValues.join(', ');
+                } else {
+                    cellContent = cell.textContent.trim();
+                }
+        
+                updates[convertToSnakeCase(key)] = cellContent;
+        
+                if (requiredFields.includes(key) && cellContent === '') {
+                    missingFields.push(key);
                 }
             }
+        
+            if (missingFields.length > 0) {
+                alert("The following fields are required and cannot be empty: " + missingFields.join(', '));
+                return;
+            }
+        
             updates['csrfmiddlewaretoken'] = '{{ csrf_token }}';
         
             var result;
@@ -328,33 +398,43 @@
                 type: "POST",
                 url: "{% url 'admin_manually_insert_paper' %}",
                 data: updates,
-                success: function(response){
+                success: function(response) {
                     result = response;
                 }
-            })
+            });
         
-        
-            if (result === 'Unauthorized'){
+            if (result === 'Unauthorized') {
                 window.location.replace("/rpa/dbadmin/error");
-            }
-            
-            else if (result === "Paper already exists! Cannot add paper."){
+            } else if (result === "Paper already exists! Cannot add paper.") {
                 alert("Paper already exists! Cannot add paper.");
                 window.location.replace("/rpa/dbadmin/error");
-            }    
-            else if (result === "OK"){
+            } else if (result === "OK") {
                 alert("Update success!");
                 window.location.replace("/rpa/dbadmin/home");
-            }
-        
-            else{
+            } else {
                 window.location.replace("/rpa/dbadmin/error");
             }
-        
         }
-
+        
+        function getKeyByIndex(index) {
+            return document.getElementById("publicationTable").rows[index].cells[0].textContent;
+        }
+        
+        function getIndexByKey(key) {
+            var rows = document.getElementById("publicationTable").rows;
+            for (var i = 0; i < rows.length; i++) {
+                if (rows[i].cells[0].textContent === key) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        
+        function convertToSnakeCase(str) {
+            return str.replace(/\s+/g, '_').toLowerCase();
+        }
+        
         create_fields();
     </script>
-    
 </body>
 </html>

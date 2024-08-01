@@ -130,7 +130,9 @@
                     DOI: {{ paper.doi }}
                 </div>
                 <div class="hyperlink mt-1">
-                    <a target="_blank" href="{{ paper.url }}" class="text-blue-500 underline">Additional Info</a>
+                    {% if paper.url != 'NULL' and paper.url != 'None' and paper.url %}
+                        <a target="_blank" href="{{ paper.url }}" class="text-blue-500 underline">Additional Info</a>
+                    {% endif %}
                 </div>
                 <br>
                 {% if paper.admin_verified == 'True' and paper.verified == 'True' %}

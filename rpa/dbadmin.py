@@ -63,43 +63,43 @@ def admin_dashboard(request):
         other_authors = paper.other_authors if paper.other_authors else ""
 
         if not paper.second_author:
-            paper.second_author = "NULL"
+            paper.second_author = "None"
         if not paper.third_author:
-            paper.third_author = "NULL"
+            paper.third_author = "None"
         if not paper.other_authors:
-            paper.other_authors = "NULL"
+            paper.other_authors = "None"
         if not paper.is_student_author:
-            paper.is_student_author = "NULL"
+            paper.is_student_author = "None"
         if not paper.student_name:
-            paper.student_name = "NULL"
+            paper.student_name = "None"
         if not paper.student_batch:
-            paper.student_batch = "NULL"
+            paper.student_batch = "None"
         if not paper.specification:
-            paper.specification = "NULL"
+            paper.specification = "None"
         if not paper.publication_type:
-            paper.publication_type = "NULL"
+            paper.publication_type = "None"
         if not paper.publication_name:
-            paper.publication_name = "NULL"
+            paper.publication_name = "None"
         if not paper.publisher:
-            paper.publisher = "NULL"
+            paper.publisher = "None"
         if not paper.year_of_publishing:
-            paper.year_of_publishing = "NULL"
+            paper.year_of_publishing = "None"
         if not paper.month_of_publishing:
-            paper.month_of_publishing = "NULL"
+            paper.month_of_publishing = "None"
         if not paper.page_number:
-            paper.page_number = "NULL"
+            paper.page_number = "None"
         if not paper.indexing:
-            paper.indexing = "NULL"
+            paper.indexing = "None"
         if not paper.quartile:
-            paper.quartile = "NULL"
+            paper.quartile = "None"
         if not paper.url:
-            paper.url = "NULL"
+            paper.url = "None"
         if not paper.issn:
-            paper.issn = "NULL"
+            paper.issn = "None"
         if not paper.front_page_path:
-            paper.front_page_path = "NULL"
+            paper.front_page_path = "None"
         if not paper.impact_factor:
-            paper.impact_factor = "NULL"
+            paper.impact_factor = "None"
 
         publication_list.append(paper)
 
@@ -261,6 +261,7 @@ def admin_verify_paper(request):
 
 def admin_update_paper(request):
     uniqueid = request.POST.get("uniqueid")
+    print(request.POST)
 
     name = str(request.session.get("FACULTY_NAME"))
 
@@ -313,7 +314,10 @@ def admin_update_paper(request):
     updates["verified"] = "False"
     updates["admin_verified"] = "False"
 
+    updates =  {k: v for k, v in updates.items() if v != ''}
+
     record_update(uniqueid, name, updates, Publications)
+
 
     Publications.objects.filter(uniqueid=uniqueid).update(**updates)
 
@@ -491,6 +495,8 @@ def admin_insert_paper(request):
         data_to_be_inserted["year_of_publishing"]
     )
 
+    data_to_be_inserted = {k: v for k, v in data_to_be_inserted.items() if v != ''}
+
     new_record = Publications(**data_to_be_inserted)
     try:
         new_record.save()
@@ -572,6 +578,8 @@ def admin_manually_insert_paper(request):
         )
 
         updates["uniqueid"] = uniqueid
+
+        updates = {k: v for k, v in updates.items() if v != ''}
 
         if Publications.objects.filter(uniqueid=uniqueid):
             return HttpResponse("Paper already exists! Cannot add paper.")

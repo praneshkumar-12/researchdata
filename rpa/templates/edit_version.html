@@ -65,35 +65,43 @@
                 <div class="text-center flex-grow">
                     <h1 class="text-4xl font-bold mb-4">Department of Information Technology</h1>
                     <br><h1 class="text-3xl font-bold mb-4">Version History</h1>
+                    {% if version_history|length == 0 %}
+                    <div class="text-center flex-grow">
+                        <br><h1 class="text-2xl font-bold mb-4">No Edit History for current paper</h1>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
-
+    
     <div id="scrolltable" class="overflow-x-auto relative scrollit">
+        {% if version_history|length %}
         <table id="mytable" class="uk-table uk-table-bordered uk-table-divider uk-table-large uk-table-middle uk-table-hover">
-            <thead>
-                <th>History ID</th>
-                <th>Unique ID</th>
-                <th>Edit Timestamp</th>
-                <th>Edited By</th>
-                <th>Field Name</th>
-                <th>Old Value</th>
-                <th>New Value</th>
-            </thead>
-            <tbody>
-                {% for version in version_history %}
-                <tr data-uniqueid="{{ version.uniqueid }}">
-                    <td align="center">{{ version.history_id }}</td>
-                    <td align="center">{{ version.uniqueid.uniqueid }}</td>
-                    <td align="center">{{ version.edit_timestamp }}</td>
-                    <td align="center">{{ version.edited_by }}</td>
-                    <td align="center">{{ version.field_name }}</td>
-                    <td align="center">{{ version.old_value }}</td>
-                    <td align="center">{{ version.new_value }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                <thead>
+                    <th>History ID</th>
+                    <th>Unique ID</th>
+                    <th>Edit Timestamp</th>
+                    <th>Edited By</th>
+                    <th>Field Name</th>
+                    <th>Old Value</th>
+                    <th>New Value</th>
+                </thead>
+                <tbody>
+                        {% for version in version_history %}
+                        <tr data-uniqueid="{{ version.uniqueid }}">
+                            <td align="center">{{ version.history_id }}</td>
+                            <td align="center">{{ version.uniqueid.uniqueid }}</td>
+                            <td align="center">{{ version.edit_timestamp }}</td>
+                            <td align="center">{{ version.edited_by }}</td>
+                            <td align="center">{{ version.field_name }}</td>
+                            <td align="center">{{ version.old_value }}</td>
+                            <td align="center">{{ version.new_value }}</td>
+                        </tr>
+                        {% endfor %}
+                    
+                </tbody>
+            </table>
+            {% endif %}
     </div>
     <div class="text-center mt-3">
         <span class="scroll-arrow" onclick="scrollToTop()">⬆️</span>
