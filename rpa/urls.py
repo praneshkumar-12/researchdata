@@ -50,6 +50,11 @@ urlpatterns = [
         name="file_download",
     ),
     path(
+        "static/word/user",
+        views.WordDownloadView.as_view(),
+        name="word_download",
+    ),
+    path(
         "static/word/admin",
         views.AdminWordDownloadView.as_view(),
         name="word_download",

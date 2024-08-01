@@ -73,9 +73,10 @@ function downloadCSV() {
                         csvrow.push("Serial Number");
                     } else {
 
-                        if (i !== 0 && (j === findHeaderIndex("Title"))){
+                        if (i !== 0 && (j === findHeaderIndex("Title"))) {
                             cellContent = cols[j].getElementsByTagName("a");
                             if (cellContent.length != 0) {
+                                (cellContent);
                                 cellContent = cellContent[0].textContent;
                             } else {
                                 cellContent = 'NULL';
@@ -283,6 +284,11 @@ function validateFilters() {
     var fromMonth = document.getElementById("from_publication_month").value;
     var toMonth = document.getElementById("to_publication_month").value;
 
+    if ((fromYear === 'all' && toYear !== "all") || (fromYear !== 'all' && toYear === "all")) {
+        alert("Please select both From and To filters for year or month.");
+        return false;
+    }
+
     // Check if from filter is selected without the corresponding to filter
     if ((fromYear !== "all" && toYear === "all") || (fromMonth !== "all" && toMonth === "all")) {
         alert("Please select both From and To filters for year or month.");
@@ -311,51 +317,248 @@ function validateFilters() {
     return true; // All conditions satisfied
 }
 
+function isWithinRange(fromMonth, fromYear, toMonth, toYear, checkMonth, checkYear) {
+    // Convert year inputs to numbers
+    fromYear = parseInt(fromYear);
+    toYear = parseInt(toYear);
+    checkYear = parseInt(checkYear);
+
+    // If fromMonth is 'all', set it to 1 (January)
+    if (fromMonth === 'all') {
+        fromMonth = 1;
+    } else {
+        fromMonth = parseInt(fromMonth);
+    }
+
+    // If toMonth is 'all', set it to 12 (December)
+    if (toMonth === 'all') {
+        toMonth = 12;
+    } else {
+        toMonth = parseInt(toMonth);
+    }
+
+    // If checkMonth is 'NULL', set it to null
+    if (checkMonth === 'NULL') {
+        checkMonth = null;
+    } else {
+        checkMonth = parseInt(checkMonth);
+    }
+
+    // Convert month-year combinations to total months for easier comparison
+    const fromTotalMonths = fromYear * 12 + fromMonth;
+    const toTotalMonths = toYear * 12 + toMonth;
+    const checkTotalMonths = checkYear * 12 + (checkMonth !== null ? checkMonth : 1); // if checkMonth is null, set it to 1 (January)
+
+    // Check if the check month-year combination falls within the range
+    return (checkTotalMonths >= fromTotalMonths && checkTotalMonths <= toTotalMonths);
+}
+
+
+// function applyFilter() {
+//     var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
+//     var scopusCheckbox = document.querySelector('input[name="scopus"]');
+//     var webOfSciencesCheckbox = document.querySelector('input[name="webOfSciences"]');
+//     var quartileSelect = document.getElementById("quartile");
+//     var AYSelect = document.getElementById("AY");
+//     var table = document.getElementById("mytable");
+//     var rows = table.getElementsByTagName("tr");
+
+//     for (var i = 1; i < rows.length; i++) {
+//         var indexingCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Indexing")]; // Assuming indexing is at index 19, adjust if needed
+//         var quartileCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Quartile")]; // Assuming quartile is at index 20, adjust if needed
+//         var AYCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Academic Year")]; // Assuming Academic Year is at index 3, adjust if needed
+
+//         var scopusChecked = scopusCheckbox.checked;
+//         var webOfSciencesChecked = webOfSciencesCheckbox.checked;
+//         var quartileSelected = quartileSelect.value;
+//         var selectedAY = AYSelect.value;
+
+//         var containsWebOfScience = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("web of science") : false;
+//         var containsScopus = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("scopus") : false;
+//         var matchesQuartile = quartileCell ? quartileCell.innerHTML.toLowerCase().includes(quartileSelected) : false;
+//         var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
+
+//         var shouldBeHidden = false;
+
+//         if (quartileSelected !== "all") { // Check if "All Quartiles" is not selected
+//             if (
+//                 (webOfSciencesChecked && !containsWebOfScience) ||
+//                 (scopusChecked && !containsScopus) ||
+//                 (quartileSelected !== "" && !matchesQuartile) ||
+//                 !matchesAY
+//             ) {
+//                 shouldBeHidden = true;
+//             }
+//         } else {
+//             // Show all rows when "All Quartiles" is selected
+//             if (webOfSciencesChecked && !containsWebOfScience) {
+//                 shouldBeHidden = true;
+//             }
+//             if (scopusChecked && !containsScopus) {
+//                 shouldBeHidden = true;
+//             }
+//             if (!matchesAY) {
+//                 shouldBeHidden = true;
+//             }
+//         }
+
+//         if (shouldBeHidden) {
+//             rows[i].classList.add("hidden");
+//         } else {
+//             rows[i].classList.remove("hidden");
+//         }
+//     }
+// }
 
 function applyFilter() {
-    var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
     var scopusCheckbox = document.querySelector('input[name="scopus"]');
     var webOfSciencesCheckbox = document.querySelector('input[name="webOfSciences"]');
+    var journalsCheckbox = document.querySelector('input[name="journals"]');
+    var bookChapterCheckbox = document.querySelector('input[name="bookChapter"]');
+    var conferenceCheckbox = document.querySelector('input[name="conference"]');
+    var othersCheckbox = document.querySelector('input[name="others"]');
     var quartileSelect = document.getElementById("quartile");
     var AYSelect = document.getElementById("AY");
+    // var authorCheckboxes = document.getElementsByName("author"); // Add this line to get author checkboxes
+    var periodFromYear = document.getElementById("from_publication_year");
+    var periodFromMonth = document.getElementById("from_publication_month");
+    var periodToYear = document.getElementById("to_publication_year");
+    var periodToMonth = document.getElementById("to_publication_month");
     var table = document.getElementById("mytable");
     var rows = table.getElementsByTagName("tr");
 
+    if (!validateFilters()){
+        return false;
+    }
+
+    var flag = false;
+
+    // authorCheckboxes_list = Array.from(authorCheckboxes);
+
+    // isAllAuthorsChecked = true;
+
+    // for (var i = 0; i < authorCheckboxes_list.length; i++) {
+    //     isAllAuthorsChecked = isAllAuthorsChecked && authorCheckboxes_list[i].checked;
+    // }
+
+    // for (var i = 1; i < rows.length; i++) {
+    //     var authorMatch = Array.from(authorCheckboxes).some(function(checkbox) {
+    //         var authorName = checkbox.value;
+    //         authorName = authorName.split(" ")[0];
+    //         return checkbox.checked;
+    //     });
+
+    //     if (authorMatch === true) {
+    //         flag = true;
+    //         break;
+    //     }
+
+    // }
+
+    // if (isAllAuthorsChecked){
+    //     flag = false;
+    // }
+
     for (var i = 1; i < rows.length; i++) {
-        var indexingCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Indexing")]; // Assuming indexing is at index 19, adjust if needed
+        var indexingCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Indexing")];
         var quartileCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Quartile")]; // Assuming quartile is at index 20, adjust if needed
         var AYCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Academic Year")]; // Assuming Academic Year is at index 3, adjust if needed
+        var publicationCell = rows[i].getElementsByTagName("td")[findHeaderIndex("Publication Type")];
 
         var scopusChecked = scopusCheckbox.checked;
         var webOfSciencesChecked = webOfSciencesCheckbox.checked;
+
+        var journalsChecked = journalsCheckbox.checked;
+        var bookChapterChecked = bookChapterCheckbox.checked;
+        var conferenceChecked = conferenceCheckbox.checked;
+        var othersChecked = othersCheckbox.checked;
         var quartileSelected = quartileSelect.value;
         var selectedAY = AYSelect.value;
 
+        var selectedPeriodFromYear = periodFromYear.value;
+        var selectedPeriodFromMonth = periodFromMonth.value;
+        var selectedPeriodToYear = periodToYear.value;
+        var selectedPeriodToMonth = periodToMonth.value;
+
+        // Get the authors of the paper
+        // var firstAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("First Author")].textContent;
+        // var secondAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("Second Author")].textContent;
+        // var thirdAuthor = rows[i].getElementsByTagName("td")[findHeaderIndex("Third Author")].textContent;
+        // var otherAuthors = rows[i].getElementsByTagName("td")[findHeaderIndex("Other Authors")].textContent;
+
+        var rowYear = rows[i].getElementsByTagName("td")[findHeaderIndex("Publication Year")].textContent;
+        var rowMonth = rows[i].getElementsByTagName("td")[findHeaderIndex("Publication Month")].textContent;
+
+        // var authorMatch = true;
+
+        // // Check if any of the selected authors match the authors of the paper
+        // if (flag) {
+        //     authorMatch = Array.from(authorCheckboxes).some(function(checkbox) {
+        //         var authorName = checkbox.value;
+        //         authorName = authorName.split(" ")[0];
+        //         return checkbox.checked && (firstAuthor.includes(authorName) || secondAuthor.includes(authorName) || thirdAuthor.includes(authorName) || otherAuthors.includes(authorName));
+        //     });
+        // }
+
+
         var containsWebOfScience = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("web of science") : false;
-        var containsScopus = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("scopus") : false;
+        if (scopusChecked && webOfSciencesChecked){
+            var containsWebOfScience = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("web of science") : false;
+
+            var containsScopus = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("scopus") : false;
+        }
+        else{
+            var containsWebOfScience = indexingCell ? indexingCell.innerHTML.toLowerCase().includes("web of science") : false;
+
+            var containsScopus = indexingCell ? indexingCell.innerHTML.toLowerCase() == "scopus" : false;
+        }
+
+
         var matchesQuartile = quartileCell ? quartileCell.innerHTML.toLowerCase().includes(quartileSelected) : false;
         var matchesAY = selectedAY === "all" || (AYCell ? AYCell.innerHTML.includes(selectedAY) : false);
 
+        var containsJournal = publicationCell ? publicationCell.innerHTML.toLowerCase().includes("journal") : false;
+        var containsBookChapter = publicationCell ? publicationCell.innerHTML.toLowerCase().includes("book chapter") : false;
+        var containsConference = publicationCell ? publicationCell.innerHTML.toLowerCase().includes("conference") : false;
+        var containsOthers = publicationCell ? (publicationCell.innerHTML.toLowerCase().includes("null") || publicationCell.innerHTML.toLowerCase().includes("none"))  : false;
+
+        if (selectedPeriodFromYear === "all" && selectedPeriodToYear === "all"){
+            var withinRange = true;
+        } else {
+            var withinRange = isWithinRange(selectedPeriodFromMonth, selectedPeriodFromYear, selectedPeriodToMonth, selectedPeriodToYear, rowMonth, rowYear);
+        }
+
         var shouldBeHidden = false;
+
+        var publicationTypesChecked = (journalsChecked && containsJournal) ||
+                                      (bookChapterChecked && containsBookChapter) ||
+                                      (conferenceChecked && containsConference) ||
+                                      (othersChecked && containsOthers);
+        
+        if ((!journalsChecked && !bookChapterChecked && !conferenceChecked && !othersChecked)){
+            publicationTypesChecked = true;
+        }
 
         if (quartileSelected !== "all") { // Check if "All Quartiles" is not selected
             if (
                 (webOfSciencesChecked && !containsWebOfScience) ||
                 (scopusChecked && !containsScopus) ||
                 (quartileSelected !== "" && !matchesQuartile) ||
-                !matchesAY
+                !matchesAY ||
+                !withinRange ||
+                !publicationTypesChecked
             ) {
                 shouldBeHidden = true;
             }
         } else {
-            // Show all rows when "All Quartiles" is selected
-            if (webOfSciencesChecked && !containsWebOfScience) {
-                shouldBeHidden = true;
-            }
-            if (scopusChecked && !containsScopus) {
-                shouldBeHidden = true;
-            }
-            if (!matchesAY) {
+             // Show all rows when "All Quartiles" is selected
+            if (
+                (webOfSciencesChecked && !containsWebOfScience) ||
+                (scopusChecked && !containsScopus) ||
+                !matchesAY ||
+                !withinRange ||
+                !publicationTypesChecked // Check for publication types match
+            ) {
                 shouldBeHidden = true;
             }
         }
@@ -367,7 +570,6 @@ function applyFilter() {
         }
     }
 }
-
 
 
 function sortTableByQuartile() {
@@ -464,7 +666,6 @@ function populateColumnCheckboxes() {
         columnCheckboxes.appendChild(rowDiv);
     }
 }
-
 // Call populateColumnCheckboxes function when the page loads
 window.onload = function() {
     populateColumnCheckboxes();
@@ -486,6 +687,23 @@ function applyFilters() {
     closeFilterModal();
 }
 
+document.addEventListener('keydown', function(event) {
+    // Check if the pressed key is '/'
+    if (event.key === '/') {
+        // Prevent the default action (if any)
+        event.preventDefault();
+
+        // Check if the active element is not the search box
+        if (document.activeElement !== document.getElementById('searchBox')) {
+            // Get the search box element
+            var searchBox = document.getElementById('searchBox');
+
+            // Focus the search box
+            searchBox.focus();
+        }
+    }
+});
+
 // Function to select all columns
 function selectAllColumns() {
     var checkboxes = document.querySelectorAll('#columnCheckboxes input[type="checkbox"]');
@@ -501,3 +719,34 @@ function clearAllColumns() {
         checkbox.checked = false;
     });
 }
+
+function getTableRows() {
+    // Get all the rows from the table
+    var table = document.getElementById('mytable');
+    var rows = table.getElementsByTagName('tr');
+    var data = [];
+
+    // Iterate over the rows and collect data from the visible rows
+    for (var i = 1; i < rows.length; i++) {
+        if (rows[i].style.display !== 'none' && (!(Array.from(rows[i].classList).includes("hidden")))) {
+
+            var rowData = [];
+            var cells = rows[i].getElementsByTagName('td');
+            for (var j = 0; j < cells.length; j++) {
+                rowData.push(cells[j].innerText);
+            }
+            if (rowData.length > 1) {
+                data.push(rowData);
+            }
+        }
+    }
+
+    return data;
+}
+
+
+document.addEventListener('keydown', function(e) {
+    if(e.keyCode == 27){
+      closeFilterModal();
+    }
+});
