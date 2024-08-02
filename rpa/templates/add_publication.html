@@ -188,7 +188,6 @@
     <script>
         var table = document.getElementById("publicationTable");
         for (var i = 0, row; row = table.rows[i]; i++) {
-            // Loop through each row in the table
 
             // Assuming the second column contains the value to be checked
             var cell = row.cells[1]; // Change the index to match your column number
@@ -222,9 +221,66 @@
                     inputElement.classList.add("form-control");
                     cell.innerHTML = "";
                     cell.appendChild(inputElement);
-                }
+                } else if (i == getIndexByKey('Specification')){
+                    var selectElement = document.createElement('select');
+                    selectElement.id = 'specification';
+                    selectElement.name = 'specification';
+                    selectElement.required = true;
+                    selectElement.classList.add('form-control');
+                    specifications = ["article", "inbook", "inproceedings"]
 
-                else if (i == getIndexByKey('Volume')){
+                    for (var j = 0; j < specifications.length; j++){
+                        var optionElement = document.createElement('option');
+                        optionElement.value = specifications[j];
+                        optionElement.textContent = specifications[j];
+                        selectElement.appendChild(optionElement);
+                    } 
+
+                    selectElement.value = cell.textContent.trim()
+
+                    cell.innerHTML = '';
+                    cell.appendChild(selectElement);
+        
+                    if (specifications.includes(cell.textContent.trim())){
+                        selectElement.value = cell.textContent.trim();
+                    }
+                } else if (i == getIndexByKey('Publication Type')){
+                    var selectElement = document.createElement('select');
+                    selectElement.id = 'publication_type';
+                    selectElement.name = 'publication_type';
+                    selectElement.required = true;
+                    selectElement.classList.add('form-control');
+                    publication_type = ["Journal", "Book Chapter", "Conference", "Proceedings"]
+
+                    for (var j = 0; j < publication_type.length; j++){
+                        var optionElement = document.createElement('option');
+                        optionElement.value = publication_type[j];
+                        optionElement.textContent = publication_type[j];
+                        selectElement.appendChild(optionElement);
+                    } 
+
+                    selectElement.value = cell.textContent.trim()
+
+                    cell.innerHTML = '';
+                    cell.appendChild(selectElement);
+        
+                    if (publication_type.includes(cell.textContent.trim())){
+                        selectElement.value = cell.textContent.trim();
+                    }
+                } else if(i == getIndexByKey('Indexing')){
+                    // Create checkboxes
+
+                    var indexingValues = cell.textContent.trim().split(', ');
+                    cell.innerHTML = `
+                        <input type="checkbox" id="scopus" name="indexing" value="Scopus"> Scopus
+                        <input type="checkbox" id="web_of_sciences" name="indexing" value="Web of Sciences"> Web of Sciences`
+                    var scopusCheckbox = document.getElementById('scopus');
+                    var webOfSciencesCheckbox = document.getElementById('web_of_sciences');
+                    
+                    // Set checkbox states based on existing values
+                    scopusCheckbox.checked = indexingValues.includes("Scopus");
+                    webOfSciencesCheckbox.checked = indexingValues.includes("Web of Sciences");
+                } else if (i == getIndexByKey('Volume')){
                     var inputElement = document.createElement("input");
                     inputElement.setAttribute("min", "0");
                     inputElement.value = 0
@@ -262,6 +318,19 @@
             var updates = {};
             for (var i = 2, row; row = table.rows[i]; i++) {
                 var cell = row.cells[1];
+
+                if (getKeyByIndex(i) == "Indexing"){
+                    checkboxes = cell.getElementsByTagName("input");
+                    var indexingValues = [];
+                    for (var j = 0; j < checkboxes.length; j++) {
+                        if (checkboxes[j].checked) {
+                            indexingValues.push(checkboxes[j].value);
+                        }
+                    }
+                    cellContent = indexingValues.join(', ');
+                    updates[convertToSnakeCase("Indexing")] = cellContent;
+                    continue;
+                }
                 
                 data_in_cell = cell;
                 input_in_cell = cell.getElementsByTagName("input")[0];

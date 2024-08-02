@@ -7,6 +7,8 @@ from rpa.forms import PublicationsForm
 import django.db.utils
 import rpa.extractor.extractor as Extractor
 from send_email import send_email
+from rpa.edit_history import record_update
+from rpa.edit_history import commit_record_updates
 import os
 import random
 
@@ -411,7 +413,7 @@ def request_changes(request, uniqueid):
             if "issn" == field.lower():
                 field = "ISSN"
 
-            fields.append(field)
+            fields.append(field) if field != "Edithistory" else ""
             original_fields.append(field.lower().replace(" ", "_"))
 
         fields_dict = {}
@@ -426,7 +428,11 @@ def request_changes(request, uniqueid):
             if temp == "Issn":
                 temp = "ISSN"
 
-            fields_dict[temp] = eval(f"publ.{original_field}")
+            try:
+                fields_dict[temp] = eval(f"publ.{original_field}")
+            except AttributeError as e: # handles AttributeError while getting field names (referencing in edithistory model)
+                continue
+        
 
         return render(
             request,
@@ -512,8 +518,14 @@ def user_verify_paper(request):
 
     if not Publications.objects.filter(uniqueid=uniqueid):
         return HttpResponse("Paper not found!")
+        
+    updates =  {k: v for k, v in updates.items() if v != ''}
+
+    to_save = record_update(uniqueid, name, updates, Publications)
 
     Publications.objects.filter(uniqueid=uniqueid).update(**updates)
+
+    commit_record_updates(to_save)
 
     return HttpResponse("OK")
 
@@ -537,41 +549,41 @@ def user_dashboard(request):
         other_authors = paper.other_authors if paper.other_authors else ""
 
         if not paper.second_author:
-            paper.second_author = "NULL"
+            paper.second_author = "None"
         if not paper.third_author:
-            paper.third_author = "NULL"
+            paper.third_author = "None"
         if not paper.other_authors:
-            paper.other_authors = "NULL"
+            paper.other_authors = "None"
         if not paper.is_student_author:
-            paper.is_student_author = "NULL"
+            paper.is_student_author = "None"
         if not paper.student_name:
-            paper.student_name = "NULL"
+            paper.student_name = "None"
         if not paper.student_batch:
-            paper.student_batch = "NULL"
+            paper.student_batch = "None"
         if not paper.specification:
-            paper.specification = "NULL"
+            paper.specification = "None"
         if not paper.publication_type:
-            paper.publication_type = "NULL"
+            paper.publication_type = "None"
         if not paper.publication_name:
-            paper.publication_name = "NULL"
+            paper.publication_name = "None"
         if not paper.publisher:
-            paper.publisher = "NULL"
+            paper.publisher = "None"
         if not paper.year_of_publishing:
-            paper.year_of_publishing = "NULL"
+            paper.year_of_publishing = "None"
         if not paper.month_of_publishing:
-            paper.month_of_publishing = "NULL"
+            paper.month_of_publishing = "None"
         if not paper.page_number:
-            paper.page_number = "NULL"
+            paper.page_number = "None"
         if not paper.indexing:
-            paper.indexing = "NULL"
+            paper.indexing = "None"
         if not paper.quartile:
-            paper.quartile = "NULL"
+            paper.quartile = "None"
         if not paper.url:
-            paper.url = "NULL"
+            paper.url = "None"
         if not paper.issn:
-            paper.issn = "NULL"
+            paper.issn = "None"
         if not paper.front_page_path:
-            paper.front_page_path = "NULL"
+            paper.front_page_path = "None"
 
         if (
             name in first_author
@@ -794,6 +806,8 @@ def user_insert_paper(request):
         or faculty_name in other_authors
     ):
         return HttpResponse("You are not an author of this paper. Cannot add paper.")
+    
+    data_to_be_inserted = {k:v for k, v in data_to_be_inserted.items() if v != ''}
 
     new_record = Publications(**data_to_be_inserted)
 
