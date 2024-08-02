@@ -277,7 +277,7 @@ def user_home(request):
     name = str(request.session.get("FACULTY_NAME"))
 
     if name is None or name == "admin" or name == str(None):
-        return redirect("/rpa/login")
+        return redirect("/rpa/login/")
 
     for paper in papers:
         first_author = paper.first_author if paper.first_author else ""
@@ -618,7 +618,7 @@ def user_dashboard(request):
     name = str(request.session.get("FACULTY_NAME"))
 
     if name is None or name == "admin" or name == "None":
-        return redirect("/rpa/login")
+        return redirect("/rpa/login/")
 
     form = PublicationsForm()
 
@@ -693,7 +693,7 @@ def user_verification(request):
     name = str(request.session.get("FACULTY_NAME"))
 
     if name is None or name == "admin" or name == str(None):
-        return redirect("/rpa/login")
+        return redirect("/rpa/login/")
 
     for paper in papers:
         first_author = paper.first_author if paper.first_author else ""

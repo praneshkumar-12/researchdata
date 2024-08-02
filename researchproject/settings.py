@@ -131,7 +131,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-JWT_MIDDLEWARE_EXCLUDED_PATHS = ["/rpa/login/", "/rpa/forgot_password/", "/rpa/otp_verification/", "/rpa/reset_password/", "/"]
+JWT_MIDDLEWARE_EXCLUDED_PATHS = ["/rpa/login/", "/rpa/forgot_password/", "/rpa/otp_verification/", "/rpa/reset_password/", "/rpa/", "/rpa/login", "/"]
 JWT_MIDDLEWARE_USER_PATH = "/rpa/user/"
 JWT_MIDDLEWARE_ADMIN_PATH = "/rpa/dbadmin/"
 JWT_MIDDLEWARE_STATIC_PATH = "/rpa/static/"

@@ -6,6 +6,8 @@ from django.contrib.auth.views import LogoutView
 from . import views
 
 urlpatterns = [
+    path("", views.login, name="login"),
+    path("login", views.login, name="login"),
     path("login/", views.login, name="login"),
     path("forgot_password/", views.forgot_password, name="forgot_password"),
     path("otp_verification/", views.otp_verification, name="otp_verification"),
@@ -95,5 +97,6 @@ urlpatterns = [
     ),
     path("dbadmin/get_word", views.admin_get_word, name="admin_download_word"),
     path("dbadmin/charts", views.admin_get_charts, name="admin_get_charts"),
+    path("dbadmin/logout", views.logout, name="log_out"),
     path("dbadmin/error", views.error, name="error"),
 ]
