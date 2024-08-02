@@ -15,6 +15,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Pt
 import rpa.extractor.extractor as Extractor
 from rpa.edit_history import record_update
+from rpa.edit_history import commit_record_updates
 
 
 def admin_home(request):
@@ -316,10 +317,11 @@ def admin_update_paper(request):
 
     updates =  {k: v for k, v in updates.items() if v != ''}
 
-    record_update(uniqueid, name, updates, Publications)
-
+    to_save = record_update(uniqueid, name, updates, Publications)
 
     Publications.objects.filter(uniqueid=uniqueid).update(**updates)
+
+    commit_record_updates(to_save)
 
     return HttpResponse("OK")
 

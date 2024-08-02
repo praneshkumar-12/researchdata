@@ -11,17 +11,27 @@ def record_update(uniqueid, name, updates, db_object):
     }
     modified = compare_dicts(old_record_dict, updates)
 
+    to_save = []
+
     for key, (old_value, new_value) in modified.items():
-        new_record = Edithistory(
-            uniqueid=old_record_object,
-            edit_timestamp=timestamp,
-            edited_by=name,
-            field_name=key,
-            old_value=old_value,
-            new_value=new_value,
-        )
+        new_record = {
+            "uniqueid": old_record_object,
+            "edit_timestamp":timestamp,
+            "edited_by":name,
+            "field_name":key,
+            "old_value":old_value,
+            "new_value":new_value,
+        }
         print(old_value,type(old_value),new_value,type(new_value))
-        new_record.save()
+        to_save.append(new_record)
+    
+    return to_save
+
+def commit_record_updates(updates):
+    for update in updates:
+        new_update = Edithistory(**update)
+        new_update.save()
+    
 
 
 def compare_dicts(old_dict, new_dict):
