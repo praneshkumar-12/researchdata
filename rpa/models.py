@@ -53,20 +53,20 @@ class Users(models.Model):
     author_id = models.CharField(primary_key=True, max_length=35)
     email_id = models.CharField(max_length=35, blank=True, null=True, unique=True)
     staff_name = models.CharField(max_length=50, blank=True, null=True)
-    passkey = models.CharField(max_length=100, blank=True, null=True)
+    passkey = models.TextField(max_length=500, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "users"
 
 
 class AdminUsers(models.Model):
     email_id = models.CharField(primary_key=True, max_length=35, blank=True)
     staff_name = models.CharField(max_length=50, blank=True, null=True)
-    passkey = models.CharField(max_length=100, blank=True, null=True)
+    passkey = models.TextField(max_length=500, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "adminusers"
 
 class Edithistory(models.Model):

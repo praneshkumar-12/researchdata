@@ -24,6 +24,8 @@ def otp_verification(request):
 def logout(request):
     name = str(request.session.get("FACULTY_NAME"))
     request.session["FACULTY_NAME"] = None
+    request.session["email"] = None
+    request.session["jwt_token"] = None
     return HttpResponse("Logged out successfully!")
 
 

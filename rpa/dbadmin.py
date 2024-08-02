@@ -1046,7 +1046,6 @@ def admin_get_charts(request):
             else:
                 # indices = record.indexing.split(", ")
                 indices = record.indexing
-                print(indices)
                 if indices:
                     if indices not in [
                         "Scopus",

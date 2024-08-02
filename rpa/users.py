@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.conf import settings
 from rpa.models import Publications
 from rpa.models import Users
 from rpa.models import AdminUsers
@@ -9,13 +10,76 @@ import rpa.extractor.extractor as Extractor
 from send_email import send_email
 from rpa.edit_history import record_update
 from rpa.edit_history import commit_record_updates
+from werkzeug.security import generate_password_hash, check_password_hash
 import os
+import jwt
+import hashlib
 import random
+import datetime
 
 
 def login(request):
     users = Users.objects.all()
     adminusers = AdminUsers.objects.all()
+
+    if request.method == "GET":
+
+        jwt_token = request.session.get("jwt_token")
+        email = request.session.get("email")
+
+        if jwt_token and email:
+
+            print(jwt_token)
+
+            try:
+                decoded_jwt = jwt.decode(jwt_token, key=settings.SECRET_KEY, algorithms=['HS256'])
+            except (jwt.InvalidTokenError, jwt.exceptions.ExpiredSignatureError):
+                request.session["FACULTY_NAME"] = None
+                request.session["email"] = None
+                request.session["jwt_token"] = None
+                return render(request, "index.html")
+            except Exception as e:
+                request.session["FACULTY_NAME"] = None
+                request.session["email"] = None
+                request.session["jwt_token"] = None
+                return render(request, "index.html", {"alertmessage": e})
+            
+            user = decoded_jwt['user']
+
+            if decoded_jwt['is_admin']:
+
+                admin_record = AdminUsers.objects.get(email_id = email)
+
+                if not admin_record:
+                    return render(request, "index.html")
+                
+                email_db = admin_record.email_id
+
+                encoded_email_db = hashlib.sha256(email_db.encode("UTF-8")).hexdigest()
+
+                if encoded_email_db != user:
+                    return render(request, "index.html")
+
+                return redirect("/rpa/dbadmin/charts")
+            
+            elif decoded_jwt['is_user']:
+
+                user_record = Users.objects.get(email_id = email)
+
+                if not user_record:
+                    return render(request, "index.html")
+                
+                email_db = user_record.email_id
+
+                encoded_email_db = hashlib.sha256(email_db.encode("UTF-8")).hexdigest()
+
+                if encoded_email_db != user:
+                    return render(request, "index.html")
+
+                return redirect("/rpa/user/home")
+            
+        else:
+            return render(request, "index.html")
 
     if request.method == "POST":
         email = request.POST.get("email")
@@ -24,11 +88,23 @@ def login(request):
         for adminuser in adminusers:
             if (
                 adminuser.email_id == email
-                and adminuser.passkey == passcode
+                and check_password_hash(adminuser.passkey, passcode)
                 and passcode == "Admin@123"
             ):
                 return render(request, "reset_password.html", {"email": email})
-            elif adminuser.email_id == email and adminuser.passkey == passcode:
+            elif adminuser.email_id == email and check_password_hash(adminuser.passkey, passcode):
+                token = jwt.encode(
+                        {
+                            "user": hashlib.sha256(email.encode("UTF-8")).hexdigest(),
+                            "exp": datetime.datetime.utcnow()
+                            + datetime.timedelta(seconds=10), #minutes=30),
+                            "is_admin": True, 
+                            "is_user": False
+                        },
+                        settings.SECRET_KEY,
+                    )
+                request.session["jwt_token"] = token
+                print(request.session["jwt_token"])
                 request.session["FACULTY_NAME"] = "admin"
                 request.session["email"] = email
                 return redirect("/rpa/dbadmin/charts")
@@ -36,29 +112,33 @@ def login(request):
         for user in users:
             if (
                 user.email_id == email
-                and user.passkey == passcode
+                and check_password_hash(user.passkey, passcode)
                 and passcode == "Welcome123"
             ):
                 return render(request, "reset_password.html", {"email": email})
-            elif user.email_id == email and user.passkey == passcode:
+            elif user.email_id == email and check_password_hash(user.passkey, passcode):
+                token = jwt.encode(
+                        {
+                            "user": hashlib.sha256(email.encode("UTF-8")).hexdigest(),
+                            "exp": datetime.datetime.utcnow()
+                            + datetime.timedelta(minutes=30),
+                            "is_admin": False, 
+                            "is_user": True
+                        },
+                        settings.SECRET_KEY,
+                    )
+                request.session["jwt_token"] = token
+                print(request.session["jwt_token"])
                 request.session["FACULTY_NAME"] = user.staff_name.split(" ")[0]
                 request.session["email"] = email
                 return redirect("/rpa/user/home")
 
         return render(request, "index.html", context={"invalidlogin": "yes"})
-
-    user_name = request.session.get("FACULTY_NAME")
-
-    if user_name:
-        if user_name == "admin":
-            return redirect("/rpa/dbadmin/charts")
-        elif user_name in [user.staff_name.split(" ")[0] for user in users]:
-            return redirect("/rpa/user/home")
-
-    return render(request, "index.html")
+    
 
 
 def forgot_password(request):
+
     if request.method == "POST":
         email = request.POST.get("email")
 
@@ -128,7 +208,7 @@ def reset_password(request):
                 },
             )
 
-        updates = {"passkey": password}
+        updates = {"passkey": generate_password_hash(password)}
 
         if Users.objects.filter(email_id=email):
             Users.objects.filter(email_id=email).update(**updates)
@@ -170,7 +250,7 @@ def otp_verification(request):
 
         email = request.session.get("email", "")
 
-        updates = {"passkey": password}
+        updates = {"passkey": generate_password_hash(password)}
 
         if not email:
             return redirect("/rpa/user/error")
