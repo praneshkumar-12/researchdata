@@ -99,9 +99,9 @@ class FileDownloadView(View):
 
             if not (
                 name in publ.first_author
-                or name in publ.second_author
-                or name in publ.third_author
-                or name in publ.other_authors
+                or (publ.second_author and name in publ.second_author)
+                or (publ.third_author and name in publ.third_author)
+                or (publ.other_authors and name in publ.other_authors)
             ):
                 return render(
                     request,
