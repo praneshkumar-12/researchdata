@@ -97,7 +97,7 @@ def login(request):
                         {
                             "user": hashlib.sha256(email.encode("UTF-8")).hexdigest(),
                             "exp": datetime.datetime.utcnow()
-                            + datetime.timedelta(seconds=10), #minutes=30),
+                            + datetime.timedelta(minutes=45),
                             "is_admin": True, 
                             "is_user": False
                         },
@@ -121,7 +121,7 @@ def login(request):
                         {
                             "user": hashlib.sha256(email.encode("UTF-8")).hexdigest(),
                             "exp": datetime.datetime.utcnow()
-                            + datetime.timedelta(minutes=30),
+                            + datetime.timedelta(minutes=45),
                             "is_admin": False, 
                             "is_user": True
                         },
