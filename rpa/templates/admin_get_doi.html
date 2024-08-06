@@ -72,7 +72,7 @@
         function logOut(){
             $.ajax({
                 type: "POST",
-                url: "{% url 'log_out' %}",
+                url: "{% url 'admin_log_out' %}",
                 data: {
                     csrfmiddlewaretoken: '{{ csrf_token }}',
                 },

@@ -97,6 +97,6 @@ urlpatterns = [
     ),
     path("dbadmin/get_word", views.admin_get_word, name="admin_download_word"),
     path("dbadmin/charts", views.admin_get_charts, name="admin_get_charts"),
-    path("dbadmin/logout", views.logout, name="log_out"),
+    path("dbadmin/logout", views.logout, name="admin_log_out"),
     path("dbadmin/error", views.error, name="error"),
 ]
