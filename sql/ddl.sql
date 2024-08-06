@@ -48,7 +48,7 @@ CREATE TABLE EditHistory (
     field_name VARCHAR(255) NOT NULL,
     old_value TEXT,
     new_value TEXT,
-    FOREIGN KEY (uniqueid) REFERENCES publications(uniqueid)
+    FOREIGN KEY (uniqueid) REFERENCES publications(uniqueid) on delete cascade
 );
 
 -- ALTER TABLE publications ADD( CONSTRAINT pk_uniqueid PRIMARY KEY(uniqueid),
