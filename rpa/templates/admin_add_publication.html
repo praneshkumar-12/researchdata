@@ -326,18 +326,18 @@
             for (var i = 2, row; row = table.rows[i]; i++) {
                 var cell = row.cells[1];
 
-                if (getKeyByIndex(i) == "Indexing"){
-                    checkboxes = cell.getElementsByTagName("input");
-                    var indexingValues = [];
-                    for (var j = 0; j < checkboxes.length; j++) {
-                        if (checkboxes[j].checked) {
-                            indexingValues.push(checkboxes[j].value);
-                        }
-                    }
-                    cellContent = indexingValues.join(', ');
-                    updates[convertToSnakeCase("Indexing")] = cellContent;
-                    continue;
-                }
+                // if (getKeyByIndex(i) == "Indexing"){
+                //     checkboxes = cell.getElementsByTagName("input");
+                //     var indexingValues = [];
+                //     for (var j = 0; j < checkboxes.length; j++) {
+                //         if (checkboxes[j].checked) {
+                //             indexingValues.push(checkboxes[j].value);
+                //         }
+                //     }
+                //     cellContent = indexingValues.join(', ');
+                //     updates[convertToSnakeCase("Indexing")] = cellContent;
+                //     continue;
+                // }
                 
                 data_in_cell = cell;
                 input_in_cell = cell.getElementsByTagName("input")[0];
