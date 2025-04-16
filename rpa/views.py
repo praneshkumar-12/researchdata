@@ -71,6 +71,10 @@ def user_verification(request):
 def user_get_doi(request):
     return users.user_get_doi(request)
 
+#function to enable the user to upload data using excel
+def admin_upload_excel(request):
+    return dbadmin.admin_excel(request)
+
 
 def user_get_title(request):
     return users.user_get_title(request)
@@ -270,3 +274,5 @@ class WordDownloadView(View):
         else:
             # Return a 404 response if the file does not exist
             return HttpResponseNotFound("File not found!")
+
+

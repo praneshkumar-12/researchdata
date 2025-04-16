@@ -6,13 +6,26 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.db.models import Count
 import random
+from django.db import transaction
 import string
 import django.db.utils
+import calendar
 import os
+from django.contrib import messages  # Import Django's messages framework
 import json
 import docx
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Pt
+import pandas as pd
+from django.shortcuts import render, redirect
+from docx.enum.text import WD_COLOR_INDEX
+import docx
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+import re
+
+from django.http import HttpResponse
+from .models import Publications
+from django.db.utils import IntegrityError
 import rpa.extractor.extractor as Extractor
 from rpa.edit_history import record_update
 from rpa.edit_history import commit_record_updates
@@ -37,6 +50,410 @@ def admin_home(request):
 
     return render(request, "admin_home.html", context)
 
+
+
+def admin_excel(request):
+    if request.method == "GET":
+        return render(request, "add_data_excel.html")
+
+    elif request.method == "POST":
+        faculty_name = request.session.get("FACULTY_NAME")
+        if faculty_name != "admin":
+            return HttpResponse("Unauthorized", status=403)
+        
+        excel_file = request.FILES.get("excelFile")
+        if not excel_file:
+            return HttpResponse("No file uploaded.", status=400)
+
+        try:
+            # Read all sheets from Excel file
+            xls = pd.ExcelFile(excel_file)
+            sheet_names = xls.sheet_names
+            
+            records_to_insert = []
+            records_to_update = []
+            update_details = []
+            skipped_records = []
+            deletion_details = []  # Track detailed deletion information
+            
+            # Precompute mappings
+            # Define sheet name to publication type mapping
+            SHEET_TYPE_MAPPING = {
+                'journal': ('Journal', 'Article'),
+                'journals': ('Journal', 'Article'),
+                'book': ('Book Chapter', 'inbook'),
+                'books': ('Book Chapter', 'inbook'),
+                'conference': ('Conference', 'Proceedings'),
+                'conferences': ('Conference', 'Proceedings'),
+                'proceedings': ('Conference', 'Proceedings')
+            }
+
+            # Define flexible column mappings with multiple possible Excel column names for each database field
+            COLUMN_MAPPINGS = {
+                ('Title of paper', 'Title', 'Paper Title', 'title'): 'title',
+                ('Name of the author/s', 'Authors', 'First Author', 'Primary Author', 'first_author'): 'first_author',
+                ('Second Author', 'Co-author 1', 'second_author'): 'second_author',
+                ('Third Author', 'Co-author 2', 'third_author'): 'third_author',
+                ('Other Authors', 'Additional Authors', 'Co-authors', 'other_authors'): 'other_authors',
+                ('Student Author', 'Is Student Author', 'Student Publication', 'is_student_author'): 'is_student_author',
+                ('Student Name', 'Author Student Name', 'student_name'): 'student_name',
+                ('Student Batch', 'Batch', 'Student Year', 'student_batch'): 'student_batch',
+                ('Specification', 'Paper Type', 'Article Type', 'specification'): 'specification',
+                ('Publication Type', 'Type of Publication', 'Category', 'publication_type'): 'publication_type',
+                ('Name of journal', 'Journal Name', 'Publication Name', 'Conference Name', 'Book Name', 'publication_name'): 'publication_name',
+                ('Publisher', 'Publisher Name', 'Publishing House', 'publisher'): 'publisher',
+                ('Year of publication', 'Year', 'Publication Year', 'year_of_publishing'): 'year_of_publishing',
+                ('Month of Publication', 'Month', 'Publication Month', 'month_of_publishing'): 'month_of_publishing',
+                ('Vol No', 'Volume', 'Volume Number', 'volume'): 'volume',
+                ('Page No', 'Pages', 'Page Numbers', 'Page Range', 'page_number'): 'page_number',
+                ('Indexing', 'Index Database', 'Indexed In', 'indexing'): 'indexing',
+                ('Scopus', 'scopus', 'SCOPUS', 'Scopus Indexed', 'scopus_indexing'): 'scopus_indexing',
+                ('WoS', 'wos', 'WOS', 'Web of Science', 'Web of Science Indexed', 'wos_indexing'): 'wos_indexing',
+                ('UGC', 'UGC Care', 'UGC Indexed', 'ugc_indexing'): 'ugc_indexing',
+                ('Quartile', 'Q', 'Journal Quartile', 'Q Rating', 'quartile'): 'quartile',
+                ('Citation', 'Citation Count', 'Times Cited', 'citation'): 'citation',
+                ('DOI', 'Digital Object Identifier', 'DOI Number', 'Link to article/paper/abstract of the article', 'doi'): 'doi',
+                ('Front Page', 'Front Page Path', 'First Page', 'front_page_path'): 'front_page_path',
+                ('URL', 'Link', 'Website Link', 'Link to website of the Journal', 'url'): 'url',
+                ('ISSN number', 'ISSN', 'Journal ISSN', 'issn'): 'issn',
+                ('Verified', 'Is Verified', 'Verification Status', 'verified'): 'verified',
+                ('Admin Verified', 'Admin Verification', 'Admin Status', 'admin_verified'): 'admin_verified',
+                ('Impact Factor', 'IF', 'Journal Impact Factor', 'impact_factor'): 'impact_factor',
+                ('Start Academic Month', 'Academic Start Month', 'start_academic_month'): 'start_academic_month',
+                ('Start Academic Year', 'Academic Start Year', 'start_academic_year'): 'start_academic_year',
+                ('End Academic Month', 'Academic End Month', 'end_academic_month'): 'end_academic_month',
+                ('End Academic Year', 'Academic End Year', 'end_academic_year'): 'end_academic_year'
+            }
+
+            # Create a flattened lookup dictionary for faster column matching
+            COLUMN_LOOKUP = {
+                name.strip().lower(): db_field 
+                for names, db_field in COLUMN_MAPPINGS.items()
+                for name in names
+            }
+
+            # Precompute quartile mapping
+            QUARTILE_MAPPING = {
+                **{str(i): f'Q{i}' for i in range(1, 5)},
+                **{f'{i}st': f'Q{i}' for i in [1]},
+                **{f'{i}nd': f'Q{i}' for i in [2]},
+                **{f'{i}rd': f'Q{i}' for i in [3]},
+                **{f'{i}th': f'Q{i}' for i in [4]},
+                **{f'q{i}': f'Q{i}' for i in range(1, 5)},
+                **{f'Q{i}': f'Q{i}' for i in range(1, 5)},
+                **{f'quartile {i}': f'Q{i}' for i in range(1, 5)}
+            }
+
+            # Build all fields list once
+            ALL_DB_FIELDS = list(set(COLUMN_MAPPINGS.values()))
+
+            for sheet_name in sheet_names:
+                # Determine publication type and specification based on sheet name
+                sheet_lower = sheet_name.lower()
+                publication_type, specification = ('Journal', 'Article')  # Default values
+                
+                # Find the best matching sheet type
+                for key, value in SHEET_TYPE_MAPPING.items():
+                    if key in sheet_lower:
+                        publication_type, specification = value
+                        break
+                
+                print(f"\nProcessing sheet: {sheet_name} (Type: {publication_type}, Spec: {specification})")
+                
+                # Read the sheet
+                df = pd.read_excel(xls, sheet_name=sheet_name, dtype=str)
+                print(f"Total rows in sheet: {len(df)}")
+                print(f"Columns in sheet (Before Cleaning): {df.columns.tolist()}")
+
+                # Map columns more efficiently using the precomputed lookup
+                mapped_columns = {}
+                for col in df.columns:
+                    db_field = COLUMN_LOOKUP.get(col.strip().lower())
+                    if db_field:
+                        mapped_columns[col] = db_field
+
+                # Rename columns based on mapping
+                df = df.rename(columns=mapped_columns)
+                print(f"Columns in sheet (After Renaming): {df.columns.tolist()}")
+
+                # Initialize all possible fields with None to ensure no field is missed
+                for field in ALL_DB_FIELDS:
+                    if field not in df.columns:
+                        df[field] = None
+
+                # Replace NaN values with None
+                df = df.where(pd.notnull(df), None)
+            
+
+                # Precompute months mapping
+                MONTH_NAME_TO_NUMBER = {calendar.month_abbr[i].lower(): i for i in range(1, 13)}
+
+                for idx, row in df.iterrows():
+                    try:
+                        # Initialize data dictionary with all possible fields set to None
+                        data = {
+                            'publication_type': publication_type,
+                            'specification': specification,
+                            'title': None,
+                            'first_author': None,
+                            'second_author': None,
+                            'third_author': None,
+                            'other_authors': None,
+                            'is_student_author': None,
+                            'student_name': None,
+                            'student_batch': None,
+                            'publication_name': None,
+                            'publisher': None,
+                            'year_of_publishing': None,
+                            'month_of_publishing': None,
+                            'volume': None,
+                            'page_number': None,
+                            'indexing': None,
+                            'quartile': None,
+                            'citation': None,
+                            'doi': None,
+                            'front_page_path': None,
+                            'url': None,
+                            'issn': None,
+                            'verified': None,
+                            'admin_verified': None,
+                            'impact_factor': None,
+                            'start_academic_month': None,
+                            'start_academic_year': None,
+                            'end_academic_month': None,
+                            'end_academic_year': None
+                        }
+
+                        # Handle required fields
+                        if not row.get('title'):
+                            raise ValueError("Title is required")
+
+                        # Process all fields systematically
+                        for field in data.keys():
+                            if field in ['publication_type', 'specification']:
+                                continue  # Already set
+                            
+                            value = row[field]
+                            
+                            # Check for garbage values and set to None if invalid
+                            if isinstance(value, str) and not value.strip():
+                                data[field] = None
+                                continue
+                            
+                            if field in ['year_of_publishing', 'volume', 'citation', 'start_academic_year', 'end_academic_year']:
+                                try:
+                                    data[field] = int(float(str(value).strip()))
+                                except (ValueError, TypeError):
+                                    data[field] = None
+                            elif field in ['impact_factor']:
+                                try:
+                                    data[field] = float(str(value).strip())
+                                except (ValueError, TypeError):
+                                    data[field] = None
+                            elif field == 'is_student_author':
+                                val = str(value).strip().lower()
+                                data[field] = val in ['yes', 'true', '1']
+                            elif field == 'month_of_publishing':
+                                month = str(value).strip().lower()
+                                data[field] = str(MONTH_NAME_TO_NUMBER.get(month)) if month in MONTH_NAME_TO_NUMBER else None
+                            elif field == 'quartile':
+                                raw_quartile = str(value).strip().lower()
+                                clean_quartile = raw_quartile.replace('"', '').replace("'", "")
+                                data[field] = QUARTILE_MAPPING.get(clean_quartile)
+                            elif field == 'indexing':
+                                indexing_list = ""
+
+                                # Handle Scopus indexing
+                                if 'scopus_indexing' in row and row['scopus_indexing'] is not None:
+                                    scopus_value = str(row['scopus_indexing']).strip().lower()
+                                    if scopus_value in ['yes', 'y', 'true', '1']:
+                                        indexing_list += "Scopus,"
+
+                                # Handle Web of Science indexing
+                                if 'wos_indexing' in row and row['wos_indexing'] is not None:
+                                    wos_value = str(row['wos_indexing']).strip().lower()
+                                    if wos_value in ['yes', 'y', 'true', '1']:
+                                        indexing_list += "Web of Sciences,"
+
+                                # Handle UGC indexing
+                                if 'ugc_indexing' in row and row['ugc_indexing'] is not None:
+                                    ugc_value = str(row['ugc_indexing']).strip()
+                                    if ugc_value:
+                                        indexing_list += "UGC,"
+
+                                # Remove the trailing comma if present
+                                data["indexing"] = indexing_list.rstrip(',') if indexing_list else None
+                            else:
+                                # Default handling for string fields
+                                str_value = str(value).strip()
+                                data[field] = str_value if str_value else None
+
+                        # Handle authors specifically
+                        if row.get('first_author'):
+                            first_author_raw = str(row['first_author']).strip()
+                            comma_count = first_author_raw.count(',')
+
+                            # Split only if there are enough commas that likely separate authors
+                            if comma_count >= 2:
+                                authors = [author.strip() for author in first_author_raw.split(',') if author.strip()]
+                            else:
+                                authors = [first_author_raw]  # Possibly a single author
+
+                            data['first_author'] = authors[0] if len(authors) > 0 else None
+                            data['second_author'] = authors[1] if len(authors) > 1 else None
+                            data['third_author'] = authors[2] if len(authors) > 2 else None
+                            data['other_authors'] = ', '.join(authors[3:]) if len(authors) > 3 else None
+
+                        # Generate unique ID if not exists
+                        if not data.get('uniqueid'):
+                            data['uniqueid'] = f"{data['year_of_publishing'] or ''}{''.join(random.choices(string.ascii_letters, k=7))}"
+
+                        # Handle academic year determination
+                        if data.get('year_of_publishing'):
+                            year = data['year_of_publishing']
+                            month = data.get('month_of_publishing')
+                            
+                            data['start_academic_month'] = 'JUL'
+                            data['end_academic_month'] = 'JUN'
+                            
+                            if month and month in ['1', '2', '3', '4', '5', '6']:
+                                data['start_academic_year'] = year - 1
+                                data['end_academic_year'] = year
+                            else:
+                                data['start_academic_year'] = year
+                                data['end_academic_year'] = year + 1
+
+                       
+
+                        # Check if the record already exists
+                        print(f"Checking for existing record with title: '{data['title']}', year: {data['year_of_publishing']}, first author: '{data.get('first_author', '')}'")
+                        print(f"Querying with: title__iexact='{data['title']}', year_of_publishing={data['year_of_publishing']}, first_author__iexact='{data.get('first_author', '')}'")
+                        existing_record = Publications.objects.filter(
+                            title__iexact=data['title'],
+                            year_of_publishing=data['year_of_publishing']
+                        ).first()
+
+                        if existing_record:
+                            print(f"Existing record found: {existing_record.uniqueid}, title: '{existing_record.title}'")
+                            record_changes = {}
+                            
+                            # Compare each field value with the database value
+                            for field, new_value in data.items():
+                                # Skip primary key and fields we don't want to compare
+                                if field in ['uniqueid']:
+                                    continue
+                                    
+                                # Get the existing value from the database
+                                existing_value = getattr(existing_record, field, None)
+                                
+                                # Only update if the new value is not None and differs from existing value
+                                if new_value is not None and new_value != existing_value:
+                                    print(f"Field '{field}' will be updated from '{existing_value}' to '{new_value}'")
+                                    # Handle numeric comparisons to avoid type mismatch issues
+                                    if field in ['year_of_publishing', 'volume', 'citation', 'start_academic_year', 'end_academic_year']:
+                                        # Convert both to integers for comparison if possible
+                                        try:
+                                            new_int = int(float(str(new_value).strip()))
+                                            existing_int = int(float(str(existing_value).strip())) if existing_value is not None else None
+                                            if new_int != existing_int:
+                                                record_changes[field] = {"old": existing_value, "new": new_value}
+                                                setattr(existing_record, field, new_int)
+                                        except (ValueError, TypeError):
+                                            # Skip if conversion fails
+                                            pass
+                                    elif field in ['impact_factor']:
+                                        # Convert both to float for comparison
+                                        try:
+                                            new_float = float(str(new_value).strip())
+                                            existing_float = float(str(existing_value).strip()) if existing_value is not None else None
+                                            if new_float != existing_float:
+                                                record_changes[field] = {"old": existing_value, "new": new_value}
+                                                setattr(existing_record, field, new_float)
+                                        except (ValueError, TypeError):
+                                            # Skip if conversion fails
+                                            pass
+                                    elif field == 'is_student_author':
+                                        # Special handling for boolean fields
+                                        new_bool = new_value if isinstance(new_value, bool) else (str(new_value).strip().lower() in ['yes', 'true', '1'])
+                                        existing_bool = existing_value if isinstance(existing_value, bool) else False
+                                        if new_bool != existing_bool:
+                                            record_changes[field] = {"old": existing_value, "new": new_value}
+                                            setattr(existing_record, field, new_bool)
+                                    else:
+                                        # String or other fields - normalize strings for comparison
+                                        new_str = str(new_value).strip() if new_value is not None else None
+                                        existing_str = str(existing_value).strip() if existing_value is not None else None
+                                        if new_str != existing_str:
+                                            record_changes[field] = {"old": existing_value, "new": new_value}
+                                            setattr(existing_record, field, new_str)
+                            if record_changes:
+                                # Log which fields were changed for debugging/auditing
+                                print(f"Updating record {existing_record.uniqueid}, title: '{existing_record.title}', changes: {record_changes}")
+                                records_to_update.append(existing_record)
+                                update_details.append({
+                                    "id": existing_record.uniqueid,
+                                    "title": existing_record.title,
+                                    "row": idx + 1,
+                                    "sheet": sheet_name,
+                                    "changes": record_changes
+                                })
+                            else:
+                                print(f"No changes detected for record {existing_record.id}, title: '{existing_record.title}'")
+                                skipped_records.append({
+                                    "row": idx + 1, 
+                                    "sheet": sheet_name, 
+                                    "reason": "Record already exists with identical values"
+                                })
+                        else:
+                            # This is a new record, so we'll insert it
+                            new_record = Publications(**data)
+                            records_to_insert.append(new_record)
+
+                    except Exception as row_error:
+                        skipped_records.append({
+                            "row": idx + 1,
+                            "sheet": sheet_name,
+                            "reason": str(row_error)
+                        })
+                        continue
+
+            # Perform database operations in a transaction
+            with transaction.atomic():
+                # Update existing records
+                if records_to_update:
+                    for record in records_to_update:
+                        record.save()
+                    print(f"Updated {len(records_to_update)} records individually")
+
+                # Insert new records
+                if records_to_insert:
+                    Publications.objects.bulk_create(records_to_insert)
+                    print(f"Inserted {len(records_to_insert)} new records")
+
+            # Prepare detailed result
+            result = {
+                "total_sheets": len(sheet_names),
+                "inserted": len(records_to_insert),
+                "updated": len(records_to_update),
+                "skipped": len(skipped_records),
+            }
+
+            # Show messages
+            messages.success(
+                request,
+                f"Processed {result['total_sheets']} sheets. "
+                f"Inserted: {result['inserted']}, "
+                f"Updated : {result['updated']},"
+                f"Skipped: {result['skipped']}"
+            )
+
+            return render(request, "add_data_excel.html", {"result": result})
+
+        except Exception as e:
+            error_msg = f"Error processing file: {str(e)}"
+            print(error_msg)
+            messages.error(request, error_msg)
+            return render(request, "add_data_excel.html", status=500)
 
 def admin_dashboard(request):
     papers = Publications.objects.all()
@@ -95,8 +512,6 @@ def admin_dashboard(request):
             paper.quartile = "None"
         if not paper.url:
             paper.url = "None"
-        if not paper.issn:
-            paper.issn = "None"
         if not paper.front_page_path:
             paper.front_page_path = "None"
         if not paper.impact_factor:
@@ -106,16 +521,21 @@ def admin_dashboard(request):
 
     publication_list.sort(reverse=True, key=lambda x: x.end_academic_year)
 
+     # Add the number of publications to the context
+    num_publications = len(publication_list)
+
     context = {
         "papers": publication_list,
         "form": form,
         "new_sno": f"{int(len(publication_list)) + 1}",
         "name": name,
         "faculties": facs,
+        "num_publications" : num_publications
     }
 
     # paper_records =
     return render(request, "admin_dashboard.html", context)
+
 
 
 def admin_view_paper_details(request, paperid):
@@ -759,7 +1179,7 @@ def convert_to_dict(row):
 
 def IEEEFormat(paper):
     """
-    Author initials. Last name, “Article title,” Journal Name, vol. Volume, no. Number, pp. Page range, Month Year, DOI.
+    Author initials. Last name, "Article title," Journal Name, vol. Volume, no. Number, pp. Page range, Month Year, DOI.
     """
 
     months = {
@@ -807,13 +1227,9 @@ def IEEEFormat(paper):
         format_string += str("pp. ") + str(paper.get("page_number")) + str(", ")
 
     if paper.get("year_of_publishing"):
-        if paper.get("month_of_publishing"):
-            format_string += (
-                str(months.get(int(paper.get("month_of_publishing"))))
-                + str(" ")
-                + str(paper.get("year_of_publishing"))
-                + str(", ")
-            )
+        month_str = str(paper.get("month_of_publishing", "")).strip()
+        if month_str and month_str.isdigit() and 1 <= int(month_str) <= 12:
+            format_string += str(months.get(int(month_str), "")) + str(" ") + str(paper.get("year_of_publishing")) + str(", ")
         else:
             format_string += str(paper.get("year_of_publishing")) + str(", ")
 
@@ -857,11 +1273,12 @@ def IEEEFormat(paper):
 
 
 def generate_word_document(data):
-    sorted_data = sorted(data, key=lambda x: x["AY"])
+    sorted_data = sorted(data, key=lambda x: x["AY"]) #data sorting based on years
 
     journals = {}
     conference = {}
     book_series = {}
+    count = 0
 
     for data in sorted_data:
         if data["publication_type"].lower().strip() == "journal":
@@ -886,6 +1303,7 @@ def generate_word_document(data):
                     journals[data["AY"]][quartile] = [data]
                 else:
                     journals[data["AY"]][quartile].append(data)
+                count += 1
             else:
                 # print(f'{data["quartile"]=}, {bool(data["quartile"])}')
 
@@ -917,6 +1335,17 @@ def generate_word_document(data):
             else:
                 book_series[data["AY"]].append(data)
 
+    '''total_len = sum(
+        len(category)
+        if isinstance(category, dict) else sum(len(q) for q in category.values())
+        for category in [journals, conference, book_series]
+    )'''
+
+    total_len = len(sorted_data)
+
+    print(len(sorted_data))
+    print(book_series)
+
     # Create a new Word document
     doc = docx.Document()
 
@@ -933,6 +1362,15 @@ def generate_word_document(data):
     run.font.size = Pt(20)
     run.bold = True
     run.underline = True
+
+    total_paragraph_top = doc.add_paragraph()
+    total_paragraph_top.paragraph_format.space_before = Pt(10)  # adds space above the line
+    total_paragraph_top.paragraph_format.space_after = Pt(6) 
+    run = total_paragraph_top.add_run(f"Total number of publications: {total_len}")
+    run.bold = True
+    run.font.size = Pt(14)
+    run.font.highlight_color = WD_COLOR_INDEX.YELLOW
+
 
     if journals:
         journal_heading = doc.add_heading("Journals", level=1)

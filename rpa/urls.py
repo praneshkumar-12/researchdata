@@ -1,12 +1,20 @@
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
+from django.http import HttpResponse
 from django.contrib.auth.views import LogoutView
 
 from . import views
 
+from django.views.generic.base import RedirectView
+
+
+def favicon_view(request):
+    return HttpResponse(status=204) 
+
 urlpatterns = [
     path("", views.login, name="login"),
+    path('favicon.ico', favicon_view),
     path("login", views.login, name="login"),
     path("login/", views.login, name="login"),
     path("forgot_password/", views.forgot_password, name="forgot_password"),
@@ -83,6 +91,7 @@ urlpatterns = [
     path("dbadmin/verification", views.admin_verification, name="admin_verification"),
     path("dbadmin/get_doi", views.admin_get_doi, name="admin_get_doi"),
     path("dbadmin/get_title", views.admin_get_title, name="admin_get_title"),
+    path("dbadmin/get_excel",views.admin_upload_excel,name = "admin_excel_upload"),
     path("dbadmin/insert_paper", views.admin_insert_paper, name="admin_insert_paper"),
     path(
         "dbadmin/manual_add_paper",
