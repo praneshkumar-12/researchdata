@@ -229,8 +229,8 @@ def admin_excel(request):
 
                         # Process all fields systematically
                         for field in list(data.keys()):  # Create a copy of keys to avoid dictionary size change during iteration
-                            if field in ['publication_type', 'specification', 'verified', 'admin_verified']:
-                                continue  # Skip these fields - they're already set with default values
+                            if field in ['publication_type', 'specification', 'verified', 'admin_verified', 'doi', 'url']:
+                                continue  # Skip these fields - they're already set with default values or will be handled separately
                             
                             value = row.get(field)
                             
@@ -305,46 +305,39 @@ def admin_excel(request):
                         if issn_value and not valid_pattern.match(issn_value):
                             data['issn'] = None
 
-                        # Define a regex pattern for valid DOIs
-                        doi_pattern = re.compile(r'^10\.\d{4,9}/[-._;()/:A-Z0-9]+$', re.IGNORECASE)
-
                         # Process DOI and URL fields
+                                            # Process DOI and URL fields
                         doi_value = row.get('doi')
                         url_value = row.get('url')
 
-                        # Check if DOI value directly matches the pattern
-                        if doi_value and doi_pattern.match(doi_value):
-                            data['doi'] = doi_value
-                            data['url'] = None  # Do not store in URL
-                        elif url_value and doi_pattern.match(url_value):
-                            data['doi'] = url_value
-                            data['url'] = None  # Do not store in URL
-                        elif doi_value and url_value:
-                            # Both have values, prioritize the one with 'doi'
-                            if 'doi' in doi_value.lower():
-                                data['url'] = doi_value
-                                # Extract DOI number from the URL
-                                doi_match = re.search(r'doi\.org/(.+)', doi_value, re.IGNORECASE)
-                                if doi_match and doi_pattern.match(doi_match.group(1)):
-                                    data['doi'] = doi_match.group(1)
-                            elif 'doi' in url_value.lower():
-                                data['url'] = url_value
-                                # Extract DOI number from the URL
-                                doi_match = re.search(r'doi\.org/(.+)', url_value, re.IGNORECASE)
-                                if doi_match and doi_pattern.match(doi_match.group(1)):
-                                    data['doi'] = doi_match.group(1)
-                        elif doi_value:
-                            # Only DOI value is present
-                            data['url'] = doi_value
-                            doi_match = re.search(r'doi\.org/(.+)', doi_value, re.IGNORECASE)
-                            if doi_match and doi_pattern.match(doi_match.group(1)):
-                                data['doi'] = doi_match.group(1)
-                        elif url_value:
-                            # Only URL value is present
+                        # Define regex pattern for valid DOIs
+                        doi_pattern = re.compile(r'10\.\d{4,9}/[-._;()/:A-Z0-9]+', re.IGNORECASE)
+
+                        # Case 1: If URL directly contains a value in DOI format (e.g., "10.1109/ACCESS.2024.3523774")
+                        if url_value and doi_pattern.match(str(url_value)):
+                            # This is actually a DOI, not a URL - move it to the DOI field
+                            data['doi'] = url_value  # Put the value in DOI field
+                            data['url'] = None  # Clear the URL field
+
+                        # Case 2: If URL contains a DOI within it (e.g., "https://doi.org/10.1109/ACCESS.2024.3523774")
+                        elif url_value and doi_pattern.search(str(url_value)):
+                            # Extract just the DOI number from the URL
+                            doi_match = doi_pattern.search(str(url_value))
+                            data['doi'] = doi_match.group(0)  # Store just the DOI number
+                            data['url'] = url_value  # Keep the full URL
+                            
+                        # Case 3: If DOI field has a DOI value
+                        elif doi_value and doi_pattern.search(str(doi_value)):
+                            # Extract the DOI if it's within other text
+                            doi_match = doi_pattern.search(str(doi_value))
+                            data['doi'] = doi_match.group(0)  # Store just the DOI number
+                            data['url'] = url_value  # Keep any URL as is
+                            
+                        # Case 4: Neither field has a valid DOI
+                        else:
+                            # Store URL as is if it exists
                             data['url'] = url_value
-                            doi_match = re.search(r'doi\.org/(.+)', url_value, re.IGNORECASE)
-                            if doi_match and doi_pattern.match(doi_match.group(1)):
-                                data['doi'] = doi_match.group(1)
+                            data['doi'] = None  # No valid DOI found
 
                         # Ensure verified and admin_verified are set to 'False' string
                         data['verified'] = 'False'
