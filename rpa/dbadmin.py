@@ -184,7 +184,6 @@ def admin_excel(request):
                 # Replace NaN values with None
                 df = df.where(pd.notnull(df), None)
             
-
                 # Precompute months mapping
                 MONTH_NAME_TO_NUMBER = {calendar.month_abbr[i].lower(): i for i in range(1, 13)}
 
@@ -215,8 +214,8 @@ def admin_excel(request):
                             'front_page_path': None,
                             'url': None,
                             'issn': None,
-                            'verified': None,
-                            'admin_verified': None,
+                            'verified': 'False',
+                            'admin_verified': 'False',
                             'impact_factor': None,
                             'start_academic_month': None,
                             'start_academic_year': None,
@@ -229,17 +228,17 @@ def admin_excel(request):
                             raise ValueError("Title is required")
 
                         # Process all fields systematically
-                        for field in data.keys():
-                            if field in ['publication_type', 'specification']:
-                                continue  # Already set
+                        for field in list(data.keys()):  # Create a copy of keys to avoid dictionary size change during iteration
+                            if field in ['publication_type', 'specification', 'verified', 'admin_verified']:
+                                continue  # Skip these fields - they're already set with default values
                             
-                            value = row[field]
+                            value = row.get(field)
                             
                             # Check for garbage values and set to None if invalid
                             if isinstance(value, str) and not value.strip():
                                 data[field] = None
                                 continue
-                            
+                                
                             if field in ['year_of_publishing', 'volume', 'citation', 'start_academic_year', 'end_academic_year']:
                                 try:
                                     data[field] = int(float(str(value).strip()))
@@ -267,26 +266,89 @@ def admin_excel(request):
                                 if 'scopus_indexing' in row and row['scopus_indexing'] is not None:
                                     scopus_value = str(row['scopus_indexing']).strip().lower()
                                     if scopus_value in ['yes', 'y', 'true', '1']:
-                                        indexing_list += "Scopus,"
+                                        indexing_list += "Scopus, "
 
                                 # Handle Web of Science indexing
                                 if 'wos_indexing' in row and row['wos_indexing'] is not None:
                                     wos_value = str(row['wos_indexing']).strip().lower()
                                     if wos_value in ['yes', 'y', 'true', '1']:
-                                        indexing_list += "Web of Sciences,"
+                                        indexing_list += "Web of Sciences, "
 
                                 # Handle UGC indexing
                                 if 'ugc_indexing' in row and row['ugc_indexing'] is not None:
                                     ugc_value = str(row['ugc_indexing']).strip()
                                     if ugc_value:
-                                        indexing_list += "UGC,"
+                                        indexing_list += "UGC, "
 
                                 # Remove the trailing comma if present
-                                data["indexing"] = indexing_list.rstrip(',') if indexing_list else None
+                                data["indexing"] = indexing_list.rstrip(', ') if indexing_list else None
                             else:
                                 # Default handling for string fields
-                                str_value = str(value).strip()
-                                data[field] = str_value if str_value else None
+                                str_value = str(value).strip() if value is not None else ""
+                                if str_value:
+                                    data[field] = str_value
+                                else:
+                                    data[field] = None  # Set to None for SQL NULL when field is empty
+
+                        # Validate page_number and issn fields
+                        page_number_value = row.get('page_number')
+                        issn_value = row.get('issn')
+
+                        # Regex pattern to match only numbers and hyphens
+                        valid_pattern = re.compile(r'^[0-9-]+$')
+
+                        # Validate page_number
+                        if page_number_value and not valid_pattern.match(page_number_value):
+                            data['page_number'] = None
+
+                        # Validate issn
+                        if issn_value and not valid_pattern.match(issn_value):
+                            data['issn'] = None
+
+                        # Define a regex pattern for valid DOIs
+                        doi_pattern = re.compile(r'^10\.\d{4,9}/[-._;()/:A-Z0-9]+$', re.IGNORECASE)
+
+                        # Process DOI and URL fields
+                        doi_value = row.get('doi')
+                        url_value = row.get('url')
+
+                        # Check if DOI value directly matches the pattern
+                        if doi_value and doi_pattern.match(doi_value):
+                            data['doi'] = doi_value
+                            data['url'] = None  # Do not store in URL
+                        elif url_value and doi_pattern.match(url_value):
+                            data['doi'] = url_value
+                            data['url'] = None  # Do not store in URL
+                        elif doi_value and url_value:
+                            # Both have values, prioritize the one with 'doi'
+                            if 'doi' in doi_value.lower():
+                                data['url'] = doi_value
+                                # Extract DOI number from the URL
+                                doi_match = re.search(r'doi\.org/(.+)', doi_value, re.IGNORECASE)
+                                if doi_match and doi_pattern.match(doi_match.group(1)):
+                                    data['doi'] = doi_match.group(1)
+                            elif 'doi' in url_value.lower():
+                                data['url'] = url_value
+                                # Extract DOI number from the URL
+                                doi_match = re.search(r'doi\.org/(.+)', url_value, re.IGNORECASE)
+                                if doi_match and doi_pattern.match(doi_match.group(1)):
+                                    data['doi'] = doi_match.group(1)
+                        elif doi_value:
+                            # Only DOI value is present
+                            data['url'] = doi_value
+                            doi_match = re.search(r'doi\.org/(.+)', doi_value, re.IGNORECASE)
+                            if doi_match and doi_pattern.match(doi_match.group(1)):
+                                data['doi'] = doi_match.group(1)
+                        elif url_value:
+                            # Only URL value is present
+                            data['url'] = url_value
+                            doi_match = re.search(r'doi\.org/(.+)', url_value, re.IGNORECASE)
+                            if doi_match and doi_pattern.match(doi_match.group(1)):
+                                data['doi'] = doi_match.group(1)
+
+                        # Ensure verified and admin_verified are set to 'False' string
+                        data['verified'] = 'False'
+                        data['admin_verified'] = 'False'
 
                         # Handle authors specifically
                         if row.get('first_author'):
@@ -323,8 +385,6 @@ def admin_excel(request):
                                 data['start_academic_year'] = year
                                 data['end_academic_year'] = year + 1
 
-                       
-
                         # Check if the record already exists
                         print(f"Checking for existing record with title: '{data['title']}', year: {data['year_of_publishing']}, first author: '{data.get('first_author', '')}'")
                         print(f"Querying with: title__iexact='{data['title']}', year_of_publishing={data['year_of_publishing']}, first_author__iexact='{data.get('first_author', '')}'")
@@ -346,8 +406,22 @@ def admin_excel(request):
                                 # Get the existing value from the database
                                 existing_value = getattr(existing_record, field, None)
                                 
-                                # Only update if the new value is not None and differs from existing value
-                                if new_value is not None and new_value != existing_value:
+                                # Special case for verified and admin_verified fields
+                                if field in ['verified', 'admin_verified']:
+                                    if existing_value != 'False':
+                                        record_changes[field] = {"old": existing_value, "new": 'False'}
+                                        setattr(existing_record, field, 'False')
+                                    continue
+                                
+                                # Handle case where new_value is None - we want to update this as NULL in the database
+                                if new_value is None:
+                                    if existing_value is not None:
+                                        record_changes[field] = {"old": existing_value, "new": None}
+                                        setattr(existing_record, field, None)
+                                    continue
+                                
+                                # Only update if the new value differs from existing value
+                                if new_value != existing_value:
                                     print(f"Field '{field}' will be updated from '{existing_value}' to '{new_value}'")
                                     # Handle numeric comparisons to avoid type mismatch issues
                                     if field in ['year_of_publishing', 'volume', 'citation', 'start_academic_year', 'end_academic_year']:
@@ -406,6 +480,12 @@ def admin_excel(request):
                                 })
                         else:
                             # This is a new record, so we'll insert it
+                            # Log the values of 'verified' and 'admin_verified' before insertion
+                            print(f"Inserting record with verified: {data['verified']}, admin_verified: {data['admin_verified']}")
+                            # Log all NULL values for debugging
+                            null_fields = [field for field, value in data.items() if value is None]
+                            print(f"Fields with NULL values: {null_fields}")
+                            
                             new_record = Publications(**data)
                             records_to_insert.append(new_record)
 
