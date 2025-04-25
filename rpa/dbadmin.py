@@ -79,13 +79,13 @@ def admin_excel(request):
             # Precompute mappings
             # Define sheet name to publication type mapping
             SHEET_TYPE_MAPPING = {
-                'journal': ('Journal', 'Article'),
-                'journals': ('Journal', 'Article'),
+                'journal': ('Journal', 'article'),
+                'journals': ('Journal', 'article'),
                 'book': ('Book Chapter', 'inbook'),
                 'books': ('Book Chapter', 'inbook'),
-                'conference': ('Conference', 'Proceedings'),
-                'conferences': ('Conference', 'Proceedings'),
-                'proceedings': ('Conference', 'Proceedings')
+                'conference': ('Conference', 'inproceedings'),
+                'conferences': ('Conference', 'inproceedings'),
+                'proceedings': ('Conference', 'inproceedings')
             }
 
             # Define flexible column mappings with multiple possible Excel column names for each database field
@@ -344,20 +344,7 @@ def admin_excel(request):
                         data['admin_verified'] = 'False'
 
                         # Handle authors specifically
-                        if row.get('first_author'):
-                            first_author_raw = str(row['first_author']).strip()
-                            comma_count = first_author_raw.count(',')
-
-                            # Split only if there are enough commas that likely separate authors
-                            if comma_count >= 2:
-                                authors = [author.strip() for author in first_author_raw.split(',') if author.strip()]
-                            else:
-                                authors = [first_author_raw]  # Possibly a single author
-
-                            data['first_author'] = authors[0] if len(authors) > 0 else None
-                            data['second_author'] = authors[1] if len(authors) > 1 else None
-                            data['third_author'] = authors[2] if len(authors) > 2 else None
-                            data['other_authors'] = ', '.join(authors[3:]) if len(authors) > 3 else None
+                        data['first_author'] = row.get('first_author')
 
                         # Generate unique ID if not exists
                         if not data.get('uniqueid'):
